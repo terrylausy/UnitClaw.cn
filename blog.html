@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新闻动态 - UnitClaw.ai</title>
+    <meta name="description" content="UnitClaw最新动态、产品更新和行业资讯">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { primary: '#0F172A', secondary: '#1E40AF', accent: '#3B82F6', glow: '#60A5FA', dark: '#020617' },
+                    animation: { 'glow': 'glow 2s ease-in-out infinite alternate' },
+                    keyframes: { glow: { '0%': { boxShadow: '0 0 5px rgba(96,165,250,0.5)' }, '100%': { boxShadow: '0 0 20px rgba(96,165,250,0.8), 0 0 30px rgba(96,165,250,0.4)' } } }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .glass { background: rgba(15,23,42,0.7); backdrop-filter: blur(10px); border: 1px solid rgba(59,130,246,0.2); }
+            .bg-grid { background-image: linear-gradient(rgba(59,130,246,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.1) 1px, transparent 1px); background-size: 20px 20px; }
+            .card-hover { transition: all 0.3s ease; }
+            .card-hover:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(59,130,246,0.2); }
+        }
+    </style>
+</head>
+<body class="bg-primary text-white overflow-x-hidden">
+    <div class="fixed inset-0 bg-grid z-0 opacity-30"></div>
+
+    <!-- 导航 -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-gradient-to-r from-secondary to-accent rounded-lg flex items-center justify-center animate-glow"><i class="fas fa-cube text-white text-xl"></i></div>
+                    <span class="text-2xl font-bold">Unit<span class="text-accent">Claw</span>.ai</span>
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="hover:text-accent transition-colors">首页</a>
+                    <a href="products.html" class="hover:text-accent transition-colors">产品</a>
+                    <a href="units.html" class="hover:text-accent transition-colors">AI单元</a>
+                    <a href="support.html" class="hover:text-accent transition-colors">支持</a>
+                    <a href="about.html" class="hover:text-accent transition-colors">关于我们</a>
+                </div>
+                <button id="menu-btn" class="md:hidden text-white text-2xl"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden glass hidden">
+            <div class="container mx-auto px-6 py-4 flex flex-col space-y-4">
+                <a href="index.html" class="hover:text-accent transition-colors py-2">首页</a>
+                <a href="products.html" class="hover:text-accent transition-colors py-2">产品</a>
+                <a href="units.html" class="hover:text-accent transition-colors py-2">AI单元</a>
+                <a href="support.html" class="hover:text-accent transition-colors py-2">支持</a>
+                <a href="about.html" class="hover:text-accent transition-colors py-2">关于我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="min-h-[50vh] flex items-center relative pt-20">
+        <div class="container mx-auto px-6 py-20 text-center">
+            <div class="w-20 h-20 bg-gradient-to-r from-secondary to-accent rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-newspaper text-4xl text-white"></i>
+            </div>
+            <h1 class="text-4xl lg:text-5xl font-bold mb-6">新闻 <span class="text-accent">动态</span></h1>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto">产品更新、行业洞察、团队故事——了解UnitClaw的最新进展</p>
+        </div>
+    </section>
+
+    <!-- 文章列表 -->
+    <section class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto space-y-8">
+                <!-- 文章1 - 置顶 -->
+                <article class="glass rounded-2xl overflow-hidden card-hover border-2 border-accent/30">
+                    <div class="h-56 bg-gradient-to-r from-secondary/30 to-accent/30 flex items-center justify-center">
+                        <i class="fas fa-rocket text-8xl text-accent/30"></i>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <span class="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-semibold">产品更新</span>
+                            <span class="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm">置顶</span>
+                            <span class="text-gray-400 text-sm">2026年5月10日</span>
+                        </div>
+                        <h2 class="text-2xl font-bold mb-3">UnitClaw v1.2.0 正式发布 — 新增数据分析与翻译单元</h2>
+                        <p class="text-gray-300 mb-4">今天我们很高兴地宣布 UnitClaw v1.2.0 正式发布。此次更新带来了两个全新的AI执行单元：数据分析单元 v2.0（支持Excel/CSV自动分析和可视化图表生成）和翻译单元（支持100+语言互译，专业术语精准翻译）。同时启动速度提升40%，并修复了macOS下首次启动的兼容性问题。</p>
+                        <a href="#" class="text-accent hover:text-glow transition-colors font-semibold">阅读全文 <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </article>
+
+                <!-- 文章2 -->
+                <article class="glass rounded-2xl overflow-hidden card-hover">
+                    <div class="p-8">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm font-semibold">企业服务</span>
+                            <span class="text-gray-400 text-sm">2026年4月25日</span>
+                        </div>
+                        <h2 class="text-2xl font-bold mb-3">UnitClaw 企业版正式上线，首月已有 50+ 企业申请试用</h2>
+                        <p class="text-gray-300 mb-4">UnitClaw 企业版自3月开放预约以来，收到了大量企业的试用申请。首批 50+ 企业涵盖了科技、电商、财务、教育等多个行业，企业版提供的私有化部署、50+AI执行单元和Web管理后台获得了广泛好评。</p>
+                        <a href="#" class="text-accent hover:text-glow transition-colors font-semibold">阅读全文 <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </article>
+
+                <!-- 文章3 -->
+                <article class="glass rounded-2xl overflow-hidden card-hover">
+                    <div class="p-8">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <span class="bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full text-sm font-semibold">行业洞察</span>
+                            <span class="text-gray-400 text-sm">2026年4月10日</span>
+                        </div>
+                        <h2 class="text-2xl font-bold mb-3">2026年AI落地趋势：模块化AI执行单元将成为企业标配</h2>
+                        <p class="text-gray-300 mb-4">随着国产大模型的成熟和企业对AI接受度的提升，2026年AI落地的核心挑战已经从"能不能用"变成了"怎么用好"。模块化AI执行单元的模式——即插即用、自由组合、私有化部署——正在成为企业AI落地的最佳实践。</p>
+                        <a href="#" class="text-accent hover:text-glow transition-colors font-semibold">阅读全文 <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </article>
+
+                <!-- 文章4 -->
+                <article class="glass rounded-2xl overflow-hidden card-hover">
+                    <div class="p-8">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <span class="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-sm font-semibold">使用技巧</span>
+                            <span class="text-gray-400 text-sm">2026年3月28日</span>
+                        </div>
+                        <h2 class="text-2xl font-bold mb-3">如何用UnitClaw构建自动化内容生产工作流</h2>
+                        <p class="text-gray-300 mb-4">本教程手把手教你如何将数据抓取单元、文案生成单元和自动发布单元组合成一个完整的自动化内容生产工作流。从竞品数据监控到社交媒体自动发布，一套流程全部搞定。</p>
+                        <a href="#" class="text-accent hover:text-glow transition-colors font-semibold">阅读全文 <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </article>
+
+                <!-- 文章5 -->
+                <article class="glass rounded-2xl overflow-hidden card-hover">
+                    <div class="p-8">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <span class="bg-orange-500/20 text-orange-400 px-3 py-1 rounded-full text-sm font-semibold">里程碑</span>
+                            <span class="text-gray-400 text-sm">2026年3月15日</span>
+                        </div>
+                        <h2 class="text-2xl font-bold mb-3">UnitClaw v1.1.0 发布，新增客服和图像处理单元</h2>
+                        <p class="text-gray-300 mb-4">v1.1.0 版本新增了客服单元（自动回复客户咨询、处理常见问题）和图像处理单元（图片修复、增强、生成、批量处理）。同时优化了单元市场界面，提升了下载和安装体验。</p>
+                        <a href="#" class="text-accent hover:text-glow transition-colors font-semibold">阅读全文 <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </article>
+
+                <!-- 文章6 -->
+                <article class="glass rounded-2xl overflow-hidden card-hover">
+                    <div class="p-8">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <span class="bg-cyan-500/20 text-cyan-400 px-3 py-1 rounded-full text-sm font-semibold">团队故事</span>
+                            <span class="text-gray-400 text-sm">2026年2月20日</span>
+                        </div>
+                        <h2 class="text-2xl font-bold mb-3">UnitClaw诞生记：从一个小想法到千用户的产品</h2>
+                        <p class="text-gray-300 mb-4">回顾 UnitClaw 从2025年初的一个技术预研项目，到2026年初正式发布并获得1000+用户的历程。我们踩过的坑、做过的选择、以及"让AI像螺丝刀一样简单好用"这个产品哲学的由来。</p>
+                        <a href="#" class="text-accent hover:text-glow transition-colors font-semibold">阅读全文 <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- 加载更多 -->
+            <div class="text-center mt-12">
+                <button class="px-8 py-4 border border-accent rounded-lg text-lg font-semibold hover:bg-accent/10 transition-colors">
+                    加载更多 <i class="fas fa-chevron-down ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="py-12 bg-dark relative">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-r from-secondary to-accent rounded-lg flex items-center justify-center"><i class="fas fa-cube text-white text-xl"></i></div>
+                        <span class="text-2xl font-bold">Unit<span class="text-accent">Claw</span>.ai</span>
+                    </div>
+                    <p class="text-gray-400 mb-6">企业级模块化AI执行单元平台，让AI真正落地干活。</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-accent transition-colors"><i class="fab fa-weibo"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-accent transition-colors"><i class="fab fa-wechat"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-accent transition-colors"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-accent transition-colors"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-6">产品</h4>
+                    <ul class="space-y-3">
+                        <li><a href="products.html" class="text-gray-400 hover:text-accent transition-colors">便携AI盘</a></li>
+                        <li><a href="products.html" class="text-gray-400 hover:text-accent transition-colors">企业部署包</a></li>
+                        <li><a href="units.html" class="text-gray-400 hover:text-accent transition-colors">AI执行单元</a></li>
+                        <li><a href="custom.html" class="text-gray-400 hover:text-accent transition-colors">定制服务</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-6">支持</h4>
+                    <ul class="space-y-3">
+                        <li><a href="guide.html" class="text-gray-400 hover:text-accent transition-colors">使用文档</a></li>
+                        <li><a href="support.html" class="text-gray-400 hover:text-accent transition-colors">常见问题</a></li>
+                        <li><a href="support.html" class="text-gray-400 hover:text-accent transition-colors">技术支持</a></li>
+                        <li><a href="index.html#contact" class="text-gray-400 hover:text-accent transition-colors">联系我们</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-6">快速链接</h4>
+                    <ul class="space-y-3">
+                        <li><a href="about.html" class="text-gray-400 hover:text-accent transition-colors">关于我们</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-accent transition-colors">新闻动态</a></li>
+                        <li><a href="download.html" class="text-gray-400 hover:text-accent transition-colors">下载中心</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">&copy; 2026 UnitClaw.ai. 保留所有权利。</p>
+                <div class="flex space-x-6">
+                    <a href="privacy.html" class="text-gray-400 hover:text-accent transition-colors">隐私政策</a>
+                    <a href="terms.html" class="text-gray-400 hover:text-accent transition-colors">服务条款</a>
+                    <a href="cookie.html" class="text-gray-400 hover:text-accent transition-colors">Cookie政策</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-r from-secondary to-accent rounded-full flex items-center justify-center opacity-0 invisible transition-all duration-300 z-50">
+        <i class="fas fa-arrow-up text-white"></i>
+    </button>
+    <script>
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            const backToTop = document.getElementById('back-to-top');
+            if (window.scrollY > 50) { navbar.classList.add('glass'); navbar.querySelector('.container').classList.replace('py-4','py-2'); backToTop.classList.remove('opacity-0','invisible'); backToTop.classList.add('opacity-100','visible'); }
+            else { navbar.classList.remove('glass'); navbar.querySelector('.container').classList.replace('py-2','py-4'); backToTop.classList.add('opacity-0','invisible'); backToTop.classList.remove('opacity-100','visible'); }
+        });
+        document.getElementById('menu-btn').addEventListener('click', function() { document.getElementById('mobile-menu').classList.toggle('hidden'); });
+        document.getElementById('back-to-top').addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    </script>
+</body>
+</html>

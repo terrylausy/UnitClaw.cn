@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产品中心 - UnitClaw.ai</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0F172A',
+                        secondary: '#1E40AF',
+                        accent: '#3B82F6',
+                        glow: '#60A5FA',
+                        dark: '#020617',
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .glass { background: rgba(15,23,42,0.7); backdrop-filter: blur(10px); border: 1px solid rgba(59,130,246,0.2); }
+            .card-hover { transition: 0.3s; }
+            .card-hover:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(59,130,246,0.2); }
+            .bg-grid {
+                background-image:
+                    linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+                background-size: 20px 20px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-primary text-white">
+<div id="particles-js" class="fixed inset-0 z-0"></div>
+<div class="fixed inset-0 bg-grid z-0 opacity-30"></div>
+
+<!-- 导航 -->
+<nav class="glass fixed top-0 w-full z-50">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="index.html" class="flex items-center space-x-2">
+            <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+                <i class="fas fa-cube text-white"></i>
+            </div>
+            <span class="text-xl font-bold">Unit<span class="text-blue-400">Claw</span>.ai</span>
+        </a>
+        <div class="hidden md:flex space-x-6">
+            <a href="index.html" class="hover:text-accent transition-colors">首页</a>
+            <a href="products.html" class="text-accent">产品</a>
+            <a href="units.html" class="hover:text-accent transition-colors">AI单元</a>
+            <a href="support.html" class="hover:text-accent transition-colors">支持</a>
+        </div>
+    </div>
+</nav>
+
+<!-- 产品页面内容 -->
+<section class="pt-32 pb-20 relative">
+    <div class="container mx-auto px-6 text-center">
+        <h1 class="text-4xl font-bold mb-4">产品中心</h1>
+        <p class="text-gray-300 max-w-xl mx-auto">UnitClaw 全系列产品，从个人便携工具到企业级私有化部署</p>
+    </div>
+
+    <div class="container mx-auto px-6 mt-16 grid grid-cols-1 md:grid-cols-2 gap-12">
+        <!-- 个人版 -->
+        <div class="glass rounded-2xl p-8 card-hover">
+            <div class="h-48 flex items-center justify-center">
+                <i class="fas fa-usb text-7xl text-blue-400"></i>
+            </div>
+            <h2 class="text-2xl font-bold text-center mb-4">UnitClaw 便携AI盘</h2>
+            <ul class="space-y-2 text-gray-300">
+                <li>✅ 即插即用，无需安装</li>
+                <li>✅ 内置AI执行单元</li>
+                <li>✅ 支持Windows/Mac</li>
+                <li>✅ 终身免费升级</li>
+            </ul>
+            <div class="mt-6 text-center">
+                <a href="https://www.taobao.com" target="_blank" class="inline-block px-6 py-3 bg-blue-600 rounded-lg hover:opacity-90 transition-opacity">前往淘宝购买</a>
+            </div>
+        </div>
+
+        <!-- 企业版 -->
+        <div class="glass rounded-2xl p-8 card-hover border border-blue-500/30">
+            <div class="h-48 flex items-center justify-center">
+                <i class="fas fa-server text-7xl text-purple-400"></i>
+            </div>
+            <h2 class="text-2xl font-bold text-center mb-4">UnitClaw 企业部署包</h2>
+            <ul class="space-y-2 text-gray-300">
+                <li>✅ 企业本地部署</li>
+                <li>✅ 数据安全不出内网</li>
+                <li>✅ 50+ AI 执行单元</li>
+                <li>✅ 7×24 技术支持</li>
+            </ul>
+            <div class="mt-6 text-center">
+                <a href="support.html" class="inline-block px-6 py-3 bg-purple-600 rounded-lg hover:opacity-90 transition-opacity">咨询企业方案</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="py-8 bg-dark/80 text-center text-gray-400">
+    <p>© 2026 UnitClaw.ai. All rights reserved.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+    particlesJS("particles-js", {
+        particles: {
+            number: { value: 60 },
+            color: { value: "#60A5FA" },
+            opacity: { value: 0.2 },
+            size: { value: 2 },
+            line_linked: { enable: true, opacity: 0.1 },
+            move: { speed: 1 }
+        }
+    });
+</script>
+</body>
+</html>
