@@ -6,11 +6,43 @@
     <meta name="description" content="UnitClaw全面代理燧光明科技产品，为高校提供AI课程平台、智能实训箱及配套课程体系。">
     <script src="https://cdn.tailwindcss.com"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>tailwind.config={theme:{extend:{colors:{primary:'#0b1120',accent:'#3b82f6',purple:'#8b5cf6',card:'#111827',border:'#1e293b'}}}}</script>
-    <style>.bg-grid{background-image:linear-gradient(rgba(139,92,246,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(139,92,246,.06) 1px,transparent 1px);background-size:40px 40px}.glass{background:rgba(17,24,39,.85);backdrop-filter:blur(16px);border:1px solid rgba(139,92,246,.15)}</style>
+    <style>.bg-grid{background-image:linear-gradient(rgba(139,92,246,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(139,92,246,.06) 1px,transparent 1px);background-size:40px 40px}.glass{background:rgba(17,24,39,.85);backdrop-filter:blur(16px);border:1px solid rgba(139,92,246,.15)}
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(11,17,32,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(59,130,246,.1)}
+.top-nav .nav-container{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;height:64px}
+.top-nav .nav-logo{display:flex;align-items:center;gap:8px;text-decoration:none;flex-shrink:0}
+.top-nav .nav-links{display:none;align-items:center;gap:2px;margin-left:40px;flex:1}
+@media(min-width:1024px){.top-nav .nav-links{display:flex}}
+.nav-item{position:relative}
+.nav-item>a{display:flex;align-items:center;gap:6px;padding:8px 16px;color:#cbd5e1;font-size:.9rem;font-weight:500;text-decoration:none;border-radius:8px;transition:all .2s;white-space:nowrap}
+.nav-item>a:hover{color:#fff;background:rgba(59,130,246,.12)}
+.nav-item>a i.chevron{font-size:.65rem;transition:transform .2s;color:#64748b}
+.nav-item:hover>a i.chevron{transform:rotate(180deg);color:#60a5fa}
+.nav-dropdown{position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:10px;opacity:0;visibility:hidden;transition:all .25s;pointer-events:none}
+.nav-item:hover .nav-dropdown{opacity:1;visibility:visible;pointer-events:auto}
+.nav-dropdown-inner{background:rgba(17,24,39,.98);backdrop-filter:blur(20px);border:1px solid rgba(59,130,246,.2);border-radius:16px;padding:24px;box-shadow:0 24px 64px rgba(0,0,0,.5)}
+.nav-dropdown-inner.mega{display:grid;gap:20px;min-width:680px}
+.nav-dropdown-inner.compact{min-width:320px;display:flex;flex-direction:column;gap:6px}
+.dd-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;text-decoration:none;transition:all .2s}
+.dd-item:hover{background:rgba(59,130,246,.1)}
+.dd-item .dd-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.dd-item .dd-icon.blue{background:rgba(59,130,246,.15);color:#60a5fa}
+.dd-item .dd-icon.purple{background:rgba(139,92,246,.15);color:#a78bfa}
+.dd-item .dd-icon.emerald{background:rgba(16,185,129,.15);color:#34d399}
+.dd-item .dd-text .dd-title{color:#f1f5f9;font-weight:600;font-size:.9rem}
+.dd-item .dd-text .dd-sub{color:#64748b;font-size:.75rem;margin-top:1px}
+.dd-compact-item{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-radius:8px;color:#cbd5e1;text-decoration:none;font-size:.85rem;transition:all .2s}
+.dd-compact-item:hover{background:rgba(59,130,246,.1);color:#fff}
+.dd-compact-item .sub{font-size:.75rem;color:#64748b}
+.nav-right{display:flex;align-items:center;gap:12px;margin-left:auto;flex-shrink:0}
+.nav-right .btn-contact{color:#94a3b8;font-size:.85rem;text-decoration:none;padding:8px 14px;border-radius:8px;transition:all .2s}
+.nav-right .btn-contact:hover{color:#fff;background:rgba(255,255,255,.05)}
+.nav-right .btn-demo{background:#3b82f6;color:#fff;font-size:.85rem;font-weight:600;padding:8px 18px;border-radius:8px;text-decoration:none;transition:all .2s}
+.nav-right .btn-demo:hover{background:#2563eb;box-shadow:0 4px 16px rgba(59,130,246,.3)}
+</style>
 </head>
 <body class="bg-primary text-white font-sans">
 <div id="particles-js" class="fixed inset-0 z-0"></div><div class="fixed inset-0 bg-grid z-0 opacity-40"></div>
-<nav class="glass fixed top-0 left-0 right-0 z-50"><div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between"><a href="../index.html" class="text-lg font-bold">Unit<span class="text-accent">Claw</span>.ai</a><div class="hidden lg:flex items-center space-x-4"><a href="../index.html" class="text-sm text-gray-400 hover:text-white">首页</a><a href="../products/robots.html" class="text-sm text-gray-400 hover:text-white">机器人</a><a href="../products/courses.html" class="text-sm text-gray-400 hover:text-white">课程</a><a href="../products/training-box.html" class="text-sm text-gray-400 hover:text-white">实训箱</a><a href="../products/unitclaw.html" class="text-sm text-gray-400 hover:text-white">虾盘</a><a href="../solutions/education.html" class="text-sm text-gray-400 hover:text-white">高校方案</a><a href="suiguangming.html" class="text-sm text-purple-400 font-semibold">x 燧光明</a><a href="../contact.html" class="ml-4 px-5 py-2 bg-purple-600 hover:bg-purple-700 text-sm font-semibold rounded-lg">预约演示</a></div></div></nav>
+<header class="top-nav"><div class="nav-container"><a href="../index.html" class="nav-logo"><img src="../assets/logos/UnitClaw-Logo.png" alt="UnitClaw" class="h-7 w-auto" onerror="this.style.display='none'"><span class="text-base font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-xs font-normal">.ai</span></span></a><nav class="nav-links"><div class="nav-item"><a href="../robots/index.html">机器人 <i class="fas fa-chevron-down chevron"></i></a><div class="nav-dropdown"><div class="nav-dropdown-inner mega" style="grid-template-columns:1fr 1fr 1fr"><a href="../robots/mini-pi.html" class="dd-item"><div class="dd-icon blue"><i class="fas fa-robot"></i></div><div class="dd-text"><div class="dd-title">双足机器人 Pi</div><div class="dd-sub">520mm · 12DOF</div></div></a><a href="../robots/pi-plus.html" class="dd-item"><div class="dd-icon purple"><i class="fas fa-cube"></i></div><div class="dd-text"><div class="dd-title">模块化开源 Pi+</div><div class="dd-sub">650mm · 22DOF · Orin NX</div></div></a><a href="../robots/mini-hi.html" class="dd-item"><div class="dd-icon emerald"><i class="fas fa-child"></i></div><div class="dd-text"><div class="dd-title">人形机器人 Hi</div><div class="dd-sub">830mm · 23DOF</div></div></a></div></div></div><div class="nav-item"><a href="../components/index.html">核心零部件 <i class="fas fa-chevron-down chevron"></i></a><div class="nav-dropdown"><div class="nav-dropdown-inner compact"><a href="../components/index.html" class="dd-compact-item">伺服关节模组 <span class="sub">行星·超薄·中空</span></a><a href="../components/index.html" class="dd-compact-item">PANTHERA-HT 机械臂 <span class="sub">6轴协作</span></a><a href="../components/index.html" class="dd-compact-item">7路CAN主控盒 <span class="sub">RK3588S</span></a><a href="../components/index.html" class="dd-compact-item">电池组 <span class="sub">48V·24V</span></a></div></div></div><div class="nav-item"><a href="../courses/index.html">机器人课程</a></div><div class="nav-item"><a href="../download/index.html">下载</a></div></nav><div class="nav-right"><a href="../contact.html" class="btn-contact hidden lg:inline-flex"><i class="fas fa-phone-alt mr-1.5 text-xs text-gray-500"></i>联系我们</a><a href="../contact.html" class="btn-demo">预约演示</a></div></div></header>
 
 <header class="relative z-10 pt-32 pb-12"><div class="max-w-7xl mx-auto px-6 text-center"><p class="text-purple-400 text-sm font-semibold mb-3">FULL AUTHORIZED AGENT</p><h1 class="text-4xl md:text-5xl font-bold mb-4">UnitClaw <span class="text-purple-400">x</span> 燧光明科技</h1><p class="text-lg text-gray-400 max-w-2xl mx-auto">燧光明科技有限公司是领先的AI教育解决方案提供商。UnitClaw作为全面代理，为高校提供课程智能体平台、智能实训箱及完整课程体系。</p></div></header>
 
