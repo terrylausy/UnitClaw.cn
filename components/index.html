@@ -1,1 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>核心零部件 - UnitClaw.ai</title>
+    <meta name="description" content="高擎动力核心零部件：伺服关节模组（行星/超薄/中空）、PANTHERA-HT机械臂、7路CAN主控盒、电池组，为机器人研发提供高性能核心部件。">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#0b1120',secondary:'#1a2456',accent:'#3b82f6',light:'#60a5fa',warm:'#f59e0b',card:'#111827',border:'#1e293b'},fontFamily:{sans:['Inter','Noto Sans SC','system-ui','sans-serif'],display:['JetBrains Mono','monospace']}}}}</script>
+    <style>
+        .bg-grid{background-image:linear-gradient(rgba(59,130,246,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.06) 1px,transparent 1px);background-size:40px 40px}
+        .glass{background:rgba(17,24,39,.85);backdrop-filter:blur(16px);border:1px solid rgba(59,130,246,.15)}
+        .card-hover{transition:all .35s cubic-bezier(.4,0,.2,1)}
+        .card-hover:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(59,130,246,.15)}
+        .text-gradient{background:linear-gradient(135deg,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .hero-glow{background:radial-gradient(ellipse at 50% 0%,rgba(59,130,246,.15) 0%,transparent 70%)}
+        .tag{display:inline-block;padding:2px 10px;border-radius:12px;font-size:.75rem;font-weight:600;letter-spacing:.05em}
+        .tag-comp{background:rgba(245,158,11,.15);color:#fbbf24;border:1px solid rgba(245,158,11,.25)}
 
+        /* Mega-Menu Nav */
+        .top-nav{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(11,17,32,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(59,130,246,.1)}
+        .top-nav .nav-container{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;height:64px}
+        .top-nav .nav-logo{display:flex;align-items:center;gap:8px;text-decoration:none;flex-shrink:0}
+        .top-nav .nav-links{display:none;align-items:center;gap:2px;margin-left:40px;flex:1}
+        @media(min-width:1024px){.top-nav .nav-links{display:flex}}
+        .nav-item{position:relative}
+        .nav-item>a,.nav-item>button{display:flex;align-items:center;gap:6px;padding:8px 16px;color:#cbd5e1;font-size:.9rem;font-weight:500;text-decoration:none;border-radius:8px;transition:all .2s;background:none;border:none;cursor:pointer;font-family:inherit;white-space:nowrap}
+        .nav-item>a:hover,.nav-item:hover>a{color:#fff;background:rgba(59,130,246,.12)}
+        .nav-item>a i.chevron{font-size:.65rem;transition:transform .2s;color:#64748b}
+        .nav-item:hover>a i.chevron{transform:rotate(180deg);color:#60a5fa}
+        .nav-dropdown{position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:10px;opacity:0;visibility:hidden;transition:all .25s;pointer-events:none}
+        .nav-item:hover .nav-dropdown{opacity:1;visibility:visible;pointer-events:auto}
+        .nav-dropdown-inner{background:rgba(17,24,39,.98);backdrop-filter:blur(20px);border:1px solid rgba(59,130,246,.2);border-radius:16px;padding:24px;box-shadow:0 24px 64px rgba(0,0,0,.5)}
+        .nav-dropdown-inner.mega{display:grid;gap:20px;min-width:680px}
+        .nav-dropdown-inner.compact{min-width:320px;display:flex;flex-direction:column;gap:6px}
+        .dd-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;text-decoration:none;transition:all .2s}
+        .dd-item:hover{background:rgba(59,130,246,.1)}
+        .dd-item .dd-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+        .dd-item .dd-icon.blue{background:rgba(59,130,246,.15);color:#60a5fa}
+        .dd-item .dd-icon.purple{background:rgba(139,92,246,.15);color:#a78bfa}
+        .dd-item .dd-icon.emerald{background:rgba(16,185,129,.15);color:#34d399}
+        .dd-item .dd-text .dd-title{color:#f1f5f9;font-weight:600;font-size:.9rem}
+        .dd-item .dd-text .dd-sub{color:#64748b;font-size:.75rem;margin-top:1px}
+        .dd-section-title{color:#64748b;font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;padding:4px 12px;margin-top:4px}
+        .dd-compact-item{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-radius:8px;color:#cbd5e1;text-decoration:none;font-size:.85rem;transition:all .2s}
+        .dd-compact-item:hover{background:rgba(59,130,246,.1);color:#fff}
+        .dd-compact-item .sub{font-size:.75rem;color:#64748b}
+        .nav-right{display:flex;align-items:center;gap:12px;margin-left:auto;flex-shrink:0}
+        .nav-right .btn-contact{color:#94a3b8;font-size:.85rem;text-decoration:none;padding:8px 14px;border-radius:8px;transition:all .2s}
+        .nav-right .btn-contact:hover{color:#fff;background:rgba(255,255,255,.05)}
+        .nav-right .btn-demo{background:#3b82f6;color:#fff;font-size:.85rem;font-weight:600;padding:8px 18px;border-radius:8px;text-decoration:none;transition:all .2s}
+        .nav-right .btn-demo:hover{background:#2563eb;box-shadow:0 4px 16px rgba(59,130,246,.3)}
+        .mobile-menu-btn{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;border:1px solid rgba(255,255,255,.1);cursor:pointer;color:#cbd5e1;font-size:1.2rem;margin-left:auto}
+        @media(min-width:1024px){.mobile-menu-btn{display:none}}
+
+        #sidebar{position:fixed;top:0;left:-320px;width:280px;height:100vh;z-index:100;transition:left .35s cubic-bezier(.4,0,.2,1);overflow-y:auto}
+        #sidebar.open{left:0}
+        #sidebar-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:99;opacity:0;visibility:hidden;transition:all .35s}
+        #sidebar-overlay.show{opacity:1;visibility:visible}
+        .menu-btn{position:fixed;top:16px;left:16px;z-index:98;width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .3s}
+        .menu-btn:hover{background:rgba(59,130,246,.15)}
+        .menu-btn.open{left:296px}
+        .nav-link{display:flex;align-items:center;gap:10px;padding:12px 20px;color:#94a3b8;font-size:.9rem;font-weight:500;transition:all .2s;border-radius:8px;margin:2px 12px;text-decoration:none}
+        .nav-link:hover,.nav-link.active{color:#fff;background:rgba(59,130,246,.12)}
+        .nav-link i{width:20px;text-align:center;font-size:.85rem}
+        .nav-section{color:#64748b;font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;padding:16px 20px 6px 20px}
+        @media(min-width:1024px){.menu-btn{display:none}}
+    </style>
+</head>
+<body class="bg-primary text-white min-h-screen font-sans antialiased">
+
+<div id="particles-js" class="fixed inset-0 z-0"></div>
+<div class="fixed inset-0 bg-grid z-0 opacity-40"></div>
+
+<!-- ====== TOP NAVIGATION BAR ====== -->
+<header class="top-nav">
+    <div class="nav-container">
+        <a href="../index.html" class="nav-logo">
+            <img src="../assets/logos/UnitClaw-Logo.png" alt="UnitClaw" class="h-7 w-auto" onerror="this.style.display='none'">
+            <span class="text-base font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-xs font-normal">.ai</span></span>
+        </a>
+        <nav class="nav-links">
+            <div class="nav-item">
+                <a href="../robots/index.html">机器人 <i class="fas fa-chevron-down chevron"></i></a>
+                <div class="nav-dropdown">
+                    <div class="nav-dropdown-inner mega" style="grid-template-columns:1fr 1fr 1fr">
+                        <a href="../robots/mini-pi.html" class="dd-item">
+                            <div class="dd-icon blue"><i class="fas fa-robot"></i></div>
+                            <div class="dd-text"><div class="dd-title">双足机器人 Pi</div><div class="dd-sub">520mm · 12DOF · 开源平台</div></div>
+                        </a>
+                        <a href="../robots/pi-plus.html" class="dd-item">
+                            <div class="dd-icon purple"><i class="fas fa-cube"></i></div>
+                            <div class="dd-text"><div class="dd-title">模块化开源 Pi+</div><div class="dd-sub">650mm · 22DOF · Orin NX</div></div>
+                        </a>
+                        <a href="../robots/mini-hi.html" class="dd-item">
+                            <div class="dd-icon emerald"><i class="fas fa-child"></i></div>
+                            <div class="dd-text"><div class="dd-title">人形机器人 Hi</div><div class="dd-sub">830mm · 23DOF · 高扭矩</div></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="index.html" class="active" style="color:#fbbf24">核心零部件 <i class="fas fa-chevron-down chevron"></i></a>
+                <div class="nav-dropdown">
+                    <div class="nav-dropdown-inner compact">
+                        <a href="#servo" class="dd-compact-item">伺服关节模组 <span class="sub">行星·超薄·中空</span></a>
+                        <a href="#arm" class="dd-compact-item">PANTHERA-HT 机械臂 <span class="sub">6轴协作·3.5kg负载</span></a>
+                        <a href="#controller" class="dd-compact-item">7路CAN主控盒 <span class="sub">RK3588S·多路输出</span></a>
+                        <a href="#battery" class="dd-compact-item">电池组 <span class="sub">高压48V·低压24V</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-item"><a href="../courses/index.html">机器人课程</a></div>
+            <div class="nav-item"><a href="../download/index.html">下载</a></div>
+        </nav>
+        <div class="nav-right">
+            <a href="../contact.html" class="btn-contact hidden lg:inline-flex"><i class="fas fa-phone-alt mr-1.5 text-xs text-gray-500"></i>联系我们</a>
+            <a href="../contact.html" class="btn-demo">预约演示</a>
+            <button class="mobile-menu-btn" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
+        </div>
+    </div>
+</header>
+
+<button class="menu-btn glass" onclick="toggleSidebar()"><i class="fas fa-bars text-white text-lg"></i></button>
+<div id="sidebar-overlay" onclick="toggleSidebar()"></div>
+<nav id="sidebar" class="glass">
+    <div class="flex items-center justify-between px-5 py-4 border-b border-white/5">
+        <a href="../index.html" class="flex items-center space-x-2.5" onclick="toggleSidebar()">
+            <img src="../assets/logos/UnitClaw-Logo.png" class="h-8 w-auto" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="hidden w-8 h-8 bg-gradient-to-br from-accent to-blue-700 rounded-lg items-center justify-center text-sm font-bold">U</div>
+            <span class="text-base font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-xs font-normal">.ai</span></span>
+        </a>
+        <button onclick="toggleSidebar()" class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white/10 transition-colors"><i class="fas fa-times text-gray-400 text-lg"></i></button>
+    </div>
+    <div class="py-3">
+        <a href="../index.html" class="nav-link"><i class="fas fa-home"></i>首页</a>
+        <div class="nav-section">机器人</div>
+        <a href="../robots/index.html" class="nav-link"><i class="fas fa-robot text-accent"></i>机器人总览</a>
+        <a href="../robots/mini-pi.html" class="nav-link"><i class="fas fa-running pl-2"></i>双足机器人 Pi</a>
+        <a href="../robots/pi-plus.html" class="nav-link"><i class="fas fa-cubes pl-2"></i>模块化开源 Pi+</a>
+        <a href="../robots/mini-hi.html" class="nav-link"><i class="fas fa-child pl-2"></i>人形机器人 Hi</a>
+        <div class="nav-section">核心零部件</div>
+        <a href="index.html" class="nav-link active"><i class="fas fa-cogs text-warm"></i>核心零部件</a>
+        <div class="nav-section">更多</div>
+        <a href="../courses/index.html" class="nav-link"><i class="fas fa-book"></i>机器人课程</a>
+        <a href="../download/index.html" class="nav-link"><i class="fas fa-download"></i>下载中心</a>
+        <a href="../solutions/education.html" class="nav-link"><i class="fas fa-university"></i>高校教育方案</a>
+    </div>
+</nav>
+
+<script>
+function toggleSidebar(){
+    const sb=document.getElementById('sidebar'),ov=document.getElementById('sidebar-overlay'),btn=document.querySelector('.menu-btn');
+    const isOpen=sb.classList.contains('open');
+    if(isOpen){sb.classList.remove('open');ov.classList.remove('show');btn.classList.remove('open')}
+    else{sb.classList.add('open');ov.classList.add('show');btn.classList.add('open')}
+}
+</script>
+
+<!-- Hero -->
+<header class="relative z-10 pt-28 pb-16 hero-glow">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+        <span class="tag tag-comp mb-4">CORE COMPONENTS</span>
+        <h1 class="text-4xl md:text-6xl font-bold mt-4"><span class="text-gradient">核心零部件</span></h1>
+        <p class="mt-4 text-lg text-gray-400">自研高精度伺服关节模组与核心零部件，为机器人提供强劲动力</p>
+    </div>
+</header>
+
+<!-- Servo Joint Modules -->
+<section class="relative z-10 py-16" id="servo">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-12">
+            <h2 class="text-2xl font-bold">伺服关节模组</h2>
+            <p class="mt-2 text-gray-400">三大系列覆盖不同应用场景，高精度、高扭矩密度</p>
+        </div>
+        <div class="grid lg:grid-cols-3 gap-8">
+            <!-- 行星系列 -->
+            <div class="card-hover bg-card border border-border rounded-2xl overflow-hidden">
+                <div class="h-48 bg-gradient-to-br from-amber-600/20 to-amber-900/20 flex items-center justify-center">
+                    <i class="fas fa-cog text-7xl text-warm/30"></i>
+                </div>
+                <div class="p-8">
+                    <h3 class="text-xl font-bold mb-2">行星系列</h3>
+                    <p class="text-warm text-sm font-semibold mb-3">高扭矩密度关节模组</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-400">16 Nm</span>
+                        <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-400">行星减速</span>
+                        <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-400">高精度</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">采用行星齿轮减速结构，提供高扭矩输出和优异的刚度性能。内置双编无刷电机，支持力控和位置控制。</p>
+                </div>
+            </div>
+            <!-- 超薄系列 -->
+            <div class="card-hover bg-card border border-border rounded-2xl overflow-hidden">
+                <div class="h-48 bg-gradient-to-br from-blue-600/20 to-blue-900/20 flex items-center justify-center">
+                    <i class="fas fa-layer-group text-7xl text-accent/30"></i>
+                </div>
+                <div class="p-8">
+                    <h3 class="text-xl font-bold mb-2">超薄系列</h3>
+                    <p class="text-accent text-sm font-semibold mb-3">紧凑轻薄型关节模组</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-400">9-16 mm</span>
+                        <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-400">超薄结构</span>
+                        <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-400">轻量化</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">极致紧凑的扁平化设计，适合空间受限的关节位。采用谐波减速器，保持高精度同时大幅降低厚度。</p>
+                </div>
+            </div>
+            <!-- 中空系列 -->
+            <div class="card-hover bg-card border border-border rounded-2xl overflow-hidden">
+                <div class="h-48 bg-gradient-to-br from-purple-600/20 to-purple-900/20 flex items-center justify-center">
+                    <i class="fas fa-circle-notch text-7xl text-purple-400/30"></i>
+                </div>
+                <div class="p-8">
+                    <h3 class="text-xl font-bold mb-2">中空系列</h3>
+                    <p class="text-purple-400 text-sm font-semibold mb-3">中空走线关节模组</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-400">Φ8-12mm</span>
+                        <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-400">中空走线</span>
+                        <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-400">集成度高</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">中心贯穿孔设计，支持线缆内部走线，大幅提升机器人整机美观度和可靠性。减少外部线缆缠绕风险。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PANTHERA-HT Arm -->
+<section class="relative z-10 py-16 border-t border-border" id="arm">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="tag tag-comp mb-4">MECHANICAL ARM</span>
+                <h2 class="text-3xl font-bold mt-4">PANTHERA-HT 机械臂</h2>
+                <p class="mt-4 text-lg text-gray-300">6轴协作机械臂，面向高校科研与教学场景</p>
+                <div class="mt-6 space-y-3 text-gray-400">
+                    <div class="flex items-center gap-3"><i class="fas fa-check text-emerald"></i><span>6轴联动，灵活操控</span></div>
+                    <div class="flex items-center gap-3"><i class="fas fa-check text-emerald"></i><span>3.5kg 额定负载</span></div>
+                    <div class="flex items-center gap-3"><i class="fas fa-check text-emerald"></i><span>协作级安全设计，无需围栏</span></div>
+                    <div class="flex items-center gap-3"><i class="fas fa-check text-emerald"></i><span>ROS 全兼容，支持Gazebo仿真</span></div>
+                    <div class="flex items-center gap-3"><i class="fas fa-check text-emerald"></i><span>适配视觉抓取、物品分拣等教学场景</span></div>
+                </div>
+            </div>
+            <div class="glass rounded-2xl p-12 flex items-center justify-center">
+                <i class="fas fa-robot text-9xl text-warm/20"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Controller Box -->
+<section class="relative z-10 py-16 border-t border-border" id="controller">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="order-2 lg:order-1 glass rounded-2xl p-12 flex items-center justify-center">
+                <i class="fas fa-microchip text-9xl text-accent/20"></i>
+            </div>
+            <div class="order-1 lg:order-2">
+                <span class="tag tag-comp mb-4">CONTROLLER</span>
+                <h2 class="text-3xl font-bold mt-4">7路CAN主控盒</h2>
+                <p class="mt-4 text-lg text-gray-300">基于 RK3588S 的高性能嵌入式控制器</p>
+                <div class="mt-6 space-y-3 text-gray-400">
+                    <div class="flex items-center gap-3"><i class="fas fa-check text-emerald"></i><span>RK3588S 旗舰芯片，8核高性能计算</span></div>
+                    <div class="flex items-center gap-3"><i class="fas fa-check text-emerald"></i><span>7路CAN FD总线输出，多关节同步控制</span></div>
+                    <div class="flex items-center gap-3"><i class="fas fa-check text-emerald"></i><span>支持EtherCAT实时工业总线扩展</span></div>
+                    <div class="flex items-center gap-3"><i class="fas fa-check text-emerald"></i><span>内置IMU惯导模块</span></div>
+                    <div class="flex items-center gap-3"><i class="fas fa-check text-emerald"></i><span>千兆以太网+WiFi6+蓝牙5.2</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Battery -->
+<section class="relative z-10 py-16 border-t border-border" id="battery">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+        <span class="tag tag-comp mb-4">POWER</span>
+        <h2 class="text-3xl font-bold mt-4">电池组</h2>
+        <p class="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">高能量密度锂电池组，提供可靠、安全的机器人供电方案</p>
+        <div class="grid md:grid-cols-2 gap-8 mt-10 max-w-3xl mx-auto">
+            <div class="glass rounded-2xl p-8">
+                <div class="w-12 h-12 bg-red-500/10 rounded-xl flex items-center justify-center mb-4 mx-auto"><i class="fas fa-bolt text-red-400 text-xl"></i></div>
+                <h3 class="text-lg font-bold mb-2">高压电池组</h3>
+                <p class="text-gray-400 text-sm">48V · 高能量密度 · 适用于人形机器人及大功率场景</p>
+            </div>
+            <div class="glass rounded-2xl p-8">
+                <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mb-4 mx-auto"><i class="fas fa-battery-full text-accent text-xl"></i></div>
+                <h3 class="text-lg font-bold mb-2">低压电池组</h3>
+                <p class="text-gray-400 text-sm">24V · 轻量化设计 · 适用于小型机器人及教学平台</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="relative z-10 py-20">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+        <div class="glass rounded-3xl p-12">
+            <h2 class="text-2xl font-bold mb-4">为您的机器人项目选择合适的零部件</h2>
+            <p class="text-gray-400 mb-8">从单关节模组到完整套件，灵活适配科研与教学需求</p>
+            <a href="../contact.html" class="px-8 py-3.5 bg-accent hover:bg-blue-600 text-white font-semibold rounded-xl transition-all">获取报价与技术支持</a>
+        </div>
+    </div>
+</section>
+
+<footer class="relative z-10 border-t border-border py-12">
+    <div class="max-w-7xl mx-auto px-6 text-center text-sm text-gray-600">© 2026 UnitClaw.ai · 万物拟态，单元铸智</div>
+</footer>
+
+<script src="../particles.min.js"></script>
+<script>particlesJS("particles-js",{particles:{number:{value:40,density:{enable:!0,value_area:800}},color:{value:"#3b82f6"},shape:{type:"circle"},opacity:{value:.15,random:!0},size:{value:2,random:!0},line_linked:{enable:!0,distance:150,color:"#3b82f6",opacity:.08,width:1},move:{enable:!0,speed:.8,direction:"none",random:!0,out_mode:"out"}},interactivity:{detect_on:"canvas",events:{onhover:{enable:!0,mode:"grab"},resize:!0},modes:{grab:{distance:140,line_linked:{opacity:.2}}}},retina_detect:!0});</script>
+</body>
+</html>
