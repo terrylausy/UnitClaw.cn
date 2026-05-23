@@ -56,7 +56,7 @@
 
         /* Mega-Menu Nav */
         .top-nav{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(11,17,32,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(59,130,246,.1)}
-        .top-nav .nav-container{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;height:64px}
+        .top-nav .nav-container{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;height:72px}
         .top-nav .nav-logo{display:flex;align-items:center;gap:8px;text-decoration:none;flex-shrink:0}
         .top-nav .nav-links{display:none;align-items:center;gap:2px;margin-left:40px;flex:1}
         @media(min-width:1024px){.top-nav .nav-links{display:flex}}
@@ -101,7 +101,10 @@
     <div class="nav-container">
         <a href="index.html" class="nav-logo">
             <img src="assets/logos/UnitClaw-Logo.png" alt="UnitClaw" class="h-7 w-auto" onerror="this.style.display='none'">
-            <span class="text-base font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-xs font-normal">.ai</span></span>
+            <div class="flex flex-col items-center leading-none">
+                <span class="text-base font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-xs font-normal">.ai</span></span>
+                <span class="text-[10px] text-gray-500 tracking-wider whitespace-nowrap mt-0.5">万物拟态 · 单元铸智</span>
+            </div>
         </a>
         <nav class="nav-links">
             <div class="nav-item">
@@ -238,7 +241,7 @@ function toggleSidebar(){
                 <span class="tag tag-robot mb-3">阵列一</span>
                 <h3 class="text-xl font-bold mt-3 mb-3">具身智能机器人</h3>
                 <p class="text-gray-400 text-sm leading-relaxed mb-6">
-                    与高擎动力战略合作，提供Mini Pi高性能双足机器人、Panthera-HT开源机械臂及全套核心零部件，覆盖高校机器人实验室建设、竞赛与科研。
+                    高擎动力战略合作伙伴，提供Mini Pi高性能双足机器人、Panthera-HT开源机械臂及全套核心零部件，覆盖高校机器人实验室建设、竞赛与科研。
                 </p>
                 <div class="flex flex-wrap gap-2 mb-6">
                     <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-500">Mini Pi</span>
@@ -259,7 +262,7 @@ function toggleSidebar(){
                 <span class="tag tag-course mb-3">阵列二</span>
                 <h3 class="text-xl font-bold mt-3 mb-3">课程智能体</h3>
                 <p class="text-gray-400 text-sm leading-relaxed mb-6">
-                    全面代理燧光明科技产品，包含AI课程平台、智能实训箱及配套课程体系，为高校提供从理论教学到动手实践的完整课程方案。
+                    燧光明科技生态合作伙伴，包含AI课程平台、智能实训箱及配套课程体系，为高校提供从理论教学到动手实践的完整课程方案。
                 </p>
                 <div class="flex flex-wrap gap-2 mb-6">
                     <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-500">AI课程平台</span>
@@ -436,7 +439,7 @@ function toggleSidebar(){
                 <img src="assets/logos/UnitClaw-Logo.png" alt="UnitClaw" class="h-8 w-auto" onerror="this.style.display='none'">
                 <span class="text-lg font-bold">Unit<span class="text-accent">Claw</span>.ai</span>
             </div>
-            <p class="text-gray-500 text-sm">万物拟态，单元铸智<br>Mimic Nature, Forge Academic Power</p>
+            <p class="text-gray-500 text-sm">万物拟态 · 与高校共建 【AI+ 具身智能机器人】课程体系</p>
         </div>
         <div>
             <h4 class="font-semibold mb-3">产品阵列</h4>

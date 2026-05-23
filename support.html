@@ -24,7 +24,7 @@
         .nav-link i{width:20px;text-align:center;font-size:.85rem}
         .nav-section{color:#64748b;font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;padding:16px 20px 6px 20px}
         .top-nav{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(11,17,32,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(59,130,246,.1)}
-        .top-nav .nav-container{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;height:64px}
+        .top-nav .nav-container{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;height:72px}
         .top-nav .nav-logo{display:flex;align-items:center;gap:8px;text-decoration:none;flex-shrink:0}
         .top-nav .nav-links{display:none;align-items:center;gap:2px;margin-left:40px;flex:1}
         @media(min-width:1024px){.top-nav .nav-links{display:flex}}
@@ -68,7 +68,10 @@
     <div class="nav-container">
         <a href="index.html" class="nav-logo">
             <img src="assets/logos/UnitClaw-Logo.png" alt="UnitClaw" class="h-7 w-auto" onerror="this.style.display='none'">
-            <span class="text-base font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-xs font-normal">.ai</span></span>
+            <div class="flex flex-col items-center leading-none">
+                <span class="text-base font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-xs font-normal">.ai</span></span>
+                <span class="text-[10px] text-gray-500 tracking-wider whitespace-nowrap mt-0.5">万物拟态 · 单元铸智</span>
+            </div>
         </a>
         <nav class="nav-links">
             <div class="nav-item">
@@ -169,7 +172,7 @@
         <div class="glass rounded-xl p-8 max-w-3xl mx-auto">
             <h3 class="text-xl font-bold mb-6">联系方式</h3>
             <ul class="space-y-4">
-                <li class="flex items-center space-x-4"><div class="w-10 h-10 bg-blue-600/20 rounded-lg flex items-center justify-center"><i class="fas fa-envelope text-accent"></i></div><span>邮箱：support@unitclaw.ai</span></li>
+                <li class="flex items-center space-x-4"><div class="w-10 h-10 bg-blue-600/20 rounded-lg flex items-center justify-center"><i class="fas fa-envelope text-accent"></i></div><span>邮箱：Support@unitclaw.ai</span></li>
                 <li class="flex items-center space-x-4"><div class="w-10 h-10 bg-blue-600/20 rounded-lg flex items-center justify-center"><i class="fab fa-weixin text-accent"></i></div><span>微信：UnitClaw</span></li>
                 <li class="flex items-center space-x-4"><div class="w-10 h-10 bg-blue-600/20 rounded-lg flex items-center justify-center"><i class="fas fa-book text-accent"></i></div><span>文档：docs.unitclaw.ai</span></li>
             </ul>
