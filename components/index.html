@@ -20,7 +20,7 @@
 
         /* Mega-Menu Nav */
         .top-nav{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(11,17,32,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(59,130,246,.1)}
-        .top-nav .nav-container{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;height:64px}
+        .top-nav .nav-container{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;height:72px}
         .top-nav .nav-logo{display:flex;align-items:center;gap:8px;text-decoration:none;flex-shrink:0}
         .top-nav .nav-links{display:none;align-items:center;gap:2px;margin-left:40px;flex:1}
         @media(min-width:1024px){.top-nav .nav-links{display:flex}}
@@ -78,7 +78,10 @@
     <div class="nav-container">
         <a href="../index.html" class="nav-logo">
             <img src="../assets/logos/UnitClaw-Logo.png" alt="UnitClaw" class="h-7 w-auto" onerror="this.style.display='none'">
-            <span class="text-base font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-xs font-normal">.ai</span></span>
+            <div class="flex flex-col items-center leading-none">
+                <span class="text-base font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-xs font-normal">.ai</span></span>
+                <span class="text-[10px] text-gray-500 tracking-wider whitespace-nowrap mt-0.5">万物拟态 · 单元铸智</span>
+            </div>
         </a>
         <nav class="nav-links">
             <div class="nav-item">
@@ -306,7 +309,7 @@ function toggleSidebar(){
 </section>
 
 <footer class="relative z-10 border-t border-border py-12">
-    <div class="max-w-7xl mx-auto px-6 text-center text-sm text-gray-600">© 2026 UnitClaw.ai · 万物拟态，单元铸智</div>
+    <div class="max-w-7xl mx-auto px-6 text-center text-sm text-gray-600">© 2026 UnitClaw.ai · 万物拟态 · 与高校共建 【AI+ 具身智能机器人】课程体系</div>
 </footer>
 
 <script src="../particles.min.js"></script>
