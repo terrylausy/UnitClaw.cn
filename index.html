@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UnitClaw.ai - 万物拟态，单元铸智 | 面向高校的AI+机器人教育平台</title>
-    <meta name="description" content="UnitClaw是面向高校教育的AI+机器人一站式平台，涵盖具身智能机器人、课程智能体、即插即用AI实训工具。万物拟态，单元铸智。">
+    <title>UnitClaw.ai - 万物拟态・智启未来 | 面向高校的AI+机器人教育平台</title>
+    <meta name="description" content="UnitClaw是面向高校教育的AI+机器人一站式平台，涵盖具身智能机器人、课程智能体、即插即用AI实训工具。万物拟态・智启未来。">
     <meta name="keywords" content="AI教育,具身智能,机器人教育,高校AI,课程智能体,UnitClaw,万物拟态">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -56,9 +56,9 @@
 
         /* Mega-Menu Nav */
         .top-nav{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(11,17,32,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(59,130,246,.1)}
-        .top-nav .nav-container{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;height:72px}
+        .top-nav .nav-container{max-width:1280px;margin:0 auto;padding:0 32px 0 124px;display:flex;align-items:center;height:72px}
         .top-nav .nav-logo{display:flex;align-items:center;gap:8px;text-decoration:none;flex-shrink:0}
-        .top-nav .nav-links{display:none;align-items:center;gap:2px;margin-left:40px;flex:1}
+        .top-nav .nav-links{display:none;align-items:center;gap:2px;margin-left:12px;flex:1}
         @media(min-width:1024px){.top-nav .nav-links{display:flex}}
         .nav-item{position:relative}
         .nav-item>a,.nav-item>button{display:flex;align-items:center;gap:6px;padding:8px 16px;color:#cbd5e1;font-size:.9rem;font-weight:500;text-decoration:none;border-radius:8px;transition:all .2s;background:none;border:none;cursor:pointer;font-family:inherit;white-space:nowrap}
@@ -103,7 +103,7 @@
             <img src="assets/logos/UnitClaw-Logo.png" alt="UnitClaw" class="h-7 w-auto" onerror="this.style.display='none'">
             <div class="flex flex-col items-center leading-none">
                 <span class="text-base font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-xs font-normal">.ai</span></span>
-                <span class="text-[10px] text-gray-500 tracking-wider whitespace-nowrap mt-0.5">万物拟态 · 单元铸智</span>
+                <span class="text-[10px] text-gray-500 tracking-wider whitespace-nowrap mt-0.5">万物拟态 · 智启未来</span>
             </div>
         </a>
         <nav class="nav-links">
@@ -132,7 +132,8 @@
                     <div class="nav-dropdown-inner compact">
                         <a href="components/index.html" class="dd-compact-item">伺服关节模组 <span class="sub">行星·超薄·中空</span></a>
                         <a href="components/index.html" class="dd-compact-item">PANTHERA-HT 机械臂 <span class="sub">6轴协作·3.5kg负载</span></a>
-                        <a href="components/index.html" class="dd-compact-item">7路CAN主控盒 <span class="sub">RK3588S·多路输出</span></a>
+<a href="components/dexterous-hand.html" class="dd-compact-item" style="background:rgba(245,158,11,.1);color:#fbbf24">UnitClaw 灵巧手 <span class="sub">五指仿生·21DOF</span></a>
+<a href="components/index.html" class="dd-compact-item">7路CAN主控盒 <span class="sub">RK3588S·多路输出</span></a>
                         <a href="components/index.html" class="dd-compact-item">电池组 <span class="sub">高压48V·低压24V</span></a>
                     </div>
                 </div>
@@ -149,7 +150,7 @@
 </header>
 
 <!-- Sidebar -->
-<button class="menu-btn glass" onclick="toggleSidebar()"><i class="fas fa-bars text-white text-lg"></i></button>
+<button class="menu-btn glass" onclick="toggleSidebar()" style="display:flex;align-items:center;gap:6px;width:auto;padding:0 14px"><i class="fas fa-bars text-white text-lg"></i><span class="text-white text-xs font-medium">Discovery more</span></button>
 <div id="sidebar-overlay" onclick="toggleSidebar()"></div>
 <nav id="sidebar" class="glass">
     <div class="flex items-center justify-between px-5 py-4 border-b border-white/5">
@@ -210,7 +211,7 @@ function toggleSidebar(){
             <span class="text-sm text-gray-400">面向高校 · AI + 机器人教育平台</span>
         </div>
         <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight">
-            <span class="text-gradient">万物拟态，单元铸智</span>
+            <span class="text-gradient">万物拟态・智启未来</span>
         </h1>
         <p class="mt-4 text-lg text-gray-400 font-display tracking-wide">Mimic Nature, Forge Academic Power</p>
         <p class="mt-8 text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
