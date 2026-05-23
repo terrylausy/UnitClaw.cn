@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>具身智能机器人 - UnitClaw.ai | x 高擎动力战略合作</title>
+    <meta name="description" content="UnitClaw与高擎动力战略合作，提供Mini Pi高性能双足机器人、Panthera-HT开源机械臂及全套核心零部件，面向高校机器人教育。">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#0b1120',secondary:'#1a2456',accent:'#3b82f6',card:'#111827',border:'#1e293b'},fontFamily:{sans:['Inter','Noto Sans SC','system-ui','sans-serif']}}}}</script>
+    <style>
+        .bg-grid{background-image:linear-gradient(rgba(59,130,246,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.06) 1px,transparent 1px);background-size:40px 40px}
+        .glass{background:rgba(17,24,39,.85);backdrop-filter:blur(16px);border:1px solid rgba(59,130,246,.15)}
+        .card-hover{transition:all .35s cubic-bezier(.4,0,.2,1)}
+        .card-hover:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(59,130,246,.15)}
+        .text-gradient{background:linear-gradient(135deg,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .spec-table td{border-bottom:1px solid #1e293b;padding:10px 0}
+        .spec-table td:first-child{color:#94a3b8;width:160px}
+    </style>
+</head>
+<body class="bg-primary text-white font-sans">
+
+<div id="particles-js" class="fixed inset-0 z-0"></div>
+<div class="fixed inset-0 bg-grid z-0 opacity-40"></div>
+
+<!-- Navigation -->
+<nav class="glass fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+        <a href="../index.html" class="flex items-center space-x-3">
+            <img src="../assets/logos/Logo-1.png" alt="UnitClaw" class="h-10 w-auto" onerror="this.style.display='none'">
+            <span class="text-lg font-bold">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-sm font-normal ml-1">.ai</span></span>
+        </a>
+        <div class="hidden lg:flex items-center space-x-4">
+            <a href="../index.html" class="text-sm text-gray-400 hover:text-white transition-colors">首页</a>
+            <a href="robots.html" class="text-sm text-accent font-semibold">具身智能机器人</a>
+            <a href="courses.html" class="text-sm text-gray-400 hover:text-white transition-colors">课程智能体</a>
+            <a href="training-box.html" class="text-sm text-gray-400 hover:text-white transition-colors">AI实训箱</a>
+            <a href="unitclaw.html" class="text-sm text-gray-400 hover:text-white transition-colors">虾盘</a>
+            <a href="../solutions/education.html" class="text-sm text-gray-400 hover:text-white transition-colors">高校方案</a>
+            <a href="../contact.html" class="ml-4 px-5 py-2 bg-accent hover:bg-blue-600 text-sm font-semibold rounded-lg transition-colors">预约演示</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero -->
+<header class="relative z-10 pt-32 pb-16">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex items-center mb-4">
+            <span class="px-3 py-1 bg-blue-500/10 text-accent text-xs font-semibold rounded-full border border-blue-500/20">阵列一</span>
+            <span class="ml-3 px-3 py-1 bg-white/5 text-gray-400 text-xs rounded-full border border-white/10">x 高擎动力战略合作</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold tracking-tight">具身智能<span class="text-gradient">机器人</span></h1>
+        <p class="mt-6 text-lg text-gray-400 max-w-2xl leading-relaxed">
+            高性能双足机器人 · 开源机械臂 · 伺服关节模组 · 全套核心零部件
+            <br>为高校机器人实验室、科研与竞赛提供完整解决方案
+        </p>
+    </div>
+</header>
+
+<!-- Product Line -->
+<section class="relative z-10 py-16">
+    <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-2xl font-bold mb-10">机器人产品线</h2>
+
+        <!-- Mini Pi -->
+        <div class="glass rounded-3xl p-8 md:p-12 mb-8">
+            <div class="grid md:grid-cols-2 gap-10">
+                <div>
+                    <span class="text-xs px-2 py-1 bg-accent/10 text-accent rounded">旗舰产品</span>
+                    <h3 class="text-3xl font-bold mt-3 mb-4">高性能双足机器人 <span class="text-accent">Mini Pi</span></h3>
+                    <p class="text-gray-400 leading-relaxed mb-6">酷炫黑白配色，金属光泽外壳，身高仅520mm，整机仅7kg，可单手拿起便于开发。12个自由度，最大关节扭矩16Nm，搭载自研HTM-5047关节模组，是高校机器人教学的理想平台。</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs px-3 py-1.5 bg-white/5 rounded-full text-gray-400">12自由度</span>
+                        <span class="text-xs px-3 py-1.5 bg-white/5 rounded-full text-gray-400">520mm</span>
+                        <span class="text-xs px-3 py-1.5 bg-white/5 rounded-full text-gray-400">7kg</span>
+                        <span class="text-xs px-3 py-1.5 bg-white/5 rounded-full text-gray-400">16Nm</span>
+                        <span class="text-xs px-3 py-1.5 bg-white/5 rounded-full text-gray-400">自研模组</span>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <h4 class="text-lg font-semibold text-gray-300">技术参数</h4>
+                    <table class="spec-table w-full text-sm">
+                        <tr><td>站立高度</td><td>520mm</td></tr>
+                        <tr><td>重量（含电池）</td><td>7kg</td></tr>
+                        <tr><td>工作电压</td><td>24V</td></tr>
+                        <tr><td>最大载荷</td><td>15kg</td></tr>
+                        <tr><td>运动速度</td><td>1.5m/s</td></tr>
+                        <tr><td>自由度</td><td>12 DOF</td></tr>
+                        <tr><td>最大关节扭矩</td><td>16Nm</td></tr>
+                        <tr><td>关节模组</td><td>自研 HTM-5047</td></tr>
+                        <tr><td>控制精度</td><td>双编无刷电机，19位</td></tr>
+                        <tr><td>控制模式</td><td>电压 / 扭矩 / 速度 / 位置</td></tr>
+                        <tr><td>通讯协议</td><td>FDCAN 兼容 CAN（64字节）</td></tr>
+                        <tr><td>主控芯片</td><td>HPM5361</td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- More Robots -->
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="glass rounded-2xl p-8">
+                <span class="text-xs px-2 py-1 bg-purple-500/10 text-purple-400 rounded">开源平台</span>
+                <h3 class="text-2xl font-bold mt-3 mb-3">模块化开源 Pi+</h3>
+                <p class="text-gray-400 leading-relaxed text-sm mb-4">Mini Pi Plus，低成本模块化开源平台。开放全部设计文档和SDK，支持二次开发，是RoboCup、黑客松等赛事的官方标准平台。</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-500">RoboCup标准</span>
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-500">完全开源</span>
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-500">模块化设计</span>
+                </div>
+            </div>
+            <div class="glass rounded-2xl p-8">
+                <span class="text-xs px-2 py-1 bg-green-500/10 text-green-400 rounded">进阶平台</span>
+                <h3 class="text-2xl font-bold mt-3 mb-3">人形机器人 Mini Hi</h3>
+                <p class="text-gray-400 leading-relaxed text-sm mb-4">在Mini Pi基础上进一步扩展，更多自由度，更强的运动能力。适合科研团队和高级机器人课程使用。</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-500">高自由度</span>
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-500">科研级</span>
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-500">人形机器人</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Core Components -->
+<section class="relative z-10 py-16 border-t border-border">
+    <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-2xl font-bold mb-3">核心零部件</h2>
+        <p class="text-gray-400 mb-10">高擎动力全系核心零配件，满足高校实验室搭建、科研和竞赛的全部硬件需求</p>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- 伺服关节模组 -->
+            <div class="glass rounded-2xl p-8 card-hover">
+                <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center mb-5"><i class="fas fa-cog text-accent text-xl"></i></div>
+                <h3 class="text-lg font-bold mb-4">伺服关节模组</h3>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li class="flex justify-between"><span>行星系列关节模组</span><span class="text-accent text-xs">多型号</span></li>
+                    <li class="flex justify-between"><span>超薄系列关节模组</span><span class="text-accent text-xs">多型号</span></li>
+                    <li class="flex justify-between"><span>中空关节模组</span><span class="text-accent text-xs">多型号</span></li>
+                </ul>
+            </div>
+            <!-- 机械臂 -->
+            <div class="glass rounded-2xl p-8 card-hover">
+                <div class="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center mb-5"><i class="fas fa-hand-rock text-purple-400 text-xl"></i></div>
+                <h3 class="text-lg font-bold mb-4">机械臂</h3>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li class="flex justify-between"><span>Panthera-HT 6轴机械臂</span><span class="text-purple-400 text-xs">开源</span></li>
+                    <li class="flex justify-between"><span>万元内性能极限</span><span class="text-purple-400 text-xs">性价比</span></li>
+                    <li class="flex justify-between"><span>开源发布</span><span class="text-purple-400 text-xs">完全开放</span></li>
+                </ul>
+            </div>
+            <!-- 控制器与电池 -->
+            <div class="glass rounded-2xl p-8 card-hover">
+                <div class="w-12 h-12 bg-green-500/10 rounded-xl flex items-center justify-center mb-5"><i class="fas fa-bolt text-green-400 text-xl"></i></div>
+                <h3 class="text-lg font-bold mb-4">控制器与电池</h3>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li class="flex justify-between"><span>7路 CAN 主控盒子</span><span class="text-green-400 text-xs">控制器</span></li>
+                    <li class="flex justify-between"><span>HTB48-01 电池控制器</span><span class="text-green-400 text-xs">电源管理</span></li>
+                    <li class="flex justify-between"><span>HTB24-02 电池</span><span class="text-green-400 text-xs">24V供电</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- News -->
+<section class="relative z-10 py-16 border-t border-border">
+    <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-2xl font-bold mb-10">最新动态</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="glass rounded-2xl p-6">
+                <span class="text-xs text-accent">ICRA 2026</span>
+                <h3 class="text-lg font-bold mt-2 mb-2">Panthera-HT 成为 ICRA 2026 WBCD Challenge 官方标准平台</h3>
+                <p class="text-gray-500 text-sm">携手上海市人工智能行业协会，高擎动力Panthera-HT正式成为国际机器人顶级会议ICRA 2026的官方标准平台。</p>
+            </div>
+            <div class="glass rounded-2xl p-6">
+                <span class="text-xs text-purple-400">黑客松</span>
+                <h3 class="text-lg font-bold mt-2 mb-2">Panthera-HT 引爆开发者生态，黑客松标配机械臂</h3>
+                <p class="text-gray-500 text-sm">万元内性能极限六轴臂Panthera-HT正式开源发布，已成4月黑客松标配，开源机械臂x黑客松模式引爆开发者生态。</p>
+            </div>
+            <div class="glass rounded-2xl p-6">
+                <span class="text-xs text-green-400">RoboCup</span>
+                <h3 class="text-lg font-bold mt-2 mb-2">高擎动力包揽RoboCup决赛冠亚季军</h3>
+                <p class="text-gray-500 text-sm">八强均采用Mini Pi Plus平台，高擎动力机器人平台在RoboCup赛事中展现出压倒性优势。</p>
+            </div>
+            <div class="glass rounded-2xl p-6">
+                <span class="text-xs text-warm">理念</span>
+                <h3 class="text-lg font-bold mt-2 mb-2">我们为什么要做人形机器人</h3>
+                <p class="text-gray-500 text-sm">高擎动力分享公司使命与愿景——推动人形机器人技术在教育领域的普及与应用。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Service & Support -->
+<section class="relative z-10 py-16 border-t border-border">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-4 gap-6 text-center">
+            <div class="glass rounded-2xl p-6">
+                <i class="fas fa-book text-2xl text-accent mb-3"></i>
+                <h3 class="font-semibold mb-1">文档中心</h3>
+                <p class="text-xs text-gray-500">完整SDK与API文档</p>
+            </div>
+            <div class="glass rounded-2xl p-6">
+                <i class="fas fa-download text-2xl text-purple-400 mb-3"></i>
+                <h3 class="font-semibold mb-1">下载中心</h3>
+                <p class="text-xs text-gray-500">固件与软件下载</p>
+            </div>
+            <div class="glass rounded-2xl p-6">
+                <i class="fas fa-headset text-2xl text-green-400 mb-3"></i>
+                <h3 class="font-semibold mb-1">售后处理</h3>
+                <p class="text-xs text-gray-500">专业技术支持保障</p>
+            </div>
+            <div class="glass rounded-2xl p-6">
+                <i class="fas fa-phone text-2xl text-warm mb-3"></i>
+                <h3 class="font-semibold mb-1">联系我们</h3>
+                <p class="text-xs text-gray-500">400-6080-891</p>
+                <p class="text-xs text-gray-600">service@hightorque.cn</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="relative z-10 border-t border-border py-8">
+    <div class="max-w-7xl mx-auto px-6 text-center text-sm text-gray-600">
+        <p>© 2026 UnitClaw.ai | 高擎动力战略合作 | 万物拟态，单元铸智</p>
+    </div>
+</footer>
+
+<script src="../particles.min.js"></script>
+<script>
+particlesJS("particles-js",{particles:{number:{value:30,density:{enable:!0,value_area:800}},color:{value:"#3b82f6"},opacity:{value:.12,random:!0},size:{value:2,random:!0},line_linked:{enable:!0,distance:150,color:"#3b82f6",opacity:.06,width:1},move:{enable:!0,speed:.6}}});
+</script>
+</body>
+</html>

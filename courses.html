@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>课程智能体 - UnitClaw.ai | x 燧光明科技全面代理</title>
+    <meta name="description" content="UnitClaw全面代理燧光明科技产品，为高校提供AI课程平台、智能实训箱及完整课程体系，覆盖从理论到实践的AI教育全链路。">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#0b1120',accent:'#3b82f6',card:'#111827',border:'#1e293b'},fontFamily:{sans:['Inter','Noto Sans SC','system-ui','sans-serif']}}}}</script>
+    <style>
+        .bg-grid{background-image:linear-gradient(rgba(59,130,246,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.06) 1px,transparent 1px);background-size:40px 40px}
+        .glass{background:rgba(17,24,39,.85);backdrop-filter:blur(16px);border:1px solid rgba(59,130,246,.15)}
+        .card-hover{transition:all .35s cubic-bezier(.4,0,.2,1)}
+        .card-hover:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(139,92,246,.15)}
+        .text-gradient{background:linear-gradient(135deg,#a78bfa,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .feature-icon{width:48px;height:48px;background:rgba(139,92,246,.1);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+    </style>
+</head>
+<body class="bg-primary text-white font-sans">
+
+<div id="particles-js" class="fixed inset-0 z-0"></div>
+<div class="fixed inset-0 bg-grid z-0 opacity-40"></div>
+
+<nav class="glass fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+        <a href="../index.html" class="flex items-center space-x-3">
+            <span class="text-lg font-bold">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-sm font-normal ml-1">.ai</span></span>
+        </a>
+        <div class="hidden lg:flex items-center space-x-4">
+            <a href="../index.html" class="text-sm text-gray-400 hover:text-white transition-colors">首页</a>
+            <a href="robots.html" class="text-sm text-gray-400 hover:text-white transition-colors">机器人</a>
+            <a href="courses.html" class="text-sm text-purple-400 font-semibold">课程智能体</a>
+            <a href="training-box.html" class="text-sm text-gray-400 hover:text-white transition-colors">AI实训箱</a>
+            <a href="unitclaw.html" class="text-sm text-gray-400 hover:text-white transition-colors">虾盘</a>
+            <a href="../solutions/education.html" class="text-sm text-gray-400 hover:text-white transition-colors">高校方案</a>
+            <a href="../contact.html" class="ml-4 px-5 py-2 bg-purple-600 hover:bg-purple-700 text-sm font-semibold rounded-lg transition-colors">预约演示</a>
+        </div>
+    </div>
+</nav>
+
+<header class="relative z-10 pt-32 pb-16">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex items-center mb-4">
+            <span class="px-3 py-1 bg-purple-500/10 text-purple-400 text-xs font-semibold rounded-full border border-purple-500/20">阵列二</span>
+            <span class="ml-3 px-3 py-1 bg-white/5 text-gray-400 text-xs rounded-full border border-white/10">x 燧光明科技全面代理</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold tracking-tight">课程<span class="text-gradient">智能体</span></h1>
+        <p class="mt-6 text-lg text-gray-400 max-w-2xl leading-relaxed">
+            AI课程平台 · 智能实训箱 · 完整教学体系<br>为高校AI教育提供从理论教学到动手实践的全栈课程解决方案
+        </p>
+    </div>
+</header>
+
+<!-- Product Overview -->
+<section class="relative z-10 py-16">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="glass rounded-2xl p-8 card-hover text-center">
+                <div class="feature-icon mx-auto"><i class="fas fa-laptop-code text-2xl text-purple-400"></i></div>
+                <h3 class="text-xl font-bold mb-3">AI课程平台</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">在线学习与实验平台，内置丰富的AI课程内容，支持教师自定义课程体系、学生在线学习与考评。</p>
+                <div class="mt-4 flex flex-wrap justify-center gap-2">
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-500">自然语言处理</span>
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-500">计算机视觉</span>
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-500">强化学习</span>
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-500">大模型应用</span>
+                </div>
+            </div>
+            <div class="glass rounded-2xl p-8 card-hover text-center">
+                <div class="feature-icon mx-auto"><i class="fas fa-cube text-2xl text-purple-400"></i></div>
+                <h3 class="text-xl font-bold mb-3">智能实训箱</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">硬件实训设备，集成AI推理单元、传感器、执行器，配合课程平台完成从理论到动手实践的闭环教学。</p>
+                <div class="mt-4 flex flex-wrap justify-center gap-2">
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-500">AI推理芯片</span>
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-500">多传感器</span>
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-500">即插即用</span>
+                </div>
+            </div>
+            <div class="glass rounded-2xl p-8 card-hover text-center">
+                <div class="feature-icon mx-auto"><i class="fas fa-book-open text-2xl text-purple-400"></i></div>
+                <h3 class="text-xl font-bold mb-3">配套课程体系</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">多年打磨的课程大纲与教学资料，覆盖本科和研究生阶段，支持学分课程、实训课程、暑期学校等多种教学场景。</p>
+                <div class="mt-4 flex flex-wrap justify-center gap-2">
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-500">本科课程</span>
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-500">研究生课程</span>
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-500">暑期学校</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features -->
+<section class="relative z-10 py-16 border-t border-border">
+    <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-2xl font-bold mb-3">平台优势</h2>
+        <p class="text-gray-400 mb-10">为什么高校选择燧光明课程智能体</p>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="glass rounded-2xl p-6"><div class="text-purple-400 text-xl mb-3"><i class="fas fa-graduation-cap"></i></div><h3 class="font-bold mb-2">完整课程体系</h3><p class="text-sm text-gray-400">多年打磨，覆盖AI核心领域</p></div>
+            <div class="glass rounded-2xl p-6"><div class="text-purple-400 text-xl mb-3"><i class="fas fa-chalkboard-teacher"></i></div><h3 class="font-bold mb-2">教师友好</h3><p class="text-sm text-gray-400">开箱即用的教学资源包</p></div>
+            <div class="glass rounded-2xl p-6"><div class="text-purple-400 text-xl mb-3"><i class="fas fa-users"></i></div><h3 class="font-bold mb-2">丰富案例</h3><p class="text-sm text-gray-400">数十所高校验证的成熟方案</p></div>
+            <div class="glass rounded-2xl p-6"><div class="text-purple-400 text-xl mb-3"><i class="fas fa-sync-alt"></i></div><h3 class="font-bold mb-2">持续更新</h3><p class="text-sm text-gray-400">紧跟AI前沿，课程持续迭代</p></div>
+            <div class="glass rounded-2xl p-6"><div class="text-purple-400 text-xl mb-3"><i class="fas fa-plug"></i></div><h3 class="font-bold mb-2">软硬一体</h3><p class="text-sm text-gray-400">平台+实训箱无缝联动</p></div>
+            <div class="glass rounded-2xl p-6"><div class="text-purple-400 text-xl mb-3"><i class="fas fa-headset"></i></div><h3 class="font-bold mb-2">全程支持</h3><p class="text-sm text-gray-400">部署部署到教学全程服务</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- Customer Cases -->
+<section class="relative z-10 py-16 border-t border-border">
+    <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-2xl font-bold mb-3">客户案例</h2>
+        <p class="text-gray-400 mb-10">服务全国数十所高校，积累了丰富的教学实践经验</p>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="glass rounded-2xl p-6">
+                <div class="flex items-center space-x-3 mb-4">
+                    <div class="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center text-purple-400 font-bold text-sm">高校A</div>
+                    <div><h3 class="font-semibold">AI通识课程</h3><p class="text-xs text-gray-500">本科必修课</p></div>
+                </div>
+                <p class="text-sm text-gray-400">引入课程智能体平台，为全校本科生开设AI通识必修课，覆盖2000+学生/年。</p>
+            </div>
+            <div class="glass rounded-2xl p-6">
+                <div class="flex items-center space-x-3 mb-4">
+                    <div class="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center text-purple-400 font-bold text-sm">高校B</div>
+                    <div><h3 class="font-semibold">AI实训中心</h3><p class="text-xs text-gray-500">研究生培养</p></div>
+                </div>
+                <p class="text-sm text-gray-400">部署智能实训箱20台套，支撑研究生AI方向实验教学与科研创新。</p>
+            </div>
+            <div class="glass rounded-2xl p-6">
+                <div class="flex items-center space-x-3 mb-4">
+                    <div class="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center text-purple-400 font-bold text-sm">高校C</div>
+                    <div><h3 class="font-semibold">暑期学校</h3><p class="text-xs text-gray-500">跨校合作</p></div>
+                </div>
+                <p class="text-sm text-gray-400">联合多所高校举办AI暑期学校，使用课程智能体平台+实训箱完成密集教学。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 课程体系共建 -->
+<section class="relative z-10 py-16 border-t border-border">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold">课程体系<span class="text-purple-400">共建</span></h2>
+            <p class="mt-3 text-gray-400">联合高校定制AI课程体系，让教学真正贴合学校培养方案</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="glass rounded-2xl p-8">
+                <h3 class="text-xl font-bold mb-4"><i class="fas fa-edit text-purple-400 mr-2"></i>定制课程开发</h3>
+                <p class="text-sm text-gray-400 mb-4">根据学校专业特色、学生基础水平、培养目标，联合设计与开发定制化AI课程大纲，确保课程内容与学校学分体系无缝对接。</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-500">AI导论</span>
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-500">深度学习</span>
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-500">计算机视觉</span>
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-500">自然语言处理</span>
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-500">大模型应用</span>
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-500">智能机器人</span>
+                </div>
+            </div>
+            <div class="glass rounded-2xl p-8">
+                <h3 class="text-xl font-bold mb-4"><i class="fas fa-user-graduate text-purple-400 mr-2"></i>师资培训体系</h3>
+                <p class="text-sm text-gray-400 mb-4">为合作高校提供完整的师资培训方案，包括课程教学培训、实验指导培训、暑期研修班、在线教学研讨等，帮助教师快速上手AI教学。</p>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li><i class="fas fa-check text-green-400 mr-2 text-xs"></i>AI课程教学培训（线上+线下）</li>
+                    <li><i class="fas fa-check text-green-400 mr-2 text-xs"></i>实验指导与平台使用培训</li>
+                    <li><i class="fas fa-check text-green-400 mr-2 text-xs"></i>暑期AI师资研修班</li>
+                    <li><i class="fas fa-check text-green-400 mr-2 text-xs"></i>持续教学研讨与更新服务</li>
+                </ul>
+            </div>
+            <div class="glass rounded-2xl p-8">
+                <h3 class="text-xl font-bold mb-4"><i class="fas fa-book text-purple-400 mr-2"></i>教学资源配套</h3>
+                <p class="text-sm text-gray-400 mb-4">提供开箱即用的教学资源包，包括课件PPT、实验指导书、习题集、考试题库、项目案例、视频教程等全套教学资料。</p>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li><i class="fas fa-check text-green-400 mr-2 text-xs"></i>全套课件与教案</li>
+                    <li><i class="fas fa-check text-green-400 mr-2 text-xs"></i>实验指导书与操作手册</li>
+                    <li><i class="fas fa-check text-green-400 mr-2 text-xs"></i>配套习题与考试题库</li>
+                    <li><i class="fas fa-check text-green-400 mr-2 text-xs"></i>项目案例与视频教程</li>
+                </ul>
+            </div>
+            <div class="glass rounded-2xl p-8">
+                <h3 class="text-xl font-bold mb-4"><i class="fas fa-industry text-purple-400 mr-2"></i>产教融合实践</h3>
+                <p class="text-sm text-gray-400 mb-4">对接行业真实需求，将企业实际应用场景嵌入课程项目与实训环节，帮助学生提前了解产业动态，提升就业竞争力。</p>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li><i class="fas fa-check text-green-400 mr-2 text-xs"></i>企业真实项目案例嵌入</li>
+                    <li><i class="fas fa-check text-green-400 mr-2 text-xs"></i>行业专家讲座与客座授课</li>
+                    <li><i class="fas fa-check text-green-400 mr-2 text-xs"></i>实习实训基地合作</li>
+                    <li><i class="fas fa-check text-green-400 mr-2 text-xs"></i>毕业设计课题联合指导</li>
+                </ul>
+            </div>
+        </div>
+        <div class="text-center mt-10">
+            <a href="../contact.html" class="inline-flex items-center px-8 py-3.5 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-xl transition-all">
+                咨询课程共建 <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="relative z-10 py-20">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+        <div class="glass rounded-3xl p-12">
+            <h2 class="text-3xl font-bold mb-4">为高校AI教育助力</h2>
+            <p class="text-gray-400 mb-8 max-w-xl mx-auto">课程智能体平台 + 智能实训箱 + 完整课程体系，立即预约了解高校专属方案。</p>
+            <a href="../contact.html" class="px-8 py-3.5 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-xl transition-all inline-block">预约演示</a>
+        </div>
+    </div>
+</section>
+
+<footer class="relative z-10 border-t border-border py-8">
+    <div class="max-w-7xl mx-auto px-6 text-center text-sm text-gray-600">
+        <p>© 2026 UnitClaw.ai | 燧光明科技全面代理 | 万物拟态，单元铸智</p>
+    </div>
+</footer>
+
+<script src="../particles.min.js"></script>
+<script>particlesJS("particles-js",{particles:{number:{value:30},color:{value:"#a78bfa"},opacity:{value:.12,random:!0},size:{value:2,random:!0},line_linked:{enable:!0,distance:150,color:"#a78bfa",opacity:.06,width:1},move:{enable:!0,speed:.6}}});</script>
+</body>
+</html>
