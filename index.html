@@ -40,6 +40,18 @@
         .tag-robot{background:rgba(59,130,246,.15);color:#60a5fa;border:1px solid rgba(59,130,246,.25)}
         .tag-course{background:rgba(139,92,246,.15);color:#a78bfa;border:1px solid rgba(139,92,246,.25)}
         .tag-claw{background:rgba(245,158,11,.15);color:#fbbf24;border:1px solid rgba(245,158,11,.25)}
+        /* Sidebar */
+        #sidebar{position:fixed;top:0;left:-320px;width:280px;height:100vh;z-index:100;transition:left .35s cubic-bezier(.4,0,.2,1);overflow-y:auto}
+        #sidebar.open{left:0}
+        #sidebar-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:99;opacity:0;visibility:hidden;transition:all .35s}
+        #sidebar-overlay.show{opacity:1;visibility:visible}
+        .menu-btn{position:fixed;top:16px;left:16px;z-index:98;width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .3s}
+        .menu-btn:hover{background:rgba(59,130,246,.15)}
+        .menu-btn.open{left:296px}
+        .nav-link{display:flex;align-items:center;gap:10px;padding:12px 20px;color:#94a3b8;font-size:.9rem;font-weight:500;transition:all .2s;border-radius:8px;margin:2px 12px}
+        .nav-link:hover,.nav-link.active{color:#fff;background:rgba(59,130,246,.12)}
+        .nav-link i{width:20px;text-align:center;font-size:.85rem}
+        .nav-section{color:#64748b;font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;padding:16px 20px 6px 20px}
     </style>
 </head>
 <body class="bg-primary text-white min-h-screen font-sans antialiased">
@@ -48,55 +60,71 @@
 <div id="particles-js" class="fixed inset-0 z-0"></div>
 <div class="fixed inset-0 bg-grid z-0 opacity-40"></div>
 
-<!-- Navigation -->
-<nav class="glass fixed top-0 left-0 right-0 z-50 transition-all">
-    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-        <a href="index.html" class="flex items-center space-x-3 shrink-0">
-            <img src="assets/logos/UnitClaw-Logo.png" alt="UnitClaw" class="h-10 w-auto" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <div class="hidden w-10 h-10 bg-gradient-to-br from-accent to-blue-700 rounded-lg items-center justify-center text-lg font-bold">U</div>
-            <span class="text-lg font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-sm font-normal ml-1">.ai</span></span>
+<!-- Hamburger Button -->
+<button class="menu-btn glass" onclick="toggleSidebar()" aria-label="菜单">
+    <i class="fas fa-bars text-white text-lg"></i>
+</button>
+
+<!-- Sidebar Overlay -->
+<div id="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+<!-- Sidebar -->
+<nav id="sidebar" class="glass">
+    <div class="flex items-center justify-between px-5 py-4 border-b border-white/5">
+        <a href="index.html" class="flex items-center space-x-2.5" onclick="toggleSidebar()">
+            <img src="assets/logos/UnitClaw-Logo.png" alt="UnitClaw" class="h-8 w-auto" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="hidden w-8 h-8 bg-gradient-to-br from-accent to-blue-700 rounded-lg items-center justify-center text-sm font-bold">U</div>
+            <span class="text-base font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-xs font-normal">.ai</span></span>
         </a>
-        <div class="hidden lg:flex items-center space-x-1">
-            <a href="index.html" class="px-4 py-2 text-accent text-sm font-medium">首页</a>
-            <div class="group relative">
-                <a href="#" class="px-4 py-2 text-gray-300 hover:text-white text-sm font-medium transition-colors">产品 <i class="fas fa-chevron-down text-[10px] ml-1"></i></a>
-                <div class="absolute top-full left-0 mt-2 w-48 glass rounded-xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-                    <a href="products/robots.html" class="block px-4 py-2.5 rounded-lg text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors"><i class="fas fa-robot mr-2 text-accent text-xs"></i>具身智能机器人</a>
-                    <a href="products/courses.html" class="block px-4 py-2.5 rounded-lg text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors"><i class="fas fa-graduation-cap mr-2 text-purple-400 text-xs"></i>课程智能体</a>
-                    <a href="products/unitclaw.html" class="block px-4 py-2.5 rounded-lg text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors"><i class="fas fa-microchip mr-2 text-warm text-xs"></i>UnitClaw 虾盘</a>
-                </div>
-            </div>
-            <div class="group relative">
-                <a href="#" class="px-4 py-2 text-gray-300 hover:text-white text-sm font-medium transition-colors">方案 <i class="fas fa-chevron-down text-[10px] ml-1"></i></a>
-                <div class="absolute top-full left-0 mt-2 w-48 glass rounded-xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-                    <a href="solutions/education.html" class="block px-4 py-2.5 rounded-lg text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors"><i class="fas fa-university mr-2 text-accent text-xs"></i>高校教育方案</a>
-                </div>
-            </div>
-            <div class="group relative">
-                <a href="#" class="px-4 py-2 text-gray-300 hover:text-white text-sm font-medium transition-colors">合作 <i class="fas fa-chevron-down text-[10px] ml-1"></i></a>
-                <div class="absolute top-full left-0 mt-2 w-44 glass rounded-xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-                    <a href="partnerships/hightorque.html" class="block px-4 py-2.5 rounded-lg text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors">x 高擎动力</a>
-                    <a href="partnerships/suiguangming.html" class="block px-4 py-2.5 rounded-lg text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors">x 燧光明</a>
-                </div>
-            </div>
-            <a href="news.html" class="px-4 py-2 text-gray-300 hover:text-white text-sm font-medium transition-colors">动态</a>
-            <a href="about.html" class="px-4 py-2 text-gray-300 hover:text-white text-sm font-medium transition-colors">关于</a>
-        </div>
-        <a href="contact.html" class="hidden lg:inline-flex items-center px-5 py-2.5 bg-accent hover:bg-blue-600 text-white text-sm font-semibold rounded-lg transition-colors">预约演示</a>
-        <button class="lg:hidden text-white p-2" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"><i class="fas fa-bars text-xl"></i></button>
+        <button onclick="toggleSidebar()" class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white/10 transition-colors">
+            <i class="fas fa-times text-gray-400 text-lg"></i>
+        </button>
     </div>
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden lg:hidden glass border-t border-white/5 px-6 py-4">
-        <a href="index.html" class="block py-3 text-accent font-medium">首页</a>
-        <a href="products/robots.html" class="block py-3 text-gray-300">具身智能机器人</a>
-        <a href="products/courses.html" class="block py-3 text-gray-300">课程智能体</a>
-        <a href="products/unitclaw.html" class="block py-3 text-gray-300">UnitClaw 虾盘</a>
-        <a href="solutions/education.html" class="block py-3 text-gray-300">高校教育方案</a>
-        <a href="partnerships/hightorque.html" class="block py-3 text-gray-300">x 高擎动力</a>
-        <a href="partnerships/suiguangming.html" class="block py-3 text-gray-300">x 燧光明</a>
-        <a href="news.html" class="block py-3 text-gray-300">动态</a>
-        <a href="about.html" class="block py-3 text-gray-300">关于</a>
-        <a href="contact.html" class="block mt-3 text-center py-3 bg-accent rounded-lg font-semibold">预约演示</a>
+
+    <div class="py-3">
+        <a href="index.html" class="nav-link active"><i class="fas fa-home"></i>首页</a>
+        
+        <div class="nav-section">产品阵列</div>
+        <a href="products/robots.html" class="nav-link"><i class="fas fa-robot text-accent"></i>具身智能机器人</a>
+        <a href="products/courses.html" class="nav-link"><i class="fas fa-graduation-cap text-purple-400"></i>课程智能体</a>
+        <a href="products/unitclaw.html" class="nav-link"><i class="fas fa-microchip text-warm"></i>UnitClaw 虾盘</a>
+        
+        <div class="nav-section">场景方案</div>
+        <a href="solutions/education.html" class="nav-link"><i class="fas fa-university"></i>高校教育方案</a>
+        
+        <div class="nav-section">生态合作</div>
+        <a href="partnerships/hightorque.html" class="nav-link"><i class="fas fa-handshake"></i>× 高擎动力</a>
+        <a href="partnerships/suiguangming.html" class="nav-link"><i class="fas fa-handshake"></i>× 燧光明科技</a>
+        
+        <div class="nav-section">更多</div>
+        <a href="news.html" class="nav-link"><i class="fas fa-newspaper"></i>动态资讯</a>
+        <a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i>关于我们</a>
+        <a href="support.html" class="nav-link"><i class="fas fa-headset"></i>服务支持</a>
+    </div>
+
+    <div class="px-4 pb-6 mt-2">
+        <a href="contact.html" class="flex items-center justify-center gap-2 w-full py-3 bg-accent hover:bg-blue-600 text-white text-sm font-semibold rounded-xl transition-colors" onclick="toggleSidebar()">
+            <i class="fas fa-calendar-check"></i>预约演示
+        </a>
+    </div>
+</nav>
+
+<script>
+function toggleSidebar(){
+    const sb = document.getElementById('sidebar');
+    const ov = document.getElementById('sidebar-overlay');
+    const btn = document.querySelector('.menu-btn');
+    const isOpen = sb.classList.contains('open');
+    if(isOpen){
+        sb.classList.remove('open');
+        ov.classList.remove('show');
+        btn.classList.remove('open');
+    }else{
+        sb.classList.add('open');
+        ov.classList.add('show');
+        btn.classList.add('open');
+    }
+}
     </div>
 </nav>
 
