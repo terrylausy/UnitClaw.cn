@@ -20,7 +20,7 @@
 
         /* Mega-Menu Nav */
         .top-nav{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(11,17,32,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(59,130,246,.1)}
-        .top-nav .nav-container{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;height:72px}
+        .top-nav .nav-container{max-width:1280px;margin:0 auto;padding:0 32px 0 124px;display:flex;align-items:center;height:72px}
         .top-nav .nav-logo{display:flex;align-items:center;gap:8px;text-decoration:none;flex-shrink:0}
         .top-nav .nav-links{display:none;align-items:center;gap:2px;margin-left:40px;flex:1}
         @media(min-width:1024px){.top-nav .nav-links{display:flex}}
@@ -80,7 +80,7 @@
             <img src="../assets/logos/UnitClaw-Logo.png" alt="UnitClaw" class="h-7 w-auto" onerror="this.style.display='none'">
             <div class="flex flex-col items-center leading-none">
                 <span class="text-base font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-xs font-normal">.ai</span></span>
-                <span class="text-[10px] text-gray-500 tracking-wider whitespace-nowrap mt-0.5">万物拟态 · 单元铸智</span>
+                <span class="text-[10px] text-gray-500 tracking-wider whitespace-nowrap mt-0.5">万物拟态 · 智启未来</span>
             </div>
         </a>
         <nav class="nav-links">
@@ -109,6 +109,7 @@
                     <div class="nav-dropdown-inner compact">
                         <a href="#servo" class="dd-compact-item">伺服关节模组 <span class="sub">行星·超薄·中空</span></a>
                         <a href="#arm" class="dd-compact-item">PANTHERA-HT 机械臂 <span class="sub">6轴协作·3.5kg负载</span></a>
+                        <a href="dexterous-hand.html" class="dd-compact-item" style="background:rgba(245,158,11,.1);color:#fbbf24">UnitClaw 灵巧手 <span class="sub">五指仿生·21DOF</span></a>
                         <a href="#controller" class="dd-compact-item">7路CAN主控盒 <span class="sub">RK3588S·多路输出</span></a>
                         <a href="#battery" class="dd-compact-item">电池组 <span class="sub">高压48V·低压24V</span></a>
                     </div>
@@ -145,6 +146,7 @@
         <a href="../robots/mini-hi.html" class="nav-link"><i class="fas fa-child pl-2"></i>人形机器人 Hi</a>
         <div class="nav-section">核心零部件</div>
         <a href="index.html" class="nav-link active"><i class="fas fa-cogs text-warm"></i>核心零部件</a>
+        <a href="dexterous-hand.html" class="nav-link"><i class="fas fa-hand-paper text-warm"></i>UnitClaw 灵巧手</a>
         <div class="nav-section">更多</div>
         <a href="../courses/index.html" class="nav-link"><i class="fas fa-book"></i>机器人课程</a>
         <a href="../download/index.html" class="nav-link"><i class="fas fa-download"></i>下载中心</a>
@@ -248,6 +250,32 @@ function toggleSidebar(){
             </div>
             <div class="glass rounded-2xl p-12 flex items-center justify-center">
                 <i class="fas fa-robot text-9xl text-warm/20"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Dexterous Hand -->
+<section class="relative z-10 py-16 border-t border-border" id="dexterous">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="order-2 lg:order-1 glass rounded-2xl p-12 flex items-center justify-center">
+                <i class="fas fa-hand-paper text-9xl text-warm/20"></i>
+            </div>
+            <div class="order-1 lg:order-2">
+                <span class="tag tag-comp mb-4">DEXTEROUS HAND</span>
+                <h2 class="text-3xl font-bold mt-4">UnitClaw 灵巧手</h2>
+                <p class="mt-4 text-lg text-gray-300">五指仿生灵巧手，具身智能核心末端执行器</p>
+                <div class="mt-6 space-y-3 text-gray-400">
+                    <div class="flex items-center gap-3"><i class="fas fa-check text-emerald"></i><span>四大系列：L5 Core / V5 Sense / V4 / V3</span></div>
+                    <div class="flex items-center gap-3"><i class="fas fa-check text-emerald"></i><span>4~5 指仿生设计，最高 21 自由度 (17主动+4被动)</span></div>
+                    <div class="flex items-center gap-3"><i class="fas fa-check text-emerald"></i><span>超轻机身仅 1kg，10kg 负载能力</span></div>
+                    <div class="flex items-center gap-3"><i class="fas fa-check text-emerald"></i><span>V5 Sense 配备 16 通道压力触觉传感</span></div>
+                    <div class="flex items-center gap-3"><i class="fas fa-check text-emerald"></i><span>CAN / Ethernet 双通信，ROS/ROS2 全兼容</span></div>
+                </div>
+                <a href="dexterous-hand.html" class="inline-flex items-center gap-2 mt-8 px-6 py-3 bg-warm hover:bg-amber-600 text-black font-semibold rounded-xl transition-all">
+                    查看完整规格 <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
         </div>
     </div>
