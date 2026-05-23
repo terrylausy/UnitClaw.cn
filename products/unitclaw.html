@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UnitClaw 虾盘 - 即插即用AI执行单元</title>
+    <meta name="description" content="UnitClaw虾盘是即插即用式AI执行单元，U盘形态，集成企业微信智能报价、AI实训环境，为高校提供零门槛AI动手实践工具。">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#0b1120',accent:'#3b82f6',warm:'#f59e0b',card:'#111827',border:'#1e293b'},fontFamily:{sans:['Inter','Noto Sans SC','system-ui','sans-serif']}}}}</script>
+    <style>
+        .bg-grid{background-image:linear-gradient(rgba(59,130,246,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.06) 1px,transparent 1px);background-size:40px 40px}
+        .glass{background:rgba(17,24,39,.85);backdrop-filter:blur(16px);border:1px solid rgba(59,130,246,.15)}
+        .text-gradient{background:linear-gradient(135deg,#f59e0b,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    </style>
+</head>
+<body class="bg-primary text-white font-sans">
+
+<div id="particles-js" class="fixed inset-0 z-0"></div>
+<div class="fixed inset-0 bg-grid z-0 opacity-40"></div>
+
+<nav class="glass fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+        <a href="../index.html" class="flex items-center space-x-3">
+            <span class="text-lg font-bold">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-sm font-normal ml-1">.ai</span></span>
+        </a>
+        <div class="hidden lg:flex items-center space-x-4">
+            <a href="../index.html" class="text-sm text-gray-400 hover:text-white transition-colors">首页</a>
+            <a href="robots.html" class="text-sm text-gray-400 hover:text-white transition-colors">机器人</a>
+            <a href="courses.html" class="text-sm text-gray-400 hover:text-white transition-colors">课程</a>
+            <a href="unitclaw.html" class="text-sm text-warm font-semibold">UnitClaw 虾盘</a>
+            <a href="../solutions/education.html" class="text-sm text-gray-400 hover:text-white transition-colors">高校方案</a>
+            <a href="../contact.html" class="ml-4 px-5 py-2 bg-warm hover:bg-amber-600 text-black font-semibold text-sm rounded-lg transition-colors">预约演示</a>
+        </div>
+    </div>
+</nav>
+
+<header class="relative z-10 pt-32 pb-16">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex items-center mb-4">
+            <span class="px-3 py-1 bg-warm/10 text-warm text-xs font-semibold rounded-full border border-warm/20">阵列三</span>
+            <span class="ml-3 px-3 py-1 bg-white/5 text-gray-400 text-xs rounded-full border border-white/10">即插即用 · U盘形态</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold tracking-tight">UnitClaw <span class="text-gradient">虾盘</span></h1>
+        <p class="mt-6 text-lg text-gray-400 max-w-2xl leading-relaxed">
+            即插即用式AI执行单元，U盘形态，插入即可运行。<br>企业微信智能报价 · AI实训环境 · 自动化工作流——让AI真正落地干活。
+        </p>
+    </div>
+</header>
+
+<section class="relative z-10 py-16">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="glass rounded-2xl p-8">
+                <div class="text-warm text-3xl mb-4"><i class="fas fa-bolt"></i></div>
+                <h3 class="text-xl font-bold mb-3">即插即用</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">插入U盘，自动启动本地AI服务器。无需安装、无需配置、无需联网，真正的开箱即用。</p>
+            </div>
+            <div class="glass rounded-2xl p-8">
+                <div class="text-warm text-3xl mb-4"><i class="fas fa-shield-alt"></i></div>
+                <h3 class="text-xl font-bold mb-3">数据安全</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">本地推理，数据不出U盘。支持离线运行，满足高校数据安全和隐私保护需求。</p>
+            </div>
+            <div class="glass rounded-2xl p-8">
+                <div class="text-warm text-3xl mb-4"><i class="fas fa-robot"></i></div>
+                <h3 class="text-xl font-bold mb-3">企业微信AI</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">内置企业微信智能报价机器人，自动解析询价→匹配成本表→生成报价，客户消息秒级回复。</p>
+            </div>
+            <div class="glass rounded-2xl p-8">
+                <div class="text-warm text-3xl mb-4"><i class="fas fa-graduation-cap"></i></div>
+                <h3 class="text-xl font-bold mb-3">AI实训环境</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">预装Python + Ollama + LLM，学生插入即可开始AI开发实验，零环境配置门槛。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="relative z-10 py-16 border-t border-border">
+    <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-2xl font-bold mb-10">高校应用场景</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="glass rounded-2xl p-8 text-center">
+                <div class="w-16 h-16 bg-warm/10 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-laptop-code text-2xl text-warm"></i></div>
+                <h3 class="font-bold mb-2">AI课程实训</h3>
+                <p class="text-sm text-gray-400">学生人手一个虾盘，插入电脑即可开始AI实验</p>
+            </div>
+            <div class="glass rounded-2xl p-8 text-center">
+                <div class="w-16 h-16 bg-warm/10 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-flask text-2xl text-warm"></i></div>
+                <h3 class="font-bold mb-2">科研开发</h3>
+                <p class="text-sm text-gray-400">预装大模型环境，支持本地推理与微调实验</p>
+            </div>
+            <div class="glass rounded-2xl p-8 text-center">
+                <div class="w-16 h-16 bg-warm/10 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-building text-2xl text-warm"></i></div>
+                <h3 class="font-bold mb-2">产教融合</h3>
+                <p class="text-sm text-gray-400">企业真实业务场景嵌入教学，学生提前接触产业应用</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="relative z-10 py-20">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+        <div class="glass rounded-3xl p-12">
+            <h2 class="text-3xl font-bold mb-4">让AI触手可及</h2>
+            <p class="text-gray-400 mb-8 max-w-xl mx-auto">UnitClaw虾盘——高校AI教育的最后一公里。插上就用，拔下就走。</p>
+            <a href="../contact.html" class="px-8 py-3.5 bg-warm hover:bg-amber-600 text-black font-semibold rounded-xl transition-all inline-block">申请试用</a>
+        </div>
+    </div>
+</section>
+
+<footer class="relative z-10 border-t border-border py-8">
+    <div class="max-w-7xl mx-auto px-6 text-center text-sm text-gray-600">
+        <p>© 2026 UnitClaw.ai | 即插即用AI执行单元 | 万物拟态，单元铸智</p>
+    </div>
+</footer>
+
+<script src="../particles.min.js"></script>
+<script>particlesJS("particles-js",{particles:{number:{value:30},color:{value:"#f59e0b"},opacity:{value:.12,random:!0},size:{value:2,random:!0},line_linked:{enable:!0,distance:150,color:"#f59e0b",opacity:.06,width:1},move:{enable:!0,speed:.6}}});</script>
+</body>
+</html>
