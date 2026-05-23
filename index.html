@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UnitClaw.ai - 万物拟态，单元铸智 | 面向高校的AI+机器人教育平台</title>
+    <meta name="description" content="UnitClaw是面向高校教育的AI+机器人一站式平台，涵盖具身智能机器人、课程智能体、即插即用AI实训工具。万物拟态，单元铸智。">
+    <meta name="keywords" content="AI教育,具身智能,机器人教育,高校AI,课程智能体,UnitClaw,万物拟态">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0b1120',
+                        secondary: '#1a2456',
+                        accent: '#3b82f6',
+                        light: '#60a5fa',
+                        warm: '#f59e0b',
+                        card: '#111827',
+                        border: '#1e293b',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans SC', 'system-ui', 'sans-serif'],
+                        display: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .bg-grid{background-image:linear-gradient(rgba(59,130,246,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.06) 1px,transparent 1px);background-size:40px 40px}
+        .glass{background:rgba(17,24,39,.85);backdrop-filter:blur(16px);border:1px solid rgba(59,130,246,.15)}
+        .card-hover{transition:all .35s cubic-bezier(.4,0,.2,1)}
+        .card-hover:hover{transform:translateY(-8px);box-shadow:0 24px 48px rgba(59,130,246,.18)}
+        .text-gradient{background:linear-gradient(135deg,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .hero-glow{background:radial-gradient(ellipse at 50% 0%,rgba(59,130,246,.15) 0%,transparent 70%)}
+        .tag{display:inline-block;padding:2px 10px;border-radius:12px;font-size:.75rem;font-weight:600;letter-spacing:.05em}
+        .tag-robot{background:rgba(59,130,246,.15);color:#60a5fa;border:1px solid rgba(59,130,246,.25)}
+        .tag-course{background:rgba(139,92,246,.15);color:#a78bfa;border:1px solid rgba(139,92,246,.25)}
+        .tag-claw{background:rgba(245,158,11,.15);color:#fbbf24;border:1px solid rgba(245,158,11,.25)}
+    </style>
+</head>
+<body class="bg-primary text-white min-h-screen font-sans antialiased">
+
+<!-- Particles Background -->
+<div id="particles-js" class="fixed inset-0 z-0"></div>
+<div class="fixed inset-0 bg-grid z-0 opacity-40"></div>
+
+<!-- Navigation -->
+<nav class="glass fixed top-0 left-0 right-0 z-50 transition-all">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+        <a href="index.html" class="flex items-center space-x-3 shrink-0">
+            <img src="assets/logos/UnitClaw-Logo.png" alt="UnitClaw" class="h-10 w-auto" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="hidden w-10 h-10 bg-gradient-to-br from-accent to-blue-700 rounded-lg items-center justify-center text-lg font-bold">U</div>
+            <span class="text-lg font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-sm font-normal ml-1">.ai</span></span>
+        </a>
+        <div class="hidden lg:flex items-center space-x-1">
+            <a href="index.html" class="px-4 py-2 text-accent text-sm font-medium">首页</a>
+            <div class="group relative">
+                <a href="#" class="px-4 py-2 text-gray-300 hover:text-white text-sm font-medium transition-colors">产品 <i class="fas fa-chevron-down text-[10px] ml-1"></i></a>
+                <div class="absolute top-full left-0 mt-2 w-48 glass rounded-xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                    <a href="products/robots.html" class="block px-4 py-2.5 rounded-lg text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors"><i class="fas fa-robot mr-2 text-accent text-xs"></i>具身智能机器人</a>
+                    <a href="products/courses.html" class="block px-4 py-2.5 rounded-lg text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors"><i class="fas fa-graduation-cap mr-2 text-purple-400 text-xs"></i>课程智能体</a>
+                    <a href="products/unitclaw.html" class="block px-4 py-2.5 rounded-lg text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors"><i class="fas fa-microchip mr-2 text-warm text-xs"></i>UnitClaw 虾盘</a>
+                </div>
+            </div>
+            <div class="group relative">
+                <a href="#" class="px-4 py-2 text-gray-300 hover:text-white text-sm font-medium transition-colors">方案 <i class="fas fa-chevron-down text-[10px] ml-1"></i></a>
+                <div class="absolute top-full left-0 mt-2 w-48 glass rounded-xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                    <a href="solutions/education.html" class="block px-4 py-2.5 rounded-lg text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors"><i class="fas fa-university mr-2 text-accent text-xs"></i>高校教育方案</a>
+                </div>
+            </div>
+            <div class="group relative">
+                <a href="#" class="px-4 py-2 text-gray-300 hover:text-white text-sm font-medium transition-colors">合作 <i class="fas fa-chevron-down text-[10px] ml-1"></i></a>
+                <div class="absolute top-full left-0 mt-2 w-44 glass rounded-xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                    <a href="partnerships/hightorque.html" class="block px-4 py-2.5 rounded-lg text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors">x 高擎动力</a>
+                    <a href="partnerships/suiguangming.html" class="block px-4 py-2.5 rounded-lg text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors">x 燧光明</a>
+                </div>
+            </div>
+            <a href="news.html" class="px-4 py-2 text-gray-300 hover:text-white text-sm font-medium transition-colors">动态</a>
+            <a href="about.html" class="px-4 py-2 text-gray-300 hover:text-white text-sm font-medium transition-colors">关于</a>
+        </div>
+        <a href="contact.html" class="hidden lg:inline-flex items-center px-5 py-2.5 bg-accent hover:bg-blue-600 text-white text-sm font-semibold rounded-lg transition-colors">预约演示</a>
+        <button class="lg:hidden text-white p-2" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"><i class="fas fa-bars text-xl"></i></button>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden glass border-t border-white/5 px-6 py-4">
+        <a href="index.html" class="block py-3 text-accent font-medium">首页</a>
+        <a href="products/robots.html" class="block py-3 text-gray-300">具身智能机器人</a>
+        <a href="products/courses.html" class="block py-3 text-gray-300">课程智能体</a>
+        <a href="products/unitclaw.html" class="block py-3 text-gray-300">UnitClaw 虾盘</a>
+        <a href="solutions/education.html" class="block py-3 text-gray-300">高校教育方案</a>
+        <a href="partnerships/hightorque.html" class="block py-3 text-gray-300">x 高擎动力</a>
+        <a href="partnerships/suiguangming.html" class="block py-3 text-gray-300">x 燧光明</a>
+        <a href="news.html" class="block py-3 text-gray-300">动态</a>
+        <a href="about.html" class="block py-3 text-gray-300">关于</a>
+        <a href="contact.html" class="block mt-3 text-center py-3 bg-accent rounded-lg font-semibold">预约演示</a>
+    </div>
+</nav>
+
+<!-- Hero -->
+<header class="relative z-10 pt-32 pb-20 hero-glow">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+        <div class="inline-flex items-center space-x-2 mb-6 px-4 py-2 glass rounded-full">
+            <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+            <span class="text-sm text-gray-400">面向高校 · AI + 机器人教育平台</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight">
+            <span class="text-gradient">万物拟态，单元铸智</span>
+        </h1>
+        <p class="mt-4 text-lg text-gray-400 font-display tracking-wide">Mimic Nature, Forge Academic Power</p>
+        <p class="mt-8 text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
+            三大产品阵列，为高校提供从<span class="text-accent font-semibold">具身智能机器人</span>到<span class="text-purple-400 font-semibold">课程智能体</span>，再到<span class="text-warm font-semibold">即插即用AI实训工具</span>的全栈教育解决方案。
+        </p>
+        <div class="mt-10 flex flex-wrap justify-center gap-4">
+            <a href="solutions/education.html" class="px-8 py-3.5 bg-accent hover:bg-blue-600 text-white font-semibold rounded-xl transition-all shadow-lg shadow-blue-600/25">探索高校方案</a>
+            <a href="contact.html" class="px-8 py-3.5 glass hover:bg-white/10 text-gray-300 font-semibold rounded-xl transition-all">预约演示</a>
+        </div>
+    </div>
+</header>
+
+<!-- Three Product Arrays -->
+<section class="relative z-10 py-20">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+            <span class="tag tag-claw mb-4">PRODUCT ARRAYS</span>
+            <h2 class="text-3xl md:text-4xl font-bold mt-4">三大产品阵列</h2>
+            <p class="mt-3 text-gray-400">从硬件到软件，从课堂到实验室，覆盖高校AI教育全场景</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Card 1: 具身智能机器人 -->
+            <a href="products/robots.html" class="card-hover block bg-card border border-border rounded-2xl p-8 group cursor-pointer">
+                <div class="w-14 h-14 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-500/20 transition-colors">
+                    <i class="fas fa-robot text-2xl text-accent"></i>
+                </div>
+                <span class="tag tag-robot mb-3">阵列一</span>
+                <h3 class="text-xl font-bold mt-3 mb-3">具身智能机器人</h3>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                    与高擎动力战略合作，提供Mini Pi高性能双足机器人、Panthera-HT开源机械臂及全套核心零部件，覆盖高校机器人实验室建设、竞赛与科研。
+                </p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-500">Mini Pi</span>
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-500">Panthera-HT</span>
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-500">伺服关节</span>
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-500">12自由度</span>
+                </div>
+                <div class="flex items-center text-accent text-sm font-semibold">
+                    了解产品 <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                </div>
+            </a>
+
+            <!-- Card 2: 课程智能体 -->
+            <a href="products/courses.html" class="card-hover block bg-card border border-border rounded-2xl p-8 group cursor-pointer">
+                <div class="w-14 h-14 bg-purple-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-purple-500/20 transition-colors">
+                    <i class="fas fa-graduation-cap text-2xl text-purple-400"></i>
+                </div>
+                <span class="tag tag-course mb-3">阵列二</span>
+                <h3 class="text-xl font-bold mt-3 mb-3">课程智能体</h3>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                    全面代理燧光明科技产品，包含AI课程平台、智能实训箱及配套课程体系，为高校提供从理论教学到动手实践的完整课程方案。
+                </p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-500">AI课程平台</span>
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-500">智能实训箱</span>
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-500">客户案例</span>
+                </div>
+                <div class="flex items-center text-purple-400 text-sm font-semibold">
+                    了解产品 <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                </div>
+            </a>
+
+            <!-- Card 3: UnitClaw 虾盘 -->
+            <a href="products/unitclaw.html" class="card-hover block bg-card border border-border rounded-2xl p-8 group cursor-pointer">
+                <div class="w-14 h-14 bg-amber-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-amber-500/20 transition-colors">
+                    <i class="fas fa-microchip text-2xl text-warm"></i>
+                </div>
+                <span class="tag tag-claw mb-3">阵列三</span>
+                <h3 class="text-xl font-bold mt-3 mb-3">UnitClaw 虾盘</h3>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                    即插即用式AI执行单元，U盘形态，插入即可运行。内置企业微信智能报价、AI实训环境、自动化工作流，让AI真正落地干活。
+                </p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-500">U盘即插即用</span>
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-500">企业微信AI</span>
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-500">本地推理</span>
+                </div>
+                <div class="flex items-center text-warm text-sm font-semibold">
+                    了解产品 <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Stats / Why UnitClaw -->
+<section class="relative z-10 py-20 bg-card/50 border-y border-border">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-14">
+            <h2 class="text-3xl font-bold">为什么选择 UnitClaw</h2>
+            <p class="mt-3 text-gray-400">专为高校 AI 教育场景设计的完整解决方案</p>
+        </div>
+        <div class="grid md:grid-cols-4 gap-8 text-center">
+            <div class="p-6"><div class="text-4xl font-bold text-accent mb-2">3</div><div class="text-gray-400 text-sm">产品阵列全覆盖</div></div>
+            <div class="p-6"><div class="text-4xl font-bold text-purple-400 mb-2">2</div><div class="text-gray-400 text-sm">战略合作品牌</div></div>
+            <div class="p-6"><div class="text-4xl font-bold text-warm mb-2">即插即用</div><div class="text-gray-400 text-sm">零部署门槛</div></div>
+            <div class="p-6"><div class="text-4xl font-bold text-green-400 mb-2">全场景</div><div class="text-gray-400 text-sm">实验室→课堂→竞赛</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- Application Scenarios -->
+<section class="relative z-10 py-20">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-14">
+            <h2 class="text-3xl font-bold">高校应用场景</h2>
+            <p class="mt-3 text-gray-400">三大产品阵列协同，覆盖高校AI教育全链路</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="glass rounded-2xl p-8">
+                <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mb-5"><i class="fas fa-flask text-accent text-xl"></i></div>
+                <h3 class="text-lg font-bold mb-3">机器人实验室</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">具身智能机器人 + 核心零部件，搭建完整的机器人实验教学平台。支持ROS开发、运动控制、视觉抓取等课程。</p>
+            </div>
+            <div class="glass rounded-2xl p-8">
+                <div class="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center mb-5"><i class="fas fa-laptop-code text-purple-400 text-xl"></i></div>
+                <h3 class="text-lg font-bold mb-3">AI课堂教学</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">课程智能体平台 + 智能实训箱，提供从AI基础理论到项目实战的完整课程体系，支持在线学习与线下实训。</p>
+            </div>
+            <div class="glass rounded-2xl p-8">
+                <div class="w-12 h-12 bg-warm/10 rounded-xl flex items-center justify-center mb-5"><i class="fas fa-trophy text-warm text-xl"></i></div>
+                <h3 class="text-lg font-bold mb-3">学科竞赛</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">RoboCup标准平台 + 黑客松模式，Mini Pi Plus和Panthera-HT已成为多项机器人竞赛的官方指定平台。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Partners -->
+<section class="relative z-10 py-20 border-t border-border">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+        <h2 class="text-2xl font-bold mb-10">战略合作伙伴</h2>
+        <div class="flex flex-wrap justify-center items-center gap-12 opacity-60">
+            <div class="text-center">
+                <img src="assets/logos/Logo-1.png" alt="高擎动力" class="h-12 mx-auto mb-2" onerror="this.parentElement.innerHTML='<div class=text-gray-500>高擎动力</div>'">
+                <span class="text-xs text-gray-600">高擎动力</span>
+            </div>
+            <div class="text-center">
+                <img src="assets/logos/Logo-2.png" alt="燧光明" class="h-12 mx-auto mb-2" onerror="this.parentElement.innerHTML='<div class=text-gray-500>燧光明</div>'">
+                <span class="text-xs text-gray-600">燧光明科技</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="relative z-10 py-20">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+        <div class="glass rounded-3xl p-12">
+            <h2 class="text-3xl font-bold mb-4">为高校AI教育赋能</h2>
+            <p class="text-gray-400 mb-8 max-w-xl mx-auto">从实验室建设到课堂教学，从学科竞赛到科研创新，UnitClaw 为高校提供一站式解决方案。</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="contact.html" class="px-8 py-3.5 bg-accent hover:bg-blue-600 text-white font-semibold rounded-xl transition-all">预约演示</a>
+                <a href="solutions/education.html" class="px-8 py-3.5 glass hover:bg-white/10 text-gray-300 font-semibold rounded-xl transition-all">查看方案详情</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="relative z-10 border-t border-border py-12">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+        <div>
+            <div class="flex items-center space-x-2 mb-4">
+                <img src="assets/logos/UnitClaw-Logo.png" alt="UnitClaw" class="h-8 w-auto" onerror="this.style.display='none'">
+                <span class="text-lg font-bold">Unit<span class="text-accent">Claw</span>.ai</span>
+            </div>
+            <p class="text-gray-500 text-sm">万物拟态，单元铸智<br>Mimic Nature, Forge Academic Power</p>
+        </div>
+        <div>
+            <h4 class="font-semibold mb-3">产品阵列</h4>
+            <div class="space-y-2 text-sm text-gray-500">
+                <a href="products/robots.html" class="block hover:text-white transition-colors">具身智能机器人</a>
+                <a href="products/courses.html" class="block hover:text-white transition-colors">课程智能体</a>
+                <a href="products/unitclaw.html" class="block hover:text-white transition-colors">UnitClaw 虾盘</a>
+            </div>
+        </div>
+        <div>
+            <h4 class="font-semibold mb-3">合作与方案</h4>
+            <div class="space-y-2 text-sm text-gray-500">
+                <a href="solutions/education.html" class="block hover:text-white transition-colors">高校教育方案</a>
+                <a href="partnerships/hightorque.html" class="block hover:text-white transition-colors">x 高擎动力</a>
+                <a href="partnerships/suiguangming.html" class="block hover:text-white transition-colors">x 燧光明</a>
+            </div>
+        </div>
+        <div>
+            <h4 class="font-semibold mb-3">联系我们</h4>
+            <div class="space-y-2 text-sm text-gray-500">
+                <a href="contact.html" class="block hover:text-white transition-colors">预约演示</a>
+                <a href="about.html" class="block hover:text-white transition-colors">关于我们</a>
+                <a href="news.html" class="block hover:text-white transition-colors">新闻动态</a>
+            </div>
+        </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 mt-10 pt-6 border-t border-border flex flex-wrap justify-between text-xs text-gray-600">
+        <span>© 2026 UnitClaw.ai All rights reserved.</span>
+        <div class="flex space-x-4">
+            <a href="privacy.html" class="hover:text-gray-400">隐私政策</a>
+            <a href="terms.html" class="hover:text-gray-400">服务条款</a>
+        </div>
+    </div>
+</footer>
+
+<script src="particles.min.js"></script>
+<script>
+particlesJS("particles-js", {
+    particles:{number:{value:40,density:{enable:!0,value_area:800}},color:{value:"#3b82f6"},shape:{type:"circle"},opacity:{value:.15,random:!0},size:{value:2,random:!0},line_linked:{enable:!0,distance:150,color:"#3b82f6",opacity:.08,width:1},move:{enable:!0,speed:.8,direction:"none",random:!0,out_mode:"out"}},
+    interactivity:{detect_on:"canvas",events:{onhover:{enable:!0,mode:"grab"},resize:!0},modes:{grab:{distance:140,line_linked:{opacity:.2}}}},
+    retina_detect:!0
+});
+</script>
+</body>
+</html>
