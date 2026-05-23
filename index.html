@@ -318,18 +318,143 @@ function toggleSidebar(){
     </div>
 </section>
 
-<!-- Stats / Why UnitClaw -->
+<!-- 痛点与方案 -->
 <section class="relative z-10 py-20 bg-card/50 border-y border-border">
     <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-14">
-            <h2 class="text-3xl font-bold">为什么选择 UnitClaw</h2>
-            <p class="mt-3 text-gray-400">专为高校 AI 教育场景设计的完整解决方案</p>
+            <span class="tag tag-course mb-4">PAIN POINTS &amp; SOLUTIONS</span>
+            <h2 class="text-3xl md:text-4xl font-bold mt-4">高校AI教育 · 痛点与方案</h2>
+            <p class="mt-3 text-gray-400 max-w-2xl mx-auto">面向人工智能学院建设，精准破解六大办学痛点，提供一站式合作方案</p>
         </div>
-        <div class="grid md:grid-cols-4 gap-8 text-center">
-            <div class="p-6"><div class="text-4xl font-bold text-accent mb-2">4</div><div class="text-gray-400 text-sm">产品阵列全覆盖</div></div>
-            <div class="p-6"><div class="text-4xl font-bold text-purple-400 mb-2">2</div><div class="text-gray-400 text-sm">战略合作品牌</div></div>
-            <div class="p-6"><div class="text-4xl font-bold text-warm mb-2">即插即用</div><div class="text-gray-400 text-sm">零部署门槛</div></div>
-            <div class="p-6"><div class="text-4xl font-bold text-green-400 mb-2">全场景</div><div class="text-gray-400 text-sm">实验室→课堂→竞赛</div></div>
+
+        <!-- 双栏：痛点 vs 优势 -->
+        <div class="grid lg:grid-cols-2 gap-8">
+            <!-- 左栏：六大痛点 -->
+            <div class="glass rounded-2xl p-6 md:p-8">
+                <div class="flex items-center gap-3 mb-6 pb-4 border-b border-red-500/15">
+                    <div class="w-10 h-10 bg-red-500/10 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-exclamation-triangle text-red-400"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold">六大办学痛点</h3>
+                        <p class="text-xs text-gray-500">高校AI专业建设面临的共同挑战</p>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex gap-3 group">
+                        <span class="flex-shrink-0 w-7 h-7 rounded-lg bg-red-500/10 text-red-400 text-xs font-bold flex items-center justify-center mt-0.5">1</span>
+                        <div>
+                            <h4 class="text-sm font-semibold text-red-300 group-hover:text-red-200 transition-colors">重硬件轻教学</h4>
+                            <p class="text-xs text-gray-500 leading-relaxed mt-0.5">厂商只卖硬件，无配套课程体系，设备采购后无法常态化开课，器材闲置，经费利用率低</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 group">
+                        <span class="flex-shrink-0 w-7 h-7 rounded-lg bg-red-500/10 text-red-400 text-xs font-bold flex items-center justify-center mt-0.5">2</span>
+                        <div>
+                            <h4 class="text-sm font-semibold text-red-300 group-hover:text-red-200 transition-colors">师资技术缺口大</h4>
+                            <p class="text-xs text-gray-500 leading-relaxed mt-0.5">教师欠缺具身智能实操经验，缺乏系统培训渠道，难以支撑高阶教学与科研项目</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 group">
+                        <span class="flex-shrink-0 w-7 h-7 rounded-lg bg-red-500/10 text-red-400 text-xs font-bold flex items-center justify-center mt-0.5">3</span>
+                        <div>
+                            <h4 class="text-sm font-semibold text-red-300 group-hover:text-red-200 transition-colors">动作开发门槛高</h4>
+                            <p class="text-xs text-gray-500 leading-relaxed mt-0.5">缺少简易高效的动作编排工具，师生自主调试与二次开发难度大，实操能力培养受限</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 group">
+                        <span class="flex-shrink-0 w-7 h-7 rounded-lg bg-red-500/10 text-red-400 text-xs font-bold flex items-center justify-center mt-0.5">4</span>
+                        <div>
+                            <h4 class="text-sm font-semibold text-red-300 group-hover:text-red-200 transition-colors">赛事竞争力薄弱</h4>
+                            <p class="text-xs text-gray-500 leading-relaxed mt-0.5">缺少专业备赛指导与竞技技术支撑，冲击全国A类学科竞赛缺少核心助力</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 group">
+                        <span class="flex-shrink-0 w-7 h-7 rounded-lg bg-red-500/10 text-red-400 text-xs font-bold flex items-center justify-center mt-0.5">5</span>
+                        <div>
+                            <h4 class="text-sm font-semibold text-red-300 group-hover:text-red-200 transition-colors">设备迭代风险高</h4>
+                            <p class="text-xs text-gray-500 leading-relaxed mt-0.5">技术更新快，整机易淘汰，重复采购成本高，前期硬件投入保值性不足</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 group">
+                        <span class="flex-shrink-0 w-7 h-7 rounded-lg bg-red-500/10 text-red-400 text-xs font-bold flex items-center justify-center mt-0.5">6</span>
+                        <div>
+                            <h4 class="text-sm font-semibold text-red-300 group-hover:text-red-200 transition-colors">标准化无法适配特色办学</h4>
+                            <p class="text-xs text-gray-500 leading-relaxed mt-0.5">通用设备与课程难以贴合院校专业定位与科研方向，无法实现个性化定制</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右栏：六大优势 -->
+            <div class="glass rounded-2xl p-6 md:p-8">
+                <div class="flex items-center gap-3 mb-6 pb-4 border-b border-accent/15">
+                    <div class="w-10 h-10 bg-accent/10 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-check-circle text-accent"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold">万物拟态六大优势</h3>
+                        <p class="text-xs text-gray-500">从硬件到课程到服务的全栈能力</p>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex gap-3 group">
+                        <span class="flex-shrink-0 w-7 h-7 rounded-lg bg-accent/10 text-accent text-xs font-bold flex items-center justify-center mt-0.5">1</span>
+                        <div>
+                            <h4 class="text-sm font-semibold group-hover:text-white transition-colors">软硬课一体化交付</h4>
+                            <p class="text-xs text-gray-500 leading-relaxed mt-0.5">打破只售硬件模式，全套配齐设备+课程+教学体系，杜绝器材闲置与经费浪费</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 group">
+                        <span class="flex-shrink-0 w-7 h-7 rounded-lg bg-accent/10 text-accent text-xs font-bold flex items-center justify-center mt-0.5">2</span>
+                        <div>
+                            <h4 class="text-sm font-semibold group-hover:text-white transition-colors">双精英团队护航</h4>
+                            <p class="text-xs text-gray-500 leading-relaxed mt-0.5">AI算法+具身机器人工程师 × 高校教授专家，提供专业技术与分层师资培训</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 group">
+                        <span class="flex-shrink-0 w-7 h-7 rounded-lg bg-accent/10 text-accent text-xs font-bold flex items-center justify-center mt-0.5">3</span>
+                        <div>
+                            <h4 class="text-sm font-semibold group-hover:text-white transition-colors">双模式动作编排</h4>
+                            <p class="text-xs text-gray-500 leading-relaxed mt-0.5">可视化拖拽+代码编程，零基础可入门、高阶可研发，适配本科到研究生全层级</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 group">
+                        <span class="flex-shrink-0 w-7 h-7 rounded-lg bg-accent/10 text-accent text-xs font-bold flex items-center justify-center mt-0.5">4</span>
+                        <div>
+                            <h4 class="text-sm font-semibold group-hover:text-white transition-colors">专业赛事赋能</h4>
+                            <p class="text-xs text-gray-500 leading-relaxed mt-0.5">对标国家级A类赛事，技术调试+方案打磨+获奖案例，显著提升参赛胜率</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 group">
+                        <span class="flex-shrink-0 w-7 h-7 rounded-lg bg-accent/10 text-accent text-xs font-bold flex items-center justify-center mt-0.5">5</span>
+                        <div>
+                            <h4 class="text-sm font-semibold group-hover:text-white transition-colors">模块化可持续迭代</h4>
+                            <p class="text-xs text-gray-500 leading-relaxed mt-0.5">核心部件可单独升级，持续更新固件与SDK算法，延缓淘汰周期，保障长期使用价值</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3 group">
+                        <span class="flex-shrink-0 w-7 h-7 rounded-lg bg-accent/10 text-accent text-xs font-bold flex items-center justify-center mt-0.5">6</span>
+                        <div>
+                            <h4 class="text-sm font-semibold group-hover:text-white transition-colors">全维度定制开发</h4>
+                            <p class="text-xs text-gray-500 leading-relaxed mt-0.5">按科研课题与特色方向定制机器人功能及实训平台，助力形成差异化办学优势</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 合作总结 -->
+        <div class="mt-10 glass rounded-2xl p-6 md:p-8 flex flex-col lg:flex-row items-center gap-6">
+            <div class="flex-shrink-0 w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center">
+                <i class="fas fa-bullseye text-2xl text-accent"></i>
+            </div>
+            <p class="text-sm text-gray-300 leading-relaxed flex-1">
+                <span class="text-accent font-semibold">万物拟态</span>不以单一硬件销售为目标——以<span class="text-white">课程体系、技术培训、动作开发、赛事攻坚、迭代保值、个性定制</span>六大核心能力，一站式化解高校采购、教学、科研、竞赛、资产管控各类痛点，助力高效搭建高水平具身智能育人平台。
+            </p>
+            <a href="solutions/education.html" class="flex-shrink-0 px-6 py-3 bg-accent hover:bg-blue-600 text-white text-sm font-semibold rounded-xl transition-all text-center whitespace-nowrap">
+                查看完整方案 <i class="fas fa-arrow-right ml-2"></i>
+            </a>
         </div>
     </div>
 </section>
