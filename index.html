@@ -40,6 +40,7 @@
         .tag-robot{background:rgba(59,130,246,.15);color:#60a5fa;border:1px solid rgba(59,130,246,.25)}
         .tag-course{background:rgba(139,92,246,.15);color:#a78bfa;border:1px solid rgba(139,92,246,.25)}
         .tag-claw{background:rgba(245,158,11,.15);color:#fbbf24;border:1px solid rgba(245,158,11,.25)}
+        .tag-box{background:rgba(16,185,129,.15);color:#34d399;border:1px solid rgba(16,185,129,.25)}
         /* Sidebar */
         #sidebar{position:fixed;top:0;left:-320px;width:280px;height:100vh;z-index:100;transition:left .35s cubic-bezier(.4,0,.2,1);overflow-y:auto}
         #sidebar.open{left:0}
@@ -97,6 +98,7 @@
         <div class="nav-section">产品阵列</div>
         <a href="products/robots.html" class="nav-link"><i class="fas fa-robot text-accent"></i>具身智能机器人</a>
         <a href="products/courses.html" class="nav-link"><i class="fas fa-graduation-cap text-purple-400"></i>课程智能体</a>
+        <a href="products/training-box.html" class="nav-link"><i class="fas fa-box text-emerald"></i>AI人工智能实训箱</a>
         <a href="products/unitclaw.html" class="nav-link"><i class="fas fa-microchip text-warm"></i>UnitClaw 虾盘</a>
         
         <div class="nav-section">场景方案</div>
@@ -138,7 +140,7 @@ function toggleSidebar(){
         </h1>
         <p class="mt-4 text-lg text-gray-400 font-display tracking-wide">Mimic Nature, Forge Academic Power</p>
         <p class="mt-8 text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            三大产品阵列，为高校提供从<span class="text-accent font-semibold">具身智能机器人</span>到<span class="text-purple-400 font-semibold">课程智能体</span>，再到<span class="text-warm font-semibold">即插即用AI实训工具</span>的全栈教育解决方案。
+            从<span class="text-accent font-semibold">具身智能机器人</span>到<span class="text-purple-400 font-semibold">课程智能体</span>，再到<span class="text-emerald font-semibold">AI实训箱</span>和<span class="text-warm font-semibold">即插即用AI工具</span>——为高校提供全栈AI教育解决方案。
         </p>
         <div class="mt-10 flex flex-wrap justify-center gap-4">
             <a href="solutions/education.html" class="px-8 py-3.5 bg-accent hover:bg-blue-600 text-white font-semibold rounded-xl transition-all shadow-lg shadow-blue-600/25">探索高校方案</a>
@@ -152,11 +154,11 @@ function toggleSidebar(){
     <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-16">
             <span class="tag tag-claw mb-4">PRODUCT ARRAYS</span>
-            <h2 class="text-3xl md:text-4xl font-bold mt-4">三大产品阵列</h2>
+            <h2 class="text-3xl md:text-4xl font-bold mt-4">四大产品阵列</h2>
             <p class="mt-3 text-gray-400">从硬件到软件，从课堂到实验室，覆盖高校AI教育全场景</p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8">
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <!-- Card 1: 具身智能机器人 -->
             <a href="products/robots.html" class="card-hover block bg-card border border-border rounded-2xl p-8 group cursor-pointer">
                 <div class="w-14 h-14 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-500/20 transition-colors">
@@ -198,12 +200,33 @@ function toggleSidebar(){
                 </div>
             </a>
 
-            <!-- Card 3: UnitClaw 虾盘 -->
-            <a href="products/unitclaw.html" class="card-hover block bg-card border border-border rounded-2xl p-8 group cursor-pointer">
-                <div class="w-14 h-14 bg-amber-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-amber-500/20 transition-colors">
+            <!-- Card 3: AI人工智能实训箱 -->
+            <a href="products/training-box.html" class="card-hover block bg-card border border-border rounded-2xl p-7 group cursor-pointer">
+                <div class="w-14 h-14 bg-emerald/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-emerald/20 transition-colors">
+                    <i class="fas fa-box-open text-2xl text-emerald"></i>
+                </div>
+                <span class="tag tag-box mb-3">阵列三</span>
+                <h3 class="text-xl font-bold mt-3 mb-3">AI人工智能实训箱</h3>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                    AI嵌入式实验教学平台核心载体，集成Raspberry Pi 5、机器视觉、语音识别、多传感器模块，配套6门课程与100+实训项目，开箱即用。
+                </p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-500">嵌入式核心板</span>
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-500">机器视觉</span>
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-500">100+实训</span>
+                    <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-500">开箱即用</span>
+                </div>
+                <div class="flex items-center text-emerald text-sm font-semibold">
+                    了解产品 <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                </div>
+            </a>
+
+            <!-- Card 4: UnitClaw 虾盘 -->
+            <a href="products/unitclaw.html" class="card-hover block bg-card border border-border rounded-2xl p-7 group cursor-pointer">
+                <div class="w-14 h-14 bg-amber-500/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-amber-500/20 transition-colors">
                     <i class="fas fa-microchip text-2xl text-warm"></i>
                 </div>
-                <span class="tag tag-claw mb-3">阵列三</span>
+                <span class="tag tag-claw mb-3">阵列四</span>
                 <h3 class="text-xl font-bold mt-3 mb-3">UnitClaw 虾盘</h3>
                 <p class="text-gray-400 text-sm leading-relaxed mb-6">
                     即插即用式AI执行单元，U盘形态，插入即可运行。内置企业微信智能报价、AI实训环境、自动化工作流，让AI真正落地干活。
@@ -229,7 +252,7 @@ function toggleSidebar(){
             <p class="mt-3 text-gray-400">专为高校 AI 教育场景设计的完整解决方案</p>
         </div>
         <div class="grid md:grid-cols-4 gap-8 text-center">
-            <div class="p-6"><div class="text-4xl font-bold text-accent mb-2">3</div><div class="text-gray-400 text-sm">产品阵列全覆盖</div></div>
+            <div class="p-6"><div class="text-4xl font-bold text-accent mb-2">4</div><div class="text-gray-400 text-sm">产品阵列全覆盖</div></div>
             <div class="p-6"><div class="text-4xl font-bold text-purple-400 mb-2">2</div><div class="text-gray-400 text-sm">战略合作品牌</div></div>
             <div class="p-6"><div class="text-4xl font-bold text-warm mb-2">即插即用</div><div class="text-gray-400 text-sm">零部署门槛</div></div>
             <div class="p-6"><div class="text-4xl font-bold text-green-400 mb-2">全场景</div><div class="text-gray-400 text-sm">实验室→课堂→竞赛</div></div>
@@ -260,6 +283,45 @@ function toggleSidebar(){
                 <h3 class="text-lg font-bold mb-3">学科竞赛</h3>
                 <p class="text-gray-400 text-sm leading-relaxed">RoboCup标准平台 + 黑客松模式，Mini Pi Plus和Panthera-HT已成为多项机器人竞赛的官方指定平台。</p>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- 课程体系共建 -->
+<section class="relative z-10 py-20 border-t border-border">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-14">
+            <span class="tag tag-course mb-4">CURRICULUM CO-BUILDING</span>
+            <h2 class="text-3xl md:text-4xl font-bold mt-4">课程体系共建</h2>
+            <p class="mt-3 text-gray-400 max-w-2xl mx-auto">联合高校与行业专家，定制贴合学校培养方案的AI课程体系，让教学真正落地</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="glass rounded-2xl p-8 card-hover">
+                <div class="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center mb-5">
+                    <i class="fas fa-hand-holding-heart text-purple-400 text-xl"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-3">定制课程大纲</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">根据学校专业特色与培养目标，联合设计从AI导论到高级应用的课程体系，融入学校学分体系。</p>
+            </div>
+            <div class="glass rounded-2xl p-8 card-hover">
+                <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mb-5">
+                    <i class="fas fa-chalkboard-teacher text-accent text-xl"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-3">师资培训赋能</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">为教师提供AI课程教学培训、实验指导能力提升、教学资源包及持续的教学研讨支持。</p>
+            </div>
+            <div class="glass rounded-2xl p-8 card-hover">
+                <div class="w-12 h-12 bg-emerald/10 rounded-xl flex items-center justify-center mb-5">
+                    <i class="fas fa-project-diagram text-emerald text-xl"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-3">产教融合对接</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">对接企业真实岗位需求，将产业场景嵌入课程项目，缩小人才培养与行业需求差距。</p>
+            </div>
+        </div>
+        <div class="text-center mt-10">
+            <a href="solutions/education.html" class="inline-flex items-center px-6 py-3 glass hover:bg-white/10 text-gray-300 font-semibold rounded-xl transition-all">
+                了解课程共建详情 <i class="fas fa-arrow-right ml-2"></i>
+            </a>
         </div>
     </div>
 </section>
@@ -310,6 +372,7 @@ function toggleSidebar(){
             <div class="space-y-2 text-sm text-gray-500">
                 <a href="products/robots.html" class="block hover:text-white transition-colors">具身智能机器人</a>
                 <a href="products/courses.html" class="block hover:text-white transition-colors">课程智能体</a>
+                <a href="products/training-box.html" class="block hover:text-white transition-colors">AI人工智能实训箱</a>
                 <a href="products/unitclaw.html" class="block hover:text-white transition-colors">UnitClaw 虾盘</a>
             </div>
         </div>
