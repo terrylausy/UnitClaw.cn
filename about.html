@@ -39,56 +39,134 @@
             }
         }
     </script>
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .glass { background: rgba(15,23,42,0.7); backdrop-filter: blur(10px); border: 1px solid rgba(59,130,246,0.2); }
-            .bg-grid {
-                background-image:
-                    linear-gradient(rgba(59,130,246,0.1) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(59,130,246,0.1) 1px, transparent 1px);
-                background-size: 20px 20px;
-            }
-            .card-hover { transition: all 0.3s ease; }
-            .card-hover:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(59,130,246,0.2); }
-        }
+    <style>
+        .bg-grid{background-image:linear-gradient(rgba(59,130,246,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.06) 1px,transparent 1px);background-size:40px 40px}
+        .glass{background:rgba(17,24,39,.85);backdrop-filter:blur(16px);border:1px solid rgba(59,130,246,.15)}
+        .card-hover{transition:all .35s cubic-bezier(.4,0,.2,1)}
+        .card-hover:hover{transform:translateY(-8px);box-shadow:0 24px 48px rgba(59,130,246,.2)}
+        #sidebar{position:fixed;top:0;left:-320px;width:280px;height:100vh;z-index:100;transition:left .35s cubic-bezier(.4,0,.2,1);overflow-y:auto}
+        #sidebar.open{left:0}
+        #sidebar-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:99;opacity:0;visibility:hidden;transition:all .35s}
+        #sidebar-overlay.show{opacity:1;visibility:visible}
+        .menu-btn{position:fixed;top:16px;left:16px;z-index:98;width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .3s}
+        .menu-btn:hover{background:rgba(59,130,246,.15)}
+        .menu-btn.open{left:296px}
+        .nav-link{display:flex;align-items:center;gap:10px;padding:12px 20px;color:#94a3b8;font-size:.9rem;font-weight:500;transition:all .2s;border-radius:8px;margin:2px 12px}
+        .nav-link:hover,.nav-link.active{color:#fff;background:rgba(59,130,246,.12)}
+        .nav-link i{width:20px;text-align:center;font-size:.85rem}
+        .nav-section{color:#64748b;font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;padding:16px 20px 6px 20px}
+        .top-nav{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(11,17,32,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(59,130,246,.1)}
+        .top-nav .nav-container{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;height:64px}
+        .top-nav .nav-logo{display:flex;align-items:center;gap:8px;text-decoration:none;flex-shrink:0}
+        .top-nav .nav-links{display:none;align-items:center;gap:2px;margin-left:40px;flex:1}
+        @media(min-width:1024px){.top-nav .nav-links{display:flex}}
+        .nav-item{position:relative}
+        .nav-item>a,.nav-item>button{display:flex;align-items:center;gap:6px;padding:8px 16px;color:#cbd5e1;font-size:.9rem;font-weight:500;text-decoration:none;border-radius:8px;transition:all .2s;background:none;border:none;cursor:pointer;font-family:inherit;white-space:nowrap}
+        .nav-item>a:hover,.nav-item:hover>a{color:#fff;background:rgba(59,130,246,.12)}
+        .nav-item>a i.chevron{font-size:.65rem;transition:transform .2s;color:#64748b}
+        .nav-item:hover>a i.chevron{transform:rotate(180deg);color:#60a5fa}
+        .nav-dropdown{position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:10px;opacity:0;visibility:hidden;transition:all .25s;pointer-events:none}
+        .nav-item:hover .nav-dropdown{opacity:1;visibility:visible;pointer-events:auto}
+        .nav-dropdown-inner{background:rgba(17,24,39,.98);backdrop-filter:blur(20px);border:1px solid rgba(59,130,246,.2);border-radius:16px;padding:24px;box-shadow:0 24px 64px rgba(0,0,0,.5)}
+        .nav-dropdown-inner.mega{display:grid;gap:20px;min-width:680px}
+        .nav-dropdown-inner.compact{min-width:320px;display:flex;flex-direction:column;gap:6px}
+        .dd-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;text-decoration:none;transition:all .2s}
+        .dd-item:hover{background:rgba(59,130,246,.1)}
+        .dd-item .dd-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+        .dd-item .dd-icon.blue{background:rgba(59,130,246,.15);color:#60a5fa}
+        .dd-item .dd-icon.purple{background:rgba(139,92,246,.15);color:#a78bfa}
+        .dd-item .dd-icon.emerald{background:rgba(16,185,129,.15);color:#34d399}
+        .dd-item .dd-text .dd-title{color:#f1f5f9;font-weight:600;font-size:.9rem}
+        .dd-item .dd-text .dd-sub{color:#64748b;font-size:.75rem;margin-top:1px}
+        .dd-compact-item{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-radius:8px;color:#cbd5e1;text-decoration:none;font-size:.85rem;transition:all .2s}
+        .dd-compact-item:hover{background:rgba(59,130,246,.1);color:#fff}
+        .dd-compact-item .sub{font-size:.75rem;color:#64748b}
+        .nav-right{display:flex;align-items:center;gap:12px;margin-left:auto;flex-shrink:0}
+        .nav-right .btn-contact{color:#94a3b8;font-size:.85rem;text-decoration:none;padding:8px 14px;border-radius:8px;transition:all .2s}
+        .nav-right .btn-contact:hover{color:#fff;background:rgba(255,255,255,.05)}
+        .nav-right .btn-demo{background:#3b82f6;color:#fff;font-size:.85rem;font-weight:600;padding:8px 18px;border-radius:8px;text-decoration:none;transition:all .2s}
+        .nav-right .btn-demo:hover{background:#2563eb;box-shadow:0 4px 16px rgba(59,130,246,.3)}
+        .mobile-menu-btn{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;border:1px solid rgba(255,255,255,.1);cursor:pointer;color:#cbd5e1;font-size:1.2rem;margin-left:auto}
+        @media(min-width:1024px){.mobile-menu-btn{display:none}}
     </style>
 </head>
 <body class="bg-primary text-white overflow-x-hidden">
     <div class="fixed inset-0 bg-grid z-0 opacity-30"></div>
 
-    <!-- 导航 -->
-    <nav id="navbar" class="glass fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-        <div class="container mx-auto px-6 py-3">
-            <div class="flex justify-between items-center">
-                <a href="index.html" class="flex items-center space-x-2">
-                    <span class="text-lg font-bold">Unit<span class="text-accent">Claw</span>.ai</span>
-                </a>
-                <div class="hidden md:flex items-center space-x-6">
-                    <a href="index.html" class="hover:text-accent transition-colors text-sm">首页</a>
-                    <a href="products/robots.html" class="hover:text-accent transition-colors text-sm">机器人</a>
-                    <a href="products/courses.html" class="hover:text-accent transition-colors text-sm">课程</a>
-                    <a href="products/training-box.html" class="hover:text-accent transition-colors text-sm">AI实训箱</a>
-                    <a href="products/unitclaw.html" class="hover:text-accent transition-colors text-sm">虾盘</a>
-                    <a href="solutions/education.html" class="hover:text-accent transition-colors text-sm">高校方案</a>
-                    <a href="about.html" class="text-accent text-sm font-semibold">关于我们</a>
-                    <a href="contact.html" class="ml-2 px-4 py-2 bg-accent hover:bg-blue-600 text-sm font-semibold rounded-lg transition-colors">预约演示</a>
+    <!-- ====== TOP NAVIGATION BAR ====== -->
+    <header class="top-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="assets/logos/UnitClaw-Logo.png" alt="UnitClaw" class="h-7 w-auto" onerror="this.style.display='none'">
+                <span class="text-base font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-xs font-normal">.ai</span></span>
+            </a>
+            <nav class="nav-links">
+                <div class="nav-item">
+                    <a href="robots/index.html">机器人 <i class="fas fa-chevron-down chevron"></i></a>
+                    <div class="nav-dropdown">
+                        <div class="nav-dropdown-inner mega" style="grid-template-columns:1fr 1fr 1fr">
+                            <a href="robots/mini-pi.html" class="dd-item"><div class="dd-icon blue"><i class="fas fa-robot"></i></div><div class="dd-text"><div class="dd-title">双足机器人 Pi</div><div class="dd-sub">520mm · 12DOF · 开源平台</div></div></a>
+                            <a href="robots/pi-plus.html" class="dd-item"><div class="dd-icon purple"><i class="fas fa-cube"></i></div><div class="dd-text"><div class="dd-title">模块化开源 Pi+</div><div class="dd-sub">650mm · 22DOF · Orin NX</div></div></a>
+                            <a href="robots/mini-hi.html" class="dd-item"><div class="dd-icon emerald"><i class="fas fa-child"></i></div><div class="dd-text"><div class="dd-title">人形机器人 Hi</div><div class="dd-sub">830mm · 23DOF · 高扭矩</div></div></a>
+                        </div>
+                    </div>
                 </div>
-                <button id="menu-btn" class="md:hidden text-white text-2xl">
-                    <i class="fas fa-bars"></i>
-                </button>
+                <div class="nav-item">
+                    <a href="components/index.html">核心零部件 <i class="fas fa-chevron-down chevron"></i></a>
+                    <div class="nav-dropdown">
+                        <div class="nav-dropdown-inner compact">
+                            <a href="components/index.html" class="dd-compact-item">伺服关节模组 <span class="sub">行星·超薄·中空</span></a>
+                            <a href="components/index.html" class="dd-compact-item">PANTHERA-HT 机械臂 <span class="sub">6轴协作·3.5kg负载</span></a>
+                            <a href="components/index.html" class="dd-compact-item">7路CAN主控盒 <span class="sub">RK3588S·多路输出</span></a>
+                            <a href="components/index.html" class="dd-compact-item">电池组 <span class="sub">高压48V·低压24V</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-item"><a href="courses/index.html">机器人课程</a></div>
+                <div class="nav-item"><a href="download/index.html">下载</a></div>
+            </nav>
+            <div class="nav-right">
+                <a href="contact.html" class="btn-contact hidden lg:inline-flex"><i class="fas fa-phone-alt mr-1.5 text-xs text-gray-500"></i>联系我们</a>
+                <a href="contact.html" class="btn-demo">预约演示</a>
+                <button class="mobile-menu-btn" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
             </div>
         </div>
-        <div id="mobile-menu" class="md:hidden glass hidden">
-            <div class="container mx-auto px-6 py-4 flex flex-col space-y-3">
-                <a href="index.html" class="hover:text-accent transition-colors py-2 text-sm">首页</a>
-                <a href="products/robots.html" class="hover:text-accent transition-colors py-2 text-sm">具身智能机器人</a>
-                <a href="products/courses.html" class="hover:text-accent transition-colors py-2 text-sm">课程智能体</a>
-                <a href="products/training-box.html" class="hover:text-accent transition-colors py-2 text-sm">AI人工智能实训箱</a>
-                <a href="products/unitclaw.html" class="hover:text-accent transition-colors py-2 text-sm">UnitClaw 虾盘</a>
-                <a href="solutions/education.html" class="hover:text-accent transition-colors py-2 text-sm">高校教育方案</a>
-                <a href="about.html" class="text-accent py-2 text-sm font-semibold">关于我们</a>
-                <a href="contact.html" class="bg-accent text-white text-center py-2 rounded-lg text-sm mt-2">预约演示</a>
-            </div>
+    </header>
+
+    <!-- Sidebar -->
+    <button class="menu-btn glass" onclick="toggleSidebar()"><i class="fas fa-bars text-white text-lg"></i></button>
+    <div id="sidebar-overlay" onclick="toggleSidebar()"></div>
+    <nav id="sidebar" class="glass">
+        <div class="flex items-center justify-between px-5 py-4 border-b border-white/5">
+            <a href="index.html" class="flex items-center space-x-2.5" onclick="toggleSidebar()">
+                <img src="assets/logos/UnitClaw-Logo.png" class="h-8 w-auto" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <div class="hidden w-8 h-8 bg-gradient-to-br from-accent to-blue-700 rounded-lg items-center justify-center text-sm font-bold">U</div>
+                <span class="text-base font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-xs font-normal">.ai</span></span>
+            </a>
+            <button onclick="toggleSidebar()" class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white/10 transition-colors"><i class="fas fa-times text-gray-400 text-lg"></i></button>
+        </div>
+        <div class="py-3">
+            <a href="index.html" class="nav-link"><i class="fas fa-home"></i>首页</a>
+            <div class="nav-section">机器人</div>
+            <a href="robots/index.html" class="nav-link"><i class="fas fa-robot text-accent"></i>机器人总览</a>
+            <a href="robots/mini-pi.html" class="nav-link"><i class="fas fa-running pl-2"></i>双足机器人 Pi</a>
+            <a href="robots/pi-plus.html" class="nav-link"><i class="fas fa-cubes pl-2"></i>模块化开源 Pi+</a>
+            <a href="robots/mini-hi.html" class="nav-link"><i class="fas fa-child pl-2"></i>人形机器人 Hi</a>
+            <div class="nav-section">核心零部件</div>
+            <a href="components/index.html" class="nav-link"><i class="fas fa-cogs text-warm"></i>核心零部件</a>
+            <div class="nav-section">更多</div>
+            <a href="courses/index.html" class="nav-link"><i class="fas fa-book"></i>机器人课程</a>
+            <a href="download/index.html" class="nav-link"><i class="fas fa-download"></i>下载中心</a>
+            <a href="solutions/education.html" class="nav-link"><i class="fas fa-university"></i>高校教育方案</a>
+            <a href="about.html" class="nav-link active"><i class="fas fa-info-circle"></i>关于我们</a>
+            <div class="nav-section">产品阵列</div>
+            <a href="products/robots.html" class="nav-link"><i class="fas fa-robot text-accent"></i>具身智能机器人</a>
+            <a href="products/courses.html" class="nav-link"><i class="fas fa-graduation-cap text-purple-400"></i>课程智能体</a>
+            <a href="products/training-box.html" class="nav-link"><i class="fas fa-box text-emerald"></i>AI人工智能实训箱</a>
+            <a href="products/unitclaw.html" class="nav-link"><i class="fas fa-microchip text-warm"></i>UnitClaw 虾盘</a>
+            <div class="nav-section">生态合作</div>
+            <a href="partnerships/hightorque.html" class="nav-link"><i class="fas fa-handshake"></i>× 高擎动力</a>
+            <a href="partnerships/suiguangming.html" class="nav-link"><i class="fas fa-handshake"></i>× 燧光明科技</a>
         </div>
     </nav>
 
@@ -355,25 +433,33 @@
     </button>
 
     <script>
+        function toggleSidebar(){
+            const sb = document.getElementById('sidebar');
+            const ov = document.getElementById('sidebar-overlay');
+            const btn = document.querySelector('.menu-btn');
+            const isOpen = sb.classList.contains('open');
+            if(isOpen){
+                sb.classList.remove('open');
+                ov.classList.remove('show');
+                btn.classList.remove('open');
+            }else{
+                sb.classList.add('open');
+                ov.classList.add('show');
+                btn.classList.add('open');
+            }
+        }
+        // Back to top
+        const backToTop = document.getElementById('back-to-top');
         window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            const backToTop = document.getElementById('back-to-top');
             if (window.scrollY > 50) {
-                navbar.classList.add('glass');
-                navbar.querySelector('.container').classList.replace('py-4', 'py-2');
                 backToTop.classList.remove('opacity-0', 'invisible');
                 backToTop.classList.add('opacity-100', 'visible');
             } else {
-                navbar.classList.remove('glass');
-                navbar.querySelector('.container').classList.replace('py-2', 'py-4');
                 backToTop.classList.add('opacity-0', 'invisible');
                 backToTop.classList.remove('opacity-100', 'visible');
             }
         });
-        document.getElementById('menu-btn').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
-        document.getElementById('back-to-top').addEventListener('click', function() {
+        backToTop.addEventListener('click', function() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
