@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>关于我们 - UnitClaw.ai | 万物拟态・智启未来</title>
-    <meta name="description" content="UnitClaw面向高校AI教育，三大产品阵列赋能实验室建设、课程教学与AI实训。万物拟态・智启未来。">
+    <title>关于我们 - UnitClaw.cn | 万物拟态，单元铸智</title>
+    <meta name="description" content="UnitClaw.cn — 具身智能+教育综合解决方案集成商。总部广州，成立于2021年。以高擎动力具身智能机器人硬件平台为基础，与高校开展产教研赛用全链条合作。">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
@@ -12,458 +12,479 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#0F172A',
-                        secondary: '#1E40AF',
-                        accent: '#3B82F6',
-                        glow: '#60A5FA',
-                        dark: '#020617',
+                        primary: '#FFFFFF',
+                        secondary: '#F8FAFC',
+                        accent: '#2563EB',
+                        accent2: '#7C3AED',
+                        dark: '#0F172A',
+                        muted: '#64748B',
+                        border: '#E2E8F0',
                     },
                     fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        sans: ['Inter', 'Noto Sans SC', 'system-ui', 'sans-serif'],
                     },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'glow': 'glow 2s ease-in-out infinite alternate',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        },
-                        glow: {
-                            '0%': { boxShadow: '0 0 5px rgba(96, 165, 250, 0.5)' },
-                            '100%': { boxShadow: '0 0 20px rgba(96, 165, 250, 0.8), 0 0 30px rgba(96, 165, 250, 0.4)' },
-                        }
-                    }
                 }
             }
         }
     </script>
-    <style>
-        .bg-grid{background-image:linear-gradient(rgba(59,130,246,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.06) 1px,transparent 1px);background-size:40px 40px}
-        .glass{background:rgba(17,24,39,.85);backdrop-filter:blur(16px);border:1px solid rgba(59,130,246,.15)}
-        .card-hover{transition:all .35s cubic-bezier(.4,0,.2,1)}
-        .card-hover:hover{transform:translateY(-8px);box-shadow:0 24px 48px rgba(59,130,246,.2)}
-        #sidebar{position:fixed;top:0;left:-320px;width:280px;height:100vh;z-index:100;transition:left .35s cubic-bezier(.4,0,.2,1);overflow-y:auto}
-        #sidebar.open{left:0}
-        #sidebar-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:99;opacity:0;visibility:hidden;transition:all .35s}
-        #sidebar-overlay.show{opacity:1;visibility:visible}
-        .menu-btn{position:fixed;top:16px;left:16px;z-index:98;width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .3s}
-        .menu-btn:hover{background:rgba(59,130,246,.15)}
-        .menu-btn.open{left:296px}
-        .nav-link{display:flex;align-items:center;gap:10px;padding:12px 20px;color:#94a3b8;font-size:.9rem;font-weight:500;transition:all .2s;border-radius:8px;margin:2px 12px}
-        .nav-link:hover,.nav-link.active{color:#fff;background:rgba(59,130,246,.12)}
-        .nav-link i{width:20px;text-align:center;font-size:.85rem}
-        .nav-section{color:#64748b;font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;padding:16px 20px 6px 20px}
-        .top-nav{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(11,17,32,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(59,130,246,.1)}
-        .top-nav .nav-container{max-width:1280px;margin:0 auto;padding:0 32px 0 124px;display:flex;align-items:center;height:72px}
-        .top-nav .nav-logo{display:flex;align-items:center;gap:8px;text-decoration:none;flex-shrink:0}
-        .top-nav .nav-links{display:none;align-items:center;gap:2px;margin-left:40px;flex:1}
-        @media(min-width:1024px){.top-nav .nav-links{display:flex}}
-        .nav-item{position:relative}
-        .nav-item>a,.nav-item>button{display:flex;align-items:center;gap:6px;padding:8px 16px;color:#cbd5e1;font-size:.9rem;font-weight:500;text-decoration:none;border-radius:8px;transition:all .2s;background:none;border:none;cursor:pointer;font-family:inherit;white-space:nowrap}
-        .nav-item>a:hover,.nav-item:hover>a{color:#fff;background:rgba(59,130,246,.12)}
-        .nav-item>a i.chevron{font-size:.65rem;transition:transform .2s;color:#64748b}
-        .nav-item:hover>a i.chevron{transform:rotate(180deg);color:#60a5fa}
-        .nav-dropdown{position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:10px;opacity:0;visibility:hidden;transition:all .25s;pointer-events:none}
-        .nav-item:hover .nav-dropdown{opacity:1;visibility:visible;pointer-events:auto}
-        .nav-dropdown-inner{background:rgba(17,24,39,.98);backdrop-filter:blur(20px);border:1px solid rgba(59,130,246,.2);border-radius:16px;padding:24px;box-shadow:0 24px 64px rgba(0,0,0,.5)}
-        .nav-dropdown-inner.mega{display:grid;gap:20px;min-width:680px}
-        .nav-dropdown-inner.compact{min-width:320px;display:flex;flex-direction:column;gap:6px}
-        .dd-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;text-decoration:none;transition:all .2s}
-        .dd-item:hover{background:rgba(59,130,246,.1)}
-        .dd-item .dd-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
-        .dd-item .dd-icon.blue{background:rgba(59,130,246,.15);color:#60a5fa}
-        .dd-item .dd-icon.purple{background:rgba(139,92,246,.15);color:#a78bfa}
-        .dd-item .dd-icon.emerald{background:rgba(16,185,129,.15);color:#34d399}
-        .dd-item .dd-text .dd-title{color:#f1f5f9;font-weight:600;font-size:.9rem}
-        .dd-item .dd-text .dd-sub{color:#64748b;font-size:.75rem;margin-top:1px}
-        .dd-compact-item{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-radius:8px;color:#cbd5e1;text-decoration:none;font-size:.85rem;transition:all .2s}
-        .dd-compact-item:hover{background:rgba(59,130,246,.1);color:#fff}
-        .dd-compact-item .sub{font-size:.75rem;color:#64748b}
-        .nav-right{display:flex;align-items:center;gap:12px;margin-left:auto;flex-shrink:0}
-        .nav-right .btn-contact{color:#94a3b8;font-size:.85rem;text-decoration:none;padding:8px 14px;border-radius:8px;transition:all .2s}
-        .nav-right .btn-contact:hover{color:#fff;background:rgba(255,255,255,.05)}
-        .nav-right .btn-demo{background:#3b82f6;color:#fff;font-size:.85rem;font-weight:600;padding:8px 18px;border-radius:8px;text-decoration:none;transition:all .2s}
-        .nav-right .btn-demo:hover{background:#2563eb;box-shadow:0 4px 16px rgba(59,130,246,.3)}
-        .mobile-menu-btn{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;border:1px solid rgba(255,255,255,.1);cursor:pointer;color:#cbd5e1;font-size:1.2rem;margin-left:auto}
-        @media(min-width:1024px){.mobile-menu-btn{display:none}}
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .card-white { background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); transition: all 0.3s ease; }
+            .card-white:hover { box-shadow: 0 8px 30px rgba(37,99,235,0.08); transform: translateY(-4px); border-color: #2563EB; }
+            .btn-primary { background: linear-gradient(135deg, #2563EB, #7C3AED); color: white; border-radius: 12px; padding: 14px 32px; font-weight: 600; transition: all 0.3s; display: inline-flex; align-items: center; justify-content: center; }
+            .btn-primary:hover { opacity: 0.9; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(37,99,235,0.3); }
+            .btn-outline { border: 2px solid #2563EB; color: #2563EB; border-radius: 12px; padding: 12px 30px; font-weight: 600; transition: all 0.3s; display: inline-flex; align-items: center; justify-content: center; }
+            .btn-outline:hover { background: #2563EB; color: white; }
+            .section-light { background: #FFFFFF; }
+            .section-gray { background: #F8FAFC; }
+            .gradient-text { background: linear-gradient(135deg, #2563EB, #7C3AED); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+            .badge-blue { background: rgba(37,99,235,0.08); color: #2563EB; padding: 6px 16px; border-radius: 9999px; font-size: 14px; font-weight: 500; }
+        }
     </style>
 </head>
-<body class="bg-primary text-white overflow-x-hidden">
-    <div class="fixed inset-0 bg-grid z-0 opacity-30"></div>
+<body class="bg-primary text-dark overflow-x-hidden">
 
-    <!-- ====== TOP NAVIGATION BAR ====== -->
-    <header class="top-nav">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">
-                <img src="assets/logos/UnitClaw-Logo.png" alt="UnitClaw" class="h-7 w-auto" onerror="this.style.display='none'">
-                <div class="flex flex-col items-center leading-none">
-                    <span class="text-base font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-xs font-normal">.ai</span></span>
-                    <span class="text-[10px] text-gray-500 tracking-wider whitespace-nowrap mt-0.5">万物拟态 · 智启未来</span>
-                </div>
-            </a>
-            <nav class="nav-links">
-                <div class="nav-item">
-                    <a href="robots/index.html">机器人 <i class="fas fa-chevron-down chevron"></i></a>
-                    <div class="nav-dropdown">
-                        <div class="nav-dropdown-inner mega" style="grid-template-columns:1fr 1fr 1fr">
-                            <a href="robots/mini-pi.html" class="dd-item"><div class="dd-icon blue"><i class="fas fa-robot"></i></div><div class="dd-text"><div class="dd-title">双足机器人 Pi</div><div class="dd-sub">520mm · 12DOF · 开源平台</div></div></a>
-                            <a href="robots/pi-plus.html" class="dd-item"><div class="dd-icon purple"><i class="fas fa-cube"></i></div><div class="dd-text"><div class="dd-title">模块化开源 Pi+</div><div class="dd-sub">650mm · 22DOF · Orin NX</div></div></a>
-                            <a href="robots/mini-hi.html" class="dd-item"><div class="dd-icon emerald"><i class="fas fa-child"></i></div><div class="dd-text"><div class="dd-title">人形机器人 Hi</div><div class="dd-sub">830mm · 23DOF · 高扭矩</div></div></a>
-                        </div>
+    <!-- 导航 -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-border">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-gradient-to-r from-accent to-accent2 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-cube text-white text-xl"></i>
                     </div>
+                    <span class="text-2xl font-bold text-dark">Unit<span class="text-accent">Claw</span>.cn</span>
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-muted hover:text-accent transition-colors font-medium">首页</a>
+                    <a href="products/robots.html" class="text-muted hover:text-accent transition-colors font-medium">产品</a>
+                    <a href="solutions/education.html" class="text-muted hover:text-accent transition-colors font-medium">方案</a>
+                    <a href="partnerships/hightorque.html" class="text-muted hover:text-accent transition-colors font-medium">合作</a>
+                    <a href="about.html" class="text-accent font-semibold">关于我们</a>
                 </div>
-                <div class="nav-item">
-                    <a href="components/index.html">核心零部件 <i class="fas fa-chevron-down chevron"></i></a>
-                    <div class="nav-dropdown">
-                        <div class="nav-dropdown-inner compact">
-                            <a href="components/index.html" class="dd-compact-item">伺服关节模组 <span class="sub">行星·超薄·中空</span></a>
-                            <a href="components/index.html" class="dd-compact-item">PANTHERA-HT 机械臂 <span class="sub">6轴协作·3.5kg负载</span></a>
-                            <a href="components/dexterous-hand.html" class="dd-compact-item" style="background:rgba(245,158,11,.1);color:#fbbf24">UnitClaw 灵巧手 <span class="sub">五指仿生·21DOF</span></a>
-                            <a href="components/index.html" class="dd-compact-item">7路CAN主控盒 <span class="sub">RK3588S·多路输出</span></a>
-                            <a href="components/index.html" class="dd-compact-item">电池组 <span class="sub">高压48V·低压24V</span></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="nav-item"><a href="courses/index.html">机器人课程</a></div>
-                <div class="nav-item"><a href="download/index.html">下载</a></div><div class="nav-item"><a href="partnerships/university-cooperation.html" style="color:#a78bfa">高校合作</a></div>
-            </nav>
-            <div class="nav-right">
-                <a href="contact.html" class="btn-contact hidden lg:inline-flex"><i class="fas fa-phone-alt mr-1.5 text-xs text-gray-500"></i>联系我们</a>
-                <a href="contact.html" class="btn-demo">预约演示</a>
-                <button class="mobile-menu-btn" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
+                <button id="menu-btn" class="md:hidden text-dark text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </div>
-    </header>
-
-    <!-- Sidebar -->
-    <button class="menu-btn glass" onclick="toggleSidebar()"><i class="fas fa-bars text-white text-lg"></i></button>
-    <div id="sidebar-overlay" onclick="toggleSidebar()"></div>
-    <nav id="sidebar" class="glass">
-        <div class="flex items-center justify-between px-5 py-4 border-b border-white/5">
-            <a href="index.html" class="flex items-center space-x-2.5" onclick="toggleSidebar()">
-                <img src="assets/logos/UnitClaw-Logo.png" class="h-8 w-auto" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                <div class="hidden w-8 h-8 bg-gradient-to-br from-accent to-blue-700 rounded-lg items-center justify-center text-sm font-bold">U</div>
-                <span class="text-base font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-xs font-normal">.ai</span></span>
-            </a>
-            <button onclick="toggleSidebar()" class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white/10 transition-colors"><i class="fas fa-times text-gray-400 text-lg"></i></button>
-        </div>
-        <div class="py-3">
-            <a href="index.html" class="nav-link"><i class="fas fa-home"></i>首页</a>
-            <div class="nav-section">机器人</div>
-            <a href="robots/index.html" class="nav-link"><i class="fas fa-robot text-accent"></i>机器人总览</a>
-            <a href="robots/mini-pi.html" class="nav-link"><i class="fas fa-running pl-2"></i>双足机器人 Pi</a>
-            <a href="robots/pi-plus.html" class="nav-link"><i class="fas fa-cubes pl-2"></i>模块化开源 Pi+</a>
-            <a href="robots/mini-hi.html" class="nav-link"><i class="fas fa-child pl-2"></i>人形机器人 Hi</a>
-            <div class="nav-section">核心零部件</div>
-            <a href="components/index.html" class="nav-link"><i class="fas fa-cogs text-warm"></i>核心零部件</a>
-            <div class="nav-section">更多</div>
-            <a href="courses/index.html" class="nav-link"><i class="fas fa-book"></i>机器人课程</a>
-            <a href="download/index.html" class="nav-link"><i class="fas fa-download"></i>下载中心</a>
-            <a href="solutions/education.html" class="nav-link"><i class="fas fa-university"></i>高校教育方案</a>
-            <a href="about.html" class="nav-link active"><i class="fas fa-info-circle"></i>关于我们</a>
-            <div class="nav-section">产品阵列</div>
-            <a href="products/robots.html" class="nav-link"><i class="fas fa-robot text-accent"></i>具身智能机器人</a>
-            <a href="products/courses.html" class="nav-link"><i class="fas fa-graduation-cap text-purple-400"></i>课程智能体</a>
-            <a href="products/training-box.html" class="nav-link"><i class="fas fa-box text-emerald"></i>AI人工智能实训箱</a>
-            <a href="products/unitclaw.html" class="nav-link"><i class="fas fa-microchip text-warm"></i>UnitClaw 虾盘</a>
-            <div class="nav-section">生态合作</div>
-            <a href="partnerships/hightorque.html" class="nav-link"><i class="fas fa-handshake"></i>× 高擎动力</a>
-            <a href="partnerships/suiguangming.html" class="nav-link"><i class="fas fa-handshake"></i>× 燧光明科技</a>
+        <div id="mobile-menu" class="md:hidden bg-white border-t border-border hidden">
+            <div class="container mx-auto px-6 py-4 flex flex-col space-y-4">
+                <a href="index.html" class="text-muted hover:text-accent transition-colors py-2 font-medium">首页</a>
+                <a href="products/robots.html" class="text-muted hover:text-accent transition-colors py-2 font-medium">产品</a>
+                <a href="solutions/education.html" class="text-muted hover:text-accent transition-colors py-2 font-medium">方案</a>
+                <a href="partnerships/hightorque.html" class="text-muted hover:text-accent transition-colors py-2 font-medium">合作</a>
+                <a href="about.html" class="text-accent py-2 font-semibold">关于我们</a>
+            </div>
         </div>
     </nav>
 
     <!-- Hero -->
-    <section class="min-h-[50vh] flex items-center relative pt-20">
-        <div class="container mx-auto px-6 py-20 text-center">
-            <h1 class="text-4xl lg:text-5xl font-bold mb-6">关于 <span class="text-accent">UnitClaw</span></h1>
-            <p class="text-xl text-gray-300 max-w-3xl mx-auto">我们是一支专注于AI落地的技术团队，致力于让每一家企业、每一个人都能用上真正好用的AI工具。</p>
+    <section class="pt-32 pb-20 bg-gradient-to-br from-white via-blue-50 to-purple-50 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-accent rounded-full filter blur-3xl"></div>
+            <div class="absolute bottom-10 right-10 w-96 h-96 bg-accent2 rounded-full filter blur-3xl"></div>
         </div>
-    </section>
-
-    <!-- 我们的愿景 -->
-    <section class="py-20 relative">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div>
-                    <h2 class="text-3xl lg:text-4xl font-bold mb-8">我们的 <span class="text-accent">使命与愿景</span></h2>
-                    <div class="space-y-6">
-                        <div class="glass rounded-2xl p-6 card-hover">
-                            <div class="flex items-start space-x-4">
-                                <div class="w-12 h-12 bg-gradient-to-r from-secondary to-accent rounded-xl flex items-center justify-center flex-shrink-0">
-                                    <i class="fas fa-bullseye text-xl text-white"></i>
-                                </div>
-                                <div>
-                                    <h3 class="text-xl font-bold mb-2">使命</h3>
-                                    <p class="text-gray-300">让AI不再是高高在上的技术概念，而是像螺丝刀一样简单好用的生产力工具。我们希望每个普通用户都能插上U盘、双击运行，立刻拥有AI能力。</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="glass rounded-2xl p-6 card-hover">
-                            <div class="flex items-start space-x-4">
-                                <div class="w-12 h-12 bg-gradient-to-r from-secondary to-accent rounded-xl flex items-center justify-center flex-shrink-0">
-                                    <i class="fas fa-eye text-xl text-white"></i>
-                                </div>
-                                <div>
-                                    <h3 class="text-xl font-bold mb-2">愿景</h3>
-                                    <p class="text-gray-300">成为全球领先的模块化AI执行单元平台，构建一个开放、可组合的AI工具生态，让企业和个人像搭积木一样组建自己的数字工作流。</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="glass rounded-2xl p-6 card-hover">
-                            <div class="flex items-start space-x-4">
-                                <div class="w-12 h-12 bg-gradient-to-r from-secondary to-accent rounded-xl flex items-center justify-center flex-shrink-0">
-                                    <i class="fas fa-heart text-xl text-white"></i>
-                                </div>
-                                <div>
-                                    <h3 class="text-xl font-bold mb-2">价值观</h3>
-                                    <p class="text-gray-300">简单至上、数据安全、开放生态、持续进化。我们相信最好的技术就是让用户感受不到技术的存在。</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="relative">
-                    <div class="glass rounded-2xl p-8 text-center">
-                        <div class="w-24 h-24 bg-gradient-to-r from-secondary to-accent rounded-2xl flex items-center justify-center mx-auto mb-6 animate-float">
-                            <i class="fas fa-cube text-5xl text-white"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4">UnitClaw 名称由来</h3>
-                        <p class="text-gray-300 leading-relaxed">Unit（单元）+ Claw（爪子）——像章鱼的触手一样灵活多变，每一个AI执行单元都是一个独立的"爪子"，可以单独抓取任务，也可以协同作战，组合成强大的AI工作流。</p>
-                    </div>
-                </div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="badge-blue inline-flex items-center space-x-2 mb-6">
+                <i class="fas fa-building"></i>
+                <span>关于 UnitClaw.cn</span>
+            </div>
+            <h1 class="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
+                具身智能<span class="gradient-text">+</span>教育<br>综合解决方案集成商
+            </h1>
+            <p class="text-xl text-muted max-w-3xl mx-auto mb-10 leading-relaxed">
+                总部广州，成立于 2021 年。以高擎动力具身智能机器人硬件平台为基础，融合自研课程体系、动作开发工具、赛事支撑能力与产业化资源，与高校开展「产 · 教 · 研 · 赛 · 用」全链条合作。
+            </p>
+            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 justify-center">
+                <a href="#business" class="btn-primary">
+                    <i class="fas fa-rocket mr-2"></i>了解我们的方案
+                </a>
+                <a href="contact.html" class="btn-outline">
+                    <i class="fas fa-handshake mr-2"></i>联系合作
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- 发展历程 -->
-    <section class="py-20 bg-dark/50 relative">
+    <!-- 核心业务方向 -->
+    <section id="business" class="py-24 section-gray">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-3xl lg:text-4xl font-bold mb-4">发展 <span class="text-accent">历程</span></h2>
-                <p class="text-gray-300 max-w-2xl mx-auto">从idea到产品，UnitClaw一直在快速进化</p>
+                <div class="badge-blue inline-flex items-center space-x-2 mb-4">
+                    <i class="fas fa-briefcase"></i>
+                    <span>核心业务</span>
+                </div>
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4">三大业务方向</h2>
+                <p class="text-muted max-w-2xl mx-auto text-lg">从硬件平台到课程体系，从科研支撑到赛事服务，提供一站式解决方案</p>
             </div>
-            <div class="max-w-4xl mx-auto">
-                <div class="relative">
-                    <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-accent to-secondary"></div>
-                    <div class="space-y-12">
-                        <div class="relative flex items-center">
-                            <div class="w-1/2 pr-8 text-right">
-                                <div class="glass rounded-2xl p-6 card-hover inline-block">
-                                    <h3 class="text-xl font-bold text-accent mb-2">项目启动</h3>
-                                    <p class="text-gray-400 text-sm mb-2">2025 Q1</p>
-                                    <p class="text-gray-300">核心团队组建，开始模块化AI执行单元的技术预研，确立了"即插即用"的产品方向。</p>
-                                </div>
-                            </div>
-                            <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-accent rounded-full"></div>
-                            <div class="w-1/2 pl-8"></div>
-                        </div>
-                        <div class="relative flex items-center">
-                            <div class="w-1/2 pr-8"></div>
-                            <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-accent rounded-full"></div>
-                            <div class="w-1/2 pl-8">
-                                <div class="glass rounded-2xl p-6 card-hover inline-block">
-                                    <h3 class="text-xl font-bold text-accent mb-2">首个Alpha版本</h3>
-                                    <p class="text-gray-400 text-sm mb-2">2025 Q3</p>
-                                    <p class="text-gray-300">完成首批6个AI执行单元开发，基于OpenClaw框架，实现了U盘离线运行方案。</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="relative flex items-center">
-                            <div class="w-1/2 pr-8 text-right">
-                                <div class="glass rounded-2xl p-6 card-hover inline-block">
-                                    <h3 class="text-xl font-bold text-accent mb-2">正式发布 v1.0</h3>
-                                    <p class="text-gray-400 text-sm mb-2">2026 Q1</p>
-                                    <p class="text-gray-300">UnitClaw便携AI盘正式上线，预装10+AI执行单元，支持个人版和企业版。淘宝、抖音同步发售。</p>
-                                </div>
-                            </div>
-                            <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-accent rounded-full"></div>
-                            <div class="w-1/2 pl-8"></div>
-                        </div>
-                        <div class="relative flex items-center">
-                            <div class="w-1/2 pr-8"></div>
-                            <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-accent rounded-full animate-pulse"></div>
-                            <div class="w-1/2 pl-8">
-                                <div class="glass rounded-2xl p-6 card-hover inline-block border border-accent/50">
-                                    <h3 class="text-xl font-bold text-accent mb-2">生态扩展 v2.0 <span class="text-sm bg-accent text-white px-2 py-0.5 rounded-full ml-2">进行中</span></h3>
-                                    <p class="text-gray-400 text-sm mb-2">2026 Q2-Q4</p>
-                                    <p class="text-gray-300">扩展至50+AI执行单元，开放开发者平台，支持第三方单元接入，推出企业私有化部署方案。</p>
-                                </div>
-                            </div>
-                        </div>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- 业务1 -->
+                <div class="card-white p-8">
+                    <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-robot text-2xl text-white"></i>
                     </div>
+                    <h3 class="text-xl font-bold mb-3 text-dark">具身智能机器人平台</h3>
+                    <p class="text-muted mb-6 leading-relaxed">以高擎动力 Mini Pi / Pi+ / Hi 等具身智能机器人为硬件基础，提供开放的二次开发接口、SDK 文档与示例代码，支持高校快速搭建机器人教学与科研实验环境。</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-accent mt-0.5 flex-shrink-0"></i>
+                            <span class="text-muted">双足/四足/人形全系列机器人硬件</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-accent mt-0.5 flex-shrink-0"></i>
+                            <span class="text-muted">完整 SDK + API 二次开发支持</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-accent mt-0.5 flex-shrink-0"></i>
+                            <span class="text-muted">伺服关节模组等核心零部件供应</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- 业务2 -->
+                <div class="card-white p-8">
+                    <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-graduation-cap text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-dark">AI+机器人课程体系</h3>
+                    <p class="text-muted mb-6 leading-relaxed">与燧光明科技全面合作，提供标准化 AI 嵌入式实验教学平台、实训箱硬件、完整课程 PPT/实验指导书/考核方案，支持高校一键落地 AI 机器人课程。</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-accent mt-0.5 flex-shrink-0"></i>
+                            <span class="text-muted">标准课程 + 实训箱 + 师资培训</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-accent mt-0.5 flex-shrink-0"></i>
+                            <span class="text-muted">完整教学资料：PPT/实验指导/考核</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-accent mt-0.5 flex-shrink-0"></i>
+                            <span class="text-muted">支持定制化课程开发服务</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- 业务3 -->
+                <div class="card-white p-8">
+                    <div class="w-16 h-16 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-flask text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-dark">产学研赛用全链条服务</h3>
+                    <p class="text-muted mb-6 leading-relaxed">提供科研合作平台、机器人赛事技术支撑、学生实习就业机会对接、科研成果转化服务，帮助高校实现 AI 机器人教育的产学研用闭环。</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-accent mt-0.5 flex-shrink-0"></i>
+                            <span class="text-muted">科研合作 + 联合实验室建设</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-accent mt-0.5 flex-shrink-0"></i>
+                            <span class="text-muted">赛事技术支撑 + 训练方案指导</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-accent mt-0.5 flex-shrink-0"></i>
+                            <span class="text-muted">实习就业对接 + 成果转化服务</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 为什么选择 UnitClaw -->
+    <section class="py-24 section-light">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="badge-blue inline-flex items-center space-x-2 mb-4">
+                    <i class="fas fa-star"></i>
+                    <span>差异化优势</span>
+                </div>
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4">为什么选择 UnitClaw.cn</h2>
+                <p class="text-muted max-w-2xl mx-auto text-lg">我们不只是卖产品，更是您的教育解决方案合作伙伴</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="card-white p-6">
+                    <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-layer-group text-accent text-xl"></i>
+                    </div>
+                    <h4 class="font-bold text-dark mb-2">全栈能力</h4>
+                    <p class="text-muted text-sm leading-relaxed">硬件平台 → 课程体系 → 赛事支撑 → 就业对接，覆盖 AI 机器人教育全链路。</p>
+                </div>
+                <div class="card-white p-6">
+                    <div class="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-handshake text-accent2 text-xl"></i>
+                    </div>
+                    <h4 class="font-bold text-dark mb-2">顶级战略伙伴</h4>
+                    <p class="text-muted text-sm leading-relaxed">与高擎动力（机器人硬件）、燧光明（AI 课程）建立深度战略合作，资源保障有力。</p>
+                </div>
+                <div class="card-white p-6">
+                    <div class="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-calendar-check text-emerald-500 text-xl"></i>
+                    </div>
+                    <h4 class="font-bold text-dark mb-2">4 年行业深耕</h4>
+                    <p class="text-muted text-sm leading-relaxed">2021 年成立至今，持续深耕 AI 机器人教育领域，积累丰富的项目交付与教学服务经验。</p>
+                </div>
+                <div class="card-white p-6">
+                    <div class="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-tools text-orange-500 text-xl"></i>
+                    </div>
+                    <h4 class="font-bold text-dark mb-2">即用即落地</h4>
+                    <p class="text-muted text-sm leading-relaxed">标准化产品 + 完整教学资料包，高校无需从零搭建，最快一学期即可开课。</p>
+                </div>
+                <div class="card-white p-6">
+                    <div class="w-12 h-12 bg-cyan-50 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-users text-cyan-500 text-xl"></i>
+                    </div>
+                    <h4 class="font-bold text-dark mb-2">师资培训支持</h4>
+                    <p class="text-muted text-sm leading-relaxed">提供教师培训、教学答疑、课程更新服务，降低高校师资门槛，保障教学质量。</p>
+                </div>
+                <div class="card-white p-6">
+                    <div class="w-12 h-12 bg-pink-50 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-trophy text-pink-500 text-xl"></i>
+                    </div>
+                    <h4 class="font-bold text-dark mb-2">赛事生态支撑</h4>
+                    <p class="text-muted text-sm leading-relaxed">深度参与机器人赛事生态，提供参赛技术支持、训练方案设计，助力高校竞赛成绩突破。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 合作模式 -->
+    <section class="py-24 section-gray">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="badge-blue inline-flex items-center space-x-2 mb-4">
+                    <i class="fas fa-handshake"></i>
+                    <span>合作模式</span>
+                </div>
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4">三种合作模式</h2>
+                <p class="text-muted max-w-2xl mx-auto text-lg">根据高校不同需求，灵活选择合作方式</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="card-white p-8 text-center">
+                    <div class="w-20 h-20 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-chalkboard-teacher text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-dark">课程共建</h3>
+                    <p class="text-muted mb-6 leading-relaxed">引入标准化 AI 机器人课程体系，包括实训箱硬件、教学资料、师资培训，快速落地新课。</p>
+                    <span class="text-sm text-accent font-medium bg-accent/10 px-3 py-1 rounded-full">适合：新开课 / 课程升级</span>
+                </div>
+                <div class="card-white p-8 text-center border-2 border-accent relative">
+                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-accent to-accent2 text-white text-xs font-bold px-3 py-1 rounded-full">推荐</div>
+                    <div class="w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-microscope text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-dark">实验室共建</h3>
+                    <p class="text-muted mb-6 leading-relaxed">联合建设 AI 机器人实验室，包含硬件平台、课程体系、科研支撑、赛事训练，打造高校 AI 教育标杆。</p>
+                    <span class="text-sm text-accent font-medium bg-accent/10 px-3 py-1 rounded-full">适合：重点高校 / 双一流</span>
+                </div>
+                <div class="card-white p-8 text-center">
+                    <div class="w-20 h-20 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-flag-checkered text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-dark">赛事合作</h3>
+                    <p class="text-muted mb-6 leading-relaxed">为高校机器人赛事队伍提供技术支撑、训练方案、硬件支持，助力在 RoboMaster、IEEE 等赛事中取得佳绩。</p>
+                    <span class="text-sm text-accent font-medium bg-accent/10 px-3 py-1 rounded-full">适合：有参赛计划的高校</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- 核心数据 -->
-    <section class="py-20 relative">
+    <section class="py-24 section-light">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-3xl lg:text-4xl font-bold mb-4">用数据 <span class="text-accent">说话</span></h2>
+                <div class="badge-blue inline-flex items-center space-x-2 mb-4">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>用数据说话</span>
+                </div>
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4">万物拟态，脚踏实地</h2>
             </div>
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="glass rounded-2xl p-8 text-center card-hover">
-                    <div class="text-4xl font-bold text-accent mb-2">10+</div>
-                    <p class="text-gray-300">预装AI执行单元</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+                <div class="card-white p-8 text-center">
+                    <div class="text-5xl font-bold gradient-text mb-2">5</div>
+                    <p class="text-muted">已服务高校</p>
                 </div>
-                <div class="glass rounded-2xl p-8 text-center card-hover">
-                    <div class="text-4xl font-bold text-accent mb-2">1000+</div>
-                    <p class="text-gray-300">活跃用户</p>
+                <div class="card-white p-8 text-center">
+                    <div class="text-5xl font-bold gradient-text mb-2">3</div>
+                    <p class="text-muted">战略合作伙伴</p>
                 </div>
-                <div class="glass rounded-2xl p-8 text-center card-hover">
-                    <div class="text-4xl font-bold text-accent mb-2">8+</div>
-                    <p class="text-gray-300">国产AI模型支持</p>
+                <div class="card-white p-8 text-center">
+                    <div class="text-5xl font-bold gradient-text mb-2">10+</div>
+                    <p class="text-muted">机器人型号</p>
                 </div>
-                <div class="glass rounded-2xl p-8 text-center card-hover">
-                    <div class="text-4xl font-bold text-accent mb-2">4</div>
-                    <p class="text-gray-300">跨平台支持</p>
+                <div class="card-white p-8 text-center">
+                    <div class="text-5xl font-bold gradient-text mb-2">4</div>
+                    <p class="text-muted">年行业深耕</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 团队 -->
-    <section class="py-20 bg-dark/50 relative">
+    <!-- 关于我们（公司简介） -->
+    <section class="py-24 section-gray">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl lg:text-4xl font-bold mb-4">核心 <span class="text-accent">团队</span></h2>
-                <p class="text-gray-300 max-w-2xl mx-auto">一群热爱技术、相信AI改变世界的人</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <div class="glass rounded-2xl p-8 text-center card-hover">
-                    <div class="w-24 h-24 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-user text-3xl text-white"></i>
+            <div class="max-w-5xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <div class="badge-blue inline-flex items-center space-x-2 mb-4">
+                            <i class="fas fa-info-circle"></i>
+                            <span>关于我们</span>
+                        </div>
+                        <h2 class="text-3xl lg:text-4xl font-bold mb-6">万物拟态，<span class="gradient-text">单元铸智</span></h2>
+                        <p class="text-muted mb-6 leading-relaxed">UnitClaw.cn 是面向高校的 AI+机器人教育平台，总部位于广州，成立于 2021 年。我们以小巧灵活的具身智能机器人为载体，融合自研课程与产业资源，为高校提供从硬件到课程、从教学到科研、从训练到就业的全链条解决方案。</p>
+                        <p class="text-muted mb-8 leading-relaxed">我们的使命是让每一所高校都能轻松开展 AI 教育，让每一位学生都能亲手操作最前沿的具身智能机器人。</p>
+                        <div class="flex flex-wrap gap-4">
+                            <div class="flex items-center space-x-2 bg-blue-50 px-4 py-2 rounded-lg">
+                                <i class="fas fa-map-marker-alt text-accent"></i>
+                                <span class="text-dark font-medium text-sm">总部：广州</span>
+                            </div>
+                            <div class="flex items-center space-x-2 bg-purple-50 px-4 py-2 rounded-lg">
+                                <i class="fas fa-calendar text-accent2"></i>
+                                <span class="text-dark font-medium text-sm">成立于 2021 年</span>
+                            </div>
+                            <div class="flex items-center space-x-2 bg-emerald-50 px-4 py-2 rounded-lg">
+                                <i class="fas fa-university text-emerald-500"></i>
+                                <span class="text-dark font-medium text-sm">服务 5 所高校</span>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold mb-1">创始人 & CEO</h3>
-                    <p class="text-accent text-sm mb-4">产品战略 & 技术架构</p>
-                    <p class="text-gray-400 text-sm">10年+企业软件经验，前头部互联网公司技术负责人，OpenClaw社区核心贡献者。</p>
-                </div>
-                <div class="glass rounded-2xl p-8 text-center card-hover">
-                    <div class="w-24 h-24 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-user text-3xl text-white"></i>
+                    <div class="space-y-6">
+                        <div class="card-white p-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent2 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-bullseye text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-dark mb-1">使命</h4>
+                                    <p class="text-muted text-sm leading-relaxed">让每一所高校都能轻松开展 AI 教育，让具身智能机器人成为高校教学与科研的标准配置。</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-white p-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent2 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-eye text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-dark mb-1">愿景</h4>
+                                    <p class="text-muted text-sm leading-relaxed">成为全球领先的具身智能教育解决方案提供商，让 AI+机器人教育触手可及。</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-white p-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-gradient-to-r from-accent to-accent2 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-heart text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-dark mb-1">价值观</h4>
+                                    <p class="text-muted text-sm leading-relaxed">创新 · 协作 · 卓越 · 诚信 —— 以技术创新驱动教育发展，以真诚合作共创价值。</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold mb-1">CTO</h3>
-                    <p class="text-accent text-sm mb-4">AI引擎 & 基础架构</p>
-                    <p class="text-gray-400 text-sm">AI算法专家，专注于本地化AI部署与优化，主导开发了UnitClaw的核心执行引擎。</p>
-                </div>
-                <div class="glass rounded-2xl p-8 text-center card-hover">
-                    <div class="w-24 h-24 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-user text-3xl text-white"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-1">产品总监</h3>
-                    <p class="text-accent text-sm mb-4">用户体验 & 功能设计</p>
-                    <p class="text-gray-400 text-sm">深耕SaaS产品领域，善于将复杂技术转化为简单易用的产品体验。</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 联系CTA -->
-    <section class="py-20 relative">
+    <!-- 名称释义 -->
+    <section class="py-24 section-light">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto text-center">
+                <div class="card-white p-10">
+                    <div class="w-20 h-20 bg-gradient-to-r from-accent to-accent2 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-cube text-4xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-dark">UnitClaw 名称由来</h3>
+                    <p class="text-muted leading-relaxed">Unit（单元）+ Claw（爪子）—— 如灵巧的机械爪般灵活多变，每一套解决方案都是一个独立的执行单元。可单独解决教学痛点，也可协同组合为完整的教育生态，体现"万物拟态，单元铸智"的品牌哲学。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-gradient-to-r from-accent to-accent2">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl lg:text-4xl font-bold mb-6">想加入我们？</h2>
-            <p class="text-gray-300 max-w-2xl mx-auto mb-8">我们始终在寻找热爱技术、相信AI未来的伙伴。如果你对模块化AI、开源生态感兴趣，欢迎联系。</p>
+            <h2 class="text-3xl lg:text-4xl font-bold mb-6 text-white">准备好与 UnitClaw.cn 合作了吗？</h2>
+            <p class="text-blue-100 max-w-2xl mx-auto mb-10 text-lg">无论您是想开设新课、建设实验室，还是备战机器人赛事，我们都能为您提供最适合的解决方案。</p>
             <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 justify-center">
-                <a href="index.html#contact" class="px-8 py-4 bg-gradient-to-r from-secondary to-accent rounded-lg text-lg font-semibold hover:opacity-90 transition-opacity text-center animate-glow">
-                    <i class="fas fa-envelope mr-2"></i>联系我们
+                <a href="contact.html" class="bg-white text-accent px-8 py-4 rounded-xl text-lg font-semibold hover:shadow-lg transition-all inline-flex items-center justify-center">
+                    <i class="fas fa-paper-plane mr-2"></i>立即咨询
                 </a>
-                <a href="products.html" class="px-8 py-4 border border-accent rounded-lg text-lg font-semibold hover:bg-accent/10 transition-colors text-center">
-                    <i class="fas fa-shopping-cart mr-2"></i>查看产品
+                <a href="partnerships/university-cooperation.html" class="border-2 border-white text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white hover:text-accent transition-all inline-flex items-center justify-center">
+                    <i class="fas fa-file-contract mr-2"></i>了解合作详情
                 </a>
             </div>
         </div>
     </section>
 
     <!-- 页脚 -->
-    <footer class="py-12 bg-dark relative">
+    <footer class="bg-dark text-gray-400 py-16">
         <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
                 <div>
                     <div class="flex items-center space-x-2 mb-6">
-                        <div class="w-10 h-10 bg-gradient-to-r from-secondary to-accent rounded-lg flex items-center justify-center"><i class="fas fa-cube text-white text-xl"></i></div>
-                        <span class="text-2xl font-bold">Unit<span class="text-accent">Claw</span>.ai</span>
+                        <div class="w-10 h-10 bg-gradient-to-r from-accent to-accent2 rounded-lg flex items-center justify-center"><i class="fas fa-cube text-white text-xl"></i></div>
+                        <span class="text-2xl font-bold text-white">Unit<span class="text-accent">Claw</span>.cn</span>
                     </div>
-                    <p class="text-gray-400 mb-6">面向高校的AI+机器人教育平台。万物拟态・智启未来 —— 以三大产品阵列赋能AI教育全链路。</p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-accent transition-colors"><i class="fab fa-weibo"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-accent transition-colors"><i class="fab fa-wechat"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-accent transition-colors"><i class="fab fa-tiktok"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-accent transition-colors"><i class="fab fa-github"></i></a>
-                    </div>
+                    <p class="text-gray-400 mb-6 leading-relaxed">具身智能+教育综合解决方案集成商。万物拟态，单元铸智 —— 以三大产品阵列赋能 AI 教育全链路。</p>
                 </div>
                 <div>
-                    <h4 class="text-lg font-bold mb-6">产品</h4>
+                    <h4 class="text-white font-bold mb-6">产品</h4>
                     <ul class="space-y-3">
-                        <li><a href="products.html" class="text-gray-400 hover:text-accent transition-colors">便携AI盘</a></li>
-                        <li><a href="products.html" class="text-gray-400 hover:text-accent transition-colors">企业部署包</a></li>
-                        <li><a href="units.html" class="text-gray-400 hover:text-accent transition-colors">AI执行单元</a></li>
-                        <li><a href="custom.html" class="text-gray-400 hover:text-accent transition-colors">定制服务</a></li>
+                        <li><a href="products/robots.html" class="hover:text-accent transition-colors">具身智能机器人</a></li>
+                        <li><a href="products/courses.html" class="hover:text-accent transition-colors">课程智能体</a></li>
+                        <li><a href="products/unitclaw.html" class="hover:text-accent transition-colors">UnitClaw 虾盘</a></li>
+                        <li><a href="products/training-box.html" class="hover:text-accent transition-colors">AI 实训箱</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-lg font-bold mb-6">支持</h4>
+                    <h4 class="text-white font-bold mb-6">方案与合作</h4>
                     <ul class="space-y-3">
-                        <li><a href="guide.html" class="text-gray-400 hover:text-accent transition-colors">使用文档</a></li>
-                        <li><a href="support.html" class="text-gray-400 hover:text-accent transition-colors">常见问题</a></li>
-                        <li><a href="support.html" class="text-gray-400 hover:text-accent transition-colors">技术支持</a></li>
-                        <li><a href="index.html#contact" class="text-gray-400 hover:text-accent transition-colors">联系我们</a></li>
+                        <li><a href="solutions/education.html" class="hover:text-accent transition-colors">高校教育方案</a></li>
+                        <li><a href="partnerships/hightorque.html" class="hover:text-accent transition-colors">x 高擎动力</a></li>
+                        <li><a href="partnerships/suiguangming.html" class="hover:text-accent transition-colors">x 燧光明</a></li>
+                        <li><a href="partnerships/university-cooperation.html" class="hover:text-accent transition-colors">高校合作</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-lg font-bold mb-6">快速链接</h4>
+                    <h4 class="text-white font-bold mb-6">联系我们</h4>
                     <ul class="space-y-3">
-                        <li><a href="about.html" class="text-gray-400 hover:text-accent transition-colors">关于我们</a></li>
-                        <li><a href="blog.html" class="text-gray-400 hover:text-accent transition-colors">新闻动态</a></li>
-                        <li><a href="download.html" class="text-gray-400 hover:text-accent transition-colors">下载中心</a></li>
+                        <li class="flex items-start space-x-2"><i class="fas fa-envelope text-accent mt-1"></i><span>support@unitclaw.cn</span></li>
+                        <li class="flex items-start space-x-2"><i class="fas fa-map-marker-alt text-accent mt-1"></i><span>广州市天河区</span></li>
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 mb-4 md:mb-0">&copy; 2026 UnitClaw.ai · 万物拟态 · 与高校共建 【AI+ 具身智能机器人】课程体系</p>
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm">
+                <p class="text-gray-500 mb-4 md:mb-0">&copy; 2021-2026 UnitClaw.cn · 万物拟态 · 智启未来</p>
                 <div class="flex space-x-6">
-                    <a href="privacy.html" class="text-gray-400 hover:text-accent transition-colors">隐私政策</a>
-                    <a href="terms.html" class="text-gray-400 hover:text-accent transition-colors">服务条款</a>
-                    <a href="cookie.html" class="text-gray-400 hover:text-accent transition-colors">Cookie政策</a>
+                    <a href="about.html" class="text-gray-500 hover:text-accent transition-colors">关于我们</a>
+                    <a href="contact.html" class="text-gray-500 hover:text-accent transition-colors">联系我们</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-r from-secondary to-accent rounded-full flex items-center justify-center opacity-0 invisible transition-all duration-300 z-50">
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-accent rounded-full flex items-center justify-center opacity-0 invisible transition-all duration-300 z-50 shadow-lg hover:bg-blue-700">
         <i class="fas fa-arrow-up text-white"></i>
     </button>
 
     <script>
-        function toggleSidebar(){
-            const sb = document.getElementById('sidebar');
-            const ov = document.getElementById('sidebar-overlay');
-            const btn = document.querySelector('.menu-btn');
-            const isOpen = sb.classList.contains('open');
-            if(isOpen){
-                sb.classList.remove('open');
-                ov.classList.remove('show');
-                btn.classList.remove('open');
-            }else{
-                sb.classList.add('open');
-                ov.classList.add('show');
-                btn.classList.add('open');
-            }
-        }
-        // Back to top
-        const backToTop = document.getElementById('back-to-top');
         window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            const backToTop = document.getElementById('back-to-top');
             if (window.scrollY > 50) {
+                navbar.classList.add('shadow-sm');
                 backToTop.classList.remove('opacity-0', 'invisible');
                 backToTop.classList.add('opacity-100', 'visible');
             } else {
+                navbar.classList.remove('shadow-sm');
                 backToTop.classList.add('opacity-0', 'invisible');
                 backToTop.classList.remove('opacity-100', 'visible');
             }
         });
-        backToTop.addEventListener('click', function() {
+        document.getElementById('menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+        document.getElementById('back-to-top').addEventListener('click', function() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
