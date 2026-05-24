@@ -1,20 +1,20 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>机器人课程 - UnitClaw.ai</title>
+    <title>机器人课程 - unitclaw.cn</title>
     <meta name="description" content="UnitClaw 机器人课程体系：从入门到竞赛，覆盖双足机器人、人形机器人、机械臂三大方向，匹配高校教学需求。">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>tailwind.config={theme:{extend:{colors:{primary:'#0b1120',secondary:'#1a2456',accent:'#3b82f6',light:'#60a5fa',warm:'#f59e0b',card:'#111827',border:'#1e293b'},fontFamily:{sans:['Inter','Noto Sans SC','system-ui','sans-serif'],display:['JetBrains Mono','monospace']}}}}</script>
     <style>
-        .bg-grid{background-image:linear-gradient(rgba(59,130,246,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.06) 1px,transparent 1px);background-size:40px 40px}
-        .glass{background:rgba(17,24,39,.85);backdrop-filter:blur(16px);border:1px solid rgba(59,130,246,.15)}
+        .bg-grid{background-image:linear-gradient(rgba(37,99,235,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,.04) 1px,transparent 1px);background-size:40px 40px}
+        .glass{background:rgba(255,255,255,.9);backdrop-filter:blur(16px);border:1px solid rgba(0,0,0,.08)}
         .card-hover{transition:all .35s cubic-bezier(.4,0,.2,1)}
-        .card-hover:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(59,130,246,.15)}
+        .card-hover:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(37,99,235,.08)}
         .text-gradient{background:linear-gradient(135deg,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-        .hero-glow{background:radial-gradient(ellipse at 50% 0%,rgba(59,130,246,.15) 0%,transparent 70%)}
+        .hero-glow{background:radial-gradient(ellipse at 50% 0%,rgba(37,99,235,.08) 0%,transparent 70%)}
         .tag{display:inline-block;padding:2px 10px;border-radius:12px;font-size:.75rem;font-weight:600;letter-spacing:.05em}
         .tag-course{background:rgba(139,92,246,.15);color:#a78bfa;border:1px solid rgba(139,92,246,.25)}
 
@@ -37,7 +37,7 @@
         .dd-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;text-decoration:none;transition:all .2s}
         .dd-item:hover{background:rgba(59,130,246,.1)}
         .dd-item .dd-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
-        .dd-item .dd-icon.blue{background:rgba(59,130,246,.15);color:#60a5fa}
+        .dd-item .dd-icon.blue{background:rgba(37,99,235,.08);color:#60a5fa}
         .dd-item .dd-icon.purple{background:rgba(139,92,246,.15);color:#a78bfa}
         .dd-item .dd-icon.emerald{background:rgba(16,185,129,.15);color:#34d399}
         .dd-item .dd-text .dd-title{color:#f1f5f9;font-weight:600;font-size:.9rem}
@@ -59,7 +59,7 @@
         #sidebar-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:99;opacity:0;visibility:hidden;transition:all .35s}
         #sidebar-overlay.show{opacity:1;visibility:visible}
         .menu-btn{position:fixed;top:16px;left:16px;z-index:98;width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .3s}
-        .menu-btn:hover{background:rgba(59,130,246,.15)}
+        .menu-btn:hover{background:rgba(37,99,235,.08)}
         .menu-btn.open{left:296px}
         .nav-link{display:flex;align-items:center;gap:10px;padding:12px 20px;color:#94a3b8;font-size:.9rem;font-weight:500;transition:all .2s;border-radius:8px;margin:2px 12px;text-decoration:none}
         .nav-link:hover,.nav-link.active{color:#fff;background:rgba(59,130,246,.12)}
@@ -69,9 +69,16 @@
 
         .timeline-dot{position:absolute;left:-7px;top:4px;width:14px;height:14px;border-radius:50%;background:#3b82f6;border:3px solid #0b1120}
         .timeline-line{position:absolute;left:0;top:20px;bottom:0;width:1px;background:linear-gradient(to bottom,rgba(59,130,246,.4),transparent)}
-    </style>
+    
+/* === Language Toggle === */
+.lang-toggle{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:8px;border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.6);font-size:12px;font-weight:700;text-decoration:none;transition:all .2s;flex-shrink:0;margin-left:8px}
+.lang-toggle:hover{border-color:#3b82f6;color:#3b82f6;background:rgba(59,130,246,.1)}
+.lang-toggle-en{font-family:'Inter',system-ui,sans-serif;letter-spacing:.02em}
+.lang-toggle-zh{font-family:'Noto Sans SC',system-ui,sans-serif}
+
+</style>
 </head>
-<body class="bg-primary text-white min-h-screen font-sans antialiased">
+<body class="bg-white text-gray-900 min-h-screen font-sans antialiased">
 
 <div id="particles-js" class="fixed inset-0 z-0"></div>
 <div class="fixed inset-0 bg-grid z-0 opacity-40"></div>
@@ -82,7 +89,7 @@
         <a href="../index.html" class="nav-logo">
             <img src="../assets/logos/UnitClaw-Logo.png" alt="UnitClaw" class="h-7 w-auto" onerror="this.style.display='none'">
             <div class="flex flex-col items-center leading-none">
-                <span class="text-base font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-xs font-normal">.ai</span></span>
+                <span class="text-base font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-xs font-normal">.cn</span></span>
                 <span class="text-[10px] text-gray-500 tracking-wider whitespace-nowrap mt-0.5">万物拟态 · 智启未来</span>
             </div>
         </a>
@@ -119,9 +126,9 @@
                 </div>
             </div>
             <div class="nav-item"><a href="index.html" class="active" style="color:#a78bfa">机器人课程</a></div>
-            <div class="nav-item"><a href="../download/index.html">下载</a></div>
+            <div class="nav-item"><a href="../download/index.html">下载</a></div><div class="nav-item"><a href="../partnerships/university-cooperation.html" style="color:#a78bfa">高校合作</a></div>
         </nav>
-        <div class="nav-right">
+        <div class="nav-right"><a href="../en/courses/index.html" class="lang-toggle lang-toggle-en" title="English">EN</a>
             <a href="../contact.html" class="btn-contact hidden lg:inline-flex"><i class="fas fa-phone-alt mr-1.5 text-xs text-gray-500"></i>联系我们</a>
             <a href="../contact.html" class="btn-demo">预约演示</a>
             <button class="mobile-menu-btn" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
@@ -132,13 +139,13 @@
 <button class="menu-btn glass" onclick="toggleSidebar()"><i class="fas fa-bars text-white text-lg"></i></button>
 <div id="sidebar-overlay" onclick="toggleSidebar()"></div>
 <nav id="sidebar" class="glass">
-    <div class="flex items-center justify-between px-5 py-4 border-b border-white/5">
+    <div class="flex items-center justify-between px-5 py-4 border-b border-gray-200">
         <a href="../index.html" class="flex items-center space-x-2.5" onclick="toggleSidebar()">
             <img src="../assets/logos/UnitClaw-Logo.png" class="h-8 w-auto" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <div class="hidden w-8 h-8 bg-gradient-to-br from-accent to-blue-700 rounded-lg items-center justify-center text-sm font-bold">U</div>
-            <span class="text-base font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-xs font-normal">.ai</span></span>
+            <span class="text-base font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-xs font-normal">.cn</span></span>
         </a>
-        <button onclick="toggleSidebar()" class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white/10 transition-colors"><i class="fas fa-times text-gray-400 text-lg"></i></button>
+        <button onclick="toggleSidebar()" class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-gray-100/70 transition-colors"><i class="fas fa-times text-gray-400 text-lg"></i></button>
     </div>
     <div class="py-3">
         <a href="../index.html" class="nav-link"><i class="fas fa-home"></i>首页</a>
@@ -182,41 +189,41 @@ function toggleSidebar(){
             <p class="mt-2 text-gray-400">三阶段递进，从零基础到竞赛级</p>
         </div>
         <div class="grid md:grid-cols-3 gap-8">
-            <div class="glass rounded-2xl p-8 relative">
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 relative">
                 <div class="absolute -top-4 left-8 px-3 py-1 bg-accent text-white text-xs font-bold rounded-lg">阶段一</div>
                 <h3 class="text-xl font-bold mt-6 mb-4">基础入门</h3>
                 <p class="text-gray-400 text-sm mb-4">适合低年级本科生，零基础友好</p>
-                <ul class="space-y-2 text-sm text-gray-300">
+                <ul class="space-y-2 text-sm text-gray-700">
                     <li class="flex items-start gap-2"><i class="fas fa-circle text-[6px] text-accent mt-2"></i>机器人学导论与ROS基础</li>
                     <li class="flex items-start gap-2"><i class="fas fa-circle text-[6px] text-accent mt-2"></i>Python/CPP编程与电机控制</li>
                     <li class="flex items-start gap-2"><i class="fas fa-circle text-[6px] text-accent mt-2"></i>传感器原理与数据采集</li>
                     <li class="flex items-start gap-2"><i class="fas fa-circle text-[6px] text-accent mt-2"></i>双足机器人Mini Pi上手</li>
                 </ul>
-                <div class="mt-4 pt-4 border-t border-white/5 text-xs text-gray-500">推荐平台：Mini Pi</div>
+                <div class="mt-4 pt-4 border-t border-gray-200 text-xs text-gray-500">推荐平台：Mini Pi</div>
             </div>
-            <div class="glass rounded-2xl p-8 relative">
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 relative">
                 <div class="absolute -top-4 left-8 px-3 py-1 bg-purple-500 text-white text-xs font-bold rounded-lg">阶段二</div>
                 <h3 class="text-xl font-bold mt-6 mb-4">进阶开发</h3>
                 <p class="text-gray-400 text-sm mb-4">适合高年级本科生及研究生</p>
-                <ul class="space-y-2 text-sm text-gray-300">
+                <ul class="space-y-2 text-sm text-gray-700">
                     <li class="flex items-start gap-2"><i class="fas fa-circle text-[6px] text-purple-400 mt-2"></i>全身运动规划与控制</li>
                     <li class="flex items-start gap-2"><i class="fas fa-circle text-[6px] text-purple-400 mt-2"></i>计算机视觉与深度相机</li>
                     <li class="flex items-start gap-2"><i class="fas fa-circle text-[6px] text-purple-400 mt-2"></i>强化学习与仿真训练</li>
                     <li class="flex items-start gap-2"><i class="fas fa-circle text-[6px] text-purple-400 mt-2"></i>多关节协同与阻抗控制</li>
                 </ul>
-                <div class="mt-4 pt-4 border-t border-white/5 text-xs text-gray-500">推荐平台：Pi+ / Mini Hi</div>
+                <div class="mt-4 pt-4 border-t border-gray-200 text-xs text-gray-500">推荐平台：Pi+ / Mini Hi</div>
             </div>
-            <div class="glass rounded-2xl p-8 relative">
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 relative">
                 <div class="absolute -top-4 left-8 px-3 py-1 bg-emerald text-white text-xs font-bold rounded-lg">阶段三</div>
                 <h3 class="text-xl font-bold mt-6 mb-4">竞赛与科研</h3>
                 <p class="text-gray-400 text-sm mb-4">面向竞赛团队与科研课题组</p>
-                <ul class="space-y-2 text-sm text-gray-300">
+                <ul class="space-y-2 text-sm text-gray-700">
                     <li class="flex items-start gap-2"><i class="fas fa-circle text-[6px] text-emerald mt-2"></i>RoboCup标准赛项实训</li>
                     <li class="flex items-start gap-2"><i class="fas fa-circle text-[6px] text-emerald mt-2"></i>自主导航与SLAM建图</li>
                     <li class="flex items-start gap-2"><i class="fas fa-circle text-[6px] text-emerald mt-2"></i>人形机器人全身控制算法</li>
                     <li class="flex items-start gap-2"><i class="fas fa-circle text-[6px] text-emerald mt-2"></i>机械臂抓取与视觉伺服</li>
                 </ul>
-                <div class="mt-4 pt-4 border-t border-white/5 text-xs text-gray-500">推荐平台：Pi+ / PANTHERA-HT</div>
+                <div class="mt-4 pt-4 border-t border-gray-200 text-xs text-gray-500">推荐平台：Pi+ / PANTHERA-HT</div>
             </div>
         </div>
     </div>
@@ -277,19 +284,19 @@ function toggleSidebar(){
 <!-- CTA -->
 <section class="relative z-10 py-20">
     <div class="max-w-4xl mx-auto px-6 text-center">
-        <div class="glass rounded-3xl p-12">
+        <div class="bg-white rounded-3xl p-12 shadow-sm border border-gray-200">
             <h2 class="text-2xl font-bold mb-4">定制适合贵校的课程方案</h2>
             <p class="text-gray-400 mb-8">课程内容可按学期、专业方向灵活配置，支持共建与师资培训</p>
             <div class="flex flex-wrap justify-center gap-4">
                 <a href="../contact.html" class="px-8 py-3.5 bg-accent hover:bg-blue-600 text-white font-semibold rounded-xl transition-all">预约课程咨询</a>
-                <a href="../solutions/education.html" class="px-8 py-3.5 glass hover:bg-white/10 text-gray-300 font-semibold rounded-xl transition-all">查看高校方案</a>
+                <a href="../solutions/education.html" class="px-8 py-3.5 glass hover:bg-gray-100/70 text-gray-700 font-semibold rounded-xl transition-all">查看高校方案</a>
             </div>
         </div>
     </div>
 </section>
 
 <footer class="relative z-10 border-t border-border py-12">
-    <div class="max-w-7xl mx-auto px-6 text-center text-sm text-gray-600">© 2026 UnitClaw.ai · 万物拟态 · 与高校共建 【AI+ 具身智能机器人】课程体系</div>
+    <div class="max-w-7xl mx-auto px-6 text-center text-sm text-gray-400">© 2026 unitclaw.cn · 万物拟态 · 与高校共建 【AI+ 具身智能机器人】课程体系</div>
 </footer>
 
 <script src="../particles.min.js"></script>
