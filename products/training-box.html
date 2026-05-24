@@ -35,7 +35,7 @@
         .nav-item>a,.nav-item>button{display:flex;align-items:center;gap:6px;padding:8px 16px;color:#cbd5e1;font-size:.9rem;font-weight:500;text-decoration:none;border-radius:8px;transition:all .2s;background:none;border:none;cursor:pointer;font-family:inherit;white-space:nowrap}
         .nav-item>a:hover,.nav-item:hover>a{color:#fff;background:rgba(59,130,246,.12)}
         .nav-item>a i.chevron{font-size:.65rem;transition:transform .2s;color:#64748b}
-        .nav-item:hover>a i.chevron{transform:rotate(180deg);color:#60a5fa}
+        .nav-item:hover>a i.chevron{transform:rotate(180deg);color:#2563eb}
         .nav-dropdown{position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:10px;opacity:0;visibility:hidden;transition:all .25s;pointer-events:none}
         .nav-item:hover .nav-dropdown{opacity:1;visibility:visible;pointer-events:auto}
         .nav-dropdown-inner{background:rgba(17,24,39,.98);backdrop-filter:blur(20px);border:1px solid rgba(59,130,246,.2);border-radius:16px;padding:24px;box-shadow:0 24px 64px rgba(0,0,0,.5)}
@@ -44,8 +44,8 @@
         .dd-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;text-decoration:none;transition:all .2s}
         .dd-item:hover{background:rgba(59,130,246,.1)}
         .dd-item .dd-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
-        .dd-item .dd-icon.blue{background:rgba(59,130,246,.15);color:#60a5fa}
-        .dd-item .dd-icon.purple{background:rgba(139,92,246,.15);color:#a78bfa}
+        .dd-item .dd-icon.blue{background:rgba(37,99,235,.08);color:#2563eb}
+        .dd-item .dd-icon.purple{background:rgba(124,58,237,.08);color:#7c3aed}
         .dd-item .dd-icon.emerald{background:rgba(16,185,129,.15);color:#34d399}
         .dd-item .dd-text .dd-title{color:#f1f5f9;font-weight:600;font-size:.9rem}
         .dd-item .dd-text .dd-sub{color:#64748b;font-size:.75rem;margin-top:1px}
@@ -68,7 +68,7 @@
 
 </style>
 </head>
-<body class="bg-primary text-white font-sans">
+<body class="bg-primary text-gray-900 font-sans">
 
 <div id="particles-js" class="fixed inset-0 z-0"></div>
 <div class="fixed inset-0 bg-grid z-0 opacity-40"></div>
@@ -78,7 +78,7 @@
     <div class="nav-container">
         <a href="../index.html" class="nav-logo">
             <div class="flex flex-col items-center leading-none">
-                <span class="text-base font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-xs font-normal">.ai</span></span>
+                <span class="text-base font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-xs font-normal">.cn</span></span>
                 <span class="text-[10px] text-gray-500 tracking-wider whitespace-nowrap mt-0.5">万物拟态 · 智启未来</span>
             </div>
         </a>
@@ -96,13 +96,13 @@
                 <div class="nav-dropdown"><div class="nav-dropdown-inner compact">
                     <a href="../components/index.html" class="dd-compact-item">伺服关节模组 <span class="sub">行星·超薄·中空</span></a>
                     <a href="../components/index.html" class="dd-compact-item">PANTHERA-HT 机械臂 <span class="sub">6轴协作·3.5kg负载</span></a>
-<a href="../components/dexterous-hand.html" class="dd-compact-item" style="background:rgba(245,158,11,.1);color:#fbbf24">UnitClaw 灵巧手 <span class="sub">五指仿生·21DOF</span></a>
+<a href="../components/dexterous-hand.html" class="dd-compact-item" style="background:rgba(245,158,11,.1);color:#d97706">UnitClaw 灵巧手 <span class="sub">五指仿生·21DOF</span></a>
 <a href="../components/index.html" class="dd-compact-item">7路CAN主控盒 <span class="sub">RK3588S·多路输出</span></a>
                     <a href="../components/index.html" class="dd-compact-item">电池组 <span class="sub">高压48V·低压24V</span></a>
                 </div></div>
             </div>
             <div class="nav-item"><a href="../courses/index.html">机器人课程</a></div>
-            <div class="nav-item"><a href="../download/index.html">下载</a></div><div class="nav-item"><a href="../partnerships/university-cooperation.html" style="color:#a78bfa">高校合作</a></div>
+            <div class="nav-item"><a href="../download/index.html">下载</a></div><div class="nav-item"><a href="../partnerships/university-cooperation.html" style="color:#7c3aed">高校合作</a></div>
         </nav>
         <div class="nav-right"><a href="../en/products/training-box.html" class="lang-toggle lang-toggle-en" title="English">EN</a>
             <a href="../contact.html" class="btn-contact hidden lg:inline-flex"><i class="fas fa-phone-alt mr-1.5 text-xs text-gray-500"></i>联系我们</a>
@@ -115,11 +115,11 @@
 <button class="menu-btn glass" onclick="toggleSidebar()"><i class="fas fa-bars text-white text-lg"></i></button>
 <div id="sidebar-overlay" onclick="toggleSidebar()"></div>
 <nav id="sidebar" class="glass">
-    <div class="flex items-center justify-between px-5 py-4 border-b border-white/5">
+    <div class="flex items-center justify-between px-5 py-4 border-b border-gray-200">
         <a href="../index.html" class="flex items-center space-x-2.5" onclick="toggleSidebar()">
-            <span class="text-base font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-xs font-normal">.ai</span></span>
+            <span class="text-base font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-xs font-normal">.cn</span></span>
         </a>
-        <button onclick="toggleSidebar()" class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white/10 transition-colors"><i class="fas fa-times text-gray-400 text-lg"></i></button>
+        <button onclick="toggleSidebar()" class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-gray-100/70 transition-colors"><i class="fas fa-times text-gray-400 text-lg"></i></button>
     </div>
     <div class="py-3">
         <a href="../index.html" class="nav-link"><i class="fas fa-home"></i>首页</a>
@@ -149,7 +149,7 @@
     <div class="max-w-7xl mx-auto px-6">
         <div class="flex items-center mb-4">
             <span class="px-3 py-1 bg-emerald/10 text-emerald text-xs font-semibold rounded-full border border-emerald/20">自主产品</span>
-            <span class="ml-3 px-3 py-1 bg-white/5 text-gray-400 text-xs rounded-full border border-white/10">硬件+软件+课程+实验 四位一体</span>
+            <span class="ml-3 px-3 py-1 bg-gray-100/50 text-gray-400 text-xs rounded-full border border-gray-200">硬件+软件+课程+实验 四位一体</span>
         </div>
         <h1 class="text-4xl md:text-6xl font-bold tracking-tight">AI<span class="text-gradient">人工智能实训箱</span></h1>
         <p class="mt-6 text-lg text-gray-400 max-w-2xl leading-relaxed">
@@ -240,15 +240,15 @@
 
         <!-- Stats -->
         <div class="grid grid-cols-3 gap-6 mb-16">
-            <div class="glass rounded-2xl p-8 text-center">
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 text-center">
                 <div class="text-5xl font-bold text-emerald mb-2">6</div>
                 <div class="text-sm text-gray-400">门跨专业核心课程</div>
             </div>
-            <div class="glass rounded-2xl p-8 text-center">
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 text-center">
                 <div class="text-5xl font-bold text-emerald mb-2">36</div>
                 <div class="text-sm text-gray-400">个学科专业实验项目</div>
             </div>
-            <div class="glass rounded-2xl p-8 text-center">
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 text-center">
                 <div class="text-5xl font-bold text-emerald mb-2">100+</div>
                 <div class="text-sm text-gray-400">实训项目</div>
             </div>
@@ -295,42 +295,42 @@
     <div class="max-w-7xl mx-auto px-6">
         <h2 class="text-3xl font-bold text-center mb-12"><span class="text-gradient">实训项目</span>展示</h2>
         <div class="grid md:grid-cols-3 gap-6">
-            <div class="glass rounded-2xl p-8 card-hover text-center">
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 card-hover text-center">
                 <div class="w-16 h-16 bg-emerald/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
                     <i class="fas fa-user-check text-3xl text-emerald"></i>
                 </div>
                 <h3 class="font-bold mb-3">人物识别+图像识别</h3>
                 <p class="text-sm text-gray-400">人脸检测、身份识别与图像分类的联合实训项目，实现多算法协同开发</p>
             </div>
-            <div class="glass rounded-2xl p-8 card-hover text-center">
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 card-hover text-center">
                 <div class="w-16 h-16 bg-emerald/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
                     <i class="fas fa-plug text-3xl text-emerald"></i>
                 </div>
                 <h3 class="font-bold mb-3">MCP硬件调用</h3>
                 <p class="text-sm text-gray-400">通过AI模型调用硬件传感器与执行器，实现模型到物理世界的控制闭环</p>
             </div>
-            <div class="glass rounded-2xl p-8 card-hover text-center">
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 card-hover text-center">
                 <div class="w-16 h-16 bg-emerald/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
                     <i class="fas fa-search-plus text-3xl text-emerald"></i>
                 </div>
                 <h3 class="font-bold mb-3">机器视觉检测</h3>
                 <p class="text-sm text-gray-400">贴合工业场景的缺陷检测与质量控制实训，培养工程应用能力</p>
             </div>
-            <div class="glass rounded-2xl p-8 card-hover text-center">
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 card-hover text-center">
                 <div class="w-16 h-16 bg-emerald/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
                     <i class="fas fa-eye text-3xl text-emerald"></i>
                 </div>
                 <h3 class="font-bold mb-3">计算机视觉综合实训</h3>
                 <p class="text-sm text-gray-400">跨课程融合实训，多课程知识点串联，构建完整的视觉开发项目</p>
             </div>
-            <div class="glass rounded-2xl p-8 card-hover text-center">
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 card-hover text-center">
                 <div class="w-16 h-16 bg-emerald/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
                     <i class="fas fa-comment-dots text-3xl text-emerald"></i>
                 </div>
                 <h3 class="font-bold mb-3">智能交互语音</h3>
                 <p class="text-sm text-gray-400">语音唤醒、命令识别、语音合成等实训，探索多模态人机交互</p>
             </div>
-            <div class="glass rounded-2xl p-8 card-hover text-center">
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 card-hover text-center">
                 <div class="w-16 h-16 bg-emerald/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
                     <i class="fas fa-puzzle-piece text-3xl text-emerald"></i>
                 </div>
@@ -347,16 +347,16 @@
         <h2 class="text-3xl font-bold text-center mb-4">面向<span class="text-gradient">高职/本科</span>专业</h2>
         <p class="text-center text-gray-400 mb-10">覆盖10大相关专业，支撑多学科交叉教学</p>
         <div class="flex flex-wrap justify-center gap-3">
-            <span class="px-5 py-2.5 glass rounded-lg text-sm text-gray-300">计算机科学与技术</span>
-            <span class="px-5 py-2.5 glass rounded-lg text-sm text-gray-300">电气工程及其自动化</span>
-            <span class="px-5 py-2.5 glass rounded-lg text-sm text-gray-300">自动化类</span>
-            <span class="px-5 py-2.5 glass rounded-lg text-sm text-gray-300">电子信息工程</span>
-            <span class="px-5 py-2.5 glass rounded-lg text-sm text-gray-300">电子信息科学与技术</span>
-            <span class="px-5 py-2.5 glass rounded-lg text-sm text-gray-300">机械工程</span>
-            <span class="px-5 py-2.5 glass rounded-lg text-sm text-gray-300">机器人工程</span>
-            <span class="px-5 py-2.5 glass rounded-lg text-sm text-gray-300">通信工程</span>
-            <span class="px-5 py-2.5 glass rounded-lg text-sm text-gray-300">微电子</span>
-            <span class="px-5 py-2.5 glass rounded-lg text-sm text-gray-300">集成电路与软件工程</span>
+            <span class="px-5 py-2.5 glass rounded-lg text-sm text-gray-700">计算机科学与技术</span>
+            <span class="px-5 py-2.5 glass rounded-lg text-sm text-gray-700">电气工程及其自动化</span>
+            <span class="px-5 py-2.5 glass rounded-lg text-sm text-gray-700">自动化类</span>
+            <span class="px-5 py-2.5 glass rounded-lg text-sm text-gray-700">电子信息工程</span>
+            <span class="px-5 py-2.5 glass rounded-lg text-sm text-gray-700">电子信息科学与技术</span>
+            <span class="px-5 py-2.5 glass rounded-lg text-sm text-gray-700">机械工程</span>
+            <span class="px-5 py-2.5 glass rounded-lg text-sm text-gray-700">机器人工程</span>
+            <span class="px-5 py-2.5 glass rounded-lg text-sm text-gray-700">通信工程</span>
+            <span class="px-5 py-2.5 glass rounded-lg text-sm text-gray-700">微电子</span>
+            <span class="px-5 py-2.5 glass rounded-lg text-sm text-gray-700">集成电路与软件工程</span>
         </div>
     </div>
 </section>
@@ -447,19 +447,19 @@
 <!-- CTA -->
 <section class="relative z-10 py-20">
     <div class="max-w-4xl mx-auto px-6 text-center">
-        <div class="glass rounded-3xl p-12">
+        <div class="bg-white rounded-3xl p-12 shadow-sm border border-gray-200">
             <h2 class="text-3xl font-bold mb-4">打造AI嵌入式实训标杆</h2>
             <p class="text-gray-400 mb-8 max-w-xl mx-auto">从硬件到课程，从单机实训到实验室整体建设，为您量身定制高校AI教育解决方案。</p>
             <div class="flex flex-wrap justify-center gap-4">
                 <a href="../contact.html" class="px-8 py-3.5 bg-emerald hover:bg-emerald-600 text-white font-semibold rounded-xl transition-all inline-block">预约演示</a>
-                <a href="../solutions/education.html" class="px-8 py-3.5 glass hover:bg-white/10 text-gray-300 font-semibold rounded-xl transition-all inline-block">查看方案详情</a>
+                <a href="../solutions/education.html" class="px-8 py-3.5 glass hover:bg-gray-100/70 text-gray-700 font-semibold rounded-xl transition-all inline-block">查看方案详情</a>
             </div>
         </div>
     </div>
 </section>
 
 <footer class="relative z-10 border-t border-border py-8">
-    <div class="max-w-7xl mx-auto px-6 text-center text-sm text-gray-600">
+    <div class="max-w-7xl mx-auto px-6 text-center text-sm text-gray-400">
         <p>© 2026 unitclaw.cn · 万物拟态 · 与高校共建 【AI+ 具身智能机器人】课程体系</p>
     </div>
 </footer>
