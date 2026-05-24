@@ -9,14 +9,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>tailwind.config={theme:{extend:{colors:{primary:'#0b1120',secondary:'#1a2456',accent:'#3b82f6',light:'#60a5fa',warm:'#f59e0b',card:'#111827',border:'#1e293b'},fontFamily:{sans:['Inter','Noto Sans SC','system-ui','sans-serif'],display:['JetBrains Mono','monospace']}}}}</script>
     <style>
-        .bg-grid{background-image:linear-gradient(rgba(59,130,246,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.06) 1px,transparent 1px);background-size:40px 40px}
-        .glass{background:rgba(17,24,39,.85);backdrop-filter:blur(16px);border:1px solid rgba(59,130,246,.15)}
+        .bg-grid{background-image:linear-gradient(rgba(37,99,235,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,.04) 1px,transparent 1px);background-size:40px 40px}
+        .glass{background:rgba(255,255,255,.9);backdrop-filter:blur(16px);border:1px solid rgba(0,0,0,.08)}
         .card-hover{transition:all .35s cubic-bezier(.4,0,.2,1)}
-        .card-hover:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(59,130,246,.15)}
+        .card-hover:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(37,99,235,.08)}
         .text-gradient{background:linear-gradient(135deg,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-        .hero-glow{background:radial-gradient(ellipse at 50% 0%,rgba(59,130,246,.15) 0%,transparent 70%)}
+        .hero-glow{background:radial-gradient(ellipse at 50% 0%,rgba(37,99,235,.08) 0%,transparent 70%)}
         .tag{display:inline-block;padding:2px 10px;border-radius:12px;font-size:.75rem;font-weight:600;letter-spacing:.05em}
-        .tag-robot{background:rgba(59,130,246,.15);color:#60a5fa;border:1px solid rgba(59,130,246,.25)}
+        .tag-robot{background:rgba(37,99,235,.08);color:#60a5fa;border:1px solid rgba(59,130,246,.25)}
 
         /* ====== TOP NAVIGATION BAR ====== */
         .top-nav{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(11,17,32,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(59,130,246,.1)}
@@ -37,7 +37,7 @@
         .dd-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;text-decoration:none;transition:all .2s}
         .dd-item:hover{background:rgba(59,130,246,.1)}
         .dd-item .dd-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
-        .dd-item .dd-icon.blue{background:rgba(59,130,246,.15);color:#60a5fa}
+        .dd-item .dd-icon.blue{background:rgba(37,99,235,.08);color:#60a5fa}
         .dd-item .dd-icon.purple{background:rgba(139,92,246,.15);color:#a78bfa}
         .dd-item .dd-icon.emerald{background:rgba(16,185,129,.15);color:#34d399}
         .dd-item .dd-text .dd-title{color:#f1f5f9;font-weight:600;font-size:.9rem}
@@ -61,7 +61,7 @@
         #sidebar-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:99;opacity:0;visibility:hidden;transition:all .35s}
         #sidebar-overlay.show{opacity:1;visibility:visible}
         .menu-btn{position:fixed;top:16px;left:16px;z-index:98;width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .3s}
-        .menu-btn:hover{background:rgba(59,130,246,.15)}
+        .menu-btn:hover{background:rgba(37,99,235,.08)}
         .menu-btn.open{left:296px}
         .nav-link{display:flex;align-items:center;gap:10px;padding:12px 20px;color:#94a3b8;font-size:.9rem;font-weight:500;transition:all .2s;border-radius:8px;margin:2px 12px;text-decoration:none}
         .nav-link:hover,.nav-link.active{color:#fff;background:rgba(59,130,246,.12)}
@@ -77,7 +77,7 @@
 
 </style>
 </head>
-<body class="bg-primary text-white min-h-screen font-sans antialiased">
+<body class="bg-white text-gray-900 min-h-screen font-sans antialiased">
 
 <!-- Particles Background -->
 <div id="particles-js" class="fixed inset-0 z-0"></div>
@@ -89,7 +89,7 @@
         <a href="../index.html" class="nav-logo">
             <img src="../assets/logos/UnitClaw-Logo.png" alt="UnitClaw" class="h-7 w-auto" onerror="this.style.display='none'">
             <div class="flex flex-col items-center leading-none">
-                <span class="text-base font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-xs font-normal">.ai</span></span>
+                <span class="text-base font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-xs font-normal">.cn</span></span>
                 <span class="text-[10px] text-gray-500 tracking-wider whitespace-nowrap mt-0.5">万物拟态 · 智启未来</span>
             </div>
         </a>
@@ -142,13 +142,13 @@
 <button class="menu-btn glass" onclick="toggleSidebar()"><i class="fas fa-bars text-white text-lg"></i></button>
 <div id="sidebar-overlay" onclick="toggleSidebar()"></div>
 <nav id="sidebar" class="glass">
-    <div class="flex items-center justify-between px-5 py-4 border-b border-white/5">
+    <div class="flex items-center justify-between px-5 py-4 border-b border-gray-200">
         <a href="../index.html" class="flex items-center space-x-2.5" onclick="toggleSidebar()">
             <img src="../assets/logos/UnitClaw-Logo.png" class="h-8 w-auto" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <div class="hidden w-8 h-8 bg-gradient-to-br from-accent to-blue-700 rounded-lg items-center justify-center text-sm font-bold">U</div>
-            <span class="text-base font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-xs font-normal">.ai</span></span>
+            <span class="text-base font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-xs font-normal">.cn</span></span>
         </a>
-        <button onclick="toggleSidebar()" class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white/10 transition-colors"><i class="fas fa-times text-gray-400 text-lg"></i></button>
+        <button onclick="toggleSidebar()" class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-gray-100/70 transition-colors"><i class="fas fa-times text-gray-400 text-lg"></i></button>
     </div>
     <div class="py-3">
         <a href="../index.html" class="nav-link"><i class="fas fa-home"></i>首页</a>
@@ -197,10 +197,10 @@ function toggleSidebar(){
                     <h3 class="text-xl font-bold mb-2">Mini Pi</h3>
                     <p class="text-accent text-sm font-semibold mb-3">双足机器人</p>
                     <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-400">520mm</span>
-                        <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-400">7kg</span>
-                        <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-400">12 DOF</span>
-                        <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-400">16Nm</span>
+                        <span class="text-xs px-2 py-1 bg-gray-100/50 rounded text-gray-400">520mm</span>
+                        <span class="text-xs px-2 py-1 bg-gray-100/50 rounded text-gray-400">7kg</span>
+                        <span class="text-xs px-2 py-1 bg-gray-100/50 rounded text-gray-400">12 DOF</span>
+                        <span class="text-xs px-2 py-1 bg-gray-100/50 rounded text-gray-400">16Nm</span>
                     </div>
                     <p class="text-gray-400 text-sm leading-relaxed">轻巧便携的双足机器人平台，单手可持。自研关节模组，双编无刷电机，适合科研入门与教学演示。</p>
                 </div>
@@ -214,10 +214,10 @@ function toggleSidebar(){
                     <h3 class="text-xl font-bold mb-2">Mini Pi+</h3>
                     <p class="text-purple-400 text-sm font-semibold mb-3">模块化开源平台</p>
                     <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-400">650mm</span>
-                        <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-400">10.15kg</span>
-                        <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-400">22 DOF</span>
-                        <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-400">Orin NX</span>
+                        <span class="text-xs px-2 py-1 bg-gray-100/50 rounded text-gray-400">650mm</span>
+                        <span class="text-xs px-2 py-1 bg-gray-100/50 rounded text-gray-400">10.15kg</span>
+                        <span class="text-xs px-2 py-1 bg-gray-100/50 rounded text-gray-400">22 DOF</span>
+                        <span class="text-xs px-2 py-1 bg-gray-100/50 rounded text-gray-400">Orin NX</span>
                     </div>
                     <p class="text-gray-400 text-sm leading-relaxed">RoboCup官方指定平台。开源SDK，集成RealSense+Orin NX，支持跳跃与全身控制，适合竞赛与科研。</p>
                 </div>
@@ -231,10 +231,10 @@ function toggleSidebar(){
                     <h3 class="text-xl font-bold mb-2">Mini Hi</h3>
                     <p class="text-emerald text-sm font-semibold mb-3">高性能人形机器人</p>
                     <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-400">830mm</span>
-                        <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-400">20kg</span>
-                        <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-400">23 DOF</span>
-                        <span class="text-xs px-2 py-1 bg-white/5 rounded text-gray-400">20kg负载</span>
+                        <span class="text-xs px-2 py-1 bg-gray-100/50 rounded text-gray-400">830mm</span>
+                        <span class="text-xs px-2 py-1 bg-gray-100/50 rounded text-gray-400">20kg</span>
+                        <span class="text-xs px-2 py-1 bg-gray-100/50 rounded text-gray-400">23 DOF</span>
+                        <span class="text-xs px-2 py-1 bg-gray-100/50 rounded text-gray-400">20kg负载</span>
                     </div>
                     <p class="text-gray-400 text-sm leading-relaxed">高性价比人形机器人。仿生关节设计，支持行走、跳跃、越障，搭载Orin NX，面向高校科研二次开发。</p>
                 </div>
@@ -254,16 +254,16 @@ function toggleSidebar(){
                         <th class="py-4 px-6">参数</th><th class="py-4 px-6 text-accent">Mini Pi</th><th class="py-4 px-6 text-purple-400">Mini Pi+</th><th class="py-4 px-6 text-emerald">Mini Hi</th>
                     </tr>
                 </thead>
-                <tbody class="text-gray-300">
-                    <tr class="border-b border-white/5"><td class="py-3 px-6 text-gray-500">站立高度</td><td class="py-3 px-6">520 mm</td><td class="py-3 px-6">650 mm</td><td class="py-3 px-6">830 mm</td></tr>
-                    <tr class="border-b border-white/5"><td class="py-3 px-6 text-gray-500">重量（含电池）</td><td class="py-3 px-6">7 kg</td><td class="py-3 px-6">10.15 kg</td><td class="py-3 px-6">20 kg</td></tr>
-                    <tr class="border-b border-white/5"><td class="py-3 px-6 text-gray-500">自由度</td><td class="py-3 px-6">12 DOF</td><td class="py-3 px-6">22 DOF</td><td class="py-3 px-6">23 DOF</td></tr>
-                    <tr class="border-b border-white/5"><td class="py-3 px-6 text-gray-500">工作电压</td><td class="py-3 px-6">24 V</td><td class="py-3 px-6">24 V</td><td class="py-3 px-6">48 V</td></tr>
-                    <tr class="border-b border-white/5"><td class="py-3 px-6 text-gray-500">最大关节扭矩</td><td class="py-3 px-6">16 Nm</td><td class="py-3 px-6">16 Nm</td><td class="py-3 px-6">—</td></tr>
-                    <tr class="border-b border-white/5"><td class="py-3 px-6 text-gray-500">负载能力</td><td class="py-3 px-6">15 kg</td><td class="py-3 px-6">10 kg</td><td class="py-3 px-6">20 kg</td></tr>
-                    <tr class="border-b border-white/5"><td class="py-3 px-6 text-gray-500">运动速度</td><td class="py-3 px-6">1.5 m/s</td><td class="py-3 px-6">—</td><td class="py-3 px-6">0.5 m/s</td></tr>
-                    <tr class="border-b border-white/5"><td class="py-3 px-6 text-gray-500">计算平台</td><td class="py-3 px-6">HPM5361</td><td class="py-3 px-6">NVIDIA Orin NX</td><td class="py-3 px-6">NVIDIA Orin NX</td></tr>
-                    <tr class="border-b border-white/5"><td class="py-3 px-6 text-gray-500">感知模块</td><td class="py-3 px-6">—</td><td class="py-3 px-6">RealSense</td><td class="py-3 px-6">RealSense</td></tr>
+                <tbody class="text-gray-700">
+                    <tr class="border-b border-gray-200"><td class="py-3 px-6 text-gray-500">站立高度</td><td class="py-3 px-6">520 mm</td><td class="py-3 px-6">650 mm</td><td class="py-3 px-6">830 mm</td></tr>
+                    <tr class="border-b border-gray-200"><td class="py-3 px-6 text-gray-500">重量（含电池）</td><td class="py-3 px-6">7 kg</td><td class="py-3 px-6">10.15 kg</td><td class="py-3 px-6">20 kg</td></tr>
+                    <tr class="border-b border-gray-200"><td class="py-3 px-6 text-gray-500">自由度</td><td class="py-3 px-6">12 DOF</td><td class="py-3 px-6">22 DOF</td><td class="py-3 px-6">23 DOF</td></tr>
+                    <tr class="border-b border-gray-200"><td class="py-3 px-6 text-gray-500">工作电压</td><td class="py-3 px-6">24 V</td><td class="py-3 px-6">24 V</td><td class="py-3 px-6">48 V</td></tr>
+                    <tr class="border-b border-gray-200"><td class="py-3 px-6 text-gray-500">最大关节扭矩</td><td class="py-3 px-6">16 Nm</td><td class="py-3 px-6">16 Nm</td><td class="py-3 px-6">—</td></tr>
+                    <tr class="border-b border-gray-200"><td class="py-3 px-6 text-gray-500">负载能力</td><td class="py-3 px-6">15 kg</td><td class="py-3 px-6">10 kg</td><td class="py-3 px-6">20 kg</td></tr>
+                    <tr class="border-b border-gray-200"><td class="py-3 px-6 text-gray-500">运动速度</td><td class="py-3 px-6">1.5 m/s</td><td class="py-3 px-6">—</td><td class="py-3 px-6">0.5 m/s</td></tr>
+                    <tr class="border-b border-gray-200"><td class="py-3 px-6 text-gray-500">计算平台</td><td class="py-3 px-6">HPM5361</td><td class="py-3 px-6">NVIDIA Orin NX</td><td class="py-3 px-6">NVIDIA Orin NX</td></tr>
+                    <tr class="border-b border-gray-200"><td class="py-3 px-6 text-gray-500">感知模块</td><td class="py-3 px-6">—</td><td class="py-3 px-6">RealSense</td><td class="py-3 px-6">RealSense</td></tr>
                     <tr><td class="py-3 px-6 text-gray-500">核心场景</td><td class="py-3 px-6">教学入门</td><td class="py-3 px-6">竞赛 + 科研</td><td class="py-3 px-6">高级科研</td></tr>
                 </tbody>
             </table>
@@ -274,7 +274,7 @@ function toggleSidebar(){
 <!-- CTA -->
 <section class="relative z-10 py-20">
     <div class="max-w-4xl mx-auto px-6 text-center">
-        <div class="glass rounded-3xl p-12">
+        <div class="bg-white rounded-3xl p-12 shadow-sm border border-gray-200">
             <h2 class="text-2xl font-bold mb-4">选择适合您实验室的机器人平台</h2>
             <p class="text-gray-400 mb-8">从基础教学到前沿科研，三款机器人覆盖高校需求全梯度</p>
             <a href="../contact.html" class="px-8 py-3.5 bg-accent hover:bg-blue-600 text-white font-semibold rounded-xl transition-all">预约演示</a>
@@ -283,7 +283,7 @@ function toggleSidebar(){
 </section>
 
 <footer class="relative z-10 border-t border-border py-12">
-    <div class="max-w-7xl mx-auto px-6 text-center text-sm text-gray-600">© 2026 unitclaw.cn · 万物拟态 · 与高校共建 【AI+ 具身智能机器人】课程体系</div>
+    <div class="max-w-7xl mx-auto px-6 text-center text-sm text-gray-400">© 2026 unitclaw.cn · 万物拟态 · 与高校共建 【AI+ 具身智能机器人】课程体系</div>
 </footer>
 
 <script src="../particles.min.js"></script>
