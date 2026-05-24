@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI人工智能实训箱 - UnitClaw.ai | AI嵌入式实验教学平台</title>
+    <title>AI人工智能实训箱 - unitclaw.cn | AI嵌入式实验教学平台</title>
     <meta name="description" content="UnitClaw AI人工智能实训箱，以机器视觉实训箱为核心载体，集成高算力嵌入式核心板、多传感器、语音及视觉模块，覆盖6门核心课程、100+实训项目，为高校提供硬件+软件+课程+实验全栈教学平台。">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -59,7 +59,14 @@
         .nav-right .btn-demo:hover{background:#2563eb;box-shadow:0 4px 16px rgba(59,130,246,.3)}
         .mobile-menu-btn{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;border:1px solid rgba(255,255,255,.1);cursor:pointer;color:#cbd5e1;font-size:1.2rem;margin-left:auto}
         @media(min-width:1024px){.mobile-menu-btn{display:none}}
-    </style>
+    
+/* === Language Toggle === */
+.lang-toggle{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:8px;border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.6);font-size:12px;font-weight:700;text-decoration:none;transition:all .2s;flex-shrink:0;margin-left:8px}
+.lang-toggle:hover{border-color:#3b82f6;color:#3b82f6;background:rgba(59,130,246,.1)}
+.lang-toggle-en{font-family:'Inter',system-ui,sans-serif;letter-spacing:.02em}
+.lang-toggle-zh{font-family:'Noto Sans SC',system-ui,sans-serif}
+
+</style>
 </head>
 <body class="bg-primary text-white font-sans">
 
@@ -97,7 +104,7 @@
             <div class="nav-item"><a href="../courses/index.html">机器人课程</a></div>
             <div class="nav-item"><a href="../download/index.html">下载</a></div><div class="nav-item"><a href="../partnerships/university-cooperation.html" style="color:#a78bfa">高校合作</a></div>
         </nav>
-        <div class="nav-right">
+        <div class="nav-right"><a href="../en/products/training-box.html" class="lang-toggle lang-toggle-en" title="English">EN</a>
             <a href="../contact.html" class="btn-contact hidden lg:inline-flex"><i class="fas fa-phone-alt mr-1.5 text-xs text-gray-500"></i>联系我们</a>
             <a href="../contact.html" class="btn-demo">预约演示</a>
             <button class="mobile-menu-btn" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
@@ -453,7 +460,7 @@
 
 <footer class="relative z-10 border-t border-border py-8">
     <div class="max-w-7xl mx-auto px-6 text-center text-sm text-gray-600">
-        <p>© 2026 UnitClaw.ai · 万物拟态 · 与高校共建 【AI+ 具身智能机器人】课程体系</p>
+        <p>© 2026 unitclaw.cn · 万物拟态 · 与高校共建 【AI+ 具身智能机器人】课程体系</p>
     </div>
 </footer>
 

@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>具身智能机器人 - UnitClaw.ai | x 高擎动力战略合作伙伴</title>
+    <title>具身智能机器人 - unitclaw.cn | x 高擎动力战略合作</title>
     <meta name="description" content="UnitClaw与高擎动力战略合作，提供Mini Pi高性能双足机器人、Panthera-HT开源机械臂及全套核心零部件，面向高校机器人教育。">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -16,50 +16,6 @@
         .text-gradient{background:linear-gradient(135deg,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
         .spec-table td{border-bottom:1px solid #1e293b;padding:10px 0}
         .spec-table td:first-child{color:#94a3b8;width:160px}
-        #sidebar{position:fixed;top:0;left:-320px;width:280px;height:100vh;z-index:100;transition:left .35s cubic-bezier(.4,0,.2,1);overflow-y:auto}
-        #sidebar.open{left:0}
-        #sidebar-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:99;opacity:0;visibility:hidden;transition:all .35s}
-        #sidebar-overlay.show{opacity:1;visibility:visible}
-        .menu-btn{position:fixed;top:16px;left:16px;z-index:98;width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .3s}
-        .menu-btn:hover{background:rgba(59,130,246,.15)}
-        .menu-btn.open{left:296px}
-        .nav-link{display:flex;align-items:center;gap:10px;padding:12px 20px;color:#94a3b8;font-size:.9rem;font-weight:500;transition:all .2s;border-radius:8px;margin:2px 12px}
-        .nav-link:hover,.nav-link.active{color:#fff;background:rgba(59,130,246,.12)}
-        .nav-link i{width:20px;text-align:center;font-size:.85rem}
-        .nav-section{color:#64748b;font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;padding:16px 20px 6px 20px}
-        .top-nav{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(11,17,32,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(59,130,246,.1)}
-        .top-nav .nav-container{max-width:1280px;margin:0 auto;padding:0 32px 0 124px;display:flex;align-items:center;height:72px}
-        .top-nav .nav-logo{display:flex;align-items:center;gap:8px;text-decoration:none;flex-shrink:0}
-        .top-nav .nav-links{display:none;align-items:center;gap:2px;margin-left:40px;flex:1}
-        @media(min-width:1024px){.top-nav .nav-links{display:flex}}
-        .nav-item{position:relative}
-        .nav-item>a,.nav-item>button{display:flex;align-items:center;gap:6px;padding:8px 16px;color:#cbd5e1;font-size:.9rem;font-weight:500;text-decoration:none;border-radius:8px;transition:all .2s;background:none;border:none;cursor:pointer;font-family:inherit;white-space:nowrap}
-        .nav-item>a:hover,.nav-item:hover>a{color:#fff;background:rgba(59,130,246,.12)}
-        .nav-item>a i.chevron{font-size:.65rem;transition:transform .2s;color:#64748b}
-        .nav-item:hover>a i.chevron{transform:rotate(180deg);color:#60a5fa}
-        .nav-dropdown{position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:10px;opacity:0;visibility:hidden;transition:all .25s;pointer-events:none}
-        .nav-item:hover .nav-dropdown{opacity:1;visibility:visible;pointer-events:auto}
-        .nav-dropdown-inner{background:rgba(17,24,39,.98);backdrop-filter:blur(20px);border:1px solid rgba(59,130,246,.2);border-radius:16px;padding:24px;box-shadow:0 24px 64px rgba(0,0,0,.5)}
-        .nav-dropdown-inner.mega{display:grid;gap:20px;min-width:680px}
-        .nav-dropdown-inner.compact{min-width:320px;display:flex;flex-direction:column;gap:6px}
-        .dd-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;text-decoration:none;transition:all .2s}
-        .dd-item:hover{background:rgba(59,130,246,.1)}
-        .dd-item .dd-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
-        .dd-item .dd-icon.blue{background:rgba(59,130,246,.15);color:#60a5fa}
-        .dd-item .dd-icon.purple{background:rgba(139,92,246,.15);color:#a78bfa}
-        .dd-item .dd-icon.emerald{background:rgba(16,185,129,.15);color:#34d399}
-        .dd-item .dd-text .dd-title{color:#f1f5f9;font-weight:600;font-size:.9rem}
-        .dd-item .dd-text .dd-sub{color:#64748b;font-size:.75rem;margin-top:1px}
-        .dd-compact-item{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-radius:8px;color:#cbd5e1;text-decoration:none;font-size:.85rem;transition:all .2s}
-        .dd-compact-item:hover{background:rgba(59,130,246,.1);color:#fff}
-        .dd-compact-item .sub{font-size:.75rem;color:#64748b}
-        .nav-right{display:flex;align-items:center;gap:12px;margin-left:auto;flex-shrink:0}
-        .nav-right .btn-contact{color:#94a3b8;font-size:.85rem;text-decoration:none;padding:8px 14px;border-radius:8px;transition:all .2s}
-        .nav-right .btn-contact:hover{color:#fff;background:rgba(255,255,255,.05)}
-        .nav-right .btn-demo{background:#3b82f6;color:#fff;font-size:.85rem;font-weight:600;padding:8px 18px;border-radius:8px;text-decoration:none;transition:all .2s}
-        .nav-right .btn-demo:hover{background:#2563eb;box-shadow:0 4px 16px rgba(59,130,246,.3)}
-        .mobile-menu-btn{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;border:1px solid rgba(255,255,255,.1);cursor:pointer;color:#cbd5e1;font-size:1.2rem;margin-left:auto}
-        @media(min-width:1024px){.mobile-menu-btn{display:none}}
     </style>
 </head>
 <body class="bg-primary text-white font-sans">
@@ -67,79 +23,21 @@
 <div id="particles-js" class="fixed inset-0 z-0"></div>
 <div class="fixed inset-0 bg-grid z-0 opacity-40"></div>
 
-<!-- ====== TOP NAVIGATION BAR ====== -->
-<header class="top-nav">
-    <div class="nav-container">
-        <a href="../index.html" class="nav-logo">
-            <img src="../assets/logos/Logo-1.png" alt="UnitClaw" class="h-7 w-auto" onerror="this.style.display='none'">
-            <div class="flex flex-col items-center leading-none">
-                <span class="text-base font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-xs font-normal">.ai</span></span>
-                <span class="text-[10px] text-gray-500 tracking-wider whitespace-nowrap mt-0.5">万物拟态 · 智启未来</span>
-            </div>
+<!-- Navigation -->
+<nav class="glass fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+        <a href="../index.html" class="flex items-center space-x-3">
+            <img src="../assets/logos/Logo-1.png" alt="UnitClaw" class="h-10 w-auto" onerror="this.style.display='none'">
+            <span class="text-lg font-bold">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-sm font-normal ml-1">.ai</span></span>
         </a>
-        <nav class="nav-links">
-            <div class="nav-item">
-                <a href="../robots/index.html">机器人 <i class="fas fa-chevron-down chevron"></i></a>
-                <div class="nav-dropdown"><div class="nav-dropdown-inner mega" style="grid-template-columns:1fr 1fr 1fr">
-                    <a href="../robots/mini-pi.html" class="dd-item"><div class="dd-icon blue"><i class="fas fa-robot"></i></div><div class="dd-text"><div class="dd-title">双足机器人 Pi</div><div class="dd-sub">520mm · 12DOF · 开源平台</div></div></a>
-                    <a href="../robots/pi-plus.html" class="dd-item"><div class="dd-icon purple"><i class="fas fa-cube"></i></div><div class="dd-text"><div class="dd-title">模块化开源 Pi+</div><div class="dd-sub">650mm · 22DOF · Orin NX</div></div></a>
-                    <a href="../robots/mini-hi.html" class="dd-item"><div class="dd-icon emerald"><i class="fas fa-child"></i></div><div class="dd-text"><div class="dd-title">人形机器人 Hi</div><div class="dd-sub">830mm · 23DOF · 高扭矩</div></div></a>
-                </div></div>
-            </div>
-            <div class="nav-item">
-                <a href="../components/index.html">核心零部件 <i class="fas fa-chevron-down chevron"></i></a>
-                <div class="nav-dropdown"><div class="nav-dropdown-inner compact">
-                    <a href="../components/index.html" class="dd-compact-item">伺服关节模组 <span class="sub">行星·超薄·中空</span></a>
-                    <a href="../components/index.html" class="dd-compact-item">PANTHERA-HT 机械臂 <span class="sub">6轴协作·3.5kg负载</span></a>
-<a href="../components/dexterous-hand.html" class="dd-compact-item" style="background:rgba(245,158,11,.1);color:#fbbf24">UnitClaw 灵巧手 <span class="sub">五指仿生·21DOF</span></a>
-<a href="../components/index.html" class="dd-compact-item">7路CAN主控盒 <span class="sub">RK3588S·多路输出</span></a>
-                    <a href="../components/index.html" class="dd-compact-item">电池组 <span class="sub">高压48V·低压24V</span></a>
-                </div></div>
-            </div>
-            <div class="nav-item"><a href="../courses/index.html">机器人课程</a></div>
-            <div class="nav-item"><a href="../download/index.html">下载</a></div><div class="nav-item"><a href="../partnerships/university-cooperation.html" style="color:#a78bfa">高校合作</a></div>
-        </nav>
-        <div class="nav-right">
-            <a href="../contact.html" class="btn-contact hidden lg:inline-flex"><i class="fas fa-phone-alt mr-1.5 text-xs text-gray-500"></i>联系我们</a>
-            <a href="../contact.html" class="btn-demo">预约演示</a>
-            <button class="mobile-menu-btn" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
+        <div class="hidden lg:flex items-center space-x-4">
+            <a href="../index.html" class="text-sm text-gray-400 hover:text-white transition-colors">首页</a>
+            <a href="robots.html" class="text-sm text-accent font-semibold">具身智能机器人</a>
+            <a href="courses.html" class="text-sm text-gray-400 hover:text-white transition-colors">课程智能体</a>
+            <a href="unitclaw.html" class="text-sm text-gray-400 hover:text-white transition-colors">UnitClaw 虾盘</a>
+            <a href="../solutions/education.html" class="text-sm text-gray-400 hover:text-white transition-colors">高校方案</a>
+            <a href="../contact.html" class="ml-4 px-5 py-2 bg-accent hover:bg-blue-600 text-sm font-semibold rounded-lg transition-colors">预约演示</a>
         </div>
-    </div>
-</header>
-
-<!-- Sidebar -->
-<button class="menu-btn glass" onclick="toggleSidebar()"><i class="fas fa-bars text-white text-lg"></i></button>
-<div id="sidebar-overlay" onclick="toggleSidebar()"></div>
-<nav id="sidebar" class="glass">
-    <div class="flex items-center justify-between px-5 py-4 border-b border-white/5">
-        <a href="../index.html" class="flex items-center space-x-2.5" onclick="toggleSidebar()">
-            <img src="../assets/logos/Logo-1.png" class="h-8 w-auto" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <div class="hidden w-8 h-8 bg-gradient-to-br from-accent to-blue-700 rounded-lg items-center justify-center text-sm font-bold">U</div>
-            <span class="text-base font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-xs font-normal">.ai</span></span>
-        </a>
-        <button onclick="toggleSidebar()" class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white/10 transition-colors"><i class="fas fa-times text-gray-400 text-lg"></i></button>
-    </div>
-    <div class="py-3">
-        <a href="../index.html" class="nav-link"><i class="fas fa-home"></i>首页</a>
-        <div class="nav-section">机器人</div>
-        <a href="../robots/index.html" class="nav-link"><i class="fas fa-robot text-accent"></i>机器人总览</a>
-        <a href="../robots/mini-pi.html" class="nav-link"><i class="fas fa-running pl-2"></i>双足机器人 Pi</a>
-        <a href="../robots/pi-plus.html" class="nav-link"><i class="fas fa-cubes pl-2"></i>模块化开源 Pi+</a>
-        <a href="../robots/mini-hi.html" class="nav-link"><i class="fas fa-child pl-2"></i>人形机器人 Hi</a>
-        <div class="nav-section">核心零部件</div>
-        <a href="../components/index.html" class="nav-link"><i class="fas fa-cogs text-warm"></i>核心零部件</a>
-        <div class="nav-section">更多</div>
-        <a href="../courses/index.html" class="nav-link"><i class="fas fa-book"></i>机器人课程</a>
-        <a href="../download/index.html" class="nav-link"><i class="fas fa-download"></i>下载中心</a>
-        <a href="../solutions/education.html" class="nav-link"><i class="fas fa-university"></i>高校教育方案</a>
-        <div class="nav-section">产品阵列</div>
-        <a href="robots.html" class="nav-link active"><i class="fas fa-robot text-accent"></i>具身智能机器人</a>
-        <a href="courses.html" class="nav-link"><i class="fas fa-graduation-cap text-purple-400"></i>课程智能体</a>
-        <a href="training-box.html" class="nav-link"><i class="fas fa-box text-emerald"></i>AI人工智能实训箱</a>
-        <a href="unitclaw.html" class="nav-link"><i class="fas fa-microchip text-warm"></i>UnitClaw 虾盘</a>
-        <div class="nav-section">生态合作</div>
-        <a href="../partnerships/hightorque.html" class="nav-link"><i class="fas fa-handshake"></i>× 高擎动力</a>
-        <a href="../partnerships/suiguangming.html" class="nav-link"><i class="fas fa-handshake"></i>× 燧光明科技</a>
     </div>
 </nav>
 
@@ -148,7 +46,7 @@
     <div class="max-w-7xl mx-auto px-6">
         <div class="flex items-center mb-4">
             <span class="px-3 py-1 bg-blue-500/10 text-accent text-xs font-semibold rounded-full border border-blue-500/20">阵列一</span>
-            <span class="ml-3 px-3 py-1 bg-white/5 text-gray-400 text-xs rounded-full border border-white/10">x 高擎动力战略合作伙伴</span>
+            <span class="ml-3 px-3 py-1 bg-white/5 text-gray-400 text-xs rounded-full border border-white/10">x 高擎动力战略合作</span>
         </div>
         <h1 class="text-4xl md:text-6xl font-bold tracking-tight">具身智能<span class="text-gradient">机器人</span></h1>
         <p class="mt-6 text-lg text-gray-400 max-w-2xl leading-relaxed">
@@ -326,20 +224,12 @@
 <!-- Footer -->
 <footer class="relative z-10 border-t border-border py-8">
     <div class="max-w-7xl mx-auto px-6 text-center text-sm text-gray-600">
-        <p>© 2026 UnitClaw.ai · 万物拟态 · 与高校共建 【AI+ 具身智能机器人】课程体系</p>
+        <p>© 2026 unitclaw.cn | 高擎动力战略合作 | 万物拟态，单元铸智</p>
     </div>
 </footer>
 
 <script src="../particles.min.js"></script>
 <script>
-function toggleSidebar(){
-    const sb = document.getElementById('sidebar');
-    const ov = document.getElementById('sidebar-overlay');
-    const btn = document.querySelector('.menu-btn');
-    const isOpen = sb.classList.contains('open');
-    if(isOpen){sb.classList.remove('open');ov.classList.remove('show');btn.classList.remove('open');}
-    else{sb.classList.add('open');ov.classList.add('show');btn.classList.add('open');}
-}
 particlesJS("particles-js",{particles:{number:{value:30,density:{enable:!0,value_area:800}},color:{value:"#3b82f6"},opacity:{value:.12,random:!0},size:{value:2,random:!0},line_linked:{enable:!0,distance:150,color:"#3b82f6",opacity:.06,width:1},move:{enable:!0,speed:.6}}});
 </script>
 </body>
