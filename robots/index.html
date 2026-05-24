@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>具身智能机器人 - UnitClaw.ai</title>
+    <title>具身智能机器人 - unitclaw.cn</title>
     <meta name="description" content="高擎动力系列具身智能机器人：Mini Pi双足机器人、模块化开源Pi+、人形机器人Hi，面向高校科研与教学。">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -68,7 +68,14 @@
         .nav-link i{width:20px;text-align:center;font-size:.85rem}
         .nav-section{color:#64748b;font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;padding:16px 20px 6px 20px}
         @media(min-width:1024px){.menu-btn{display:none}}
-    </style>
+    
+/* === Language Toggle === */
+.lang-toggle{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:8px;border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.6);font-size:12px;font-weight:700;text-decoration:none;transition:all .2s;flex-shrink:0;margin-left:8px}
+.lang-toggle:hover{border-color:#3b82f6;color:#3b82f6;background:rgba(59,130,246,.1)}
+.lang-toggle-en{font-family:'Inter',system-ui,sans-serif;letter-spacing:.02em}
+.lang-toggle-zh{font-family:'Noto Sans SC',system-ui,sans-serif}
+
+</style>
 </head>
 <body class="bg-primary text-white min-h-screen font-sans antialiased">
 
@@ -123,7 +130,7 @@
             <div class="nav-item"><a href="../download/index.html">下载</a></div><div class="nav-item"><a href="../partnerships/university-cooperation.html" style="color:#a78bfa">高校合作</a></div>
         </nav>
 
-        <div class="nav-right">
+        <div class="nav-right"><a href="../en/robots/index.html" class="lang-toggle lang-toggle-en" title="English">EN</a>
             <a href="../contact.html" class="btn-contact hidden lg:inline-flex"><i class="fas fa-phone-alt mr-1.5 text-xs text-gray-500"></i>联系我们</a>
             <a href="../contact.html" class="btn-demo">预约演示</a>
             <button class="mobile-menu-btn" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
@@ -276,7 +283,7 @@ function toggleSidebar(){
 </section>
 
 <footer class="relative z-10 border-t border-border py-12">
-    <div class="max-w-7xl mx-auto px-6 text-center text-sm text-gray-600">© 2026 UnitClaw.ai · 万物拟态 · 与高校共建 【AI+ 具身智能机器人】课程体系</div>
+    <div class="max-w-7xl mx-auto px-6 text-center text-sm text-gray-600">© 2026 unitclaw.cn · 万物拟态 · 与高校共建 【AI+ 具身智能机器人】课程体系</div>
 </footer>
 
 <script src="../particles.min.js"></script>

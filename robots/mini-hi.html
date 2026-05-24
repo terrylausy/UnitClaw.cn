@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>人形机器人 Mini Hi - UnitClaw.ai</title>
+    <title>人形机器人 Mini Hi - unitclaw.cn</title>
     <meta name="description" content="Mini Hi 高性能人形机器人：830mm，23自由度，高扭矩关节，20kg负载，NVIDIA Orin NX，面向高校科研。">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -62,7 +62,14 @@
         .nav-link i{width:20px;text-align:center;font-size:.85rem}
         .nav-section{color:#64748b;font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;padding:16px 20px 6px 20px}
         @media(min-width:1024px){.menu-btn{display:none}}
-    </style>
+    
+/* === Language Toggle === */
+.lang-toggle{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:8px;border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.6);font-size:12px;font-weight:700;text-decoration:none;transition:all .2s;flex-shrink:0;margin-left:8px}
+.lang-toggle:hover{border-color:#3b82f6;color:#3b82f6;background:rgba(59,130,246,.1)}
+.lang-toggle-en{font-family:'Inter',system-ui,sans-serif;letter-spacing:.02em}
+.lang-toggle-zh{font-family:'Noto Sans SC',system-ui,sans-serif}
+
+</style>
 </head>
 <body class="bg-primary text-white min-h-screen font-sans antialiased">
 <div id="particles-js" class="fixed inset-0 z-0"></div>
@@ -87,7 +94,7 @@
         <div class="nav-item"><a href="../courses/index.html">机器人课程</a></div>
         <div class="nav-item"><a href="../download/index.html">下载</a></div><div class="nav-item"><a href="../partnerships/university-cooperation.html" style="color:#a78bfa">高校合作</a></div>
     </nav>
-    <div class="nav-right"><a href="../contact.html" class="btn-contact hidden lg:inline-flex"><i class="fas fa-phone-alt mr-1.5 text-xs text-gray-500"></i>联系我们</a><a href="../contact.html" class="btn-demo">预约演示</a><button class="mobile-menu-btn" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button></div>
+    <div class="nav-right"><a href="../en/robots/mini-hi.html" class="lang-toggle lang-toggle-en" title="English">EN</a><a href="../contact.html" class="btn-contact hidden lg:inline-flex"><i class="fas fa-phone-alt mr-1.5 text-xs text-gray-500"></i>联系我们</a><a href="../contact.html" class="btn-demo">预约演示</a><button class="mobile-menu-btn" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button></div>
 </div></header>
 <button class="menu-btn glass" onclick="toggleSidebar()"><i class="fas fa-bars text-white text-lg"></i></button>
 <div id="sidebar-overlay" onclick="toggleSidebar()"></div>
@@ -165,7 +172,7 @@
 </section>
 
 <section class="relative z-10 py-20"><div class="max-w-4xl mx-auto px-6 text-center"><div class="glass rounded-3xl p-12"><h2 class="text-2xl font-bold mb-4">了解 Mini Hi</h2><p class="text-gray-400 mb-8">获取完整技术文档、3D模型与ROS开发套件</p><a href="../contact.html" class="px-8 py-3.5 bg-emerald hover:bg-green-600 text-white font-semibold rounded-xl transition-all">预约演示</a></div></div></section>
-<footer class="relative z-10 border-t border-border py-12 text-center text-sm text-gray-600">© 2026 UnitClaw.ai · 万物拟态 · 与高校共建 【AI+ 具身智能机器人】课程体系</footer>
+<footer class="relative z-10 border-t border-border py-12 text-center text-sm text-gray-600">© 2026 unitclaw.cn · 万物拟态 · 与高校共建 【AI+ 具身智能机器人】课程体系</footer>
 <script src="../particles.min.js"></script>
 <script>particlesJS("particles-js",{particles:{number:{value:40,density:{enable:!0,value_area:800}},color:{value:"#3b82f6"},shape:{type:"circle"},opacity:{value:.15,random:!0},size:{value:2,random:!0},line_linked:{enable:!0,distance:150,color:"#3b82f6",opacity:.08,width:1},move:{enable:!0,speed:.8,direction:"none",random:!0,out_mode:"out"}},interactivity:{detect_on:"canvas",events:{onhover:{enable:!0,mode:"grab"},resize:!0},modes:{grab:{distance:140,line_linked:{opacity:.2}}}},retina_detect:!0});</script>
 </body>
