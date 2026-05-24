@@ -9,15 +9,15 @@
     <style>
         :root{--scholar:#8b5cf6;--scholar-light:#a78bfa}
         .bg-grid{background-image:linear-gradient(rgba(139,92,246,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(139,92,246,.04) 1px,transparent 1px);background-size:40px 40px}
-        .glass{background:rgba(17,24,39,.85);backdrop-filter:blur(16px);border:1px solid rgba(139,92,246,.15)}
+        .glass{background:rgba(17,24,39,.85);backdrop-filter:blur(16px);border:1px solid rgba(124,58,237,.08)}
         .card-hover{transition:all .35s cubic-bezier(.4,0,.2,1)}
-        .card-hover:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(139,92,246,.15)}
+        .card-hover:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(124,58,237,.08)}
         .text-gradient{background:linear-gradient(135deg,#a78bfa,#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
         .text-gradient-warm{background:linear-gradient(135deg,#fbbf24,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
         .hero-glow{background:radial-gradient(ellipse at 50% 0%,rgba(139,92,246,.12) 0%,transparent 70%)}
         .tag{display:inline-block;padding:2px 10px;border-radius:12px;font-size:.75rem;font-weight:600;letter-spacing:.05em}
-        .tag-scholar{background:rgba(139,92,246,.15);color:#a78bfa;border:1px solid rgba(139,92,246,.25)}
-        .tag-warm{background:rgba(245,158,11,.15);color:#fbbf24;border:1px solid rgba(245,158,11,.25)}
+        .tag-scholar{background:rgba(124,58,237,.08);color:#7c3aed;border:1px solid rgba(139,92,246,.25)}
+        .tag-warm{background:rgba(217,119,6,.08);color:#d97706;border:1px solid rgba(245,158,11,.25)}
         .top-nav{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(11,17,32,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(59,130,246,.1)}
         .top-nav .nav-container{max-width:1280px;margin:0 auto;padding:0 32px 0 124px;display:flex;align-items:center;height:72px}
         .top-nav .nav-logo{display:flex;align-items:center;gap:8px;text-decoration:none;flex-shrink:0}
@@ -27,7 +27,7 @@
         .nav-item>a{display:flex;align-items:center;gap:6px;padding:8px 16px;color:#cbd5e1;font-size:.9rem;font-weight:500;text-decoration:none;border-radius:8px;transition:all .2s;white-space:nowrap}
         .nav-item>a:hover{color:#fff;background:rgba(59,130,246,.12)}
         .nav-item>a i.chevron{font-size:.65rem;transition:transform .2s;color:#64748b}
-        .nav-item:hover>a i.chevron{transform:rotate(180deg);color:#60a5fa}
+        .nav-item:hover>a i.chevron{transform:rotate(180deg);color:#2563eb}
         .nav-dropdown{position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:10px;opacity:0;visibility:hidden;transition:all .25s;pointer-events:none}
         .nav-item:hover .nav-dropdown{opacity:1;visibility:visible;pointer-events:auto}
         .nav-dropdown-inner{background:rgba(17,24,39,.98);backdrop-filter:blur(20px);border:1px solid rgba(59,130,246,.2);border-radius:16px;padding:24px;box-shadow:0 24px 64px rgba(0,0,0,.5)}
@@ -36,8 +36,8 @@
         .dd-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;text-decoration:none;transition:all .2s}
         .dd-item:hover{background:rgba(59,130,246,.1)}
         .dd-item .dd-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
-        .dd-item .dd-icon.blue{background:rgba(59,130,246,.15);color:#60a5fa}
-        .dd-item .dd-icon.purple{background:rgba(139,92,246,.15);color:#a78bfa}
+        .dd-item .dd-icon.blue{background:rgba(37,99,235,.08);color:#2563eb}
+        .dd-item .dd-icon.purple{background:rgba(124,58,237,.08);color:#7c3aed}
         .dd-item .dd-icon.emerald{background:rgba(16,185,129,.15);color:#34d399}
         .dd-item .dd-text .dd-title{color:#f1f5f9;font-weight:600;font-size:.9rem}
         .dd-item .dd-text .dd-sub{color:#64748b;font-size:.75rem;margin-top:1px}
@@ -56,7 +56,7 @@
         #sidebar-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:99;opacity:0;visibility:hidden;transition:all .35s}
         #sidebar-overlay.show{opacity:1;visibility:visible}
         .menu-btn{position:fixed;top:16px;left:16px;z-index:98;width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .3s}
-        .menu-btn:hover{background:rgba(139,92,246,.15)}
+        .menu-btn:hover{background:rgba(124,58,237,.08)}
         .menu-btn.open{left:296px}
         .nav-link{display:flex;align-items:center;gap:10px;padding:12px 20px;color:#94a3b8;font-size:.9rem;font-weight:500;transition:all .2s;border-radius:8px;margin:2px 12px}
         .nav-link:hover,.nav-link.active{color:#fff;background:rgba(139,92,246,.12)}
@@ -65,7 +65,7 @@
 
         /* Page-specific */
         .pain-table td,.pain-table th{padding:14px 18px;text-align:left;border-bottom:1px solid rgba(139,92,246,.1)}
-        .pain-table th{color:#a78bfa;font-size:.8rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase}
+        .pain-table th{color:#7c3aed;font-size:.8rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase}
         .pain-table td{color:#cbd5e1;font-size:.9rem;line-height:1.6}
         .pain-table tr:hover td{background:rgba(139,92,246,.04)}
         .mode-card{border-left:3px solid transparent;transition:all .3s}
@@ -80,7 +80,7 @@
 
 </style>
 </head>
-<body class="bg-primary text-white font-sans antialiased">
+<body class="bg-primary text-gray-900 font-sans antialiased">
 <div id="particles-js" class="fixed inset-0 z-0"></div><div class="fixed inset-0 bg-grid z-0 opacity-40"></div>
 
 <!-- ====== TOP NAVIGATION ====== -->
@@ -89,16 +89,16 @@
         <a href="../index.html" class="nav-logo">
             <img src="../assets/logos/UnitClaw-Logo.png" alt="UnitClaw" class="h-7 w-auto" onerror="this.style.display='none'">
             <div class="flex flex-col items-center leading-none">
-                <span class="text-base font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-xs font-normal">.ai</span></span>
+                <span class="text-base font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-xs font-normal">.cn</span></span>
                 <span class="text-[10px] text-gray-500 tracking-wider whitespace-nowrap mt-0.5">万物拟态 · 智启未来</span>
             </div>
         </a>
         <nav class="nav-links">
             <div class="nav-item"><a href="../robots/index.html">机器人 <i class="fas fa-chevron-down chevron"></i></a><div class="nav-dropdown"><div class="nav-dropdown-inner mega" style="grid-template-columns:1fr 1fr 1fr"><a href="../robots/mini-pi.html" class="dd-item"><div class="dd-icon blue"><i class="fas fa-robot"></i></div><div class="dd-text"><div class="dd-title">双足机器人 Pi</div><div class="dd-sub">520mm · 12DOF · 开源平台</div></div></a><a href="../robots/pi-plus.html" class="dd-item"><div class="dd-icon purple"><i class="fas fa-cube"></i></div><div class="dd-text"><div class="dd-title">模块化开源 Pi+</div><div class="dd-sub">650mm · 22DOF · Orin NX</div></div></a><a href="../robots/mini-hi.html" class="dd-item"><div class="dd-icon emerald"><i class="fas fa-child"></i></div><div class="dd-text"><div class="dd-title">人形机器人 Hi</div><div class="dd-sub">830mm · 23DOF · 高扭矩</div></div></a></div></div></div>
-            <div class="nav-item"><a href="../components/index.html">核心零部件 <i class="fas fa-chevron-down chevron"></i></a><div class="nav-dropdown"><div class="nav-dropdown-inner compact"><a href="../components/index.html" class="dd-compact-item">伺服关节模组 <span class="sub">行星·超薄·中空</span></a><a href="../components/index.html" class="dd-compact-item">PANTHERA-HT 机械臂 <span class="sub">6轴协作·3.5kg负载</span></a><a href="../components/dexterous-hand.html" class="dd-compact-item" style="background:rgba(245,158,11,.1);color:#fbbf24">UnitClaw 灵巧手 <span class="sub">五指仿生·21DOF</span></a><a href="../components/index.html" class="dd-compact-item">7路CAN主控盒 <span class="sub">RK3588S·多路输出</span></a><a href="../components/index.html" class="dd-compact-item">电池组 <span class="sub">高压48V·低压24V</span></a></div></div></div>
+            <div class="nav-item"><a href="../components/index.html">核心零部件 <i class="fas fa-chevron-down chevron"></i></a><div class="nav-dropdown"><div class="nav-dropdown-inner compact"><a href="../components/index.html" class="dd-compact-item">伺服关节模组 <span class="sub">行星·超薄·中空</span></a><a href="../components/index.html" class="dd-compact-item">PANTHERA-HT 机械臂 <span class="sub">6轴协作·3.5kg负载</span></a><a href="../components/dexterous-hand.html" class="dd-compact-item" style="background:rgba(245,158,11,.1);color:#d97706">UnitClaw 灵巧手 <span class="sub">五指仿生·21DOF</span></a><a href="../components/index.html" class="dd-compact-item">7路CAN主控盒 <span class="sub">RK3588S·多路输出</span></a><a href="../components/index.html" class="dd-compact-item">电池组 <span class="sub">高压48V·低压24V</span></a></div></div></div>
             <div class="nav-item"><a href="../courses/index.html">机器人课程</a></div>
-            <div class="nav-item"><a href="../download/index.html">下载</a></div><div class="nav-item"><a href="../partnerships/university-cooperation.html" style="color:#a78bfa">高校合作</a></div>
-            <div class="nav-item"><a href="../partnerships/university-cooperation.html" style="color:#a78bfa">高校合作</a></div>
+            <div class="nav-item"><a href="../download/index.html">下载</a></div><div class="nav-item"><a href="../partnerships/university-cooperation.html" style="color:#7c3aed">高校合作</a></div>
+            <div class="nav-item"><a href="../partnerships/university-cooperation.html" style="color:#7c3aed">高校合作</a></div>
         </nav>
         <div class="nav-right"><a href="../en/partnerships/university-cooperation.html" class="lang-toggle lang-toggle-en" title="English">EN</a>
             <a href="../contact.html" class="btn-contact hidden lg:inline-flex"><i class="fas fa-phone-alt mr-1.5 text-xs text-gray-500"></i>联系我们</a>
@@ -111,12 +111,12 @@
 <button class="menu-btn glass" onclick="toggleSidebar()"><i class="fas fa-bars text-white text-lg"></i></button>
 <div id="sidebar-overlay" onclick="toggleSidebar()"></div>
 <nav id="sidebar" class="glass">
-    <div class="flex items-center justify-between px-5 py-4 border-b border-white/5">
+    <div class="flex items-center justify-between px-5 py-4 border-b border-gray-200">
         <a href="../index.html" class="flex items-center space-x-2.5" onclick="toggleSidebar()">
             <img src="../assets/logos/UnitClaw-Logo.png" class="h-8 w-auto" onerror="this.style.display='none'">
-            <span class="text-base font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-xs font-normal">.ai</span></span>
+            <span class="text-base font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-xs font-normal">.cn</span></span>
         </a>
-        <button onclick="toggleSidebar()" class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white/10 transition-colors"><i class="fas fa-times text-gray-400 text-lg"></i></button>
+        <button onclick="toggleSidebar()" class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-gray-100/70 transition-colors"><i class="fas fa-times text-gray-400 text-lg"></i></button>
     </div>
     <div class="py-3">
         <a href="../index.html" class="nav-link"><i class="fas fa-home"></i>首页</a>
@@ -154,9 +154,9 @@
 <!-- ====== 合作价值定位 ====== -->
 <section class="relative z-10 py-16 border-t border-border">
     <div class="max-w-5xl mx-auto px-6">
-        <div class="glass rounded-2xl p-8 md:p-12">
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 md:p-12">
             <h2 class="text-2xl font-bold mb-6 flex items-center gap-3"><i class="fas fa-bullseye text-purple-400 text-xl"></i>合作核心价值定位</h2>
-            <p class="text-gray-300 text-lg leading-relaxed">
+            <p class="text-gray-700 text-lg leading-relaxed">
                 万物拟态（unitclaw.cn）以高擎动力具身智能机器人硬件平台为基础，融合自研课程体系、动作开发工具、赛事支撑能力与产业化资源，与高校开展<span class="text-purple-400 font-semibold">「产 · 教 · 研 · 赛 · 用」</span>全链条合作，精准解决高校在教学落地、师资建设、科研转化、赛事突破、学生培养、成果市场化中的核心痛点，打造差异化学科优势。
             </p>
             <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mt-8">
@@ -223,7 +223,7 @@
         </div>
 
         <!-- 模式一 -->
-        <div class="mode-card glass rounded-2xl p-8 md:p-10 mb-8" id="mode1">
+        <div class="mode-card bg-white rounded-2xl p-8 shadow-sm border border-gray-200 md:p-10 mb-8" id="mode1">
             <div class="flex flex-wrap items-center gap-3 mb-6">
                 <span class="badge-mode bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">模式一</span>
                 <span class="badge-mode bg-purple-500/10 text-purple-400 border border-purple-500/20">基础型 · 快速落地</span>
@@ -261,7 +261,7 @@
             </div>
             <div class="mt-8 p-6 rounded-xl bg-emerald-500/5 border border-emerald-500/10">
                 <h4 class="font-semibold text-emerald-400 mb-3"><i class="fas fa-gem mr-2"></i>高校收益</h4>
-                <div class="grid sm:grid-cols-3 gap-3 text-sm text-gray-300">
+                <div class="grid sm:grid-cols-3 gap-3 text-sm text-gray-700">
                     <div class="flex items-start gap-2"><i class="fas fa-circle text-emerald-400 text-[6px] mt-2"></i>快速建成标准化具身智能实训实验室</div>
                     <div class="flex items-start gap-2"><i class="fas fa-circle text-emerald-400 text-[6px] mt-2"></i>提升教学质量与学生实操能力</div>
                     <div class="flex items-start gap-2"><i class="fas fa-circle text-emerald-400 text-[6px] mt-2"></i>低成本提升赛事竞争力，积累办学成果</div>
@@ -270,7 +270,7 @@
         </div>
 
         <!-- 模式二 -->
-        <div class="mode-card glass rounded-2xl p-8 md:p-10 mb-8" id="mode2">
+        <div class="mode-card bg-white rounded-2xl p-8 shadow-sm border border-gray-200 md:p-10 mb-8" id="mode2">
             <div class="flex flex-wrap items-center gap-3 mb-6">
                 <span class="badge-mode bg-blue-500/10 text-blue-400 border border-blue-500/20">模式二</span>
                 <span class="badge-mode bg-purple-500/10 text-purple-400 border border-purple-500/20">进阶型 · 科研+人才</span>
@@ -308,7 +308,7 @@
             </div>
             <div class="mt-8 p-6 rounded-xl bg-blue-500/5 border border-blue-500/10">
                 <h4 class="font-semibold text-blue-400 mb-3"><i class="fas fa-gem mr-2"></i>高校收益</h4>
-                <div class="grid sm:grid-cols-3 gap-3 text-sm text-gray-300">
+                <div class="grid sm:grid-cols-3 gap-3 text-sm text-gray-700">
                     <div class="flex items-start gap-2"><i class="fas fa-circle text-blue-400 text-[6px] mt-2"></i>建成高水平科研平台，支撑课题申报与论文发表</div>
                     <div class="flex items-start gap-2"><i class="fas fa-circle text-blue-400 text-[6px] mt-2"></i>师生深度参与真实产品研发，提升工程实践能力</div>
                     <div class="flex items-start gap-2"><i class="fas fa-circle text-blue-400 text-[6px] mt-2"></i>积累差异化科研成果，打造学科特色名片</div>
@@ -317,7 +317,7 @@
         </div>
 
         <!-- 模式三 -->
-        <div class="mode-card glass rounded-2xl p-8 md:p-10" id="mode3">
+        <div class="mode-card bg-white rounded-2xl p-8 shadow-sm border border-gray-200 md:p-10" id="mode3">
             <div class="flex flex-wrap items-center gap-3 mb-6">
                 <span class="badge-mode bg-warm/10 text-warm border border-warm/20">模式三</span>
                 <span class="badge-mode bg-purple-500/10 text-purple-400 border border-purple-500/20">深度型 · 产研一体化</span>
@@ -356,7 +356,7 @@
             </div>
             <div class="mt-8 p-6 rounded-xl bg-warm/5 border border-warm/10">
                 <h4 class="font-semibold text-warm mb-3"><i class="fas fa-gem mr-2"></i>高校收益</h4>
-                <div class="grid sm:grid-cols-3 gap-3 text-sm text-gray-300">
+                <div class="grid sm:grid-cols-3 gap-3 text-sm text-gray-700">
                     <div class="flex items-start gap-2"><i class="fas fa-circle text-warm text-[6px] mt-2"></i>科研成果从实验室到市场的闭环转化</div>
                     <div class="flex items-start gap-2"><i class="fas fa-circle text-warm text-[6px] mt-2"></i>打造产学研融合标杆，提升学科影响力</div>
                     <div class="flex items-start gap-2"><i class="fas fa-circle text-warm text-[6px] mt-2"></i>拓宽学生就业渠道，提升就业质量</div>
@@ -402,7 +402,7 @@
 <!-- ====== 价值总结 ====== -->
 <section class="relative z-10 py-16 border-t border-border">
     <div class="max-w-4xl mx-auto px-6">
-        <div class="glass rounded-2xl p-8 md:p-12 text-center">
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 md:p-12 text-center">
             <i class="fas fa-quote-left text-4xl text-purple-400/30 mb-6"></i>
             <p class="text-xl md:text-2xl text-gray-200 leading-relaxed mb-6">
                 万物拟态与高校的合作，不止是硬件设备的采购，更是<span class="text-purple-400 font-semibold">教学落地、科研创新、人才培养、成果转化</span>的全链条赋能。
