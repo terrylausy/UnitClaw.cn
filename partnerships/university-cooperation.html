@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>高校合作 - UnitClaw.ai | 产教研赛用全链条赋能</title>
+    <title>高校合作 - unitclaw.cn | 产教研赛用全链条赋能</title>
     <meta name="description" content="UnitClaw与高校开展产教研赛用全链条合作，提供具身智能机器人硬件、全栈课程体系、赛事赋能与成果转化支持。">
     <script src="https://cdn.tailwindcss.com"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>tailwind.config={theme:{extend:{colors:{primary:'#0b1120',accent:'#3b82f6',card:'#111827',border:'#1e293b',warm:'#f59e0b',scholar:'#8b5cf6'}}}}</script>
@@ -71,7 +71,14 @@
         .mode-card{border-left:3px solid transparent;transition:all .3s}
         .mode-card:hover{border-left-color:var(--scholar);background:rgba(139,92,246,.04)}
         .badge-mode{display:inline-block;padding:4px 14px;border-radius:20px;font-size:.8rem;font-weight:600;letter-spacing:.03em}
-    </style>
+    
+/* === Language Toggle === */
+.lang-toggle{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:8px;border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.6);font-size:12px;font-weight:700;text-decoration:none;transition:all .2s;flex-shrink:0;margin-left:8px}
+.lang-toggle:hover{border-color:#3b82f6;color:#3b82f6;background:rgba(59,130,246,.1)}
+.lang-toggle-en{font-family:'Inter',system-ui,sans-serif;letter-spacing:.02em}
+.lang-toggle-zh{font-family:'Noto Sans SC',system-ui,sans-serif}
+
+</style>
 </head>
 <body class="bg-primary text-white font-sans antialiased">
 <div id="particles-js" class="fixed inset-0 z-0"></div><div class="fixed inset-0 bg-grid z-0 opacity-40"></div>
@@ -93,7 +100,7 @@
             <div class="nav-item"><a href="../download/index.html">下载</a></div><div class="nav-item"><a href="../partnerships/university-cooperation.html" style="color:#a78bfa">高校合作</a></div>
             <div class="nav-item"><a href="../partnerships/university-cooperation.html" style="color:#a78bfa">高校合作</a></div>
         </nav>
-        <div class="nav-right">
+        <div class="nav-right"><a href="../en/partnerships/university-cooperation.html" class="lang-toggle lang-toggle-en" title="English">EN</a>
             <a href="../contact.html" class="btn-contact hidden lg:inline-flex"><i class="fas fa-phone-alt mr-1.5 text-xs text-gray-500"></i>联系我们</a>
             <a href="../contact.html" class="btn-demo">预约演示</a>
         </div>
@@ -150,7 +157,7 @@
         <div class="glass rounded-2xl p-8 md:p-12">
             <h2 class="text-2xl font-bold mb-6 flex items-center gap-3"><i class="fas fa-bullseye text-purple-400 text-xl"></i>合作核心价值定位</h2>
             <p class="text-gray-300 text-lg leading-relaxed">
-                万物拟态（UnitClaw.ai）以高擎动力具身智能机器人硬件平台为基础，融合自研课程体系、动作开发工具、赛事支撑能力与产业化资源，与高校开展<span class="text-purple-400 font-semibold">「产 · 教 · 研 · 赛 · 用」</span>全链条合作，精准解决高校在教学落地、师资建设、科研转化、赛事突破、学生培养、成果市场化中的核心痛点，打造差异化学科优势。
+                万物拟态（unitclaw.cn）以高擎动力具身智能机器人硬件平台为基础，融合自研课程体系、动作开发工具、赛事支撑能力与产业化资源，与高校开展<span class="text-purple-400 font-semibold">「产 · 教 · 研 · 赛 · 用」</span>全链条合作，精准解决高校在教学落地、师资建设、科研转化、赛事突破、学生培养、成果市场化中的核心痛点，打造差异化学科优势。
             </p>
             <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mt-8">
                 <div class="text-center p-4 rounded-xl bg-purple-500/5 border border-purple-500/10"><i class="fas fa-industry text-2xl text-purple-400 mb-2"></i><div class="text-sm font-semibold">产</div><div class="text-xs text-gray-500 mt-1">产业融合</div></div>
@@ -418,7 +425,7 @@
 <!-- Footer -->
 <footer class="relative z-10 border-t border-border py-10">
     <div class="max-w-6xl mx-auto px-6 text-center text-sm text-gray-500">
-        &copy; 2026 UnitClaw.ai &mdash; 万物拟态 · 智启未来 | 面向高校的AI+机器人教育平台
+        &copy; 2026 unitclaw.cn &mdash; 万物拟态 · 智启未来 | 面向高校的AI+机器人教育平台
     </div>
 </footer>
 
