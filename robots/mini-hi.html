@@ -1,179 +1,357 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
+
 <html lang="zh-CN">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>人形机器人 Mini Hi - unitclaw.cn</title>
+
     <meta name="description" content="Mini Hi 高性能人形机器人：830mm，23自由度，高扭矩关节，20kg负载，NVIDIA Orin NX，面向高校科研。">
+
     <script src="https://cdn.tailwindcss.com"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>tailwind.config={theme:{extend:{colors:{primary:'#0b1120',secondary:'#1a2456',accent:'#3b82f6',light:'#60a5fa',warm:'#f59e0b',card:'#111827',border:'#1e293b',emerald:'#34d399'},fontFamily:{sans:['Inter','Noto Sans SC','system-ui','sans-serif'],display:['JetBrains Mono','monospace']}}}}</script>
+
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#ffffff',secondary:'#f8fafc',accent:'#2563eb',light:'#60a5fa',warm:'#f59e0b',card:'#ffffff',border:'#e2e8f0',emerald:'#34d399'},fontFamily:{sans:['Inter','Noto Sans SC','system-ui','sans-serif'],display:['JetBrains Mono','monospace']}}}}</script>
+
     <style>
+
         .bg-grid{background-image:linear-gradient(rgba(37,99,235,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,.04) 1px,transparent 1px);background-size:40px 40px}
+
         .glass{background:rgba(255,255,255,.9);backdrop-filter:blur(16px);border:1px solid rgba(0,0,0,.08)}
+
         .card-hover{transition:all .35s cubic-bezier(.4,0,.2,1)}
+
         .card-hover:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(37,99,235,.08)}
+
         .text-gradient{background:linear-gradient(135deg,#34d399,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+
         .hero-glow{background:radial-gradient(ellipse at 50% 0%,rgba(16,185,129,.15) 0%,transparent 70%)}
+
         .tag{display:inline-block;padding:2px 10px;border-radius:12px;font-size:.75rem;font-weight:600;letter-spacing:.05em}
+
         .tag-emerald{background:rgba(16,185,129,.15);color:#34d399;border:1px solid rgba(16,185,129,.25)}
+
         .top-nav{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(11,17,32,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(59,130,246,.1)}
+
         .top-nav .nav-container{max-width:1280px;margin:0 auto;padding:0 32px 0 124px;display:flex;align-items:center;height:72px}
+
         .top-nav .nav-logo{display:flex;align-items:center;gap:8px;text-decoration:none;flex-shrink:0}
+
         .top-nav .nav-links{display:none;align-items:center;gap:2px;margin-left:40px;flex:1}
+
         @media(min-width:1024px){.top-nav .nav-links{display:flex}}
+
         .nav-item{position:relative}
+
         .nav-item>a{display:flex;align-items:center;gap:6px;padding:8px 16px;color:#cbd5e1;font-size:.9rem;font-weight:500;text-decoration:none;border-radius:8px;transition:all .2s;white-space:nowrap}
+
         .nav-item>a:hover,.nav-item:hover>a{color:#fff;background:rgba(59,130,246,.12)}
+
         .nav-item>a i.chevron{font-size:.65rem;transition:transform .2s;color:#64748b}
+
         .nav-item:hover>a i.chevron{transform:rotate(180deg);color:#2563eb}
+
         .nav-dropdown{position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:10px;opacity:0;visibility:hidden;transition:all .25s;pointer-events:none}
+
         .nav-item:hover .nav-dropdown{opacity:1;visibility:visible;pointer-events:auto}
+
         .nav-dropdown-inner{background:rgba(17,24,39,.98);backdrop-filter:blur(20px);border:1px solid rgba(59,130,246,.2);border-radius:16px;padding:24px;box-shadow:0 24px 64px rgba(0,0,0,.5)}
+
         .nav-dropdown-inner.mega{display:grid;gap:20px;min-width:680px;grid-template-columns:1fr 1fr 1fr}
+
         .nav-dropdown-inner.compact{min-width:320px;display:flex;flex-direction:column;gap:6px}
+
         .dd-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;text-decoration:none;transition:all .2s}
+
         .dd-item:hover{background:rgba(59,130,246,.1)}
+
         .dd-item .dd-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+
         .dd-item .dd-icon.blue{background:rgba(37,99,235,.08);color:#2563eb}
+
         .dd-item .dd-icon.purple{background:rgba(124,58,237,.08);color:#7c3aed}
+
         .dd-item .dd-icon.emerald{background:rgba(16,185,129,.15);color:#34d399}
+
         .dd-item .dd-text .dd-title{color:#f1f5f9;font-weight:600;font-size:.9rem}
+
         .dd-item .dd-text .dd-sub{color:#64748b;font-size:.75rem;margin-top:1px}
+
         .dd-compact-item{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-radius:8px;color:#cbd5e1;text-decoration:none;font-size:.85rem;transition:all .2s}
+
         .dd-compact-item:hover{background:rgba(59,130,246,.1);color:#fff}
+
         .dd-compact-item .sub{font-size:.75rem;color:#64748b}
+
         .nav-right{display:flex;align-items:center;gap:12px;margin-left:auto;flex-shrink:0}
+
         .nav-right .btn-contact{color:#94a3b8;font-size:.85rem;text-decoration:none;padding:8px 14px;border-radius:8px;transition:all .2s}
+
         .nav-right .btn-contact:hover{color:#fff;background:rgba(255,255,255,.05)}
+
         .nav-right .btn-demo{background:#3b82f6;color:#fff;font-size:.85rem;font-weight:600;padding:8px 18px;border-radius:8px;text-decoration:none;transition:all .2s}
+
         .nav-right .btn-demo:hover{background:#2563eb;box-shadow:0 4px 16px rgba(59,130,246,.3)}
+
         .mobile-menu-btn{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;border:1px solid rgba(255,255,255,.1);cursor:pointer;color:#cbd5e1;font-size:1.2rem;margin-left:auto}
+
         @media(min-width:1024px){.mobile-menu-btn{display:none}}
+
         #sidebar{position:fixed;top:0;left:-320px;width:280px;height:100vh;z-index:100;transition:left .35s cubic-bezier(.4,0,.2,1);overflow-y:auto}
+
         #sidebar.open{left:0}
+
         #sidebar-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:99;opacity:0;visibility:hidden;transition:all .35s}
+
         #sidebar-overlay.show{opacity:1;visibility:visible}
+
         .menu-btn{position:fixed;top:16px;left:16px;z-index:98;width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .3s}
+
         .menu-btn:hover{background:rgba(37,99,235,.08)}
+
         .menu-btn.open{left:296px}
+
         .nav-link{display:flex;align-items:center;gap:10px;padding:12px 20px;color:#94a3b8;font-size:.9rem;font-weight:500;transition:all .2s;border-radius:8px;margin:2px 12px;text-decoration:none}
+
         .nav-link:hover,.nav-link.active{color:#fff;background:rgba(59,130,246,.12)}
+
         .nav-link i{width:20px;text-align:center;font-size:.85rem}
+
         .nav-section{color:#64748b;font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;padding:16px 20px 6px 20px}
+
         @media(min-width:1024px){.menu-btn{display:none}}
+
     
+
 /* === Language Toggle === */
+
 .lang-toggle{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:8px;border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.6);font-size:12px;font-weight:700;text-decoration:none;transition:all .2s;flex-shrink:0;margin-left:8px}
+
 .lang-toggle:hover{border-color:#3b82f6;color:#3b82f6;background:rgba(59,130,246,.1)}
+
 .lang-toggle-en{font-family:'Inter',system-ui,sans-serif;letter-spacing:.02em}
+
 .lang-toggle-zh{font-family:'Noto Sans SC',system-ui,sans-serif}
 
+
+
 </style>
+
 </head>
+
 <body class="bg-white text-gray-900 min-h-screen font-sans antialiased">
+
 <div id="particles-js" class="fixed inset-0 z-0"></div>
+
 <div class="fixed inset-0 bg-grid z-0 opacity-40"></div>
+
 <header class="top-nav"><div class="nav-container">
-    <a href="../index.html" class="nav-logo"><img src="../assets/logos/UnitClaw-Logo.png" class="h-7 w-auto" onerror="this.style.display='none'"><div class="flex flex-col items-center leading-none"><span class="text-base font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-xs font-normal">.cn</span></span><span class="text-[10px] text-gray-500 tracking-wider whitespace-nowrap mt-0.5">万物拟态 · 智启未来</span></div></a>
+
+    <a href="../index.html" class="nav-logo"><img src="../assets/logos/WwRobot-Logo.png" class="h-10 w-auto" onerror="this.style.display='none'"><div class="flex flex-col items-center leading-none"><span class="text-base font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-xs font-normal">.cn</span></span><span class="text-[10px] text-gray-500 tracking-wider whitespace-nowrap mt-0.5">万物拟态 · 智启未来</span></div></a>
+
     <nav class="nav-links">
+
         <div class="nav-item"><a href="index.html">机器人 <i class="fas fa-chevron-down chevron"></i></a>
+
             <div class="nav-dropdown"><div class="nav-dropdown-inner mega">
+
                 <a href="mini-pi.html" class="dd-item"><div class="dd-icon blue"><i class="fas fa-robot"></i></div><div class="dd-text"><div class="dd-title">双足机器人 Pi</div><div class="dd-sub">520mm · 12DOF</div></div></a>
+
                 <a href="pi-plus.html" class="dd-item"><div class="dd-icon purple"><i class="fas fa-cube"></i></div><div class="dd-text"><div class="dd-title">模块化开源 Pi+</div><div class="dd-sub">650mm · 22DOF</div></div></a>
+
                 <a href="mini-hi.html" class="dd-item"><div class="dd-icon emerald"><i class="fas fa-child"></i></div><div class="dd-text"><div class="dd-title">人形机器人 Hi</div><div class="dd-sub">830mm · 23DOF</div></div></a>
+
         </div></div></div>
+
         <div class="nav-item"><a href="../components/index.html">核心零部件 <i class="fas fa-chevron-down chevron"></i></a>
+
             <div class="nav-dropdown"><div class="nav-dropdown-inner compact">
+
                 <a href="../components/index.html" class="dd-compact-item">伺服关节模组<span class="sub">行星·超薄·中空</span></a>
+
                 <a href="../components/index.html" class="dd-compact-item">PANTHERA-HT 机械臂<span class="sub">6轴协作</span></a>
+
 <a href="../components/dexterous-hand.html" class="dd-compact-item" style="background:rgba(245,158,11,.1);color:#d97706">UnitClaw 灵巧手 <span class="sub">五指仿生·21DOF</span></a>
+
 <a href="../components/index.html" class="dd-compact-item">7路CAN主控盒</a>
+
                 <a href="../components/index.html" class="dd-compact-item">电池组</a>
+
         </div></div></div>
+
         <div class="nav-item"><a href="../courses/index.html">机器人课程</a></div>
+
         <div class="nav-item"><a href="../download/index.html">下载</a></div><div class="nav-item"><a href="../partnerships/university-cooperation.html" style="color:#7c3aed">高校合作</a></div>
+
     </nav>
+
     <div class="nav-right"><a href="../en/robots/mini-hi.html" class="lang-toggle lang-toggle-en" title="English">EN</a><a href="../contact.html" class="btn-contact hidden lg:inline-flex"><i class="fas fa-phone-alt mr-1.5 text-xs text-gray-500"></i>联系我们</a><a href="../contact.html" class="btn-demo">预约演示</a><button class="mobile-menu-btn" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button></div>
+
 </div></header>
+
 <button class="menu-btn glass" onclick="toggleSidebar()"><i class="fas fa-bars text-white text-lg"></i></button>
+
 <div id="sidebar-overlay" onclick="toggleSidebar()"></div>
+
 <nav id="sidebar" class="glass">
+
     <div class="flex items-center justify-between px-5 py-4 border-b border-gray-200">
-        <a href="../index.html" onclick="toggleSidebar()" class="flex items-center space-x-2.5"><img src="../assets/logos/UnitClaw-Logo.png" class="h-8 w-auto" onerror="this.style.display='none'"><span class="text-base font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-xs font-normal">.cn</span></span></a>
-        <button onclick="toggleSidebar()" class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-gray-100/70 transition-colors"><i class="fas fa-times text-gray-400 text-lg"></i></button>
+
+        <a href="../index.html" onclick="toggleSidebar()" class="flex items-center space-x-2.5"><img src="../assets/logos/WwRobot-Logo.png" class="h-8 w-auto" onerror="this.style.display='none'"><span class="text-base font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-xs font-normal">.cn</span></span></a>
+
+        <button onclick="toggleSidebar()" class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-gray-100/70 transition-colors"><i class="fas fa-times text-gray-600 text-lg"></i></button>
+
     </div>
+
     <div class="py-3">
+
         <a href="../index.html" class="nav-link"><i class="fas fa-home"></i>首页</a>
+
         <div class="nav-section">机器人</div>
+
         <a href="index.html" class="nav-link"><i class="fas fa-robot text-accent"></i>机器人总览</a>
+
         <a href="mini-pi.html" class="nav-link"><i class="fas fa-running"></i>双足机器人 Pi</a>
+
         <a href="pi-plus.html" class="nav-link"><i class="fas fa-cubes"></i>模块化开源 Pi+</a>
+
         <a href="mini-hi.html" class="nav-link active"><i class="fas fa-child"></i>人形机器人 Hi</a>
+
     </div>
+
 </nav>
+
 <script>function toggleSidebar(){const sb=document.getElementById('sidebar'),ov=document.getElementById('sidebar-overlay'),btn=document.querySelector('.menu-btn');const isOpen=sb.classList.contains('open');if(isOpen){sb.classList.remove('open');ov.classList.remove('show');btn.classList.remove('open')}else{sb.classList.add('open');ov.classList.add('show');btn.classList.add('open')}}</script>
 
+
+
 <header class="relative z-10 pt-28 pb-16 hero-glow">
+
     <div class="max-w-7xl mx-auto px-6">
+
         <div class="flex flex-col lg:flex-row items-center gap-12">
+
             <div class="flex-1 text-center lg:text-left">
+
                 <span class="tag tag-emerald mb-4">MINI HI</span>
+
                 <h1 class="text-4xl md:text-6xl font-bold mt-4"><span class="text-gradient">高性能人形机器人</span></h1>
+
                 <p class="mt-4 text-xl text-emerald font-semibold">Mini Hi</p>
-                <p class="mt-6 text-gray-400 text-lg leading-relaxed max-w-lg">高性价比科研级人形机器人。830mm身高，23自由度，仿生关节设计，搭载Orin NX算力与RealSense视觉，支持行走、跳跃、越障等复杂运动。</p>
+
+                <p class="mt-6 text-gray-600 text-lg leading-relaxed max-w-lg">高性价比科研级人形机器人。830mm身高，23自由度，仿生关节设计，搭载Orin NX算力与RealSense视觉，支持行走、跳跃、越障等复杂运动。</p>
+
                 <div class="mt-8 flex flex-wrap gap-4">
+
                     <a href="../contact.html" class="px-8 py-3.5 bg-emerald hover:bg-green-600 text-white font-semibold rounded-xl transition-all">预约演示</a>
+
                     <a href="index.html" class="px-8 py-3.5 glass hover:bg-gray-100/70 text-gray-700 font-semibold rounded-xl transition-all">机器人总览</a>
+
                 </div>
+
             </div>
+
             <div class="flex-1 flex justify-center">
+
                 <div class="w-72 h-72 bg-gradient-to-br from-emerald/20 to-emerald/30 rounded-3xl flex items-center justify-center border border-emerald/20"><i class="fas fa-child-reaching text-9xl text-emerald/30"></i></div>
+
             </div>
+
         </div>
+
     </div>
+
 </header>
 
-<section class="relative z-10 py-16 border-t border-border">
+
+
+<section class="relative z-10 py-16 border-t border-gray-200">
+
     <div class="max-w-7xl mx-auto px-6"><h2 class="text-2xl font-bold text-center mb-10">产品参数</h2>
+
         <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+
             <div class="glass rounded-xl p-6 text-center"><div class="text-3xl font-bold text-emerald">830mm</div><div class="text-gray-500 text-sm mt-1">站立高度</div></div>
+
             <div class="glass rounded-xl p-6 text-center"><div class="text-3xl font-bold text-emerald">20 kg</div><div class="text-gray-500 text-sm mt-1">重量（含电池）</div></div>
+
             <div class="glass rounded-xl p-6 text-center"><div class="text-3xl font-bold text-emerald">23</div><div class="text-gray-500 text-sm mt-1">自由度 DOF</div></div>
+
             <div class="glass rounded-xl p-6 text-center"><div class="text-3xl font-bold text-emerald">48V</div><div class="text-gray-500 text-sm mt-1">工作电压</div></div>
+
             <div class="glass rounded-xl p-6 text-center"><div class="text-3xl font-bold text-emerald">0.5 m/s</div><div class="text-gray-500 text-sm mt-1">运动速度</div></div>
+
             <div class="glass rounded-xl p-6 text-center"><div class="text-3xl font-bold text-emerald">20 kg</div><div class="text-gray-500 text-sm mt-1">最大载荷</div></div>
+
             <div class="glass rounded-xl p-6 text-center"><div class="text-3xl font-bold text-emerald">Orin NX</div><div class="text-gray-500 text-sm mt-1">高性能计算平台</div></div>
+
             <div class="glass rounded-xl p-6 text-center"><div class="text-3xl font-bold text-emerald">RealSense</div><div class="text-gray-500 text-sm mt-1">视觉感知模块</div></div>
+
             <div class="glass rounded-xl p-6 text-center"><div class="text-3xl font-bold text-emerald">3种</div><div class="text-gray-500 text-sm mt-1">关节电机配备</div></div>
+
         </div>
+
     </div>
+
 </section>
 
-<section class="relative z-10 py-16 border-t border-border">
+
+
+<section class="relative z-10 py-16 border-t border-gray-200">
+
     <div class="max-w-7xl mx-auto px-6"><h2 class="text-2xl font-bold text-center mb-10">核心优势</h2>
+
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 card-hover"><div class="w-12 h-12 bg-emerald/15 rounded-xl flex items-center justify-center mb-5"><i class="fas fa-child-reaching text-emerald text-xl"></i></div><h3 class="text-lg font-bold mb-3">仿生学设计</h3><p class="text-gray-400 text-sm">踝关节和膝关节电机位置调高，有效减少惯性，提升运动稳定性与姿态控制。</p></div>
-            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 card-hover"><div class="w-12 h-12 bg-emerald/15 rounded-xl flex items-center justify-center mb-5"><i class="fas fa-bolt text-emerald text-xl"></i></div><h3 class="text-lg font-bold mb-3">高扭矩关节</h3><p class="text-gray-400 text-sm">三种关节电机针对性配置，匹配人体关节分布，提供充足的驱动扭矩与响应速度。</p></div>
-            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 card-hover"><div class="w-12 h-12 bg-emerald/15 rounded-xl flex items-center justify-center mb-5"><i class="fas fa-mountain text-emerald text-xl"></i></div><h3 class="text-lg font-bold mb-3">复杂运动能力</h3><p class="text-gray-400 text-sm">静态站立→步态行走→跳跃→越障，多种运动模式，覆盖更广泛研究场景。</p></div>
-            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 card-hover"><div class="w-12 h-12 bg-emerald/15 rounded-xl flex items-center justify-center mb-5"><i class="fas fa-microchip text-emerald text-xl"></i></div><h3 class="text-lg font-bold mb-3">边缘AI算力</h3><p class="text-gray-400 text-sm">搭载NVIDIA Orin NX，支持本地深度学习推理，可实现自主感知与决策。</p></div>
+
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 card-hover"><div class="w-12 h-12 bg-emerald/15 rounded-xl flex items-center justify-center mb-5"><i class="fas fa-child-reaching text-emerald text-xl"></i></div><h3 class="text-lg font-bold mb-3">仿生学设计</h3><p class="text-gray-600 text-sm">踝关节和膝关节电机位置调高，有效减少惯性，提升运动稳定性与姿态控制。</p></div>
+
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 card-hover"><div class="w-12 h-12 bg-emerald/15 rounded-xl flex items-center justify-center mb-5"><i class="fas fa-bolt text-emerald text-xl"></i></div><h3 class="text-lg font-bold mb-3">高扭矩关节</h3><p class="text-gray-600 text-sm">三种关节电机针对性配置，匹配人体关节分布，提供充足的驱动扭矩与响应速度。</p></div>
+
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 card-hover"><div class="w-12 h-12 bg-emerald/15 rounded-xl flex items-center justify-center mb-5"><i class="fas fa-mountain text-emerald text-xl"></i></div><h3 class="text-lg font-bold mb-3">复杂运动能力</h3><p class="text-gray-600 text-sm">静态站立→步态行走→跳跃→越障，多种运动模式，覆盖更广泛研究场景。</p></div>
+
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 card-hover"><div class="w-12 h-12 bg-emerald/15 rounded-xl flex items-center justify-center mb-5"><i class="fas fa-microchip text-emerald text-xl"></i></div><h3 class="text-lg font-bold mb-3">边缘AI算力</h3><p class="text-gray-600 text-sm">搭载NVIDIA Orin NX，支持本地深度学习推理，可实现自主感知与决策。</p></div>
+
         </div>
+
     </div>
+
 </section>
 
-<section class="relative z-10 py-16 border-t border-border">
+
+
+<section class="relative z-10 py-16 border-t border-gray-200">
+
     <div class="max-w-7xl mx-auto px-6"><h2 class="text-2xl font-bold text-center mb-10">应用场景</h2>
+
         <div class="grid md:grid-cols-3 gap-6">
-            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 text-center"><i class="fas fa-flask text-4xl text-emerald mb-4"></i><h3 class="font-bold mb-2">高级科研</h3><p class="text-gray-400 text-sm">全身运动控制、动态平衡、多模态交互等前沿课题研究，真正的二次开发平台。</p></div>
-            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 text-center"><i class="fas fa-building text-4xl text-emerald mb-4"></i><h3 class="font-bold mb-2">实验室建设</h3><p class="text-gray-400 text-sm">高校机器人实验室核心设备，配合Orin NX开展深度学习、计算机视觉综合实验。</p></div>
-            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 text-center"><i class="fas fa-robot text-4xl text-emerald mb-4"></i><h3 class="font-bold mb-2">算法验证</h3><p class="text-gray-400 text-sm">强化学习、模仿学习、全身运动规划等算法的物理验证平台，高性价比选择。</p></div>
+
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 text-center"><i class="fas fa-flask text-4xl text-emerald mb-4"></i><h3 class="font-bold mb-2">高级科研</h3><p class="text-gray-600 text-sm">全身运动控制、动态平衡、多模态交互等前沿课题研究，真正的二次开发平台。</p></div>
+
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 text-center"><i class="fas fa-building text-4xl text-emerald mb-4"></i><h3 class="font-bold mb-2">实验室建设</h3><p class="text-gray-600 text-sm">高校机器人实验室核心设备，配合Orin NX开展深度学习、计算机视觉综合实验。</p></div>
+
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 text-center"><i class="fas fa-robot text-4xl text-emerald mb-4"></i><h3 class="font-bold mb-2">算法验证</h3><p class="text-gray-600 text-sm">强化学习、模仿学习、全身运动规划等算法的物理验证平台，高性价比选择。</p></div>
+
         </div>
+
     </div>
+
 </section>
 
-<section class="relative z-10 py-20"><div class="max-w-4xl mx-auto px-6 text-center"><div class="bg-white rounded-3xl p-12 shadow-sm border border-gray-200"><h2 class="text-2xl font-bold mb-4">了解 Mini Hi</h2><p class="text-gray-400 mb-8">获取完整技术文档、3D模型与ROS开发套件</p><a href="../contact.html" class="px-8 py-3.5 bg-emerald hover:bg-green-600 text-white font-semibold rounded-xl transition-all">预约演示</a></div></div></section>
-<footer class="relative z-10 border-t border-border py-12 text-center text-sm text-gray-400">© 2026 unitclaw.cn · 万物拟态 · 与高校共建 【AI+ 具身智能机器人】课程体系</footer>
+
+
+<section class="relative z-10 py-20"><div class="max-w-4xl mx-auto px-6 text-center"><div class="bg-white rounded-3xl p-12 shadow-sm border border-gray-200"><h2 class="text-2xl font-bold mb-4">了解 Mini Hi</h2><p class="text-gray-600 mb-8">获取完整技术文档、3D模型与ROS开发套件</p><a href="../contact.html" class="px-8 py-3.5 bg-emerald hover:bg-green-600 text-white font-semibold rounded-xl transition-all">预约演示</a></div></div></section>
+
+<footer class="relative z-10 border-t border-gray-200 py-12 text-center text-sm text-gray-600">? 2026 unitclaw.cn · 万物拟态 · 与高校共建 【AI+ 具身智能机器人】课程体系</footer>
+
 <script src="../particles.min.js"></script>
+
 <script>particlesJS("particles-js",{particles:{number:{value:40,density:{enable:!0,value_area:800}},color:{value:"#3b82f6"},shape:{type:"circle"},opacity:{value:.15,random:!0},size:{value:2,random:!0},line_linked:{enable:!0,distance:150,color:"#3b82f6",opacity:.08,width:1},move:{enable:!0,speed:.8,direction:"none",random:!0,out_mode:"out"}},interactivity:{detect_on:"canvas",events:{onhover:{enable:!0,mode:"grab"},resize:!0},modes:{grab:{distance:140,line_linked:{opacity:.2}}}},retina_detect:!0});</script>
+
 </body>
+
 </html>
