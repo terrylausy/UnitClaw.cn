@@ -1,543 +1,120 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ç§ç U-Claw è¾ç | åç½®å¤?Skills è®ºæ U çå·¥ä½ç«å®æ´ä»ç»</title>
-    <meta name="description" content="U-Clawè¾çæ¯åºäºå¼æºAIæºè½ä½æ¡æ¶OpenClawå°è£çä¾¿æºå³æå³ç¨Uçç§ç å·¥ä½ç«ï¼åç½®æµ·éé¢å¶Skillsï¼é¢åæ¬ç§?ç¡å£«/çå·¥ç§æºæ¢°ç±»è®ºæå¨æµç¨è¾å©ã?>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#ffffff',
-                        secondary: '#F8FAFC',
-                        accent: '#2563EB',
-                        accent2: '#7C3AED',
-                        warm: '#d97706',
-                        dark: '#0F172A',
-                        muted: '#64748B',
-                        border: '#E2E8F0',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'Noto Sans SC', 'system-ui', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
-    <style>
-        .bg-grid{background-image:linear-gradient(rgba(37,99,235,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,.03) 1px,transparent 1px);background-size:40px 40px}
-        .glass{background:rgba(255,255,255,.92);backdrop-filter:blur(16px);border:1px solid rgba(0,0,0,.06)}
-        .text-gradient{background:linear-gradient(135deg,#d97706,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-        .text-gradient-blue{background:linear-gradient(135deg,#2563EB,#7C3AED);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-        .card-hover{transition:all .3s ease}
-        .card-hover:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,0,0,.08)}
-        .skill-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:9999px;font-size:13px;font-weight:500}
-        html{scroll-behavior:smooth}
-    </style>
-</head>
-<body class="bg-primary text-dark font-sans">
-
-<!-- ç²å­èæ¯ -->
-<div id="particles-js" class="fixed inset-0 z-0 pointer-events-none"></div>
-<div class="fixed inset-0 bg-grid z-0 opacity-40 pointer-events-none"></div>
-
-<!-- ====== å¯¼èªæ ?====== -->
-<nav class="glass fixed top-0 left-0 right-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-        <a href="../index.html" class="flex items-center space-x-3">
-            <span class="text-lg font-bold">Unit<span class="text-accent">Claw</span><span class="text-gray-400 text-sm font-normal ml-1">.cn</span></span>
-        </a>
-        <div class="hidden lg:flex items-center space-x-4">
-            <a href="../index.html" class="text-sm text-muted hover:text-dark transition-colors">é¦é¡µ</a>
-            <a href="robots.html" class="text-sm text-muted hover:text-dark transition-colors">æºå¨äº?/a>
-            <a href="courses.html" class="text-sm text-muted hover:text-dark transition-colors">è¯¾ç¨</a>
-            <a href="unitclaw.html" class="text-sm text-warm font-semibold">U-Claw è¾ç</a>
-            <a href="../solutions/education.html" class="text-sm text-muted hover:text-dark transition-colors">é«æ ¡æ¹æ¡</a>
-            <a href="../contact.html" class="ml-4 px-5 py-2 bg-warm hover:bg-amber-600 text-white font-semibold text-sm rounded-lg transition-colors">é¢çº¦æ¼ç¤º</a>
-        </div>
-    </div>
-</nav>
-
-<!-- ====== Hero åºå ====== -->
-<header class="relative z-10 pt-32 pb-16">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="flex flex-wrap items-center gap-3 mb-6">
-            <span class="skill-badge bg-warm/10 text-warm border border-warm/20">
-                <i class="fas fa-layer-group text-xs"></i> éµåä¸?
-            </span>
-            <span class="skill-badge bg-accent/10 text-accent border border-accent/20">
-                <i class="fas fa-usb text-xs"></i> å³æå³ç¨ Â· Uçå½¢æ?
-            </span>
-            <span class="skill-badge bg-accent2/10 text-accent2 border border-accent2/20">
-                <i class="fas fa-brain text-xs"></i> åç½®å¤?Skills
-            </span>
-        </div>
-        <h1 class="text-4xl md:text-6xl font-bold tracking-tight leading-tight">
-            U-<span class="text-gradient-blue">Claw</span> <span class="text-gradient">è¾ç</span>
-        </h1>
-        <p class="text-xl md:text-2xl text-muted mt-4 font-medium">é¾è¾å©æUç?Â· åç½®å¤?Skills è®ºæå·¥ä½ç«?/p>
-        <p class="mt-6 text-base text-muted max-w-3xl leading-relaxed">
-            åºäºå¼æº?AI æºè½ä½æ¡æ?OpenClaw å°è£çä¾¿æºå³æå³ç?U çç§ç å·¥ä½ç«ãåç½®æµ·éé¢å?Skillsï¼AI æè½æä»¶ï¼ï¼ä¸é¨é¢åæ¬ç§?/ ç¡å£« / çå·¥ç§æºæ¢°ç±»è®ºæå¨æµç¨è¾å©ãU çé¢è£å®æ´è¿è¡ç¯å¢ï¼æ éæ¬å°å®è£ä»»ä½è½¯ä»¶ï¼æ¢çµèãæºæ¿ãå¾ä¹¦é¦ç´æ¥ä½¿ç¨ï¼ææè®ºææ°æ®ãæè½éç½®ä»å­?U çï¼æèµ°ä¸ççè¿¹ã?
-        </p>
-        <div class="mt-8 flex flex-wrap gap-4">
-            <a href="#skills" class="px-6 py-3 bg-accent hover:bg-blue-700 text-white font-semibold rounded-xl transition-colors shadow-sm">
-                <i class="fas fa-puzzle-piece mr-2"></i>æ¥çåç½® Skills
-            </a>
-            <a href="../contact.html" class="px-6 py-3 bg-white hover:bg-gray-50 text-dark font-semibold rounded-xl border border-border transition-colors">
-                <i class="fas fa-paper-plane mr-2"></i>ç³è¯·è¯ç¨
-            </a>
-        </div>
-    </div>
-</header>
-
-<!-- ====== ä¸ãäº§ååºç¡å®ä¹ + ç¡¬ä»¶ ====== -->
-<section class="relative z-10 py-16 border-t border-border">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="flex items-center gap-3 mb-2">
-            <span class="text-accent font-bold text-sm tracking-wider uppercase">01</span>
-            <h2 class="text-3xl font-bold">äº§ååºç¡å®ä¹</h2>
-        </div>
-        <p class="text-muted mb-12 max-w-3xl">
-            U-Clawï¼ä¿ç§°è¾çï¼æ¯åºäºå¼æº?AI æºè½ä½æ¡æ?OpenClaw å°è£çä¾¿æºå³æå³ç?U çç§ç å·¥ä½ç«ï¼æ ¸å¿åç¹æ¯åç½®æµ·éé¢å¶ Skillsï¼AI æè½æä»¶ï¼ï¼ä¸é¨é¢åæ¬ç§?/ ç¡å£« / çå·¥ç§æºæ¢°ç±»è®ºæå¨æµç¨è¾å©ã?
-        </p>
-
-        <!-- ç¡¬ä»¶åºç¡ -->
-        <div class="mb-10">
-            <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
-                <i class="fas fa-microchip text-accent"></i> ç¡¬ä»¶åºç¡
-            </h3>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-                <div class="bg-white rounded-2xl p-6 border border-border card-hover">
-                    <div class="w-10 h-10 bg-accent/10 rounded-xl flex items-center justify-center mb-4">
-                        <i class="fas fa-plug text-accent text-lg"></i>
-                    </div>
-                    <h4 class="font-bold mb-2">åæ¥å£é«éUç?/h4>
-                    <p class="text-sm text-muted leading-relaxed">USB-A + Type-C åæ¥å£ï¼Windows / macOS å¨å¼å®¹ï¼å³æå³ç¨</p>
-                </div>
-                <div class="bg-white rounded-2xl p-6 border border-border card-hover">
-                    <div class="w-10 h-10 bg-accent/10 rounded-xl flex items-center justify-center mb-4">
-                        <i class="fas fa-hdd text-accent text-lg"></i>
-                    </div>
-                    <h4 class="font-bold mb-2">exFAT æä»¶ç³»ç»</h4>
-                    <p class="text-sm text-muted leading-relaxed">è·¨è®¾å¤éç¨ï¼åç½?Node.jsãPythonãæ¨çç½å³å¨å¥ä¾èµ?/p>
-                </div>
-                <div class="bg-white rounded-2xl p-6 border border-border card-hover">
-                    <div class="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center mb-4">
-                        <i class="fas fa-bolt text-green-600 text-lg"></i>
-                    </div>
-                    <h4 class="font-bold mb-2">ä¾¿æºæ¨¡å¼</h4>
-                    <p class="text-sm text-muted leading-relaxed">å¨é¨æ°æ®å­?U çï¼æèµ°ä¸ççè¿¹ï¼éç§å®å¨æ æ³é²é£é©</p>
-                </div>
-                <div class="bg-white rounded-2xl p-6 border border-border card-hover">
-                    <div class="w-10 h-10 bg-accent2/10 rounded-xl flex items-center justify-center mb-4">
-                        <i class="fas fa-sync-alt text-accent2 text-lg"></i>
-                    </div>
-                    <h4 class="font-bold mb-2">åæ¨¡å¼åæ?/h4>
-                    <p class="text-sm text-muted leading-relaxed">ä¾¿æºæ¨¡å¼ï¼å¨é¨æ°æ®å­Uçï¼/ æ¬å°å®è£æ¨¡å¼ï¼å¯éï¼ï¼ä¸é®åæ?/p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ====== äºãåç½®å¤ Skills è®ºæä¸å±æè½åº ====== -->
-<section id="skills" class="relative z-10 py-16 bg-secondary">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="flex items-center gap-3 mb-2">
-            <span class="text-accent font-bold text-sm tracking-wider uppercase">02</span>
-            <h2 class="text-3xl font-bold">åç½®å¤?Skills è®ºæä¸å±æè½åº</h2>
-        </div>
-        <p class="text-muted mb-12 max-w-3xl">ååå¤§ç±»ï¼éé U-Claw å¤¹çªè¾çæºæ¢°è¯¾é¢</p>
-
-        <!-- 2.1 éç¨è®ºæå¨æµç¨?-->
-        <div class="mb-14">
-            <div class="flex items-center gap-3 mb-6">
-                <div class="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
-                    <i class="fas fa-file-alt text-white text-sm"></i>
-                </div>
-                <h3 class="text-xl font-bold">éç¨è®ºæå¨æµç¨?Skillsï¼æ éåç½®ï¼</h3>
-            </div>
-            <div class="grid md:grid-cols-2 gap-5">
-                <div class="bg-white rounded-2xl p-6 border border-border card-hover">
-                    <div class="flex items-start gap-3">
-                        <span class="text-2xl">ð</span>
-                        <div>
-                            <h4 class="font-bold mb-2">è®ºææ¡æ¶çæ Skill</h4>
-                            <p class="text-sm text-muted leading-relaxed">ä¸é®è¾åºå¼é¢æ¥åãä¸­ææ£æ¥ãæ¯ä¸è®ºæå®æ´å¤§çº²ï¼æ¯ææºæ¢° / èªå¨å?/ æ°´äº§å å·¥ä¸ä¸æ¨¡æ¿ï¼èªå¨åºåç»ªè®ºãæç®ç»¼è¿°ãç»æè®¾è®¡ãä»¿çè¯éªãç»è®ºç« èã?/p>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white rounded-2xl p-6 border border-border card-hover">
-                    <div class="flex items-start gap-3">
-                        <span class="text-2xl">ð</span>
-                        <div>
-                            <h4 class="font-bold mb-2">æç®ç²¾è¯»ç»¼è¿° Skill</h4>
-                            <p class="text-sm text-muted leading-relaxed">æ¹éè¯»å PDF ä¸­è±ææç®ï¼èªå¨æåç ç©¶æ¹æ³ãåæ°ç¹ãç°æç¼ºé·ãä¸è¶³ï¼èªå¨åç±»æ´çè¿?5 å¹´ç ç©¶ç°ç¶ï¼ç´æ¥çæç»¼è¿°æ®µè½ï¼æ¯ææ¹éå¯¼å?GB/T 7714ãIEEEãAPA åèæç®æ ¼å¼ã?/p>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white rounded-2xl p-6 border border-border card-hover">
-                    <div class="flex items-start gap-3">
-                        <span class="text-2xl">âï¸</span>
-                        <div>
-                            <h4 class="font-bold mb-2">å­¦æ¯æ¶¦è² & éé Humanizer Skill</h4>
-                            <p class="text-sm text-muted leading-relaxed">æ¶é¤ AI åºå®å¥å¼ï¼è°æ´çå·¥ç§å­¦æ¯ä¹¦é¢è¯­åºï¼æ¹åä¸æ¹å¨ä¸ä¸åæ°ï¼éä½?AI æ£æµãæ¥ééå¤çï¼ä¸­è±æè¦äºè¯ãSCI æ åå­¦æ¯å¥å¼æ¹åã?/p>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white rounded-2xl p-6 border border-border card-hover">
-                    <div class="flex items-start gap-3">
-                        <span class="text-2xl">ð</span>
-                        <div>
-                            <h4 class="font-bold mb-2">æ ¼å¼æç Skill</h4>
-                            <p class="text-sm text-muted leading-relaxed">Word å­¦ä½è®ºæè§èæçè¯æ¯ãLaTeX æ¯ä¸è®ºææ¨¡æ¿çæãå¾è¡¨æ é¢è§èãè´è°?/ éå½ / å¬å¼èªå¨æ ååæè¿°ã?/p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 2.2 å·¥ç§æºæ¢°ä¸é¡¹ -->
-        <div class="mb-14">
-            <div class="flex items-center gap-3 mb-6">
-                <div class="w-8 h-8 bg-warm rounded-lg flex items-center justify-center">
-                    <i class="fas fa-cogs text-white text-sm"></i>
-                </div>
-                <h3 class="text-xl font-bold">å·¥ç§æºæ¢°ä¸é¡¹ Skillsï¼éé U-Claw å¤¹æç?+ è¾çæçè®¾å¤è¯¾é¢ï¼?/h3>
-            </div>
-            <div class="grid md:grid-cols-2 gap-5">
-                <div class="bg-white rounded-2xl p-6 border border-border card-hover">
-                    <div class="flex items-start gap-3">
-                        <span class="text-2xl">ð§</span>
-                        <div>
-                            <h4 class="font-bold mb-2">æºæ¢°ç»æè®¾è®¡ Skill</h4>
-                            <p class="text-sm text-muted leading-relaxed">èªå¨æ°åå¤¹çªãæçæºæ¶ãä¼ å¨æºæãæçéä½ç»æè®¾è®¡åå®¹ï¼åå«ææéåãååè®¡ç®ãé©±å¨æ¹æ¡å¯¹æ¯ï¼å¯çæè®¾å¤æ´ä½æ¹æ¡å¯¹æ¯æ®µè½ï¼ç°æå¹³è¡ç?/ å¸ç vs æ¬æ U-Claw ç¯æ±å¤¹çªï¼ã?/p>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white rounded-2xl p-6 border border-border card-hover">
-                    <div class="flex items-start gap-3">
-                        <span class="text-2xl">ð</span>
-                        <div>
-                            <h4 class="font-bold mb-2">å¨åå­?/ è¿å¨ä»¿çåæ Skill</h4>
-                            <p class="text-sm text-muted leading-relaxed">éå¯¹ SolidWorksãADAMSãCFD ä»¿çç»ææ ååå­¦æ¯æè¿°ï¼çæè¯¯å·®åæãå¤¹æåä»¿çæ°æ®è§£è¯»ãåºåäºå¾è¯´æãè¯éªå¯¹æ¯å¾è¡¨æå­ã?/p>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white rounded-2xl p-6 border border-border card-hover">
-                    <div class="flex items-start gap-3">
-                        <span class="text-2xl">ð¦</span>
-                        <div>
-                            <h4 class="font-bold mb-2">æ°´äº§èªå¨åè®¾å¤ä¸é¡?Skill</h4>
-                            <p class="text-sm text-muted leading-relaxed">é¢å¶éå»è¾çãåæ£æºæ¢°æãæ°´äº§æµæ°´çº¿ä¸å±æ¯è¯­åºï¼èªå¨æ¢³çå½åå¤è¾çæçè®¾å¤ä¸å©ãéäº§è®¾å¤çç¹ï¼æç¼è¯¾é¢åæ°ç¹ï¼ççªä¸ä½åãU åå¹æ§½ééç»æï¼ã?/p>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white rounded-2xl p-6 border border-border card-hover">
-                    <div class="flex items-start gap-3">
-                        <span class="text-2xl">ð§ª</span>
-                        <div>
-                            <h4 class="font-bold mb-2">è¯éªæ°æ®å¤ç Skill</h4>
-                            <p class="text-sm text-muted leading-relaxed">å¯¼å¥æ ·æºè¯éªç ´æçãæåæåçãäº§è½æ°æ®ï¼èªå¨æ¸æ´æ°æ®ãçæå¯¹æ¯åæãæ°åè¯éªç»è®ºï¼è¾åºæ ååè¯éªç« èææ¬ã?/p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 2.3 ç§ç åå¬è¾å© -->
-        <div class="mb-14">
-            <div class="flex items-center gap-3 mb-6">
-                <div class="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center">
-                    <i class="fas fa-tools text-white text-sm"></i>
-                </div>
-                <h3 class="text-xl font-bold">ç§ç åå¬è¾å© Skills</h3>
-            </div>
-            <div class="grid md:grid-cols-3 gap-5">
-                <div class="bg-white rounded-2xl p-5 border border-border card-hover text-center">
-                    <div class="text-3xl mb-3">ð</div>
-                    <p class="text-sm text-muted leading-relaxed">PDF æ¹éå¤çãæç®æä»¶å¤¹èªå¨åç±»ãå¤ç»´è¡¨æ ¼æç®å°è´¦çæ?/p>
-                </div>
-                <div class="bg-white rounded-2xl p-5 border border-border card-hover text-center">
-                    <div class="text-3xl mb-3">ð¡</div>
-                    <p class="text-sm text-muted leading-relaxed">è¯éªæ¥å¿èªå¨å½æ¡£ãè¯¾é¢åæ°ç¹ææãä¸å©ææ¡è¾å©æ°å?/p>
-                </div>
-                <div class="bg-white rounded-2xl p-5 border border-border card-hover text-center">
-                    <div class="text-3xl mb-3">ð</div>
-                    <p class="text-sm text-muted leading-relaxed">å¬å¼æ¨å¯¼æå­æ´çãè®¾å¤ç»æå¾æå­è¯´æ</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 2.4 æå±èªå®ä¹?-->
-        <div>
-            <div class="flex items-center gap-3 mb-6">
-                <div class="w-8 h-8 bg-accent2 rounded-lg flex items-center justify-center">
-                    <i class="fas fa-store text-white text-sm"></i>
-                </div>
-                <h3 class="text-xl font-bold">æå±èªå®ä¹?Skills â?Clawhub æè½å¸åºä¸é®å è£?/h3>
-            </div>
-            <div class="bg-white rounded-2xl p-8 border border-border">
-                <p class="text-muted leading-relaxed mb-4">
-                    åç½®æè½ååº?<strong class="text-accent2">Clawhub</strong>ï¼å¯æéå è£ï¼ç¼ç¨ä»£ç è°è¯ãAI ç»å¾ç»æå¾ãå¤ææåæ¶¦è²ãæ°æ®æååæç­<strong>ä¸ä¸æ¬¾æ©å±æè?/strong>ï¼æææä»¶æ°¸ä¹ä¿å­å¨ U çï¼æ ééå¤ä¸è½½éç½®ã?
-                </p>
-                <div class="flex flex-wrap gap-2">
-                    <span class="skill-badge bg-gray-100 text-muted"><i class="fas fa-code text-xs"></i> ç¼ç¨è°è¯</span>
-                    <span class="skill-badge bg-gray-100 text-muted"><i class="fas fa-image text-xs"></i> AI ç»å¾</span>
-                    <span class="skill-badge bg-gray-100 text-muted"><i class="fas fa-language text-xs"></i> å¤åæ¶¦è²</span>
-                    <span class="skill-badge bg-gray-100 text-muted"><i class="fas fa-chart-line text-xs"></i> æ°æ®æå</span>
-                    <span class="skill-badge bg-gray-100 text-muted"><i class="fas fa-ellipsis-h text-xs"></i> ä¸ä¸æ¬¾æ©å±?/span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ====== ä¸ãå³æå³ç¨è¿è¡é»è¾ ====== -->
-<section class="relative z-10 py-16 border-t border-border">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="flex items-center gap-3 mb-2">
-            <span class="text-accent font-bold text-sm tracking-wider uppercase">03</span>
-            <h2 class="text-3xl font-bold">å³æå³ç¨è¿è¡é»è¾</h2>
-        </div>
-        <p class="text-muted mb-12">30 ç§å¯å¨è®ºæå·¥ä½ç«</p>
-
-        <div class="relative">
-            <!-- æ­¥éª¤è¿çº¿ -->
-            <div class="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-border -translate-y-1/2 z-0"></div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-6 relative z-10">
-                <div class="bg-white rounded-2xl p-6 border border-border card-hover text-center">
-                    <div class="w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg">1</div>
-                    <h4 class="font-bold mb-2 text-sm">æå¥ U ç?/h4>
-                    <p class="text-xs text-muted">èµæºç®¡çå¨æå¼çç¬¦</p>
-                </div>
-                <div class="bg-white rounded-2xl p-6 border border-border card-hover text-center">
-                    <div class="w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg">2</div>
-                    <h4 class="font-bold mb-2 text-sm">åå»å¯å¨èæ¬</h4>
-                    <p class="text-xs text-muted">èªå¨å è½½å¨é¨åç½® Skillsãè¿è¡ç¯å¢ãæ¨¡åéç½?/p>
-                </div>
-                <div class="bg-white rounded-2xl p-6 border border-border card-hover text-center">
-                    <div class="w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg">3</div>
-                    <h4 class="font-bold mb-2 text-sm">æå¼ Web æ§å¶å?/h4>
-                    <p class="text-xs text-muted">æµè§å¨èªå¨æå¼ <code class="bg-gray-100 px-1.5 py-0.5 rounded text-accent text-xs">127.0.0.1:18789</code>ï¼æè½é¢æ¿å¨å¯è§å?/p>
-                </div>
-                <div class="bg-white rounded-2xl p-6 border border-border card-hover text-center">
-                    <div class="w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg">4</div>
-                    <h4 class="font-bold mb-2 text-sm">è°ç¨ Skills</h4>
-                    <p class="text-xs text-muted">è¾å¥è¯¾é¢æä»¤è°ç¨è®ºæ Skillï¼æç¨¿ä»å­?U ç?data ç®å½</p>
-                </div>
-                <div class="bg-white rounded-2xl p-6 border border-border card-hover text-center">
-                    <div class="w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg">5</div>
-                    <h4 class="font-bold mb-2 text-sm">æä¸ U ç?/h4>
-                    <p class="text-xs text-muted">çµèæ ä»»ä½ç¨åºãè®ºææ®çï¼éç§å®å¨æ æ³é²é£é?/p>
-                </div>
-            </div>
-        </div>
-
-        <div class="mt-8 p-4 bg-green-50 border border-green-200 rounded-xl text-sm text-green-800 flex items-start gap-3">
-            <i class="fas fa-check-circle text-green-600 mt-0.5"></i>
-            <span><strong>å¯å¨æ¶é´çº?30 ç§?/strong>ï¼å¨ç¨æ éèç½ï¼é¦æ¬¡éç½?API å¯é¥é¤å¤ï¼ï¼æ éå®è£ä»»ä½è½¯ä»¶ï¼æ éå½ä»¤è¡æä½ã?/span>
-        </div>
-    </div>
-</section>
-
-<!-- ====== åãå¯¹æ¯ä¼å?====== -->
-<section class="relative z-10 py-16 bg-secondary">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="flex items-center gap-3 mb-2">
-            <span class="text-accent font-bold text-sm tracking-wider uppercase">04</span>
-            <h2 class="text-3xl font-bold">å¯¹æ¯æ®éå¨çº?AI / æ¬å°é¨ç½²æ ¸å¿ä¼å¿</h2>
-        </div>
-        <p class="text-muted mb-12 max-w-3xl">ä¸ºä»ä¹éæ© U-Claw è¾çèä¸æ¯äºç«?AI æèªè¡é¨ç½²ï¼</p>
-
-        <div class="overflow-x-auto">
-            <table class="w-full bg-white rounded-2xl border border-border overflow-hidden shadow-sm">
-                <thead>
-                    <tr class="bg-secondary">
-                        <th class="text-left p-4 font-bold text-sm">å¯¹æ¯ç»´åº¦</th>
-                        <th class="text-left p-4 font-bold text-sm text-warm">U-Claw è¾ç</th>
-                        <th class="text-left p-4 font-bold text-sm text-muted">æ®éå¨çº?AI</th>
-                        <th class="text-left p-4 font-bold text-sm text-muted">æ¬å°é¨ç½² LLM</th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y divide-border">
-                    <tr>
-                        <td class="p-4 text-sm font-medium">Skills æä¹å?/td>
-                        <td class="p-4 text-sm text-warm font-medium">â?é¢å¶å¨å¥æä»¶ï¼æ°¸ä¹çå­?/td>
-                        <td class="p-4 text-sm text-muted">â?æ¯æ¬¡ééå¤åæç¤ºè¯</td>
-                        <td class="p-4 text-sm text-muted">â ï¸ éèªè¡éç½®ç»´æ¤</td>
-                    </tr>
-                    <tr class="bg-secondary/50">
-                        <td class="p-4 text-sm font-medium">æ°æ®å®å¨</td>
-                        <td class="p-4 text-sm text-warm font-medium">â?æ¬å°éç¦»ï¼ä¸ä¸ä¼ äºç«¯</td>
-                        <td class="p-4 text-sm text-muted">â?è®ºææ°æ®ä¸ä¼ äºç«¯ææ³é²é£é?/td>
-                        <td class="p-4 text-sm text-muted">â ï¸ æ¬å°å®å¨ä½éèªè¡ç®¡ç</td>
-                    </tr>
-                    <tr>
-                        <td class="p-4 text-sm font-medium">ç¯å¢éç½®</td>
-                        <td class="p-4 text-sm text-warm font-medium">â?é¶éç½®ï¼å³æå³ç¨</td>
-                        <td class="p-4 text-sm text-muted">â?æ ééç½®</td>
-                        <td class="p-4 text-sm text-muted">â?CUDA / ä¾èµ / ç«¯å£ææ¥é?/td>
-                    </tr>
-                    <tr class="bg-secondary/50">
-                        <td class="p-4 text-sm font-medium">ä¸ä¸ééåº?/td>
-                        <td class="p-4 text-sm text-warm font-medium">â?æºæ¢°æ°´äº§ä¸å± Skill</td>
-                        <td class="p-4 text-sm text-muted">â?éç¨ AIï¼ä¸åä¸ä¸?/td>
-                        <td class="p-4 text-sm text-muted">â ï¸ éèªè¡è®­ç»é¢åç¥è¯</td>
-                    </tr>
-                    <tr>
-                        <td class="p-4 text-sm font-medium">ç¦»çº¿å¯ç¨</td>
-                        <td class="p-4 text-sm text-warm font-medium">â?éç½®åå¯æ­ç½ä½¿ç¨</td>
-                        <td class="p-4 text-sm text-muted">â?å¿é¡»èç½</td>
-                        <td class="p-4 text-sm text-muted">â?å¯ç¦»çº?/td>
-                    </tr>
-                    <tr class="bg-secondary/50">
-                        <td class="p-4 text-sm font-medium">æ¢è®¾å¤ä½¿ç?/td>
-                        <td class="p-4 text-sm text-warm font-medium">â?ææå³ç¨ï¼æ çåæ?/td>
-                        <td class="p-4 text-sm text-muted">â ï¸ ééæ°ç»å½åæ­¥</td>
-                        <td class="p-4 text-sm text-muted">â?åºå®è®¾å¤ï¼æ¢æºééè£</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</section>
-
-<!-- ====== äºãå®æç¤ºä¾?====== -->
-<section class="relative z-10 py-16 border-t border-border">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="flex items-center gap-3 mb-2">
-            <span class="text-accent font-bold text-sm tracking-wider uppercase">05</span>
-            <h2 class="text-3xl font-bold">ééä½ çè¯¾é¢å®æç¤ºä¾</h2>
-        </div>
-        <p class="text-muted mb-12">ç´æ¥å¤å¶å°å·¥ä½ç«è°ç¨ Skill</p>
-
-        <div class="space-y-6">
-            <div class="bg-white rounded-2xl p-6 border border-border card-hover">
-                <div class="flex items-center gap-3 mb-4">
-                    <span class="skill-badge bg-accent/10 text-accent border border-accent/20">ç¤ºä¾ 1</span>
-                    <h4 class="font-bold">è°ç¨æºæ¢°ç»æè®¾è®¡ Skill</h4>
-                </div>
-                <div class="bg-gray-50 rounded-xl p-4 text-sm text-muted leading-relaxed font-mono">
-                    ä½¿ç¨æºæ¢°ç»æè®¾è®¡ Skillï¼æ°ååºäº?U-Claw ç¯æ±å¤¹çªçä¸ç¨éä½å¹æ§½è¾çä¸ä½åè®¾è®¡ç« èï¼å¯¹æ¯å¸é¢éç¨ç´çªæåè¾ççç ´æç¼ºé·ï¼è®¡ç® U åå¤¹æåæ£åºåä¼å¿ã?
-                </div>
-            </div>
-
-            <div class="bg-white rounded-2xl p-6 border border-border card-hover">
-                <div class="flex items-center gap-3 mb-4">
-                    <span class="skill-badge bg-accent/10 text-accent border border-accent/20">ç¤ºä¾ 2</span>
-                    <h4 class="font-bold">è°ç¨æç®ç»¼è¿° Skill</h4>
-                </div>
-                <div class="bg-gray-50 rounded-xl p-4 text-sm text-muted leading-relaxed font-mono">
-                    è°ç¨æç®ç²¾è¯» Skillï¼æ´çè¿ 5 å¹´æ°´äº§å¯¹è¾èªå¨æçè®¾å¤ä¸­è±ææç®ï¼æ»ç»å¹³è¡å¤¹çªãçç©ºå¸çæåè¾çç°å­ææ¯ç©ºç½ï¼æç¼æ¬æ U-Claw ææ§çª + ééè¾çæå¥æ¹æ¡åæ°ç¹ã?
-                </div>
-            </div>
-
-            <div class="bg-white rounded-2xl p-6 border border-border card-hover">
-                <div class="flex items-center gap-3 mb-4">
-                    <span class="skill-badge bg-accent/10 text-accent border border-accent/20">ç¤ºä¾ 3</span>
-                    <h4 class="font-bold">è°ç¨ä»¿çè¯éª Skill</h4>
-                </div>
-                <div class="bg-gray-50 rounded-xl p-4 text-sm text-muted leading-relaxed font-mono">
-                    è°ç¨å¨åå­¦ä»¿ç?Skillï¼æ ¹æ?U-Claw å¤¹çªå¤¹æè¾çåºåä»¿çæ°æ®ï¼æ°åä»¿çç»æåæãè¯¯å·®æ¥æºãæ ·æºè¯éªéªè¯æ®µè½ã?
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ====== å­ãå³é®è¡¥åè¯´æ?====== -->
-<section class="relative z-10 py-16 bg-secondary">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="flex items-center gap-3 mb-2">
-            <span class="text-accent font-bold text-sm tracking-wider uppercase">06</span>
-            <h2 class="text-3xl font-bold">å³é®è¡¥åè¯´æ</h2>
-        </div>
-        <div class="grid md:grid-cols-2 gap-5">
-            <div class="bg-white rounded-2xl p-6 border border-border card-hover flex items-start gap-3">
-                <div class="w-10 h-10 bg-accent/10 rounded-xl flex items-center justify-center shrink-0">
-                    <i class="fas fa-wifi text-accent"></i>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-1">ç½ç»éæ±?/h4>
-                    <p class="text-sm text-muted leading-relaxed">é¦æ¬¡éç½® API å¯é¥éèç½ï¼éç½®å®æåå¯æ­ç½ç¦»çº¿è°ç¨æ¬å?Skills å®æåä½ã?/p>
-                </div>
-            </div>
-            <div class="bg-white rounded-2xl p-6 border border-border card-hover flex items-start gap-3">
-                <div class="w-10 h-10 bg-accent/10 rounded-xl flex items-center justify-center shrink-0">
-                    <i class="fab fa-windows text-accent"></i>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-1">ç³»ç»å¼å®¹</h4>
-                    <p class="text-sm text-muted leading-relaxed">Windows 10/11 å¨çæ¬ãmacOS M ç³»ååçééï¼æ éè½¬è¯ã?/p>
-                </div>
-            </div>
-            <div class="bg-white rounded-2xl p-6 border border-border card-hover flex items-start gap-3">
-                <div class="w-10 h-10 bg-accent/10 rounded-xl flex items-center justify-center shrink-0">
-                    <i class="fas fa-cloud-download-alt text-accent"></i>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-1">æè½æ©å®?/h4>
-                    <p class="text-sm text-muted leading-relaxed">Clawhub å¸åºå¯åè´?/ ä»è´¹æ°å¢ä¸ä¸æè½ï¼ä¸é®å®è£è³ U çæ°¸ä¹çæã?/p>
-                </div>
-            </div>
-            <div class="bg-white rounded-2xl p-6 border border-border card-hover flex items-start gap-3">
-                <div class="w-10 h-10 bg-accent/10 rounded-xl flex items-center justify-center shrink-0">
-                    <i class="fas fa-lock text-accent"></i>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-1">æ°æ®å®å¨</h4>
-                    <p class="text-sm text-muted leading-relaxed">æ¯æ U çå å¯ï¼ææè®ºæèç¨¿ãæç®ãæè½éç½®ä¸ä¼åæ­¥è³äºç«¯æå¡å¨ã?/p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ====== CTA ====== -->
-<section class="relative z-10 py-20">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-        <div class="bg-white rounded-3xl p-12 shadow-sm border border-border">
-            <div class="text-5xl mb-4">ð¦</div>
-            <h2 class="text-3xl font-bold mb-4">è®©è®ºæåä½è§¦æå¯å?/h2>
-            <p class="text-muted mb-8 max-w-xl mx-auto leading-relaxed">
-                U-Claw è¾çââé«æ ¡ç§ç çæåä¸å¬éã?br>åç½®å¤?Skillsï¼æä¸å°±ç¨ï¼æä¸å°±èµ°ã?
-            </p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="../contact.html" class="px-8 py-3.5 bg-warm hover:bg-amber-600 text-white font-semibold rounded-xl transition-colors shadow-sm">
-                    <i class="fas fa-paper-plane mr-2"></i>ç³è¯·è¯ç¨
-                </a>
-                <a href="../contact.html" class="px-8 py-3.5 bg-white hover:bg-gray-50 text-dark font-semibold rounded-xl border border-border transition-colors">
-                    <i class="fas fa-headset mr-2"></i>å¨è¯¢äº§å
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ====== Footer ====== -->
-<footer class="relative z-10 border-t border-border py-8">
-    <div class="max-w-7xl mx-auto px-6 text-center text-sm text-muted">
-        <p>Â© 2026 unitclaw.cn | U-Claw è¾ç Â· åç½®å¤?Skills è®ºæå·¥ä½ç«?| ä¸ç©ææï¼ååé¸æº</p>
-    </div>
-</footer>
-
-<script src="../particles.min.js"></script>
-<script>
-    particlesJS("particles-js", {
-        particles: {
-            number: { value: 25 },
-            color: { value: "#d97706" },
-            opacity: { value: .08, random: true },
-            size: { value: 2, random: true },
-            line_linked: { enable: false, distance: 150, color: "#d97706", opacity: .04, width: 1 },
-            move: { enable: true, speed: .5 }
-        }
-    });
-</script>
-</body>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UnitClaw 虾盘 - 即插即用AI执行单元</title>
+    <meta name="description" content="UnitClaw虾盘是即插即用式AI执行单元，U盘形态，集成企业微信智能报价、AI实训环境，为高校提供零门槛AI动手实践工具。">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#0b1120',accent:'#3b82f6',warm:'#f59e0b',card:'#111827',border:'#1e293b'},fontFamily:{sans:['Inter','Noto Sans SC','system-ui','sans-serif']}}}}</script>
+    <style>
+        .bg-grid{background-image:linear-gradient(rgba(59,130,246,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.06) 1px,transparent 1px);background-size:40px 40px}
+        .glass{background:rgba(17,24,39,.85);backdrop-filter:blur(16px);border:1px solid rgba(59,130,246,.15)}
+        .text-gradient{background:linear-gradient(135deg,#f59e0b,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    </style>
+</head>
+<body class="bg-primary text-white font-sans">
+
+<div id="particles-js" class="fixed inset-0 z-0"></div>
+<div class="fixed inset-0 bg-grid z-0 opacity-40"></div>
+
+<nav class="glass fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+        <a href="../index.html" class="flex items-center space-x-3">
+            <span class="text-lg font-bold">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-sm font-normal ml-1">.ai</span></span>
+        </a>
+        <div class="hidden lg:flex items-center space-x-4">
+            <a href="../index.html" class="text-sm text-gray-400 hover:text-white transition-colors">首页</a>
+            <a href="robots.html" class="text-sm text-gray-400 hover:text-white transition-colors">机器人</a>
+            <a href="courses.html" class="text-sm text-gray-400 hover:text-white transition-colors">课程</a>
+            <a href="unitclaw.html" class="text-sm text-warm font-semibold">UnitClaw 虾盘</a>
+            <a href="../solutions/education.html" class="text-sm text-gray-400 hover:text-white transition-colors">高校方案</a>
+            <a href="../contact.html" class="ml-4 px-5 py-2 bg-warm hover:bg-amber-600 text-black font-semibold text-sm rounded-lg transition-colors">预约演示</a>
+        </div>
+    </div>
+</nav>
+
+<header class="relative z-10 pt-32 pb-16">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex items-center mb-4">
+            <span class="px-3 py-1 bg-warm/10 text-warm text-xs font-semibold rounded-full border border-warm/20">阵列三</span>
+            <span class="ml-3 px-3 py-1 bg-white/5 text-gray-400 text-xs rounded-full border border-white/10">即插即用 · U盘形态</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold tracking-tight">UnitClaw <span class="text-gradient">虾盘</span></h1>
+        <p class="mt-6 text-lg text-gray-400 max-w-2xl leading-relaxed">
+            即插即用式AI执行单元，U盘形态，插入即可运行。<br>企业微信智能报价 · AI实训环境 · 自动化工作流——让AI真正落地干活。
+        </p>
+    </div>
+</header>
+
+<section class="relative z-10 py-16">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="glass rounded-2xl p-8">
+                <div class="text-warm text-3xl mb-4"><i class="fas fa-bolt"></i></div>
+                <h3 class="text-xl font-bold mb-3">即插即用</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">插入U盘，自动启动本地AI服务器。无需安装、无需配置、无需联网，真正的开箱即用。</p>
+            </div>
+            <div class="glass rounded-2xl p-8">
+                <div class="text-warm text-3xl mb-4"><i class="fas fa-shield-alt"></i></div>
+                <h3 class="text-xl font-bold mb-3">数据安全</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">本地推理，数据不出U盘。支持离线运行，满足高校数据安全和隐私保护需求。</p>
+            </div>
+            <div class="glass rounded-2xl p-8">
+                <div class="text-warm text-3xl mb-4"><i class="fas fa-robot"></i></div>
+                <h3 class="text-xl font-bold mb-3">企业微信AI</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">内置企业微信智能报价机器人，自动解析询价→匹配成本表→生成报价，客户消息秒级回复。</p>
+            </div>
+            <div class="glass rounded-2xl p-8">
+                <div class="text-warm text-3xl mb-4"><i class="fas fa-graduation-cap"></i></div>
+                <h3 class="text-xl font-bold mb-3">AI实训环境</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">预装Python + Ollama + LLM，学生插入即可开始AI开发实验，零环境配置门槛。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="relative z-10 py-16 border-t border-border">
+    <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-2xl font-bold mb-10">高校应用场景</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="glass rounded-2xl p-8 text-center">
+                <div class="w-16 h-16 bg-warm/10 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-laptop-code text-2xl text-warm"></i></div>
+                <h3 class="font-bold mb-2">AI课程实训</h3>
+                <p class="text-sm text-gray-400">学生人手一个虾盘，插入电脑即可开始AI实验</p>
+            </div>
+            <div class="glass rounded-2xl p-8 text-center">
+                <div class="w-16 h-16 bg-warm/10 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-flask text-2xl text-warm"></i></div>
+                <h3 class="font-bold mb-2">科研开发</h3>
+                <p class="text-sm text-gray-400">预装大模型环境，支持本地推理与微调实验</p>
+            </div>
+            <div class="glass rounded-2xl p-8 text-center">
+                <div class="w-16 h-16 bg-warm/10 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-building text-2xl text-warm"></i></div>
+                <h3 class="font-bold mb-2">产教融合</h3>
+                <p class="text-sm text-gray-400">企业真实业务场景嵌入教学，学生提前接触产业应用</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="relative z-10 py-20">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+        <div class="glass rounded-3xl p-12">
+            <h2 class="text-3xl font-bold mb-4">让AI触手可及</h2>
+            <p class="text-gray-400 mb-8 max-w-xl mx-auto">UnitClaw虾盘——高校AI教育的最后一公里。插上就用，拔下就走。</p>
+            <a href="../contact.html" class="px-8 py-3.5 bg-warm hover:bg-amber-600 text-black font-semibold rounded-xl transition-all inline-block">申请试用</a>
+        </div>
+    </div>
+</section>
+
+<footer class="relative z-10 border-t border-border py-8">
+    <div class="max-w-7xl mx-auto px-6 text-center text-sm text-gray-600">
+        <p>© 2026 UnitClaw.ai | 即插即用AI执行单元 | 万物拟态，单元铸智</p>
+    </div>
+</footer>
+
+<script src="../particles.min.js"></script>
+<script>particlesJS("particles-js",{particles:{number:{value:30},color:{value:"#f59e0b"},opacity:{value:.12,random:!0},size:{value:2,random:!0},line_linked:{enable:!0,distance:150,color:"#f59e0b",opacity:.06,width:1},move:{enable:!0,speed:.6}}});</script>
+</body>
 </html>
