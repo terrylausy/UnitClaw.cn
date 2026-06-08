@@ -3,15 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UnitClaw 虾盘 - 即插即用AI执行单元</title>
-    <meta name="description" content="UnitClaw虾盘是即插即用式AI执行单元，U盘形态，集成企业微信智能报价、AI实训环境，为高校提供零门槛AI动手实践工具。">
+    <title>论文虾盘｜内置多 Skills 论文 U 盘工作站完整介绍</title>
+    <meta name="description" content="论文虾盘是基于OpenClaw封装的便携即插即用U盘科研论文工作站，内置海量预制论文Skills，面向本科/硕士/理工科机械类论文全流程辅助，保障学术数据安全。">
+    <meta name="keywords" content="论文虾盘,OpenClaw,论文写作,科研U盘,论文Skills,学术安全,机械论文,水产加工">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>tailwind.config={theme:{extend:{colors:{primary:'#0b1120',accent:'#3b82f6',warm:'#f59e0b',card:'#111827',border:'#1e293b'},fontFamily:{sans:['Inter','Noto Sans SC','system-ui','sans-serif']}}}}</script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0b1120',
+                        accent: '#3b82f6',
+                        warm: '#f59e0b',
+                        card: '#111827',
+                        border: '#1e293b'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans SC', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
     <style>
         .bg-grid{background-image:linear-gradient(rgba(59,130,246,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.06) 1px,transparent 1px);background-size:40px 40px}
         .glass{background:rgba(17,24,39,.85);backdrop-filter:blur(16px);border:1px solid rgba(59,130,246,.15)}
+        .glass-light{background:rgba(30,41,59,.6);backdrop-filter:blur(12px);border:1px solid rgba(59,130,246,.1)}
         .text-gradient{background:linear-gradient(135deg,#f59e0b,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .text-gradient-blue{background:linear-gradient(135deg,#3b82f6,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .skill-card{background:rgba(17,24,39,.9);border:1px solid rgba(245,158,11,.15);border-radius:1rem;padding:2rem;transition:all .3s}
+        .skill-card:hover{border-color:rgba(245,158,11,.4);transform:translateY(-4px);box-shadow:0 12px 32px rgba(245,158,11,.08)}
+        .tag{display:inline-block;padding:4px 14px;border-radius:9999px;font-size:.75rem;font-weight:600}
+        .tag-warm{background:rgba(245,158,11,.12);color:#f59e0b;border:1px solid rgba(245,158,11,.25)}
+        .tag-blue{background:rgba(59,130,246,.12);color:#3b82f6;border:1px solid rgba(59,130,246,.25)}
+        .tag-green{background:rgba(16,185,129,.12);color:#10b981;border:1px solid rgba(16,185,129,.25)}
+        .tag-purple{background:rgba(139,92,246,.12);color:#8b5cf6;border:1px solid rgba(139,92,246,.25)}
+        .step-num{width:48px;height:48px;background:linear-gradient(135deg,#f59e0b,#f97316);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.25rem;color:#0b1120;flex-shrink:0}
+        .compare-table th{background:rgba(245,158,11,.1);color:#f59e0b;font-weight:700;padding:16px 20px;border-bottom:1px solid rgba(245,158,11,.15)}
+        .compare-table td{padding:14px 20px;border-bottom:1px solid rgba(255,255,255,.05);color:#cbd5e1}
+        .compare-table tr:last-child td{border-bottom:none}
+        .highlight-box{background:linear-gradient(135deg,rgba(245,158,11,.08),rgba(249,115,22,.04));border:1px solid rgba(245,158,11,.2);border-radius:1rem;padding:2rem}
     </style>
 </head>
 <body class="bg-primary text-white font-sans">
@@ -19,102 +51,470 @@
 <div id="particles-js" class="fixed inset-0 z-0"></div>
 <div class="fixed inset-0 bg-grid z-0 opacity-40"></div>
 
+<!-- Navigation -->
 <nav class="glass fixed top-0 left-0 right-0 z-50">
     <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
         <a href="../index.html" class="flex items-center space-x-3">
-            <span class="text-lg font-bold">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-sm font-normal ml-1">.ai</span></span>
+            <span class="text-lg font-bold">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-sm font-normal ml-1">.cn</span></span>
         </a>
         <div class="hidden lg:flex items-center space-x-4">
             <a href="../index.html" class="text-sm text-gray-400 hover:text-white transition-colors">首页</a>
             <a href="robots.html" class="text-sm text-gray-400 hover:text-white transition-colors">机器人</a>
             <a href="courses.html" class="text-sm text-gray-400 hover:text-white transition-colors">课程</a>
-            <a href="unitclaw.html" class="text-sm text-warm font-semibold">UnitClaw 虾盘</a>
+            <a href="unitclaw.html" class="text-sm text-warm font-semibold border-b-2 border-warm pb-1">论文虾盘</a>
             <a href="../solutions/education.html" class="text-sm text-gray-400 hover:text-white transition-colors">高校方案</a>
             <a href="../contact.html" class="ml-4 px-5 py-2 bg-warm hover:bg-amber-600 text-black font-semibold text-sm rounded-lg transition-colors">预约演示</a>
         </div>
+        <!-- Mobile menu button -->
+        <button class="lg:hidden text-white p-2" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+            <i class="fas fa-bars text-xl"></i>
+        </button>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden glass border-t border-border px-6 py-4">
+        <a href="../index.html" class="block py-3 text-gray-400">首页</a>
+        <a href="robots.html" class="block py-3 text-gray-400">机器人</a>
+        <a href="courses.html" class="block py-3 text-gray-400">课程</a>
+        <a href="unitclaw.html" class="block py-3 text-warm font-semibold">论文虾盘</a>
+        <a href="../solutions/education.html" class="block py-3 text-gray-400">高校方案</a>
+        <a href="../contact.html" class="block mt-3 text-center py-3 bg-warm rounded-lg font-semibold text-black">预约演示</a>
     </div>
 </nav>
 
-<header class="relative z-10 pt-32 pb-16">
+<!-- Hero -->
+<header class="relative z-10 pt-36 pb-20">
     <div class="max-w-7xl mx-auto px-6">
-        <div class="flex items-center mb-4">
-            <span class="px-3 py-1 bg-warm/10 text-warm text-xs font-semibold rounded-full border border-warm/20">阵列三</span>
-            <span class="ml-3 px-3 py-1 bg-white/5 text-gray-400 text-xs rounded-full border border-white/10">即插即用 · U盘形态</span>
+        <div class="flex flex-wrap items-center gap-3 mb-6">
+            <span class="tag tag-warm"><i class="fas fa-graduation-cap mr-1"></i> 论文写作神器</span>
+            <span class="tag tag-blue"><i class="fas fa-shield-alt mr-1"></i> 学术数据安全</span>
+            <span class="tag tag-green"><i class="fas fa-plug mr-1"></i> 即插即用</span>
         </div>
-        <h1 class="text-4xl md:text-6xl font-bold tracking-tight">UnitClaw <span class="text-gradient">虾盘</span></h1>
-        <p class="mt-6 text-lg text-gray-400 max-w-2xl leading-relaxed">
-            即插即用式AI执行单元，U盘形态，插入即可运行。<br>企业微信智能报价 · AI实训环境 · 自动化工作流——让AI真正落地干活。
+        <h1 class="text-4xl md:text-6xl font-bold tracking-tight leading-tight">
+            论文虾盘
+        </h1>
+        <p class="mt-6 text-xl text-gray-300 max-w-3xl leading-relaxed">
+            内置多 Skills 论文 U 盘工作站<br>
+            <span class="text-gray-400 text-lg">面向本科 · 硕士 · 理工科机械类论文全流程辅助</span>
         </p>
+        <div class="mt-10 flex flex-wrap gap-4">
+            <a href="#product-definition" class="px-8 py-3.5 bg-warm hover:bg-amber-600 text-black font-semibold rounded-xl transition-colors">
+                <i class="fas fa-book-open mr-2"></i>了解产品
+            </a>
+            <a href="#skills-library" class="px-8 py-3.5 glass hover:bg-white/5 text-white font-semibold rounded-xl transition-colors border border-white/10">
+                <i class="fas fa-toolbox mr-2"></i>查看技能库
+            </a>
+        </div>
     </div>
 </header>
 
-<section class="relative z-10 py-16">
+<!-- Section 1: 产品基础定义 -->
+<section id="product-definition" class="relative z-10 py-20 border-t border-border">
     <div class="max-w-7xl mx-auto px-6">
-        <div class="grid md:grid-cols-2 gap-8">
+        <div class="mb-12">
+            <span class="text-warm text-sm font-bold tracking-widest uppercase">Product Definition</span>
+            <h2 class="text-3xl md:text-4xl font-bold mt-3">产品基础定义</h2>
+            <p class="mt-4 text-gray-400 max-w-2xl text-lg">论文虾盘（U盘形态科研工作站）是基于开源 AI 智能体框架 OpenClaw 封装的便携即插即用 U 盘科研论文工作站。</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
             <div class="glass rounded-2xl p-8">
-                <div class="text-warm text-3xl mb-4"><i class="fas fa-bolt"></i></div>
-                <h3 class="text-xl font-bold mb-3">即插即用</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">插入U盘，自动启动本地AI服务器。无需安装、无需配置、无需联网，真正的开箱即用。</p>
+                <div class="w-14 h-14 bg-warm/10 rounded-2xl flex items-center justify-center mb-5">
+                    <i class="fas fa-hdd text-2xl text-warm"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">核心定位</h3>
+                <p class="text-gray-400 leading-relaxed">
+                    内置海量预制论文 <span class="text-warm font-semibold">Skills</span>（AI 技能插件），专门面向本科 / 硕士 / 理工科机械类论文全流程辅助。U 盘预装完整运行环境，<span class="text-white">不用本地安装任何软件</span>，换电脑、机房、图书馆直接使用。
+                </p>
             </div>
             <div class="glass rounded-2xl p-8">
-                <div class="text-warm text-3xl mb-4"><i class="fas fa-shield-alt"></i></div>
+                <div class="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center mb-5">
+                    <i class="fas fa-lock text-2xl text-accent"></i>
+                </div>
                 <h3 class="text-xl font-bold mb-3">数据安全</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">本地推理，数据不出U盘。支持离线运行，满足高校数据安全和隐私保护需求。</p>
+                <p class="text-gray-400 leading-relaxed">
+                    所有论文数据、技能配置仅存 U 盘，<span class="text-white">拔走不留痕迹</span>。未发表论文、设备仿真数据、样机试验原始数据不上传云端，适配高校实验室保密、内网无网络场景。
+                </p>
             </div>
-            <div class="glass rounded-2xl p-8">
-                <div class="text-warm text-3xl mb-4"><i class="fas fa-robot"></i></div>
-                <h3 class="text-xl font-bold mb-3">企业微信AI</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">内置企业微信智能报价机器人，自动解析询价→匹配成本表→生成报价，客户消息秒级回复。</p>
-            </div>
-            <div class="glass rounded-2xl p-8">
-                <div class="text-warm text-3xl mb-4"><i class="fas fa-graduation-cap"></i></div>
-                <h3 class="text-xl font-bold mb-3">AI实训环境</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">预装Python + Ollama + LLM，学生插入即可开始AI开发实验，零环境配置门槛。</p>
+        </div>
+
+        <!-- 硬件基础 -->
+        <div class="highlight-box mb-8">
+            <h3 class="text-xl font-bold mb-6"><i class="fas fa-microchip text-warm mr-2"></i>硬件基础</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-primary/50 rounded-xl p-5">
+                    <div class="text-warm font-bold text-lg mb-2"><i class="fas fa-usb-drive mr-2"></i>双接口 U 盘</div>
+                    <p class="text-gray-400 text-sm">USB-A + Type-C 高速 U 盘，Windows / macOS 全兼容，机房、图书馆、个人电脑随意切换。</p>
+                </div>
+                <div class="bg-primary/50 rounded-xl p-5">
+                    <div class="text-accent font-bold text-lg mb-2"><i class="fas fa-folder-tree mr-2"></i>exFAT 文件系统</div>
+                    <p class="text-gray-400 text-sm">跨设备通用，内置 Node.js、Python、推理网关全套依赖，开箱即用零配置。</p>
+                </div>
+                <div class="bg-primary/50 rounded-xl p-5">
+                    <div class="text-green-400 font-bold text-lg mb-2"><i class="fas fa-exchange-alt mr-2"></i>双运行模式</div>
+                    <p class="text-gray-400 text-sm">便携模式（全部数据存 U 盘）/ 本地安装模式（可选）一键切换，灵活适配不同场景。</p>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="relative z-10 py-16 border-t border-border">
+<!-- Section 2: 内置多 Skills 论文专属技能库 -->
+<section id="skills-library" class="relative z-10 py-20 border-t border-border">
     <div class="max-w-7xl mx-auto px-6">
-        <h2 class="text-2xl font-bold mb-10">高校应用场景</h2>
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="glass rounded-2xl p-8 text-center">
-                <div class="w-16 h-16 bg-warm/10 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-laptop-code text-2xl text-warm"></i></div>
-                <h3 class="font-bold mb-2">AI课程实训</h3>
-                <p class="text-sm text-gray-400">学生人手一个虾盘，插入电脑即可开始AI实验</p>
+        <div class="mb-12">
+            <span class="text-warm text-sm font-bold tracking-widest uppercase">Skills Library</span>
+            <h2 class="text-3xl md:text-4xl font-bold mt-3">内置多 Skills 论文专属技能库</h2>
+            <p class="mt-4 text-gray-400 max-w-2xl text-lg">分四大类，适配你的论文虾盘夹爪虾盘机械课题</p>
+        </div>
+
+        <!-- Category 1: 通用论文全流程 -->
+        <div class="mb-12">
+            <div class="flex items-center mb-6">
+                <span class="w-10 h-10 bg-warm/20 rounded-lg flex items-center justify-center text-warm font-bold mr-4">01</span>
+                <div>
+                    <h3 class="text-2xl font-bold">通用论文全流程 Skills</h3>
+                    <p class="text-gray-400 text-sm">标配内置 · 覆盖论文写作全生命周期</p>
+                </div>
             </div>
-            <div class="glass rounded-2xl p-8 text-center">
-                <div class="w-16 h-16 bg-warm/10 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-flask text-2xl text-warm"></i></div>
-                <h3 class="font-bold mb-2">科研开发</h3>
-                <p class="text-sm text-gray-400">预装大模型环境，支持本地推理与微调实验</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div class="skill-card">
+                    <div class="text-warm text-2xl mb-3"><i class="fas fa-sitemap"></i></div>
+                    <h4 class="font-bold text-lg mb-2">论文框架生成 Skill</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">一键输出开题报告、中期检查、毕业论文完整大纲，支持机械 / 自动化 / 水产加工专业模板，自动区分绪论、文献综述、结构设计、仿真试验、结论章节。</p>
+                </div>
+                <div class="skill-card">
+                    <div class="text-warm text-2xl mb-3"><i class="fas fa-book-open"></i></div>
+                    <h4 class="font-bold text-lg mb-2">文献精读综述 Skill</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">批量读取 PDF 中英文文献，自动提取研究方法、创新点、现有缺陷，自动分类整理近 5 年研究现状，直接生成综述段落；支持批量导出 GB/T 7714、IEEE、APA 参考文献格式。</p>
+                </div>
+                <div class="skill-card">
+                    <div class="text-warm text-2xl mb-3"><i class="fas fa-pen-fancy"></i></div>
+                    <h4 class="font-bold text-lg mb-2">学术润色 & 降重 Humanizer Skill</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">消除 AI 固定句式，调整理工科学术书面语序，改写不改动专业参数，降低 AI 检测、查重重复率；中英摘要互译、SCI 标准学术句式改写。</p>
+                </div>
+                <div class="skill-card">
+                    <div class="text-warm text-2xl mb-3"><i class="fas fa-align-left"></i></div>
+                    <h4 class="font-bold text-lg mb-2">格式排版 Skill</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">Word 学位论文规范排版话术、LaTeX 毕业论文模板生成、图表标题规范、致谢 / 附录 / 公式自动标准化描述。</p>
+                </div>
             </div>
-            <div class="glass rounded-2xl p-8 text-center">
-                <div class="w-16 h-16 bg-warm/10 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-building text-2xl text-warm"></i></div>
-                <h3 class="font-bold mb-2">产教融合</h3>
-                <p class="text-sm text-gray-400">企业真实业务场景嵌入教学，学生提前接触产业应用</p>
+        </div>
+
+        <!-- Category 2: 工科机械专项 -->
+        <div class="mb-12">
+            <div class="flex items-center mb-6">
+                <span class="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center text-blue-400 font-bold mr-4">02</span>
+                <div>
+                    <h3 class="text-2xl font-bold">工科机械专项 Skills</h3>
+                    <p class="text-gray-400 text-sm">适配你的 论文虾盘夹持爪 + 虾盘摆盘设备课题</p>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div class="skill-card">
+                    <div class="text-blue-400 text-2xl mb-3"><i class="fas fa-cogs"></i></div>
+                    <h4 class="font-bold text-lg mb-2">机械结构设计 Skill</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">自动撰写夹爪、摆盘机架、传动机构、托盘限位结构设计内容，包含材料选型、受力计算、驱动方案对比；可生成设备整体方案对比段落（现有平行爪 / 吸盘 vs 本文 论文虾盘 环抱夹爪）。</p>
+                </div>
+                <div class="skill-card">
+                    <div class="text-blue-400 text-2xl mb-3"><i class="fas fa-chart-line"></i></div>
+                    <h4 class="font-bold text-lg mb-2">动力学 / 运动仿真分析 Skill</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">针对 SolidWorks、ADAMS、CFD 仿真结果标准化学术描述，生成误差分析、夹持力仿真数据解读、应力云图说明、试验对比图表文字。</p>
+                </div>
+                <div class="skill-card">
+                    <div class="text-blue-400 text-2xl mb-3"><i class="fas fa-fish"></i></div>
+                    <h4 class="font-bold text-lg mb-2">水产自动化设备专项 Skill</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">预制速冻虾盘、分拣机械手、水产流水线专属术语库，自动梳理国内外虾盘摆盘设备专利、量产设备痛点，提炼课题创新点（盘爪一体化、U 型凹槽适配结构）。</p>
+                </div>
+                <div class="skill-card">
+                    <div class="text-blue-400 text-2xl mb-3"><i class="fas fa-vial"></i></div>
+                    <h4 class="font-bold text-lg mb-2">试验数据处理 Skill</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">导入样机试验破损率、抓取成功率、产能数据，自动清洗数据、生成对比分析、撰写试验结论，输出标准化试验章节文本。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category 3: 科研办公辅助 -->
+        <div class="mb-12">
+            <div class="flex items-center mb-6">
+                <span class="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center text-green-400 font-bold mr-4">03</span>
+                <div>
+                    <h3 class="text-2xl font-bold">科研办公辅助 Skills</h3>
+                    <p class="text-gray-400 text-sm">提升科研效率的日常工具集</p>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div class="skill-card">
+                    <div class="text-green-400 text-2xl mb-3"><i class="fas fa-file-pdf"></i></div>
+                    <h4 class="font-bold text-lg mb-2">PDF 批量处理</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">文献文件夹自动分类、多维表格文献台账生成，批量重命名、合并、拆分 PDF 文献。</p>
+                </div>
+                <div class="skill-card">
+                    <div class="text-green-400 text-2xl mb-3"><i class="fas fa-clipboard-list"></i></div>
+                    <h4 class="font-bold text-lg mb-2">试验日志自动归档</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">课题创新点挖掘、专利文案辅助撰写，试验数据自动整理归档，生成标准化实验记录。</p>
+                </div>
+                <div class="skill-card">
+                    <div class="text-green-400 text-2xl mb-3"><i class="fas fa-calculator"></i></div>
+                    <h4 class="font-bold text-lg mb-2">公式推导文字整理</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">设备结构图文字说明，数学公式 LaTeX 格式化，推导过程标准化描述。</p>
+                </div>
+                <div class="skill-card">
+                    <div class="text-green-400 text-2xl mb-3"><i class="fas fa-lightbulb"></i></div>
+                    <h4 class="font-bold text-lg mb-2">创新点挖掘</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">自动分析课题现有方案缺陷，提炼技术创新点，生成专利申请书核心内容框架。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category 4: 拓展自定义 -->
+        <div>
+            <div class="flex items-center mb-6">
+                <span class="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center text-purple-400 font-bold mr-4">04</span>
+                <div>
+                    <h3 class="text-2xl font-bold">拓展自定义 Skills</h3>
+                    <p class="text-gray-400 text-sm">Clawhub 技能市场一键加装，无限扩展</p>
+                </div>
+            </div>
+            <div class="glass rounded-2xl p-8">
+                <div class="flex items-start space-x-6">
+                    <div class="text-purple-400 text-4xl"><i class="fas fa-store"></i></div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-3">Clawhub 技能市场</h4>
+                        <p class="text-gray-400 leading-relaxed mb-4">
+                            内置技能商店 <span class="text-purple-400 font-semibold">Clawhub</span>，可按需加装：编程代码调试、AI 绘图结构图、外文期刊润色、数据拟合分析等<span class="text-white">上万款扩展技能</span>，所有插件永久保存在 U 盘，无需重复下载配置。
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag tag-purple">编程代码调试</span>
+                            <span class="tag tag-purple">AI 绘图结构图</span>
+                            <span class="tag tag-purple">外文期刊润色</span>
+                            <span class="tag tag-purple">数据拟合分析</span>
+                            <span class="tag tag-purple">更多技能 →</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="relative z-10 py-20">
+<!-- Section 3: 即插即用运行逻辑 -->
+<section class="relative z-10 py-20 border-t border-border">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="mb-12 text-center">
+            <span class="text-warm text-sm font-bold tracking-widest uppercase">Plug & Play</span>
+            <h2 class="text-3xl md:text-4xl font-bold mt-3">即插即用运行逻辑</h2>
+            <p class="mt-4 text-gray-400 max-w-2xl mx-auto text-lg">30 秒启动论文工作站，零门槛上手</p>
+        </div>
+
+        <div class="max-w-3xl mx-auto">
+            <div class="space-y-8">
+                <!-- Step 1 -->
+                <div class="flex items-start space-x-5">
+                    <div class="step-num">1</div>
+                    <div class="glass rounded-2xl p-6 flex-1">
+                        <h4 class="font-bold text-lg mb-2">插入 论文虾盘</h4>
+                        <p class="text-gray-400">插入 论文虾盘 U 盘，资源管理器打开盘符，无需任何安装操作。</p>
+                    </div>
+                </div>
+                <!-- Step 2 -->
+                <div class="flex items-start space-x-5">
+                    <div class="step-num">2</div>
+                    <div class="glass rounded-2xl p-6 flex-1">
+                        <h4 class="font-bold text-lg mb-2">双击启动脚本</h4>
+                        <p class="text-gray-400">自动加载全部内置 Skills、运行环境、模型配置，无需手动配置任何参数。</p>
+                    </div>
+                </div>
+                <!-- Step 3 -->
+                <div class="flex items-start space-x-5">
+                    <div class="step-num">3</div>
+                    <div class="glass rounded-2xl p-6 flex-1">
+                        <h4 class="font-bold text-lg mb-2">浏览器打开控制台</h4>
+                        <p class="text-gray-400">浏览器自动打开本地 Web 控制台（127.0.0.1:18789），技能面板全部可视化，直接输入课题指令调用对应论文 Skill。</p>
+                    </div>
+                </div>
+                <!-- Step 4 -->
+                <div class="flex items-start space-x-5">
+                    <div class="step-num">4</div>
+                    <div class="glass rounded-2xl p-6 flex-1">
+                        <h4 class="font-bold text-lg mb-2">拔下即走</h4>
+                        <p class="text-gray-400">所有文稿、对话缓存仅存储 U 盘 data 目录。拔下 U 盘，电脑无任何程序、论文残留，隐私安全无泄露风险。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 4: 对比优势 -->
+<section class="relative z-10 py-20 border-t border-border">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="mb-12">
+            <span class="text-warm text-sm font-bold tracking-widest uppercase">Comparison</span>
+            <h2 class="text-3xl md:text-4xl font-bold mt-3">对比普通在线 AI / 本地部署核心优势</h2>
+        </div>
+
+        <div class="overflow-x-auto">
+            <table class="w-full compare-table" style="min-width:700px">
+                <thead>
+                    <tr>
+                        <th class="text-left">对比维度</th>
+                        <th class="text-center">普通在线 AI</th>
+                        <th class="text-center">本地部署 LLM</th>
+                        <th class="text-center text-warm">论文虾盘</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="font-semibold text-white">技能库</td>
+                        <td>无固定技能库，每次需重复写提示词</td>
+                        <td>需自行配置，技术门槛高</td>
+                        <td class="text-warm font-semibold">预装全套论文插件，永久留存</td>
+                    </tr>
+                    <tr>
+                        <td class="font-semibold text-white">数据安全</td>
+                        <td class="text-red-400">论文上传云端，存在泄露风险</td>
+                        <td class="text-green-400">本地运行，数据不出本机</td>
+                        <td class="text-warm font-semibold">U 盘隔离，拔走不留痕迹</td>
+                    </tr>
+                    <tr>
+                        <td class="font-semibold text-white">环境配置</td>
+                        <td class="text-green-400">无需配置，有网即用</td>
+                        <td class="text-red-400">CUDA、依赖、端口报错频繁</td>
+                        <td class="text-warm font-semibold">零配置，插入即运行</td>
+                    </tr>
+                    <tr>
+                        <td class="font-semibold text-white">专业适配</td>
+                        <td class="text-red-400">通用 AI，不区分专业</td>
+                        <td class="text-yellow-400">需自行微调，成本高</td>
+                        <td class="text-warm font-semibold">机械水产专属 Skill，术语精准</td>
+                    </tr>
+                    <tr>
+                        <td class="font-semibold text-white">便携性</td>
+                        <td class="text-red-400">依赖网络，切换设备需重新登录</td>
+                        <td class="text-red-400">绑定单机，无法携带</td>
+                        <td class="text-warm font-semibold">U 盘随身，换电脑直接调用</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- Section 5: 实操示例 -->
+<section class="relative z-10 py-20 border-t border-border">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="mb-12">
+            <span class="text-warm text-sm font-bold tracking-widest uppercase">Examples</span>
+            <h2 class="text-3xl md:text-4xl font-bold mt-3">适配你的课题实操示例</h2>
+            <p class="mt-4 text-gray-400 max-w-2xl text-lg">直接复制到工作站调用 Skill，秒出结果</p>
+        </div>
+
+        <div class="space-y-6 max-w-4xl">
+            <!-- Example 1 -->
+            <div class="glass rounded-2xl p-8">
+                <div class="flex items-center mb-4">
+                    <span class="tag tag-warm mr-3">示例 1</span>
+                    <span class="text-gray-400 text-sm">调用机械结构设计 Skill</span>
+                </div>
+                <div class="bg-primary/60 rounded-xl p-5 font-mono text-sm text-gray-300 leading-relaxed">
+                    使用机械结构设计 Skill，撰写基于 论文虾盘 环抱夹爪的专用限位凹槽虾盘一体化设计章节，对比市面通用直爪抓取虾盘的破损缺陷，计算 U 型夹持分散应力优势。
+                </div>
+            </div>
+            <!-- Example 2 -->
+            <div class="glass rounded-2xl p-8">
+                <div class="flex items-center mb-4">
+                    <span class="tag tag-blue mr-3">示例 2</span>
+                    <span class="text-gray-400 text-sm">调用文献综述 Skill</span>
+                </div>
+                <div class="bg-primary/60 rounded-xl p-5 font-mono text-sm text-gray-300 leading-relaxed">
+                    调用文献精读 Skill，整理近 5 年水产对虾自动摆盘设备中英文文献，总结平行夹爪、真空吸盘抓取虾盘现存技术空白，提炼本文 论文虾盘 柔性爪 + 适配虾盘成套方案创新点。
+                </div>
+            </div>
+            <!-- Example 3 -->
+            <div class="glass rounded-2xl p-8">
+                <div class="flex items-center mb-4">
+                    <span class="tag tag-green mr-3">示例 3</span>
+                    <span class="text-gray-400 text-sm">调用仿真试验 Skill</span>
+                </div>
+                <div class="bg-primary/60 rounded-xl p-5 font-mono text-sm text-gray-300 leading-relaxed">
+                    调用动力学仿真 Skill，根据 论文虾盘 夹爪夹持虾盘应力仿真数据，撰写仿真结果分析、误差来源、样机试验验证段落。
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 6: 关键补充说明 -->
+<section class="relative z-10 py-20 border-t border-border">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="mb-12">
+            <span class="text-warm text-sm font-bold tracking-widest uppercase">Notes</span>
+            <h2 class="text-3xl md:text-4xl font-bold mt-3">关键补充说明</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="glass rounded-2xl p-7">
+                <div class="text-accent text-2xl mb-4"><i class="fas fa-wifi"></i></div>
+                <h4 class="font-bold text-lg mb-2">网络需求</h4>
+                <p class="text-gray-400 text-sm leading-relaxed">首次配置 API 密钥需联网，配置完成后可断网离线调用本地 Skills 完成写作；适合高校内网、无外网实验室环境。</p>
+            </div>
+            <div class="glass rounded-2xl p-7">
+                <div class="text-accent text-2xl mb-4"><i class="fas fa-laptop"></i></div>
+                <h4 class="font-bold text-lg mb-2">系统兼容</h4>
+                <p class="text-gray-400 text-sm leading-relaxed">Windows 10/11 全版本、macOS M 系列原生适配，无需转译；U 盘 exFAT 格式，跨平台即插即用。</p>
+            </div>
+            <div class="glass rounded-2xl p-7">
+                <div class="text-accent text-2xl mb-4"><i class="fas fa-puzzle-piece"></i></div>
+                <h4 class="font-bold text-lg mb-2">技能扩容</h4>
+                <p class="text-gray-400 text-sm leading-relaxed">Clawhub 市场可免费 / 付费新增专业技能，一键安装至 U 盘永久生效；技能库随学术发展持续更新。</p>
+            </div>
+            <div class="glass rounded-2xl p-7">
+                <div class="text-accent text-2xl mb-4"><i class="fas fa-user-shield"></i></div>
+                <h4 class="font-bold text-lg mb-2">数据安全</h4>
+                <p class="text-gray-400 text-sm leading-relaxed">支持 U 盘加密，所有论文草稿、文献、技能配置不会同步至云端服务器；符合高校科研数据保密规范。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="relative z-10 py-24">
     <div class="max-w-4xl mx-auto px-6 text-center">
-        <div class="glass rounded-3xl p-12">
-            <h2 class="text-3xl font-bold mb-4">让AI触手可及</h2>
-            <p class="text-gray-400 mb-8 max-w-xl mx-auto">UnitClaw虾盘——高校AI教育的最后一公里。插上就用，拔下就走。</p>
-            <a href="../contact.html" class="px-8 py-3.5 bg-warm hover:bg-amber-600 text-black font-semibold rounded-xl transition-all inline-block">申请试用</a>
+        <div class="glass rounded-3xl p-12 md:p-16">
+            <div class="text-5xl mb-6"><i class="fas fa-graduation-cap text-warm"></i></div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">让论文写作，不再是一个人战斗</h2>
+            <p class="text-gray-400 mb-10 max-w-xl mx-auto text-lg leading-relaxed">论文虾盘——你的随身论文工作站。<br>插入即用，拔下即走，学术数据永不泄露。</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="../contact.html" class="px-10 py-4 bg-warm hover:bg-amber-600 text-black font-bold rounded-xl transition-colors text-lg">
+                    <i class="fas fa-paper-plane mr-2"></i>申请试用
+                </a>
+                <a href="#skills-library" class="px-10 py-4 glass hover:bg-white/5 text-white font-bold rounded-xl transition-colors border border-white/10 text-lg">
+                    <i class="fas fa-toolbox mr-2"></i>查看技能库
+                </a>
+            </div>
         </div>
     </div>
 </section>
 
+<!-- Footer -->
 <footer class="relative z-10 border-t border-border py-8">
     <div class="max-w-7xl mx-auto px-6 text-center text-sm text-gray-600">
-        <p>&copy; 2026 UnitClaw.ai | 即插即用AI执行单元 | 万物拟态，单元铸智</p>
+        <p>&copy; 2026 UnitClaw.cn | 论文虾盘 | 万物拟态，面向高校的 AI+机器人全栈教育平台</p>
     </div>
 </footer>
 
 <script src="../particles.min.js"></script>
-<script>particlesJS("particles-js",{particles:{number:{value:30},color:{value:"#f59e0b"},opacity:{value:.12,random:!0},size:{value:2,random:!0},line_linked:{enable:!0,distance:150,color:"#f59e0b",opacity:.06,width:1},move:{enable:!0,speed:.6}}});</script>
+<script>
+    particlesJS("particles-js", {
+        particles: {
+            number: { value: 30 },
+            color: { value: "#f59e0b" },
+            opacity: { value: .12, random: !0 },
+            size: { value: 2, random: !0 },
+            line_linked: { enable: !0, distance: 150, color: "#f59e0b", opacity: .06, width: 1 },
+            move: { enable: !0, speed: .6 }
+        }
+    });
+</script>
 </body>
 </html>
