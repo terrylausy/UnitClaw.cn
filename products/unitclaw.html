@@ -1,120 +1,543 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UnitClaw 虾盘 - 即插即用AI执行单元</title>
-    <meta name="description" content="UnitClaw虾盘是即插即用式AI执行单元，U盘形态，集成企业微信智能报价、AI实训环境，为高校提供零门槛AI动手实践工具。">
+    <title>科研U-Claw 虾盘 | 内置多 Skills 论文 U 盘工作站完整介绍</title>
+    <meta name="description" content="U-Claw虾盘是基于开源AI智能体框架OpenClaw封装的便携即插即用U盘科研工作站，内置海量预制Skills，面向本科/硕士/理工科机械类论文全流程辅助。">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>tailwind.config={theme:{extend:{colors:{primary:'#0b1120',accent:'#3b82f6',warm:'#f59e0b',card:'#111827',border:'#1e293b'},fontFamily:{sans:['Inter','Noto Sans SC','system-ui','sans-serif']}}}}</script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#ffffff',
+                        secondary: '#F8FAFC',
+                        accent: '#2563EB',
+                        accent2: '#7C3AED',
+                        warm: '#d97706',
+                        dark: '#0F172A',
+                        muted: '#64748B',
+                        border: '#E2E8F0',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans SC', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
     <style>
-        .bg-grid{background-image:linear-gradient(rgba(37,99,235,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,.04) 1px,transparent 1px);background-size:40px 40px}
-        .glass{background:rgba(255,255,255,.9);backdrop-filter:blur(16px);border:1px solid rgba(0,0,0,.08)}
-        .text-gradient{background:linear-gradient(135deg,#f59e0b,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .bg-grid{background-image:linear-gradient(rgba(37,99,235,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,.03) 1px,transparent 1px);background-size:40px 40px}
+        .glass{background:rgba(255,255,255,.92);backdrop-filter:blur(16px);border:1px solid rgba(0,0,0,.06)}
+        .text-gradient{background:linear-gradient(135deg,#d97706,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .text-gradient-blue{background:linear-gradient(135deg,#2563EB,#7C3AED);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .card-hover{transition:all .3s ease}
+        .card-hover:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,0,0,.08)}
+        .skill-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:9999px;font-size:13px;font-weight:500}
+        html{scroll-behavior:smooth}
     </style>
 </head>
-<body class="bg-primary text-gray-900 font-sans">
+<body class="bg-primary text-dark font-sans">
 
-<div id="particles-js" class="fixed inset-0 z-0"></div>
-<div class="fixed inset-0 bg-grid z-0 opacity-40"></div>
+<!-- 粒子背景 -->
+<div id="particles-js" class="fixed inset-0 z-0 pointer-events-none"></div>
+<div class="fixed inset-0 bg-grid z-0 opacity-40 pointer-events-none"></div>
 
+<!-- ====== 导航栏 ====== -->
 <nav class="glass fixed top-0 left-0 right-0 z-50">
     <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
         <a href="../index.html" class="flex items-center space-x-3">
-            <span class="text-lg font-bold">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-sm font-normal ml-1">.cn</span></span>
+            <span class="text-lg font-bold">Unit<span class="text-accent">Claw</span><span class="text-gray-400 text-sm font-normal ml-1">.cn</span></span>
         </a>
         <div class="hidden lg:flex items-center space-x-4">
-            <a href="../index.html" class="text-sm text-gray-400 hover:text-gray-900 transition-colors">首页</a>
-            <a href="robots.html" class="text-sm text-gray-400 hover:text-gray-900 transition-colors">机器人</a>
-            <a href="courses.html" class="text-sm text-gray-400 hover:text-gray-900 transition-colors">课程</a>
-            <a href="unitclaw.html" class="text-sm text-warm font-semibold">UnitClaw 虾盘</a>
-            <a href="../solutions/education.html" class="text-sm text-gray-400 hover:text-gray-900 transition-colors">高校方案</a>
-            <a href="../contact.html" class="ml-4 px-5 py-2 bg-warm hover:bg-amber-600 text-black font-semibold text-sm rounded-lg transition-colors">预约演示</a>
+            <a href="../index.html" class="text-sm text-muted hover:text-dark transition-colors">首页</a>
+            <a href="robots.html" class="text-sm text-muted hover:text-dark transition-colors">机器人</a>
+            <a href="courses.html" class="text-sm text-muted hover:text-dark transition-colors">课程</a>
+            <a href="unitclaw.html" class="text-sm text-warm font-semibold">U-Claw 虾盘</a>
+            <a href="../solutions/education.html" class="text-sm text-muted hover:text-dark transition-colors">高校方案</a>
+            <a href="../contact.html" class="ml-4 px-5 py-2 bg-warm hover:bg-amber-600 text-white font-semibold text-sm rounded-lg transition-colors">预约演示</a>
         </div>
     </div>
 </nav>
 
+<!-- ====== Hero 区域 ====== -->
 <header class="relative z-10 pt-32 pb-16">
     <div class="max-w-7xl mx-auto px-6">
-        <div class="flex items-center mb-4">
-            <span class="px-3 py-1 bg-warm/10 text-warm text-xs font-semibold rounded-full border border-warm/20">阵列三</span>
-            <span class="ml-3 px-3 py-1 bg-gray-100/50 text-gray-400 text-xs rounded-full border border-gray-200">即插即用 · U盘形态</span>
+        <div class="flex flex-wrap items-center gap-3 mb-6">
+            <span class="skill-badge bg-warm/10 text-warm border border-warm/20">
+                <i class="fas fa-layer-group text-xs"></i> 阵列三
+            </span>
+            <span class="skill-badge bg-accent/10 text-accent border border-accent/20">
+                <i class="fas fa-usb text-xs"></i> 即插即用 · U盘形态
+            </span>
+            <span class="skill-badge bg-accent2/10 text-accent2 border border-accent2/20">
+                <i class="fas fa-brain text-xs"></i> 内置多 Skills
+            </span>
         </div>
-        <h1 class="text-4xl md:text-6xl font-bold tracking-tight">UnitClaw <span class="text-gradient">虾盘</span></h1>
-        <p class="mt-6 text-lg text-gray-400 max-w-2xl leading-relaxed">
-            即插即用式AI执行单元，U盘形态，插入即可运行。<br>企业微信智能报价 · AI实训环境 · 自动化工作流——让AI真正落地干活。
+        <h1 class="text-4xl md:text-6xl font-bold tracking-tight leading-tight">
+            U-<span class="text-gradient-blue">Claw</span> <span class="text-gradient">虾盘</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-muted mt-4 font-medium">龙虾助手U盘 · 内置多 Skills 论文工作站</p>
+        <p class="mt-6 text-base text-muted max-w-3xl leading-relaxed">
+            基于开源 AI 智能体框架 OpenClaw 封装的便携即插即用 U 盘科研工作站。内置海量预制 Skills（AI 技能插件），专门面向本科 / 硕士 / 理工科机械类论文全流程辅助。U 盘预装完整运行环境，无需本地安装任何软件，换电脑、机房、图书馆直接使用，所有论文数据、技能配置仅存 U 盘，拔走不留痕迹。
         </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+            <a href="#skills" class="px-6 py-3 bg-accent hover:bg-blue-700 text-white font-semibold rounded-xl transition-colors shadow-sm">
+                <i class="fas fa-puzzle-piece mr-2"></i>查看内置 Skills
+            </a>
+            <a href="../contact.html" class="px-6 py-3 bg-white hover:bg-gray-50 text-dark font-semibold rounded-xl border border-border transition-colors">
+                <i class="fas fa-paper-plane mr-2"></i>申请试用
+            </a>
+        </div>
     </div>
 </header>
 
-<section class="relative z-10 py-16">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="grid md:grid-cols-2 gap-8">
-            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
-                <div class="text-warm text-3xl mb-4"><i class="fas fa-bolt"></i></div>
-                <h3 class="text-xl font-bold mb-3">即插即用</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">插入U盘，自动启动本地AI服务器。无需安装、无需配置、无需联网，真正的开箱即用。</p>
-            </div>
-            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
-                <div class="text-warm text-3xl mb-4"><i class="fas fa-shield-alt"></i></div>
-                <h3 class="text-xl font-bold mb-3">数据安全</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">本地推理，数据不出U盘。支持离线运行，满足高校数据安全和隐私保护需求。</p>
-            </div>
-            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
-                <div class="text-warm text-3xl mb-4"><i class="fas fa-robot"></i></div>
-                <h3 class="text-xl font-bold mb-3">企业微信AI</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">内置企业微信智能报价机器人，自动解析询价→匹配成本表→生成报价，客户消息秒级回复。</p>
-            </div>
-            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
-                <div class="text-warm text-3xl mb-4"><i class="fas fa-graduation-cap"></i></div>
-                <h3 class="text-xl font-bold mb-3">AI实训环境</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">预装Python + Ollama + LLM，学生插入即可开始AI开发实验，零环境配置门槛。</p>
-            </div>
-        </div>
-    </div>
-</section>
-
+<!-- ====== 一、产品基础定义 + 硬件 ====== -->
 <section class="relative z-10 py-16 border-t border-border">
     <div class="max-w-7xl mx-auto px-6">
-        <h2 class="text-2xl font-bold mb-10">高校应用场景</h2>
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 text-center">
-                <div class="w-16 h-16 bg-warm/10 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-laptop-code text-2xl text-warm"></i></div>
-                <h3 class="font-bold mb-2">AI课程实训</h3>
-                <p class="text-sm text-gray-400">学生人手一个虾盘，插入电脑即可开始AI实验</p>
-            </div>
-            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 text-center">
-                <div class="w-16 h-16 bg-warm/10 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-flask text-2xl text-warm"></i></div>
-                <h3 class="font-bold mb-2">科研开发</h3>
-                <p class="text-sm text-gray-400">预装大模型环境，支持本地推理与微调实验</p>
-            </div>
-            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 text-center">
-                <div class="w-16 h-16 bg-warm/10 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-building text-2xl text-warm"></i></div>
-                <h3 class="font-bold mb-2">产教融合</h3>
-                <p class="text-sm text-gray-400">企业真实业务场景嵌入教学，学生提前接触产业应用</p>
+        <div class="flex items-center gap-3 mb-2">
+            <span class="text-accent font-bold text-sm tracking-wider uppercase">01</span>
+            <h2 class="text-3xl font-bold">产品基础定义</h2>
+        </div>
+        <p class="text-muted mb-12 max-w-3xl">
+            U-Claw（俗称虾盘）是基于开源 AI 智能体框架 OpenClaw 封装的便携即插即用 U 盘科研工作站，核心卖点是内置海量预制 Skills（AI 技能插件），专门面向本科 / 硕士 / 理工科机械类论文全流程辅助。
+        </p>
+
+        <!-- 硬件基础 -->
+        <div class="mb-10">
+            <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                <i class="fas fa-microchip text-accent"></i> 硬件基础
+            </h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div class="bg-white rounded-2xl p-6 border border-border card-hover">
+                    <div class="w-10 h-10 bg-accent/10 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-plug text-accent text-lg"></i>
+                    </div>
+                    <h4 class="font-bold mb-2">双接口高速U盘</h4>
+                    <p class="text-sm text-muted leading-relaxed">USB-A + Type-C 双接口，Windows / macOS 全兼容，即插即用</p>
+                </div>
+                <div class="bg-white rounded-2xl p-6 border border-border card-hover">
+                    <div class="w-10 h-10 bg-accent/10 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-hdd text-accent text-lg"></i>
+                    </div>
+                    <h4 class="font-bold mb-2">exFAT 文件系统</h4>
+                    <p class="text-sm text-muted leading-relaxed">跨设备通用，内置 Node.js、Python、推理网关全套依赖</p>
+                </div>
+                <div class="bg-white rounded-2xl p-6 border border-border card-hover">
+                    <div class="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-bolt text-green-600 text-lg"></i>
+                    </div>
+                    <h4 class="font-bold mb-2">便携模式</h4>
+                    <p class="text-sm text-muted leading-relaxed">全部数据存 U 盘，拔走不留痕迹，隐私安全无泄露风险</p>
+                </div>
+                <div class="bg-white rounded-2xl p-6 border border-border card-hover">
+                    <div class="w-10 h-10 bg-accent2/10 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-sync-alt text-accent2 text-lg"></i>
+                    </div>
+                    <h4 class="font-bold mb-2">双模式切换</h4>
+                    <p class="text-sm text-muted leading-relaxed">便携模式（全部数据存U盘）/ 本地安装模式（可选），一键切换</p>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
+<!-- ====== 二、内置多 Skills 论文专属技能库 ====== -->
+<section id="skills" class="relative z-10 py-16 bg-secondary">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex items-center gap-3 mb-2">
+            <span class="text-accent font-bold text-sm tracking-wider uppercase">02</span>
+            <h2 class="text-3xl font-bold">内置多 Skills 论文专属技能库</h2>
+        </div>
+        <p class="text-muted mb-12 max-w-3xl">分四大类，适配 U-Claw 夹爪虾盘机械课题</p>
+
+        <!-- 2.1 通用论文全流程 -->
+        <div class="mb-14">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
+                    <i class="fas fa-file-alt text-white text-sm"></i>
+                </div>
+                <h3 class="text-xl font-bold">通用论文全流程 Skills（标配内置）</h3>
+            </div>
+            <div class="grid md:grid-cols-2 gap-5">
+                <div class="bg-white rounded-2xl p-6 border border-border card-hover">
+                    <div class="flex items-start gap-3">
+                        <span class="text-2xl">📄</span>
+                        <div>
+                            <h4 class="font-bold mb-2">论文框架生成 Skill</h4>
+                            <p class="text-sm text-muted leading-relaxed">一键输出开题报告、中期检查、毕业论文完整大纲，支持机械 / 自动化 / 水产加工专业模板，自动区分绪论、文献综述、结构设计、仿真试验、结论章节。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl p-6 border border-border card-hover">
+                    <div class="flex items-start gap-3">
+                        <span class="text-2xl">📚</span>
+                        <div>
+                            <h4 class="font-bold mb-2">文献精读综述 Skill</h4>
+                            <p class="text-sm text-muted leading-relaxed">批量读取 PDF 中英文文献，自动提取研究方法、创新点、现有缺陷、不足，自动分类整理近 5 年研究现状，直接生成综述段落；支持批量导出 GB/T 7714、IEEE、APA 参考文献格式。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl p-6 border border-border card-hover">
+                    <div class="flex items-start gap-3">
+                        <span class="text-2xl">✍️</span>
+                        <div>
+                            <h4 class="font-bold mb-2">学术润色 & 降重 Humanizer Skill</h4>
+                            <p class="text-sm text-muted leading-relaxed">消除 AI 固定句式，调整理工科学术书面语序，改写不改动专业参数，降低 AI 检测、查重重复率；中英摘要互译、SCI 标准学术句式改写。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl p-6 border border-border card-hover">
+                    <div class="flex items-start gap-3">
+                        <span class="text-2xl">📐</span>
+                        <div>
+                            <h4 class="font-bold mb-2">格式排版 Skill</h4>
+                            <p class="text-sm text-muted leading-relaxed">Word 学位论文规范排版话术、LaTeX 毕业论文模板生成、图表标题规范、致谢 / 附录 / 公式自动标准化描述。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2.2 工科机械专项 -->
+        <div class="mb-14">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-8 h-8 bg-warm rounded-lg flex items-center justify-center">
+                    <i class="fas fa-cogs text-white text-sm"></i>
+                </div>
+                <h3 class="text-xl font-bold">工科机械专项 Skills（适配 U-Claw 夹持爪 + 虾盘摆盘设备课题）</h3>
+            </div>
+            <div class="grid md:grid-cols-2 gap-5">
+                <div class="bg-white rounded-2xl p-6 border border-border card-hover">
+                    <div class="flex items-start gap-3">
+                        <span class="text-2xl">🔧</span>
+                        <div>
+                            <h4 class="font-bold mb-2">机械结构设计 Skill</h4>
+                            <p class="text-sm text-muted leading-relaxed">自动撰写夹爪、摆盘机架、传动机构、托盘限位结构设计内容，包含材料选型、受力计算、驱动方案对比；可生成设备整体方案对比段落（现有平行爪 / 吸盘 vs 本文 U-Claw 环抱夹爪）。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl p-6 border border-border card-hover">
+                    <div class="flex items-start gap-3">
+                        <span class="text-2xl">📊</span>
+                        <div>
+                            <h4 class="font-bold mb-2">动力学 / 运动仿真分析 Skill</h4>
+                            <p class="text-sm text-muted leading-relaxed">针对 SolidWorks、ADAMS、CFD 仿真结果标准化学术描述，生成误差分析、夹持力仿真数据解读、应力云图说明、试验对比图表文字。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl p-6 border border-border card-hover">
+                    <div class="flex items-start gap-3">
+                        <span class="text-2xl">🦐</span>
+                        <div>
+                            <h4 class="font-bold mb-2">水产自动化设备专项 Skill</h4>
+                            <p class="text-sm text-muted leading-relaxed">预制速冻虾盘、分拣机械手、水产流水线专属术语库，自动梳理国内外虾盘摆盘设备专利、量产设备痛点，提炼课题创新点（盘爪一体化、U 型凹槽适配结构）。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl p-6 border border-border card-hover">
+                    <div class="flex items-start gap-3">
+                        <span class="text-2xl">🧪</span>
+                        <div>
+                            <h4 class="font-bold mb-2">试验数据处理 Skill</h4>
+                            <p class="text-sm text-muted leading-relaxed">导入样机试验破损率、抓取成功率、产能数据，自动清洗数据、生成对比分析、撰写试验结论，输出标准化试验章节文本。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2.3 科研办公辅助 -->
+        <div class="mb-14">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-tools text-white text-sm"></i>
+                </div>
+                <h3 class="text-xl font-bold">科研办公辅助 Skills</h3>
+            </div>
+            <div class="grid md:grid-cols-3 gap-5">
+                <div class="bg-white rounded-2xl p-5 border border-border card-hover text-center">
+                    <div class="text-3xl mb-3">📑</div>
+                    <p class="text-sm text-muted leading-relaxed">PDF 批量处理、文献文件夹自动分类、多维表格文献台账生成</p>
+                </div>
+                <div class="bg-white rounded-2xl p-5 border border-border card-hover text-center">
+                    <div class="text-3xl mb-3">💡</div>
+                    <p class="text-sm text-muted leading-relaxed">试验日志自动归档、课题创新点挖掘、专利文案辅助撰写</p>
+                </div>
+                <div class="bg-white rounded-2xl p-5 border border-border card-hover text-center">
+                    <div class="text-3xl mb-3">📝</div>
+                    <p class="text-sm text-muted leading-relaxed">公式推导文字整理、设备结构图文字说明</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2.4 拓展自定义 -->
+        <div>
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-8 h-8 bg-accent2 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-store text-white text-sm"></i>
+                </div>
+                <h3 class="text-xl font-bold">拓展自定义 Skills — Clawhub 技能市场一键加装</h3>
+            </div>
+            <div class="bg-white rounded-2xl p-8 border border-border">
+                <p class="text-muted leading-relaxed mb-4">
+                    内置技能商店 <strong class="text-accent2">Clawhub</strong>，可按需加装：编程代码调试、AI 绘图结构图、外文期刊润色、数据拟合分析等<strong>上万款扩展技能</strong>，所有插件永久保存在 U 盘，无需重复下载配置。
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="skill-badge bg-gray-100 text-muted"><i class="fas fa-code text-xs"></i> 编程调试</span>
+                    <span class="skill-badge bg-gray-100 text-muted"><i class="fas fa-image text-xs"></i> AI 绘图</span>
+                    <span class="skill-badge bg-gray-100 text-muted"><i class="fas fa-language text-xs"></i> 外刊润色</span>
+                    <span class="skill-badge bg-gray-100 text-muted"><i class="fas fa-chart-line text-xs"></i> 数据拟合</span>
+                    <span class="skill-badge bg-gray-100 text-muted"><i class="fas fa-ellipsis-h text-xs"></i> 上万款扩展</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== 三、即插即用运行逻辑 ====== -->
+<section class="relative z-10 py-16 border-t border-border">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex items-center gap-3 mb-2">
+            <span class="text-accent font-bold text-sm tracking-wider uppercase">03</span>
+            <h2 class="text-3xl font-bold">即插即用运行逻辑</h2>
+        </div>
+        <p class="text-muted mb-12">30 秒启动论文工作站</p>
+
+        <div class="relative">
+            <!-- 步骤连线 -->
+            <div class="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-border -translate-y-1/2 z-0"></div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-6 relative z-10">
+                <div class="bg-white rounded-2xl p-6 border border-border card-hover text-center">
+                    <div class="w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg">1</div>
+                    <h4 class="font-bold mb-2 text-sm">插入 U 盘</h4>
+                    <p class="text-xs text-muted">资源管理器打开盘符</p>
+                </div>
+                <div class="bg-white rounded-2xl p-6 border border-border card-hover text-center">
+                    <div class="w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg">2</div>
+                    <h4 class="font-bold mb-2 text-sm">双击启动脚本</h4>
+                    <p class="text-xs text-muted">自动加载全部内置 Skills、运行环境、模型配置</p>
+                </div>
+                <div class="bg-white rounded-2xl p-6 border border-border card-hover text-center">
+                    <div class="w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg">3</div>
+                    <h4 class="font-bold mb-2 text-sm">打开 Web 控制台</h4>
+                    <p class="text-xs text-muted">浏览器自动打开 <code class="bg-gray-100 px-1.5 py-0.5 rounded text-accent text-xs">127.0.0.1:18789</code>，技能面板全可视化</p>
+                </div>
+                <div class="bg-white rounded-2xl p-6 border border-border card-hover text-center">
+                    <div class="w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg">4</div>
+                    <h4 class="font-bold mb-2 text-sm">调用 Skills</h4>
+                    <p class="text-xs text-muted">输入课题指令调用论文 Skill，文稿仅存 U 盘 data 目录</p>
+                </div>
+                <div class="bg-white rounded-2xl p-6 border border-border card-hover text-center">
+                    <div class="w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg">5</div>
+                    <h4 class="font-bold mb-2 text-sm">拔下 U 盘</h4>
+                    <p class="text-xs text-muted">电脑无任何程序、论文残留，隐私安全无泄露风险</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-8 p-4 bg-green-50 border border-green-200 rounded-xl text-sm text-green-800 flex items-start gap-3">
+            <i class="fas fa-check-circle text-green-600 mt-0.5"></i>
+            <span><strong>启动时间约 30 秒</strong>，全程无需联网（首次配置 API 密钥除外），无需安装任何软件，无需命令行操作。</span>
+        </div>
+    </div>
+</section>
+
+<!-- ====== 四、对比优势 ====== -->
+<section class="relative z-10 py-16 bg-secondary">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex items-center gap-3 mb-2">
+            <span class="text-accent font-bold text-sm tracking-wider uppercase">04</span>
+            <h2 class="text-3xl font-bold">对比普通在线 AI / 本地部署核心优势</h2>
+        </div>
+        <p class="text-muted mb-12 max-w-3xl">为什么选择 U-Claw 虾盘而不是云端 AI 或自行部署？</p>
+
+        <div class="overflow-x-auto">
+            <table class="w-full bg-white rounded-2xl border border-border overflow-hidden shadow-sm">
+                <thead>
+                    <tr class="bg-secondary">
+                        <th class="text-left p-4 font-bold text-sm">对比维度</th>
+                        <th class="text-left p-4 font-bold text-sm text-warm">U-Claw 虾盘</th>
+                        <th class="text-left p-4 font-bold text-sm text-muted">普通在线 AI</th>
+                        <th class="text-left p-4 font-bold text-sm text-muted">本地部署 LLM</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-border">
+                    <tr>
+                        <td class="p-4 text-sm font-medium">Skills 持久化</td>
+                        <td class="p-4 text-sm text-warm font-medium">✅ 预制全套插件，永久留存</td>
+                        <td class="p-4 text-sm text-muted">❌ 每次需重复写提示词</td>
+                        <td class="p-4 text-sm text-muted">⚠️ 需自行配置维护</td>
+                    </tr>
+                    <tr class="bg-secondary/50">
+                        <td class="p-4 text-sm font-medium">数据安全</td>
+                        <td class="p-4 text-sm text-warm font-medium">✅ 本地隔离，不上传云端</td>
+                        <td class="p-4 text-sm text-muted">❌ 论文数据上传云端有泄露风险</td>
+                        <td class="p-4 text-sm text-muted">⚠️ 本地安全但需自行管理</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4 text-sm font-medium">环境配置</td>
+                        <td class="p-4 text-sm text-warm font-medium">✅ 零配置，即插即用</td>
+                        <td class="p-4 text-sm text-muted">✅ 无需配置</td>
+                        <td class="p-4 text-sm text-muted">❌ CUDA / 依赖 / 端口易报错</td>
+                    </tr>
+                    <tr class="bg-secondary/50">
+                        <td class="p-4 text-sm font-medium">专业适配度</td>
+                        <td class="p-4 text-sm text-warm font-medium">✅ 机械水产专属 Skill</td>
+                        <td class="p-4 text-sm text-muted">❌ 通用 AI，不分专业</td>
+                        <td class="p-4 text-sm text-muted">⚠️ 需自行训练领域知识</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4 text-sm font-medium">离线可用</td>
+                        <td class="p-4 text-sm text-warm font-medium">✅ 配置后可断网使用</td>
+                        <td class="p-4 text-sm text-muted">❌ 必须联网</td>
+                        <td class="p-4 text-sm text-muted">✅ 可离线</td>
+                    </tr>
+                    <tr class="bg-secondary/50">
+                        <td class="p-4 text-sm font-medium">换设备使用</td>
+                        <td class="p-4 text-sm text-warm font-medium">✅ 拔插即用，无痕切换</td>
+                        <td class="p-4 text-sm text-muted">⚠️ 需重新登录同步</td>
+                        <td class="p-4 text-sm text-muted">❌ 固定设备，换机需重装</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- ====== 五、实操示例 ====== -->
+<section class="relative z-10 py-16 border-t border-border">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex items-center gap-3 mb-2">
+            <span class="text-accent font-bold text-sm tracking-wider uppercase">05</span>
+            <h2 class="text-3xl font-bold">适配你的课题实操示例</h2>
+        </div>
+        <p class="text-muted mb-12">直接复制到工作站调用 Skill</p>
+
+        <div class="space-y-6">
+            <div class="bg-white rounded-2xl p-6 border border-border card-hover">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="skill-badge bg-accent/10 text-accent border border-accent/20">示例 1</span>
+                    <h4 class="font-bold">调用机械结构设计 Skill</h4>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-4 text-sm text-muted leading-relaxed font-mono">
+                    使用机械结构设计 Skill，撰写基于 U-Claw 环抱夹爪的专用限位凹槽虾盘一体化设计章节，对比市面通用直爪抓取虾盘的破损缺陷，计算 U 型夹持分散应力优势。
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 border border-border card-hover">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="skill-badge bg-accent/10 text-accent border border-accent/20">示例 2</span>
+                    <h4 class="font-bold">调用文献综述 Skill</h4>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-4 text-sm text-muted leading-relaxed font-mono">
+                    调用文献精读 Skill，整理近 5 年水产对虾自动摆盘设备中英文文献，总结平行夹爪、真空吸盘抓取虾盘现存技术空白，提炼本文 U-Claw 柔性爪 + 适配虾盘成套方案创新点。
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 border border-border card-hover">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="skill-badge bg-accent/10 text-accent border border-accent/20">示例 3</span>
+                    <h4 class="font-bold">调用仿真试验 Skill</h4>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-4 text-sm text-muted leading-relaxed font-mono">
+                    调用动力学仿真 Skill，根据 U-Claw 夹爪夹持虾盘应力仿真数据，撰写仿真结果分析、误差来源、样机试验验证段落。
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== 六、关键补充说明 ====== -->
+<section class="relative z-10 py-16 bg-secondary">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex items-center gap-3 mb-2">
+            <span class="text-accent font-bold text-sm tracking-wider uppercase">06</span>
+            <h2 class="text-3xl font-bold">关键补充说明</h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-5">
+            <div class="bg-white rounded-2xl p-6 border border-border card-hover flex items-start gap-3">
+                <div class="w-10 h-10 bg-accent/10 rounded-xl flex items-center justify-center shrink-0">
+                    <i class="fas fa-wifi text-accent"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-1">网络需求</h4>
+                    <p class="text-sm text-muted leading-relaxed">首次配置 API 密钥需联网，配置完成后可断网离线调用本地 Skills 完成写作。</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl p-6 border border-border card-hover flex items-start gap-3">
+                <div class="w-10 h-10 bg-accent/10 rounded-xl flex items-center justify-center shrink-0">
+                    <i class="fab fa-windows text-accent"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-1">系统兼容</h4>
+                    <p class="text-sm text-muted leading-relaxed">Windows 10/11 全版本、macOS M 系列原生适配，无需转译。</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl p-6 border border-border card-hover flex items-start gap-3">
+                <div class="w-10 h-10 bg-accent/10 rounded-xl flex items-center justify-center shrink-0">
+                    <i class="fas fa-cloud-download-alt text-accent"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-1">技能扩容</h4>
+                    <p class="text-sm text-muted leading-relaxed">Clawhub 市场可免费 / 付费新增专业技能，一键安装至 U 盘永久生效。</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl p-6 border border-border card-hover flex items-start gap-3">
+                <div class="w-10 h-10 bg-accent/10 rounded-xl flex items-center justify-center shrink-0">
+                    <i class="fas fa-lock text-accent"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-1">数据安全</h4>
+                    <p class="text-sm text-muted leading-relaxed">支持 U 盘加密，所有论文草稿、文献、技能配置不会同步至云端服务器。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== CTA ====== -->
 <section class="relative z-10 py-20">
     <div class="max-w-4xl mx-auto px-6 text-center">
-        <div class="bg-white rounded-3xl p-12 shadow-sm border border-gray-200">
-            <h2 class="text-3xl font-bold mb-4">让AI触手可及</h2>
-            <p class="text-gray-400 mb-8 max-w-xl mx-auto">UnitClaw虾盘——高校AI教育的最后一公里。插上就用，拔下就走。</p>
-            <a href="../contact.html" class="px-8 py-3.5 bg-warm hover:bg-amber-600 text-black font-semibold rounded-xl transition-all inline-block">申请试用</a>
+        <div class="bg-white rounded-3xl p-12 shadow-sm border border-border">
+            <div class="text-5xl mb-4">🦐</div>
+            <h2 class="text-3xl font-bold mb-4">让论文写作触手可及</h2>
+            <p class="text-muted mb-8 max-w-xl mx-auto leading-relaxed">
+                U-Claw 虾盘——高校科研的最后一公里。<br>内置多 Skills，插上就用，拔下就走。
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="../contact.html" class="px-8 py-3.5 bg-warm hover:bg-amber-600 text-white font-semibold rounded-xl transition-colors shadow-sm">
+                    <i class="fas fa-paper-plane mr-2"></i>申请试用
+                </a>
+                <a href="../contact.html" class="px-8 py-3.5 bg-white hover:bg-gray-50 text-dark font-semibold rounded-xl border border-border transition-colors">
+                    <i class="fas fa-headset mr-2"></i>咨询产品
+                </a>
+            </div>
         </div>
     </div>
 </section>
 
+<!-- ====== Footer ====== -->
 <footer class="relative z-10 border-t border-border py-8">
-    <div class="max-w-7xl mx-auto px-6 text-center text-sm text-gray-400">
-        <p>© 2026 unitclaw.cn | 即插即用AI执行单元 | 万物拟态，单元铸智</p>
+    <div class="max-w-7xl mx-auto px-6 text-center text-sm text-muted">
+        <p>© 2026 unitclaw.cn | U-Claw 虾盘 · 内置多 Skills 论文工作站 | 万物拟态，单元铸智</p>
     </div>
 </footer>
 
 <script src="../particles.min.js"></script>
-<script>particlesJS("particles-js",{particles:{number:{value:30},color:{value:"#f59e0b"},opacity:{value:.12,random:!0},size:{value:2,random:!0},line_linked:{enable:!0,distance:150,color:"#f59e0b",opacity:.06,width:1},move:{enable:!0,speed:.6}}});</script>
+<script>
+    particlesJS("particles-js", {
+        particles: {
+            number: { value: 25 },
+            color: { value: "#d97706" },
+            opacity: { value: .08, random: true },
+            size: { value: 2, random: true },
+            line_linked: { enable: false, distance: 150, color: "#d97706", opacity: .04, width: 1 },
+            move: { enable: true, speed: .5 }
+        }
+    });
+</script>
 </body>
 </html>
