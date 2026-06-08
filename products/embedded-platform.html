@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>åµå¥å¼å®è®­æå­¦å¹³å?- unitclaw.cn | AIæºå¨è§è§ç»¼åå®éªç®?/title>
+    <meta name="description" content="UnitClaw åµå¥å¼å®è®­æå­¦å¹³å°ï¼ä»¥AIæºå¨è§è§å®è®­ç®±ä¸ºæ ¸å¿è½½ä½ï¼éæé«ç®ååµå¥å¼æ ¸å¿æ¿ãå¤ä¼ æå¨ãè¯­é³åè§è§æ¨¡åï¼ä¸ºé«æ ¡æä¾ç¡¬ä»¶+è½¯ä»¶+è¯¾ç¨+å®éªå¨æ æå­¦å¹³å°ã?>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#ffffff',accent:'#2563eb',emerald:'#10b981',card:'#ffffff',border:'#e2e8f0'},fontFamily:{sans:['Inter','Noto Sans SC','system-ui','sans-serif']}}}}</script>
+    <style>
+        .bg-grid{background-image:linear-gradient(rgba(16,185,129,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(16,185,129,.04) 1px,transparent 1px);background-size:40px 40px}
+        .glass{background:rgba(255,255,255,.9);backdrop-filter:blur(16px);border:1px solid rgba(0,0,0,.08)}
+        .card-hover{transition:all .35s cubic-bezier(.4,0,.2,1)}
+        .card-hover:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(16,185,129,.08)}
+        .text-gradient{background:linear-gradient(135deg,#10b981,#059669);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .module-card{transition:all .3s}
+        .module-card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(16,185,129,.06)}
+    </style>
+</head>
+<body class="bg-white text-gray-900 font-sans">
+
+<div id="particles-js" class="fixed inset-0 z-0"></div>
+<div class="fixed inset-0 bg-grid z-0 opacity-40"></div>
+
+<!-- Navigation -->
+<nav class="glass fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+        <a href="../index.html" class="flex items-center space-x-3 shrink-0">
+            <img src="../assets/logos/WwRobot-Logo.png" alt="WW-Robot" class="h-10 w-auto" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="hidden w-10 h-10 bg-gradient-to-br from-accent to-blue-700 rounded-lg items-center justify-center text-lg font-bold">U</div>
+            <span class="text-lg font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-sm font-normal ml-1">.cn</span></span>
+        </a>
+        <div class="hidden lg:flex items-center space-x-4">
+            <a href="../index.html" class="text-sm text-gray-400 hover:text-gray-900 transition-colors">é¦é¡µ</a>
+            <a href="robots.html" class="text-sm text-gray-400 hover:text-gray-900 transition-colors">å·èº«æºè½æºå¨äº?/a>
+            <a href="embedded-platform.html" class="text-sm text-emerald font-semibold">åµå¥å¼å®è®­å¹³å?/a>
+            <a href="unitclaw.html" class="text-sm text-gray-400 hover:text-gray-900 transition-colors">UnitClaw è¾ç</a>
+            <a href="../courses.html" class="text-sm text-gray-400 hover:text-gray-900 transition-colors">è¯¾ç¨ä½ç³»</a>
+            <a href="../solutions/education.html" class="text-sm text-gray-400 hover:text-gray-900 transition-colors">é«æ ¡æ¹æ¡</a>
+            <a href="../contact.html" class="ml-4 px-5 py-2 bg-emerald hover:bg-emerald-600 text-white text-sm font-semibold rounded-lg transition-colors">é¢çº¦æ¼ç¤º</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero -->
+<header class="relative z-10 pt-32 pb-16">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex items-center gap-3 mb-4">
+            <span class="px-3 py-1 bg-emerald/10 text-emerald text-xs font-semibold rounded-full border border-emerald/20">éµåäº?/span>
+            <span class="px-3 py-1 bg-gray-100/50 text-gray-400 text-xs rounded-full border border-gray-200">ç¡¬ä»¶+è½¯ä»¶+è¯¾ç¨+å®éª</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold tracking-tight">åµå¥å¼å®è®?span class="text-gradient">æå­¦å¹³å°</span></h1>
+        <p class="mt-4 text-lg text-gray-400">AIåµå¥å¼ç»¼åå®éªç®± Â· å¨æ æå­¦ç³»ç»</p>
+        <p class="mt-6 text-lg text-gray-600 max-w-3xl leading-relaxed">
+            ä»?strong class="text-emerald">AIæºå¨è§è§å®è®­ç®?/strong>ä¸ºæ ¸å¿è½½ä½ï¼ç«è¶³é«æ/èæäººå·¥æºè½ãæºå¨äººå·¥ç¨ãçµå­ç§å­¦ä¸ææ¯ç­ç¸å³ä¸ä¸ï¼æå»?strong class="text-gray-800">"æãå­¦ãè®­ãèãè¯"äºä½ä¸ä½?/strong>çæºå¨è§è§ä¸æºè½æç¥æå­¦ç³»ç»ã?        </p>
+    </div>
+</header>
+
+<!-- Platform Features -->
+<section class="relative z-10 py-16 border-t border-border">
+    <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-2xl font-bold mb-10">å¹³å°æ ¸å¿ä¼å¿</h2>
+        <div class="grid md:grid-cols-4 gap-6">
+            <div class="card-hover bg-card border border-border rounded-2xl p-6">
+                <div class="w-12 h-12 bg-emerald/10 rounded-xl flex items-center justify-center mb-4">
+                    <i class="fas fa-microchip text-emerald text-xl"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-2">é«ç®åæ ¸å¿åºåº?/h3>
+                <p class="text-gray-400 text-sm leading-relaxed">ä»?Raspberry Pi 5 è¾¹ç¼è®¡ç®ç»ç«¯ä¸ºåºåº§ï¼æ­è½½é«æ§è½ ARM Cortex-A76 å¤çå¨ï¼æ§è½å¼ºå²ï¼æ»¡è¶³AIæ¨çä¸å®æ¶è®¡ç®éæ±ã?/p>
+            </div>
+            <div class="card-hover bg-card border border-border rounded-2xl p-6">
+                <div class="w-12 h-12 bg-emerald/10 rounded-xl flex items-center justify-center mb-4">
+                    <i class="fas fa-plug text-emerald text-xl"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-2">å¤æ©å±æ¥å£éæ?/h3>
+                <p class="text-gray-400 text-sm leading-relaxed">éææºå¨è§è§æåå¤´ãå¤ä¼ æå¨éµåï¼æ¸©æ¹¿åº?è¶å£°æ³?åçº¿ï¼ãè¯­é³å¤çæ¨¡åãéä¿¡æ¨¡ååé©±å¨æ©å±æ¥å£ï¼ä¸ç«å¼å®éªç¯å¢ã?/p>
+            </div>
+            <div class="card-hover bg-card border border-border rounded-2xl p-6">
+                <div class="w-12 h-12 bg-emerald/10 rounded-xl flex items-center justify-center mb-4">
+                    <i class="fas fa-terminal text-emerald text-xl"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-2">é¢è£è¿è¡ç¯å¢</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">é¢è£ Linux æä½ç³»ç»ãOpenCV è§è§ç®æ³åºãTensorFlow Lite / ONNX æ¨¡åæ¨çæ¡æ¶ï¼å¼ç®±å³ç¨ï¼é¶ç¯å¢éç½®ã?/p>
+            </div>
+            <div class="card-hover bg-card border border-border rounded-2xl p-6">
+                <div class="w-12 h-12 bg-emerald/10 rounded-xl flex items-center justify-center mb-4">
+                    <i class="fas fa-layer-group text-emerald text-xl"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-2">å¨æµç¨æå­¦è¦ç?/h3>
+                <p class="text-gray-400 text-sm leading-relaxed">è¦çä»å¥é¨å°å®æçå¨æµç¨æå­¦ï¼éå¥æ ååè¯¾ç¨ä½ç³»ä¸?00+å®è®­é¡¹ç®ï¼æ¯ææå¸èªå®ä¹å®éªåå®¹ã?/p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Product Overview Image -->
+<section class="relative z-10 py-12">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="glass rounded-3xl p-6">
+            <h2 class="text-xl font-bold mb-6">AIåµå¥å¼ç»¼åå®éªç®± äº§åæ»è§</h2>
+            <div class="bg-gray-50 rounded-2xl overflow-hidden">
+                <img src="../assets/products/embedded-platform-overview.png" alt="åµå¥å¼å®è®­æå­¦å¹³å°äº§åæ»è§" class="w-full h-auto rounded-2xl" style="max-width:100%;display:block">
+            </div>
+            <p class="text-xs text-gray-400 mt-3 text-center">AIåµå¥å¼ç»¼åå®éªç®± â?ç¡¬ä»¶+è½¯ä»¶+è¯¾ç¨+å®éªå¨æ æå­¦å¹³å°</p>
+        </div>
+    </div>
+</section>
+
+<!-- Hardware Modules -->
+<section class="relative z-10 py-16 border-t border-border">
+    <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-2xl font-bold mb-3">å­å¤§ç¡¬ä»¶æ¨¡å</h2>
+        <p class="text-gray-400 mb-10">æ¨¡ååè®¾è®¡ï¼ç£å¸å®è£ï¼çµæ´»ç»åï¼ééä¸åæå­¦åºæ¯</p>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Module 1 -->
+            <div class="module-card bg-card border border-border rounded-2xl p-6">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-14 h-14 bg-emerald/10 rounded-xl flex items-center justify-center shrink-0">
+                        <i class="fas fa-cpu text-emerald text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg">æ ¸å¿è®¡ç®æ¨¡å</h3>
+                        <span class="text-xs text-emerald font-semibold">æ¨¡åä¸</span>
+                    </div>
+                </div>
+                <ul class="space-y-2 text-sm text-gray-500">
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-emerald mt-0.5 text-xs shrink-0"></i> Raspberry Pi 5 è¾¹ç¼è®¡ç®ç»ç«¯</li>
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-emerald mt-0.5 text-xs shrink-0"></i> ARM Cortex-A76 é«æ§è½å¤çå?/li>
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-emerald mt-0.5 text-xs shrink-0"></i> é¢è£ Linux + OpenCV + TF Lite</li>
+                </ul>
+            </div>
+            <!-- Module 2 -->
+            <div class="module-card bg-card border border-border rounded-2xl p-6">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-14 h-14 bg-blue-500/10 rounded-xl flex items-center justify-center shrink-0">
+                        <i class="fas fa-eye text-blue-500 text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg">è®¡ç®æ?æºå¨è§è§æ¨¡å</h3>
+                        <span class="text-xs text-blue-500 font-semibold">æ¨¡åäº?/span>
+                    </div>
+                </div>
+                <ul class="space-y-2 text-sm text-gray-500">
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-emerald mt-0.5 text-xs shrink-0"></i> åé©± USB é«æ¸æåå¤?/li>
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-emerald mt-0.5 text-xs shrink-0"></i> AIè§è§ + è¯­é³åæ¨¡ææç?/li>
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-emerald mt-0.5 text-xs shrink-0"></i> ç®æ æ£æµ?/ å¾ååå² / äººè¸è¯å«</li>
+                </ul>
+            </div>
+            <!-- Module 3 -->
+            <div class="module-card bg-card border border-border rounded-2xl p-6">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-14 h-14 bg-purple-500/10 rounded-xl flex items-center justify-center shrink-0">
+                        <i class="fas fa-microphone text-purple-500 text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg">è¯­é³å¤çæ¨¡å</h3>
+                        <span class="text-xs text-purple-500 font-semibold">æ¨¡åä¸?/span>
+                    </div>
+                </div>
+                <ul class="space-y-2 text-sm text-gray-500">
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-emerald mt-0.5 text-xs shrink-0"></i> å³æå³ç¨ USB éº¦åé£?/li>
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-emerald mt-0.5 text-xs shrink-0"></i> è¯­é³è¯å« / è¯­é³åæ / å£°æºå®ä½</li>
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-emerald mt-0.5 text-xs shrink-0"></i> å¤æ¨¡æäº¤äºå®è®­æ¯æ?/li>
+                </ul>
+            </div>
+            <!-- Module 4 -->
+            <div class="module-card bg-card border border-border rounded-2xl p-6">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-14 h-14 bg-warm/10 rounded-xl flex items-center justify-center shrink-0">
+                        <i class="fas fa-ruler-combined text-warm text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg">åµå¥å¼ä¼ æå¨æ¨¡å</h3>
+                        <span class="text-xs text-warm font-semibold">æ¨¡åå?/span>
+                    </div>
+                </div>
+                <ul class="space-y-2 text-sm text-gray-500">
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-emerald mt-0.5 text-xs shrink-0"></i> è¶å£°æ³¢æåºå¨ Â· æ¸©æ¹¿åº¦ä¼ æå¨</li>
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-emerald mt-0.5 text-xs shrink-0"></i> åçº¿ä¼ æå?Â· é£ææ§è¡å?/li>
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-emerald mt-0.5 text-xs shrink-0"></i> çªå¸æ§è¡å?Â· LED ç¯åæ§å¶</li>
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-emerald mt-0.5 text-xs shrink-0"></i> å¤ä¼ æå¨æ°æ®ééä¸èåå®è®?/li>
+                </ul>
+            </div>
+            <!-- Module 5 -->
+            <div class="module-card bg-card border border-border rounded-2xl p-6">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-14 h-14 bg-pink-500/10 rounded-xl flex items-center justify-center shrink-0">
+                        <i class="fas fa-desktop text-pink-500 text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg">æ¾ç¤ºä¸è¾å¥æ¨¡å?/h3>
+                        <span class="text-xs text-pink-500 font-semibold">æ¨¡åäº?/span>
+                    </div>
+                </div>
+                <ul class="space-y-2 text-sm text-gray-500">
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-emerald mt-0.5 text-xs shrink-0"></i> 15.6å¯¸æ¶²æ¶è§¦æ¸æ¾ç¤ºå±</li>
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-emerald mt-0.5 text-xs shrink-0"></i> éå¥é®ç + é¼ æ </li>
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-emerald mt-0.5 text-xs shrink-0"></i> å¯è§åç¼ç¨ä¸è°è¯äº¤äºçé¢</li>
+                </ul>
+            </div>
+            <!-- Module 6 -->
+            <div class="module-card bg-card border border-border rounded-2xl p-6">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-14 h-14 bg-gray-500/10 rounded-xl flex items-center justify-center shrink-0">
+                        <i class="fas fa-toolbox text-gray-500 text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg">è¾å©æ¨¡å</h3>
+                        <span class="text-xs text-gray-500 font-semibold">æ¨¡åå?/span>
+                    </div>
+                </div>
+                <ul class="space-y-2 text-sm text-gray-500">
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-emerald mt-0.5 text-xs shrink-0"></i> éå¥å®éªæå·å¥ä»¶</li>
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-emerald mt-0.5 text-xs shrink-0"></i> ç£å¸å®è£ç»ä»¶ï¼çµæ´»è£é?/li>
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-emerald mt-0.5 text-xs shrink-0"></i> ä¾¿æºå®éªç®±ï¼æ¶çº³å³èµ°</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Target Audience & Scenarios -->
+<section class="relative z-10 py-16 border-t border-border">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-12">
+            <!-- Target Audience -->
+            <div>
+                <h2 class="text-2xl font-bold mb-6">é¢åä¸ä¸</h2>
+                <p class="text-gray-400 text-sm mb-4">é¢åé«è/æ¬ç§é¢æ ¡ï¼ééä»¥ä¸10ä¸ªä¸ä¸æ¹åï¼</p>
+                <div class="grid grid-cols-2 gap-2">
+                    <div class="flex items-center gap-2 text-sm text-gray-600 py-2 px-3 bg-gray-50 rounded-lg">
+                        <i class="fas fa-laptop-code text-emerald text-xs"></i> è®¡ç®æºç§å­¦ä¸ææ?                    </div>
+                    <div class="flex items-center gap-2 text-sm text-gray-600 py-2 px-3 bg-gray-50 rounded-lg">
+                        <i class="fas fa-bolt text-emerald text-xs"></i> çµæ°å·¥ç¨åå¶èªå¨å?                    </div>
+                    <div class="flex items-center gap-2 text-sm text-gray-600 py-2 px-3 bg-gray-50 rounded-lg">
+                        <i class="fas fa-cogs text-emerald text-xs"></i> èªå¨åç±»ä¸ä¸
+                    </div>
+                    <div class="flex items-center gap-2 text-sm text-gray-600 py-2 px-3 bg-gray-50 rounded-lg">
+                        <i class="fas fa-satellite text-emerald text-xs"></i> çµå­ä¿¡æ¯å·¥ç¨
+                    </div>
+                    <div class="flex items-center gap-2 text-sm text-gray-600 py-2 px-3 bg-gray-50 rounded-lg">
+                        <i class="fas fa-atom text-emerald text-xs"></i> çµå­ä¿¡æ¯ç§å­¦ä¸ææ?                    </div>
+                    <div class="flex items-center gap-2 text-sm text-gray-600 py-2 px-3 bg-gray-50 rounded-lg">
+                        <i class="fas fa-wrench text-emerald text-xs"></i> æºæ¢°å·¥ç¨
+                    </div>
+                    <div class="flex items-center gap-2 text-sm text-gray-600 py-2 px-3 bg-gray-50 rounded-lg">
+                        <i class="fas fa-robot text-emerald text-xs"></i> æºå¨äººå·¥ç¨?                    </div>
+                    <div class="flex items-center gap-2 text-sm text-gray-600 py-2 px-3 bg-gray-50 rounded-lg">
+                        <i class="fas fa-broadcast-tower text-emerald text-xs"></i> éä¿¡å·¥ç¨
+                    </div>
+                    <div class="flex items-center gap-2 text-sm text-gray-600 py-2 px-3 bg-gray-50 rounded-lg">
+                        <i class="fas fa-microchip text-emerald text-xs"></i> å¾®çµå­?/ éæçµè·¯
+                    </div>
+                    <div class="flex items-center gap-2 text-sm text-gray-600 py-2 px-3 bg-gray-50 rounded-lg">
+                        <i class="fas fa-code text-emerald text-xs"></i> è½¯ä»¶å·¥ç¨
+                    </div>
+                </div>
+            </div>
+            <!-- Application Scenarios -->
+            <div>
+                <h2 class="text-2xl font-bold mb-6">æ ¸å¿åºç¨åºæ¯</h2>
+                <div class="space-y-4">
+                    <div class="card-hover glass rounded-2xl p-5">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-emerald/10 rounded-xl flex items-center justify-center shrink-0">
+                                <i class="fas fa-university text-emerald text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">ä¸ä¸å»ºè®¾æ¹é©</h3>
+                                <p class="text-gray-400 text-sm mt-1">æ¯æäººå·¥æºè½ãæºå¨äººå·¥ç¨ç­æ°å·¥ç§ä¸ä¸å»ºè®¾ï¼æå»?çè®º+å®éª+å®è®­"ä¸ä½åè¯¾ç¨ä½ç³»</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-hover glass rounded-2xl p-5">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center shrink-0">
+                                <i class="fas fa-flask text-blue-500 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">é«æ ¡å®è®­å®¤å»ºè®?/h3>
+                                <p class="text-gray-400 text-sm mt-1">AIåµå¥å¼å®éªå®¤æ´ä½è§£å³æ¹æ¡ï¼å«ç¡¬ä»¶ç¯å¢ãè¯¾ç¨ä½ç³»ãå®è®­é¡¹ç®ï¼å¿«éæ­å»ºæºå¨è§è§ä¸æºè½æç¥å®éªå®?/p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-hover glass rounded-2xl p-5">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center shrink-0">
+                                <i class="fas fa-shopping-cart text-purple-500 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">è¯¾ç¨éå¥éè´­</h3>
+                                <p class="text-gray-400 text-sm mt-1">æ ååå®éªç®±æ¹ééè´­æ¹æ¡ï¼éå¥ææãå®éªæå¯¼ä¹¦ãæå­¦è§é¢ãèæ ¸é¢åºï¼å³éå³ç?/p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-hover glass rounded-2xl p-5">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-warm/10 rounded-xl flex items-center justify-center shrink-0">
+                                <i class="fas fa-trophy text-warm text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">ç«èµè®­ç»å¹³å°</h3>
+                                <p class="text-gray-400 text-sm mt-1">ç¡¬ä»¶ç¯å¢å¯ç¨äºå¨å½å¤§å­¦çåµå¥å¼è®¾è®¡ç«èµãæºå¨äººå¤§èµãçµå­è®¾è®¡ç«èµç­èµåè®­ç»å¹³å°</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Course System Link -->
+<section class="relative z-10 py-16 border-t border-border">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-3xl p-10 border border-emerald-100">
+            <div class="flex flex-col lg:flex-row items-center gap-8">
+                <div class="flex-1">
+                    <span class="px-3 py-1 bg-emerald/10 text-emerald text-xs font-semibold rounded-full border border-emerald/20">éå¥æå­¦</span>
+                    <h2 class="text-2xl font-bold mt-3 mb-3">AIå®è®­ç®?span class="text-gradient">éå¥è¯¾ç¨ä½ç³»</span></h2>
+                    <p class="text-gray-500 leading-relaxed mb-4">6é¨æ ¸å¿è¯¾ç¨ï¼4ä¸ªé¶æ®µè¿é¶å­¦ä¹ è·¯å¾?â?ä»Linuxæä½ç³»ç»åºç¡å°åµå¥å¼AIåºç¨é¨ç½²ï¼å®æ´è¦çAIåµå¥å¼äººæå¹å»å¨é¾è·¯ã?/p>
+                    <div class="flex flex-wrap gap-2 mb-5">
+                        <span class="text-xs px-2.5 py-1.5 bg-white rounded-lg text-gray-600 border border-gray-100">Linuxæä½ç³»ç»</span>
+                        <span class="text-xs px-2.5 py-1.5 bg-white rounded-lg text-gray-600 border border-gray-100">ä¼ æå¨ææ?/span>
+                        <span class="text-xs px-2.5 py-1.5 bg-white rounded-lg text-gray-600 border border-gray-100">åµå¥å¼ç³»ç»å¼å?/span>
+                        <span class="text-xs px-2.5 py-1.5 bg-white rounded-lg text-gray-600 border border-gray-100">è®¡ç®æºè§è§?/span>
+                        <span class="text-xs px-2.5 py-1.5 bg-white rounded-lg text-gray-600 border border-gray-100">è§è§å¾åå¤çä¸å®æ?/span>
+                        <span class="text-xs px-2.5 py-1.5 bg-white rounded-lg text-gray-600 border border-gray-100">åµå¥å¼äººå·¥æºè½åºç?/span>
+                    </div>
+                    <a href="../courses.html#ai-courses" class="inline-flex items-center gap-2 px-6 py-3 bg-emerald hover:bg-emerald-600 text-white font-semibold rounded-xl transition-all text-sm">æ¥çå®æ´AIå®è®­ç®±è¯¾ç¨ä½ç³?<i class="fas fa-arrow-right text-xs"></i></a>
+                </div>
+                <div class="hidden lg:flex items-center gap-4">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-emerald/10 rounded-2xl flex items-center justify-center mx-auto mb-2"><i class="fas fa-book text-emerald text-2xl"></i></div>
+                        <div class="text-3xl font-bold text-emerald">6</div>
+                        <div class="text-xs text-gray-400 mt-1">æ ¸å¿è¯¾ç¨</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-teal-500/10 rounded-2xl flex items-center justify-center mx-auto mb-2"><i class="fas fa-list-check text-teal-500 text-2xl"></i></div>
+                        <div class="text-3xl font-bold text-teal-500">100+</div>
+                        <div class="text-xs text-gray-400 mt-1">å®è®­é¡¹ç®</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="relative z-10 py-16">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+        <div class="glass rounded-3xl p-10 shadow-sm">
+            <h2 class="text-3xl font-bold mb-4">æå»ºAIåµå¥å¼æå­¦æ°æ å</h2>
+            <p class="text-gray-400 mb-8 max-w-xl mx-auto">ä»ç¡¬ä»¶ç¯å¢å°è¯¾ç¨ä½ç³»ãä»å®éªå¹³å°å°ç«èµè®­ç»ï¼UnitClaw åµå¥å¼å®è®­æå­¦å¹³å°ä¸ºé«æ ¡æä¾ä¸ç«å¼è§£å³æ¹æ¡ã?/p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="../contact.html" class="px-8 py-3.5 bg-emerald hover:bg-emerald-600 text-white font-semibold rounded-xl transition-all">é¢çº¦æ¼ç¤º</a>
+                <a href="../courses.html#ai-courses" class="px-8 py-3.5 glass hover:bg-gray-100/70 text-gray-700 font-semibold rounded-xl transition-all">æ¥çéå¥è¯¾ç¨</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="relative z-10 border-t border-border py-10">
+    <div class="max-w-7xl mx-auto px-6 text-center text-sm text-gray-400">
+        <p>Â© 2026 unitclaw.cn All rights reserved. Â· ä¸ç©ææï¼ååé¸æº</p>
+    </div>
+</footer>
+
+<script src="../particles.min.js"></script>
+<script>
+particlesJS("particles-js", {
+    particles:{number:{value:30,density:{enable:!0,value_area:800}},color:{value:"#10b981"},shape:{type:"circle"},opacity:{value:.12,random:!0},size:{value:2,random:!0},line_linked:{enable:!0,distance:150,color:"#10b981",opacity:.06,width:1},move:{enable:!0,speed:.6,direction:"none",random:!0,out_mode:"out"}},
+    interactivity:{detect_on:"canvas",events:{onhover:{enable:!0,mode:"grab"},resize:!0},modes:{grab:{distance:140,line_linked:{opacity:.15}}}},
+    retina_detect:!0
+});
+</script>
+</body>
+</html>
