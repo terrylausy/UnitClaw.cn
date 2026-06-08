@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>嵌入式实训教学平台 - UnitClaw.cn | AI机器视觉嵌入式实训平台</title>
-    <meta name="description" content="UnitClaw 嵌入式实训教学平台，以AI机器视觉实训箱为核心载体，集成高性能嵌入式核心板、多传感器、语音交互视觉模块，为高校提供硬件+软件+课程+实验全套教学平台。">
+    <meta name="description" content="UnitClaw 嵌入式实训教学平台，面向高职/本科计算机、自动化、电子信息、机器人等专业，集成Raspberry Pi 5边缘计算终端、多传感器阵列、AI视觉语音模块，为高校提供硬件+课程+实验全套教学平台。">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>tailwind.config={theme:{extend:{colors:{primary:'#ffffff',secondary:'#f8fafc',accent:'#10b981',card:'#ffffff',border:'#e2e8f0'},fontFamily:{sans:['Inter','Noto Sans SC','system-ui','sans-serif']}}}</script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#ffffff',secondary:'#f8fafc',accent:'#2563EB',card:'#ffffff',border:'#e2e8f0'},fontFamily:{sans:['Inter','Noto Sans SC','system-ui','sans-serif']}}}</script>
     <style>
-        .bg-grid{background-image:linear-gradient(rgba(16,185,129,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(16,185,129,.05) 1px,transparent 1px);background-size:40px 40px}
+        .bg-grid{background-image:linear-gradient(rgba(37,99,235,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,.05) 1px,transparent 1px);background-size:40px 40px}
         .glass{background:rgba(255,255,255,.92);backdrop-filter:blur(16px);border:1px solid rgba(0,0,0,.08)}
         .card-hover{transition:all .35s cubic-bezier(.4,0,.2,1)}
-        .card-hover:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(16,185,129,.08)}
-        .text-gradient{background:linear-gradient(135deg,#10b981,#059669);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .card-hover:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(37,99,235,.08)}
+        .text-gradient{background:linear-gradient(135deg,#2563EB,#1d4ed8);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .module-num{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#2563EB,#1d4ed8);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1rem;flex-shrink:0}
     </style>
 </head>
 <body class="bg-white text-gray-900 font-sans">
@@ -31,7 +32,7 @@
             <a href="unitclaw.html" class="text-sm text-gray-500 hover:text-gray-900 transition-colors">UnitClaw 虾盘</a>
             <a href="../courses.html" class="text-sm text-gray-500 hover:text-gray-900 transition-colors">课程</a>
             <a href="../solutions/education.html" class="text-sm text-gray-500 hover:text-gray-900 transition-colors">高校方案</a>
-            <a href="../contact.html" class="ml-4 px-5 py-2 bg-accent hover:bg-emerald-600 text-white text-sm font-semibold rounded-lg transition-colors">预约演示</a>
+            <a href="../contact.html" class="ml-4 px-5 py-2 bg-accent hover:bg-blue-700 text-white text-sm font-semibold rounded-lg transition-colors">预约演示</a>
         </div>
     </div>
 </nav>
@@ -39,32 +40,70 @@
 <header class="relative z-10 pt-32 pb-16">
     <div class="max-w-7xl mx-auto px-6">
         <div class="flex items-center gap-3 mb-4">
-            <span class="px-3 py-1 bg-accent/10 text-accent text-xs font-semibold rounded-full">阵列一 · 具身智能机器人</span>
+            <span class="px-3 py-1 bg-accent/10 text-accent text-xs font-semibold rounded-full">阵列二 &middot; 课程智能体</span>
         </div>
         <h1 class="text-4xl md:text-6xl font-bold tracking-tight">嵌入式 <span class="text-gradient">实训教学平台</span></h1>
-        <p class="mt-6 text-lg text-gray-600 max-w-2xl leading-relaxed">以AI机器视觉实训箱为核心载体，集成高性能嵌入式核心板、多传感器、语音交互视觉模块，为高校提供硬件+软件+课程+实验全套教学平台。</p>
+        <p class="mt-6 text-lg text-gray-600 max-w-2xl leading-relaxed">以AI机器视觉实训箱为核心载体，集成Raspberry Pi 5边缘计算终端、多传感器阵列、AI视觉语音模块，为高校提供硬件+课程+实验全套教学平台。</p>
     </div>
 </header>
 
 <section class="relative z-10 py-16">
     <div class="max-w-7xl mx-auto px-6">
-        <div class="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-gray-200">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="text-2xl font-bold mb-4">平台概述</h2>
-                    <p class="text-gray-600 leading-relaxed mb-6">嵌入式实训教学平台以AI机器视觉实训箱为核心，集成RK3588高性能嵌入式核心板、1300万像素高清摄像头、多传感器阵列，提供从嵌入式基础到AI机器视觉的完整教学实验体系。</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="text-xs px-3 py-1.5 bg-gray-100 rounded-full text-gray-700">RK3588 8核</span>
-                        <span class="text-xs px-3 py-1.5 bg-gray-100 rounded-full text-gray-700">1300万像素</span>
-                        <span class="text-xs px-3 py-1.5 bg-gray-100 rounded-full text-gray-700">多传感器</span>
-                        <span class="text-xs px-3 py-1.5 bg-gray-100 rounded-full text-gray-700">完整课程</span>
-                    </div>
+        <div class="grid lg:grid-cols-2 gap-12 items-start">
+            <div class="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-gray-200">
+                <h2 class="text-2xl font-bold mb-6">面向高职/本科专业</h2>
+                <p class="text-gray-600 leading-relaxed mb-8">适用于以下专业方向的实训教学与课程建设：</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-3 py-1.5 bg-blue-50 text-blue-700 rounded-full">计算机科学与技术</span>
+                    <span class="text-xs px-3 py-1.5 bg-blue-50 text-blue-700 rounded-full">电气工程及其自动化</span>
+                    <span class="text-xs px-3 py-1.5 bg-blue-50 text-blue-700 rounded-full">自动化类专业</span>
+                    <span class="text-xs px-3 py-1.5 bg-blue-50 text-blue-700 rounded-full">电子信息工程</span>
+                    <span class="text-xs px-3 py-1.5 bg-blue-50 text-blue-700 rounded-full">电子信息科学与技术</span>
+                    <span class="text-xs px-3 py-1.5 bg-blue-50 text-blue-700 rounded-full">机械工程</span>
+                    <span class="text-xs px-3 py-1.5 bg-blue-50 text-blue-700 rounded-full">机器人工程</span>
+                    <span class="text-xs px-3 py-1.5 bg-blue-50 text-blue-700 rounded-full">通信工程</span>
+                    <span class="text-xs px-3 py-1.5 bg-blue-50 text-blue-700 rounded-full">微电子</span>
+                    <span class="text-xs px-3 py-1.5 bg-blue-50 text-blue-700 rounded-full">集成电路软件工程</span>
                 </div>
-                <div class="bg-gray-50 rounded-2xl p-6 flex items-center justify-center">
-                    <div class="text-center text-gray-400">
-                        <i class="fas fa-microchip text-6xl mb-4"></i>
-                        <p class="text-sm">嵌入式实训平台产品图</p>
-                        <p class="text-xs mt-1">请替换为实际产品图片</p>
+            </div>
+            <div class="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-gray-200">
+                <h2 class="text-2xl font-bold mb-6">核心应用场景</h2>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="flex items-start gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-school text-accent"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm">专业建设改革</h4>
+                            <p class="text-xs text-gray-500 mt-1">支撑新工科专业课程体系升级</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-chalkboard-teacher text-accent"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm">高校实训室建设</h4>
+                            <p class="text-xs text-gray-500 mt-1">一站式AI嵌入式实训室搭建</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-book text-accent"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm">课程配套采购</h4>
+                            <p class="text-xs text-gray-500 mt-1">与课程大纲匹配的实训设备</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-trophy text-accent"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm">竞赛训练平台</h4>
+                            <p class="text-xs text-gray-500 mt-1">支持各类嵌入式与AI技能竞赛</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -74,22 +113,103 @@
 
 <section class="relative z-10 py-16 border-t border-gray-200">
     <div class="max-w-7xl mx-auto px-6">
-        <h2 class="text-2xl font-bold mb-10">核心特色</h2>
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 card-hover">
-                <div class="text-accent text-3xl mb-4"><i class="fas fa-microchip"></i></div>
-                <h3 class="text-xl font-bold mb-3">高性能嵌入式核心</h3>
-                <p class="text-gray-600 text-sm leading-relaxed">RK3588 八核处理器，最高主频2.4GHz，集成NPU提供6TOPS算力，支持Linux/Ubuntu系统，满足边缘AI计算需求。</p>
+        <h2 class="text-2xl font-bold mb-10">应用场景实拍</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-200 card-hover">
+                <img src="../assets/products/A_modern_AI_embedded_systems_t_2026-06-08T17-58-29.png" alt="AI嵌入式实训室" class="w-full h-64 object-cover" onerror="this.parentElement.style.display='none'">
+                <div class="p-6">
+                    <h3 class="font-bold text-lg">AI嵌入式实训室</h3>
+                    <p class="text-gray-500 text-sm mt-2">配备多台实训箱的完整实训室方案，支持30~60人班级同时开展实验教学</p>
+                </div>
             </div>
-            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 card-hover">
-                <div class="text-accent text-3xl mb-4"><i class="fas fa-eye"></i></div>
-                <h3 class="text-xl font-bold mb-3">1300万像素视觉</h3>
-                <p class="text-gray-600 text-sm leading-relaxed">1300万像素高清摄像头，支持4K视频采集，配合OpenCV、TensorFlow Lite实现机器视觉算法实验与项目开发。</p>
+            <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-200 card-hover">
+                <img src="../assets/products/University_students_competing__2026-06-08T17-58-29.png" alt="高校技能竞赛支持" class="w-full h-64 object-cover" onerror="this.parentElement.style.display='none'">
+                <div class="p-6">
+                    <h3 class="font-bold text-lg">高校技能竞赛支持</h3>
+                    <p class="text-gray-500 text-sm mt-2">为全国及省级嵌入式、人工智能、机器视觉类竞赛提供训练平台与技术支持</p>
+                </div>
             </div>
-            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 card-hover">
-                <div class="text-accent text-3xl mb-4"><i class="fas fa-book-open"></i></div>
-                <h3 class="text-xl font-bold mb-3">完整教学体系</h3>
-                <p class="text-gray-600 text-sm leading-relaxed">从嵌入式基础（GPIO、I2C、SPI）到AI机器视觉（目标检测、人脸识别、边缘推理）的分层实验课程，配套实验指导书与代码。</p>
+        </div>
+    </div>
+</section>
+
+<section class="relative z-10 py-16 border-t border-gray-200">
+    <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-2xl font-bold mb-10">产品展示</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-200 card-hover">
+                <img src="../assets/products/embedded-platform-hero.png" alt="AI机器视觉实训箱整体" class="w-full h-56 object-cover" onerror="this.parentElement.style.display='none'">
+                <div class="p-4">
+                    <p class="text-sm text-gray-600">AI机器视觉实训箱整体结构</p>
+                    <p class="text-xs text-gray-400 mt-1">多层模块化堆叠设计，磁吸连接</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-200 card-hover">
+                <img src="../assets/products/Close_up_product_photo_of_an_e_2026-06-08T17-58-29.png" alt="实训箱操作界面" class="w-full h-56 object-cover" onerror="this.parentElement.style.display='none'">
+                <div class="p-4">
+                    <p class="text-sm text-gray-600">集成键盘操作区</p>
+                    <p class="text-xs text-gray-400 mt-1">15.6寸触控屏 + 键盘鼠标一体化</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-200 card-hover">
+                <img src="../assets/products/Close_up_detail_shot_of_an_emb_2026-06-08T17-58-29.png" alt="实训箱细节特写" class="w-full h-56 object-cover" onerror="this.parentElement.style.display='none'">
+                <div class="p-4">
+                    <p class="text-sm text-gray-600">硬件模块细节</p>
+                    <p class="text-xs text-gray-400 mt-1">12通道流水灯、边缘弹性探针等实验接口</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="relative z-10 py-16 border-t border-gray-200">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex items-center gap-3 mb-4">
+            <span class="px-3 py-1 bg-accent/10 text-accent text-xs font-semibold rounded-full">硬件架构</span>
+        </div>
+        <h2 class="text-2xl font-bold mb-10">六大硬件模块</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 card-hover">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="module-num">01</div>
+                    <h3 class="text-lg font-bold">核心计算模块</h3>
+                </div>
+                <p class="text-gray-600 text-sm leading-relaxed">Raspberry Pi 5 边缘计算终端，提供强大的计算与AI推理能力，支持Linux/Ubuntu系统。</p>
+            </div>
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 card-hover">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="module-num">02</div>
+                    <h3 class="text-lg font-bold">计算机/机器视觉模块</h3>
+                </div>
+                <p class="text-gray-600 text-sm leading-relaxed">免驱USB麦克风摄像头，支持AI视觉与语音交互，可开展目标检测、人脸识别等实验。</p>
+            </div>
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 card-hover">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="module-num">03</div>
+                    <h3 class="text-lg font-bold">语音处理模块</h3>
+                </div>
+                <p class="text-gray-600 text-sm leading-relaxed">即插即用USB麦克风，支持语音识别、语音合成与语音交互实验项目开发。</p>
+            </div>
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 card-hover">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="module-num">04</div>
+                    <h3 class="text-lg font-bold">嵌入式传感器模块</h3>
+                </div>
+                <p class="text-gray-600 text-sm leading-relaxed">窗帘执行器、LED灯光控制、温湿度传感器、风扇执行器、超声波感应器，覆盖物联网核心传感。</p>
+            </div>
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 card-hover">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="module-num">05</div>
+                    <h3 class="text-lg font-bold">显示与输入模块</h3>
+                </div>
+                <p class="text-gray-600 text-sm leading-relaxed">15.6寸液晶触摸屏、键盘、鼠标，提供完整的人机交互界面，支持图形化编程与调试。</p>
+            </div>
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 card-hover">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="module-num">06</div>
+                    <h3 class="text-lg font-bold">辅助模块</h3>
+                </div>
+                <p class="text-gray-600 text-sm leading-relaxed">实验教具、磁吸安装组件，支持模块化快速拆装，便于教学演示与学生动手实验。</p>
             </div>
         </div>
     </div>
@@ -100,13 +220,14 @@
         <h2 class="text-2xl font-bold mb-10">技术规格</h2>
         <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 overflow-x-auto">
             <table class="w-full text-sm">
-                <tr class="border-b border-gray-200"><td class="py-3 text-gray-500 w-48">处理器</td><td class="py-3">RK3588，8核（4×A76 + 4×A55），最高2.4GHz</td></tr>
-                <tr class="border-b border-gray-200"><td class="py-3 text-gray-500">NPU</td><td class="py-3">6TOPS INT8，支持TensorFlow/PyTorch/ONNX</td></tr>
-                <tr class="border-b border-gray-200"><td class="py-3 text-gray-500">内存</td><td class="py-3">8GB LPDDR5</td></tr>
-                <tr class="border-b border-gray-200"><td class="py-3 text-gray-500">存储</td><td class="py-3">64GB eMMC，支持NVMe SSD扩展</td></tr>
-                <tr class="border-b border-gray-200"><td class="py-3 text-gray-500">摄像头</td><td class="py-3">1300万像素，支持4K@30fps</td></tr>
-                <tr class="border-b border-gray-200"><td class="py-3 text-gray-500">传感器</td><td class="py-3">IMU/加速度计/陀螺仪/气压计/温湿度</td></tr>
-                <tr><td class="py-3 text-gray-500">接口</td><td class="py-3">GPIO × 40 / UART × 4 / I2C × 6 / SPI × 3 / USB3.0 × 4 / HDMI × 2</td></tr>
+                <tr class="border-b border-gray-200"><td class="py-3 text-gray-500 w-48">核心计算</td><td class="py-3">Raspberry Pi 5 边缘计算终端</td></tr>
+                <tr class="border-b border-gray-200"><td class="py-3 text-gray-500">视觉模块</td><td class="py-3">免驱USB摄像头，支持AI视觉与语音</td></tr>
+                <tr class="border-b border-gray-200"><td class="py-3 text-gray-500">语音模块</td><td class="py-3">即插即用USB麦克风</td></tr>
+                <tr class="border-b border-gray-200"><td class="py-3 text-gray-500">传感器</td><td class="py-3">窗帘执行器、LED灯光、温湿度、风扇执行器、超声波感应器</td></tr>
+                <tr class="border-b border-gray-200"><td class="py-3 text-gray-500">显示输入</td><td class="py-3">15.6寸液晶触摸屏、键盘、鼠标</td></tr>
+                <tr class="border-b border-gray-200"><td class="py-3 text-gray-500">辅助组件</td><td class="py-3">实验教具、磁吸安装组件</td></tr>
+                <tr class="border-b border-gray-200"><td class="py-3 text-gray-500">系统支持</td><td class="py-3">Linux / Ubuntu</td></tr>
+                <tr><td class="py-3 text-gray-500">连接方式</td><td class="py-3">磁吸堆叠 + 背靠背通信，支持摄像头与单片机多方式连接</td></tr>
             </table>
         </div>
     </div>
@@ -116,13 +237,13 @@
     <div class="max-w-7xl mx-auto px-6 text-center">
         <h2 class="text-2xl font-bold mb-4">获取完整方案资料</h2>
         <p class="text-gray-600 mb-8 max-w-xl mx-auto">包含详细技术规格、实验课程目录、示例代码与教学大纲，欢迎提交信息获取。</p>
-        <a href="../contact.html" class="inline-block px-8 py-3 bg-accent hover:bg-emerald-600 text-white font-semibold rounded-lg transition-colors">联系我们</a>
+        <a href="../contact.html" class="inline-block px-8 py-3 bg-accent hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors">联系我们</a>
     </div>
 </section>
 
 <footer class="relative z-10 border-t border-gray-200 py-12">
     <div class="max-w-7xl mx-auto px-6 text-center text-sm text-gray-500">
-        <p>&copy; 2024 UnitClaw.cn — 万物拟态（广州）科技有限公司</p>
+        <p>&copy; 2024 UnitClaw.cn &mdash; 万物拟态（广州）科技有限公司</p>
     </div>
 </footer>
 
