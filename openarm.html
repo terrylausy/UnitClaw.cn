@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenArm 开源机械臂 - UnitClaw.cn | 高校AI+机器人教育</title>
+    <meta name="description" content="OpenArm 完全开源国产机械臂，依托ROS2软件栈与开源硬件，主打跨学科工程实践，适配高校理工科核心课程，支持高校品牌定制。">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#ffffff',secondary:'#f8fafc',accent:'#2563eb',card:'#ffffff',border:'#e2e8f0'},fontFamily:{sans:['Inter','Noto Sans SC','system-ui','sans-serif']}}}</script>
+    <style>
+        .bg-grid{background-image:linear-gradient(rgba(37,99,235,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,.04) 1px,transparent 1px);background-size:40px 40px}
+        .glass{background:rgba(255,255,255,.92);backdrop-filter:blur(16px);border:1px solid rgba(0,0,0,.08)}
+        .card-hover{transition:all .35s cubic-bezier(.4,0,.2,1)}
+        .card-hover:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(37,99,235,.08)}
+        .text-gradient{background:linear-gradient(135deg,#f59e0b,#d97706);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .spec-table td{border-bottom:1px solid #e2e8f0;padding:10px 0}
+        .spec-table td:first-child{color:#64748b;width:160px}
+        .badge-orange{background:rgba(245,158,11,.1);color:#d97706;border:1px solid rgba(245,158,11,.25)}
+    </style>
+</head>
+<body class="bg-white text-gray-900 font-sans">
+
+<div id="particles-js" class="fixed inset-0 z-0 pointer-events-none"></div>
+<div class="fixed inset-0 bg-grid z-0 opacity-30 pointer-events-none"></div>
+
+<!-- Navigation -->
+<nav class="glass fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+        <a href="../index.html" class="flex items-center space-x-3">
+            <img src="../assets/logos/WwRobot-Logo.png" alt="WW-Robot" class="h-10 w-auto" onerror="this.style.display='none'">
+            <span class="text-lg font-bold">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-sm font-normal ml-1">.cn</span></span>
+        </a>
+        <div class="hidden lg:flex items-center space-x-4">
+            <a href="../index.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">首页</a>
+            <a href="robots.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">具身智能机器人</a>
+            <a href="openarm.html" class="text-sm text-accent font-semibold">OpenArm</a>
+            <a href="embedded-platform.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">嵌入式实训平台</a>
+            <a href="../courses.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">课程</a>
+            <a href="../solutions/education.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">高校方案</a>
+            <a href="../solutions/university-cooperation.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors ml-4">产教研合作</a>
+            <a href="../contact.html" class="ml-4 px-5 py-2 bg-accent hover:bg-blue-600 text-white text-sm font-semibold rounded-lg transition-colors">预约演示</a>
+        </div>
+        <button class="lg:hidden text-gray-900 p-2" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"><i class="fas fa-bars text-xl"></i></button>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden glass border-t border-gray-200 px-6 py-4">
+        <a href="../index.html" class="block py-3 text-gray-600">首页</a>
+        <a href="robots.html" class="block py-3 text-gray-700">具身智能机器人</a>
+        <a href="openarm.html" class="block py-3 text-accent font-semibold">OpenArm</a>
+        <a href="embedded-platform.html" class="block py-3 text-gray-700">多功能实训平台</a>
+        <a href="../courses.html" class="block py-3 text-gray-700">课程</a>
+        <a href="../solutions/education.html" class="block py-3 text-gray-700">高校方案</a>
+        <a href="../solutions/university-cooperation.html" class="block py-3 text-gray-700">产教研合作</a>
+        <a href="../contact.html" class="block mt-3 text-center py-3 bg-accent rounded-lg font-semibold text-white">预约演示</a>
+    </div>
+</nav>
+
+<!-- Hero -->
+<header class="relative z-10 pt-32 pb-16">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex items-center mb-4">
+            <span class="px-3 py-1 bg-orange-500/10 text-orange-600 text-xs font-semibold rounded-full border border-orange-500/20">阵列二</span>
+            <span class="ml-3 px-3 py-1 bg-gray-100 text-gray-600 text-xs rounded-full border border-gray-200">开源机械臂</span>
+            <span class="ml-2 px-3 py-1 bg-yellow-50 text-yellow-700 text-xs rounded-full border border-yellow-200">【支持定制高校品牌】</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold tracking-tight">Open<span class="text-gradient">Arm</span></h1>
+        <p class="mt-6 text-lg text-gray-600 max-w-2xl leading-relaxed">
+            完全开源的国产人形机械臂，依托开源硬件与 ROS2 软件栈，主打跨学科工程实践，适配理工科核心课程
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+            <a href="#courses" class="px-6 py-3 bg-accent hover:bg-blue-600 text-white text-sm font-semibold rounded-lg transition-colors">查看适配课程</a>
+            <a href="https://github.com/terrylausy/openarm_hardware" target="_blank" class="px-6 py-3 glass hover:bg-gray-100/70 text-gray-700 text-sm font-semibold rounded-lg transition-colors">GitHub 开源仓库</a>
+            <a href="#customize" class="px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold rounded-lg transition-colors">高校定制方案</a>
+        </div>
+    </div>
+</header>
+
+<!-- Product Images Slider -->
+<section class="relative z-10 py-8">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="relative rounded-2xl overflow-hidden bg-gray-100 border border-gray-200" style="aspect-ratio:16/9;max-height:480px;">
+            <img id="slider-img" src="../assets/products/openarm/slide1.webp" alt="OpenArm" class="w-full h-full object-contain" style="max-height:480px;">
+            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2" id="slider-dots"></div>
+            <button onclick="prevSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 hover:bg-white rounded-full flex items-center justify-center text-gray-700 shadow-sm transition-colors"><i class="fas fa-chevron-left"></i></button>
+            <button onclick="nextSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 hover:bg-white rounded-full flex items-center justify-center text-gray-700 shadow-sm transition-colors"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+</section>
+
+<script>
+const slides = [
+    '../assets/products/openarm/slide1.webp',
+    '../assets/products/openarm/slide2.webp',
+    '../assets/products/openarm/product.webp',
+    '../assets/products/openarm/openarm.webp',
+    '../assets/products/openarm/gen1.jpg'
+];
+let current = 0;
+function showSlide(n) {
+    current = (n + slides.length) % slides.length;
+    document.getElementById('slider-img').src = slides[current];
+    document.querySelectorAll('#slider-dots button').forEach((d,i) => {
+        d.className = i === current ? 'w-2.5 h-2.5 bg-accent rounded-full' : 'w-2.5 h-2.5 bg-white/70 rounded-full';
+    });
+}
+function nextSlide() { showSlide(current + 1); }
+function prevSlide() { showSlide(current - 1); }
+// Init dots
+const dotsContainer = document.getElementById('slider-dots');
+slides.forEach((_,i) => {
+    const btn = document.createElement('button');
+    btn.className = i === 0 ? 'w-2.5 h-2.5 bg-accent rounded-full' : 'w-2.5 h-2.5 bg-white/70 rounded-full';
+    btn.onclick = () => showSlide(i);
+    dotsContainer.appendChild(btn);
+});
+setInterval(nextSlide, 4000);
+</script>
+
+<!-- Specs -->
+<section class="relative z-10 py-16 border-t border-gray-200">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-12">
+            <span class="text-sm text-accent font-semibold">TECHNICAL SPECIFICATIONS</span>
+            <h2 class="text-3xl font-bold mt-2">精密 · 强悍 · 开放</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-px bg-gray-200 rounded-xl overflow-hidden">
+            <div class="bg-white p-6"><div class="text-3xl font-light">633<span class="text-lg text-gray-400 ml-1">mm</span></div><div class="text-sm text-gray-500 mt-1">臂展半径</div></div>
+            <div class="bg-white p-6"><div class="text-3xl font-light">7<span class="text-lg text-gray-400 ml-1">DOF</span></div><div class="text-sm text-gray-500 mt-1">单臂自由度</div></div>
+            <div class="bg-white p-6"><div class="text-3xl font-light">4.1/6<span class="text-lg text-gray-400 ml-1">Kg</span></div><div class="text-sm text-gray-500 mt-1">额定/峰值负载</div></div>
+            <div class="bg-white p-6"><div class="text-3xl font-light">±0.5~2<span class="text-lg text-gray-400 ml-1">mm</span></div><div class="text-sm text-gray-500 mt-1">精度</div></div>
+            <div class="bg-white p-6"><div class="text-3xl font-light">CAN<span class="text-lg text-gray-400 ml-1">-FD</span></div><div class="text-sm text-gray-500 mt-1">控制接口</div></div>
+            <div class="bg-white p-6"><div class="text-3xl font-light">24/48<span class="text-lg text-gray-400 ml-1">V</span></div><div class="text-sm text-gray-500 mt-1">DC 电源</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- Core Features -->
+<section class="relative z-10 py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-12">
+            <span class="text-sm text-accent font-semibold">CORE FEATURES</span>
+            <h2 class="text-3xl font-bold mt-2">核心特性</h2>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-gray-200 rounded-xl overflow-hidden">
+            <div class="bg-white p-6"><div class="text-xs text-gray-400 mb-2">01</div><h3 class="font-semibold mb-2">完全开源</h3><p class="text-sm text-gray-600 leading-relaxed">完整 CAD 图纸、固件、控制代码和仿真工具全部公开。基于 CERN 开放硬件许可证，支持自由二次开发与商用授权。</p></div>
+            <div class="bg-white p-6"><div class="text-xs text-gray-400 mb-2">02</div><h3 class="font-semibold mb-2">遥操作与力反馈</h3><p class="text-sm text-gray-600 leading-relaxed">双边力反馈技术，平滑类人控制体验，配备实时重力补偿。适配接触密集型遥操作和真实世界数据采集。</p></div>
+            <div class="bg-white p-6"><div class="text-xs text-gray-400 mb-2">03</div><h3 class="font-semibold mb-2">ROS2 原生支持</h3><p class="text-sm text-gray-600 leading-relaxed">原生支持 ROS2 / BrainOS 中间件，可开展节点开发、话题通信、仿真调试、多机协同实验。兼容 MuJoCo 与 Isaac Sim。</p></div>
+            <div class="bg-white p-6"><div class="text-xs text-gray-400 mb-2">04</div><h3 class="font-semibold mb-2">国产供应链</h3><p class="text-sm text-gray-600 leading-relaxed">深度贴合中国关节电机供应链生态，完全国产化知识产权。向所有国内制造商免费开放生产制造授权。</p></div>
+            <div class="bg-white p-6"><div class="text-xs text-gray-400 mb-2">05</div><h3 class="font-semibold mb-2">AI 大模型兼容</h3><p class="text-sm text-gray-600 leading-relaxed">被 HuggingFace 开源社区旗下 LeRobot 框架收录为官方指定数据采集设备。支持模仿学习、强化学习、VLA 模型部署。</p></div>
+            <div class="bg-white p-6"><div class="text-xs text-gray-400 mb-2">06</div><h3 class="font-semibold mb-2">灵活构型</h3><p class="text-sm text-gray-600 leading-relaxed">可灵活适配轮式、腿式等多类型底盘，支持 Station、Strench、Heavy 三种 DIY 构型。</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- Curriculum -->
+<section id="courses" class="relative z-10 py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-12">
+            <span class="text-sm text-accent font-semibold">CURRICULUM</span>
+            <h2 class="text-3xl font-bold mt-2">适配课程体系</h2>
+            <p class="text-gray-600 mt-2 max-w-2xl mx-auto">OpenArm 主打跨学科工程实践，分为五大类课程，覆盖本科与高职院校核心课程</p>
+        </div>
+
+        <!-- Accordion Style Course Layers -->
+        <div class="max-w-4xl mx-auto space-y-4" id="course-accordion">
+            <!-- 基础通识 -->
+            <div class="bg-white rounded-xl border border-gray-200 overflow-hidden">
+                <button onclick="toggleAccordion(0)" class="w-full flex items-center gap-4 px-6 py-4 hover:bg-gray-50 transition-colors">
+                    <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded-full whitespace-nowrap">基础通识</span>
+                    <span class="font-semibold">基础通识类课程</span>
+                    <span class="ml-auto text-xs text-gray-400">高职 / 本科低年级</span>
+                    <i class="fas fa-chevron-down text-gray-400 transition-transform" id="acc-chevron-0"></i>
+                </button>
+                <div class="hidden px-6 pb-4" id="acc-content-0">
+                    <div class="space-y-3">
+                        <div class="flex items-baseline gap-3 py-2 border-t border-gray-100"><span class="text-sm font-semibold text-gray-900">嵌入式系统 / ARM 嵌入式技术</span><span class="text-sm text-gray-500">— 硬件电路、驱动开发、交叉编译、Linux 环境搭建</span></div>
+                        <div class="flex items-baseline gap-3 py-2 border-t border-gray-100"><span class="text-sm font-semibold text-gray-900">单片机与接口技术</span><span class="text-sm text-gray-500">— GPIO、串口、CAN 总线、I2C/SPI 通信实验</span></div>
+                        <div class="flex items-baseline gap-3 py-2 border-t border-gray-100"><span class="text-sm font-semibold text-gray-900">Linux 操作系统（嵌入式方向）</span><span class="text-sm text-gray-500">— 终端操作、进程管理、服务配置</span></div>
+                        <div class="flex items-baseline gap-3 py-2 border-t border-gray-100"><span class="text-sm font-semibold text-gray-900">Python / C++ 程序设计</span><span class="text-sm text-gray-500">— 机械臂指令编写、数据采集、运动控制</span></div>
+                        <div class="flex items-baseline gap-3 py-2 border-t border-gray-100"><span class="text-sm font-semibold text-gray-900">传感器技术与检测</span><span class="text-sm text-gray-500">— 力传感器、姿态传感器、视觉传感器数据采集</span></div>
+                    </div>
+                </div>
+            </div>
+            <!-- 机器人核心专业 -->
+            <div class="bg-white rounded-xl border border-gray-200 overflow-hidden">
+                <button onclick="toggleAccordion(1)" class="w-full flex items-center gap-4 px-6 py-4 hover:bg-gray-50 transition-colors">
+                    <span class="px-2 py-1 bg-purple-100 text-purple-700 text-xs font-bold rounded-full whitespace-nowrap">核心专业</span>
+                    <span class="font-semibold">机器人核心专业课程</span>
+                    <span class="ml-auto text-xs text-gray-400">本科 / 高职拔高</span>
+                    <i class="fas fa-chevron-down text-gray-400 transition-transform" id="acc-chevron-1"></i>
+                </button>
+                <div class="hidden px-6 pb-4" id="acc-content-1">
+                    <div class="space-y-3">
+                        <div class="flex items-baseline gap-3 py-2 border-t border-gray-100"><span class="text-sm font-semibold text-gray-900">机器人学 / 机器人基础</span><span class="text-sm text-gray-500">— 正向/逆向运动学、静力学、动力学实物验证</span></div>
+                        <div class="flex items-baseline gap-3 py-2 border-t border-gray-100"><span class="text-sm font-semibold text-gray-900">机器人运动控制技术</span><span class="text-sm text-gray-500">— PID 控制、阻抗控制、轨迹规划、关节运动调试</span></div>
+                        <div class="flex items-baseline gap-3 py-2 border-t border-gray-100"><span class="text-sm font-semibold text-gray-900">工业机器人技术</span><span class="text-sm text-gray-500">— 示教编程、点位控制、连续轨迹运动、工装调试</span></div>
+                        <div class="flex items-baseline gap-3 py-2 border-t border-gray-100"><span class="text-sm font-semibold text-gray-900">机器人驱动与电气控制</span><span class="text-sm text-gray-500">— 伺服电机、驱动器、电气原理图、接线调试</span></div>
+                        <div class="flex items-baseline gap-3 py-2 border-t border-gray-100"><span class="text-sm font-semibold text-gray-900">ROS / ROS2 机器人操作系统</span><span class="text-sm text-gray-500">— 节点开发、话题通信、仿真调试、多机协同</span></div>
+                    </div>
+                </div>
+            </div>
+            <!-- AI 与视觉融合 -->
+            <div class="bg-white rounded-xl border border-gray-200 overflow-hidden">
+                <button onclick="toggleAccordion(2)" class="w-full flex items-center gap-4 px-6 py-4 hover:bg-gray-50 transition-colors">
+                    <span class="px-2 py-1 bg-pink-100 text-pink-700 text-xs font-bold rounded-full whitespace-nowrap">AI 融合</span>
+                    <span class="font-semibold">人工智能与视觉融合课程</span>
+                    <span class="ml-auto text-xs text-gray-400">本科 / 高职 AI 方向</span>
+                    <i class="fas fa-chevron-down text-gray-400 transition-transform" id="acc-chevron-2"></i>
+                </button>
+                <div class="hidden px-6 pb-4" id="acc-content-2">
+                    <div class="space-y-3">
+                        <div class="flex items-baseline gap-3 py-2 border-t border-gray-100"><span class="text-sm font-semibold text-gray-900">计算机视觉与图像处理</span><span class="text-sm text-gray-500">— 图像采集、目标检测、特征匹配，实现机械臂视觉抓取</span></div>
+                        <div class="flex items-baseline gap-3 py-2 border-t border-gray-100"><span class="text-sm font-semibold text-gray-900">深度学习与机器人应用</span><span class="text-sm text-gray-500">— 轻量化模型部署、模仿学习、强化学习实验</span></div>
+                        <div class="flex items-baseline gap-3 py-2 border-t border-gray-100"><span class="text-sm font-semibold text-gray-900">人机交互技术</span><span class="text-sm text-gray-500">— 语音交互、视觉交互、力控交互开发</span></div>
+                    </div>
+                </div>
+            </div>
+            <!-- 机械设计 -->
+            <div class="bg-white rounded-xl border border-gray-200 overflow-hidden">
+                <button onclick="toggleAccordion(3)" class="w-full flex items-center gap-4 px-6 py-4 hover:bg-gray-50 transition-colors">
+                    <span class="px-2 py-1 bg-amber-100 text-amber-700 text-xs font-bold rounded-full whitespace-nowrap">机械设计</span>
+                    <span class="font-semibold">机械设计类课程</span>
+                    <span class="ml-auto text-xs text-gray-400">机械专业专属</span>
+                    <i class="fas fa-chevron-down text-gray-400 transition-transform" id="acc-chevron-3"></i>
+                </button>
+                <div class="hidden px-6 pb-4" id="acc-content-3">
+                    <div class="space-y-3">
+                        <div class="flex items-baseline gap-3 py-2 border-t border-gray-100"><span class="text-sm font-semibold text-gray-900">机械原理 / 机械设计</span><span class="text-sm text-gray-500">— 多自由度连杆结构，讲解连杆机构、运动副、传动结构</span></div>
+                        <div class="flex items-baseline gap-3 py-2 border-t border-gray-100"><span class="text-sm font-semibold text-gray-900">三维建模与机械创新设计</span><span class="text-sm text-gray-500">— 基于 OpenArm 开源 CAD 模型，二次设计、3D 打印</span></div>
+                    </div>
+                </div>
+            </div>
+            <!-- 综合实战 -->
+            <div class="bg-white rounded-xl border border-gray-200 overflow-hidden">
+                <button onclick="toggleAccordion(4)" class="w-full flex items-center gap-4 px-6 py-4 hover:bg-gray-50 transition-colors">
+                    <span class="px-2 py-1 bg-indigo-100 text-indigo-700 text-xs font-bold rounded-full whitespace-nowrap">综合实战</span>
+                    <span class="font-semibold">综合实训 / 竞赛类课程</span>
+                    <span class="ml-auto text-xs text-gray-400">全校公选 · 科创课</span>
+                    <i class="fas fa-chevron-down text-gray-400 transition-transform" id="acc-chevron-4"></i>
+                </button>
+                <div class="hidden px-6 pb-4" id="acc-content-4">
+                    <div class="space-y-3">
+                        <div class="flex items-baseline gap-3 py-2 border-t border-gray-100"><span class="text-sm font-semibold text-gray-900">机器人综合实训 / 工程创新实训</span><span class="text-sm text-gray-500">— 跨学科综合项目，整合机械、电气、编程、视觉全流程</span></div>
+                        <div class="flex items-baseline gap-3 py-2 border-t border-gray-100"><span class="text-sm font-semibold text-gray-900">学科竞赛指导课</span><span class="text-sm text-gray-500">— 全国大学生机器人大赛、职业院校技能大赛等</span></div>
+                        <div class="flex items-baseline gap-3 py-2 border-t border-gray-100"><span class="text-sm font-semibold text-gray-900">开源硬件与创客实践</span><span class="text-sm text-gray-500">— 机械臂组装、二次开发、创意项目制作</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 院校适配 -->
+        <div class="mt-12 grid md:grid-cols-3 gap-6">
+            <div class="bg-white p-6 rounded-xl border border-gray-200">
+                <div class="text-xs text-gray-400 mb-2">本科院校适配</div>
+                <div class="text-sm text-gray-600 leading-relaxed">机器人工程、自动化、机械电子、计算机科学与技术、人工智能、智能制造等 — 覆盖专业基础课、专业课、研究生科研实训</div>
+            </div>
+            <div class="bg-white p-6 rounded-xl border border-gray-200">
+                <div class="text-xs text-gray-400 mb-2">高职院校适配</div>
+                <div class="text-sm text-gray-600 leading-relaxed">工业机器人技术、机电一体化、电气自动化、物联网应用技术、人工智能技术应用、机械制造及自动化</div>
+            </div>
+            <div class="bg-white p-6 rounded-xl border border-gray-200 text-center">
+                <div class="text-4xl font-light text-accent">10+</div>
+                <div class="text-sm text-gray-500 mt-1">所本科院校已将 OpenArm 纳入常规课程与科研平台</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+function toggleAccordion(n) {
+    const content = document.getElementById('acc-content-' + n);
+    const chevron = document.getElementById('acc-chevron-' + n);
+    content.classList.toggle('hidden');
+    chevron.classList.toggle('rotate-180');
+}
+</script>
+
+<!-- Customization -->
+<section id="customize" class="relative z-10 py-16 border-t border-gray-200">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-12">
+            <span class="text-sm text-accent font-semibold">CUSTOMIZATION</span>
+            <h2 class="text-3xl font-bold mt-2">高校品牌定制</h2>
+            <p class="text-gray-600 mt-2">为院校量身打造专属配色、Logo 标识、课程适配包</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-12 items-start">
+            <div class="rounded-2xl overflow-hidden bg-gray-100 border border-gray-200 aspect-video flex items-center justify-center">
+                <img src="../assets/products/openarm/product.webp" alt="OpenArm Customization" class="w-full h-full object-cover">
+            </div>
+            <div class="space-y-6">
+                <div class="border-t border-gray-200 pt-4">
+                    <h4 class="font-semibold mb-2">专属品牌标识</h4>
+                    <p class="text-sm text-gray-600 leading-relaxed">机械臂本体、控制器外壳、教学课件可嵌入院校 Logo 与校名，打造校级专属形象。</p>
+                </div>
+                <div class="border-t border-gray-200 pt-4">
+                    <h4 class="font-semibold mb-2">课程适配包定制</h4>
+                    <p class="text-sm text-gray-600 leading-relaxed">根据院校专业方向与教学大纲，定制匹配的课程内容、实验项目、实训方案与考核标准。</p>
+                </div>
+                <div class="border-t border-gray-200 pt-4">
+                    <h4 class="font-semibold mb-2">产教融合方案</h4>
+                    <p class="text-sm text-gray-600 leading-relaxed">整合 OpenArm 开源生态与院校科研资源，搭建"教学—实训—竞赛—科研"四位一体平台。</p>
+                </div>
+                <div class="border-t border-gray-200 pt-4">
+                    <h4 class="font-semibold mb-2">竞赛实训支持</h4>
+                    <p class="text-sm text-gray-600 leading-relaxed">十余所高校已将 OpenArm 纳入全国大学生机器人大赛、职业院校技能大赛等赛事集训平台。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="relative z-10 py-20 bg-gray-50 border-t border-gray-200">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+        <h2 class="text-3xl font-bold mb-4">为你的院校定制 OpenArm</h2>
+        <p class="text-gray-600 mb-8">已有 10+ 所本科院校将 OpenArm 纳入常规课程与科研平台。<br>支持高校品牌定制、课程适配、竞赛支持一体化方案。</p>
+        <div class="flex items-center justify-center gap-4 flex-wrap">
+            <a href="../contact.html" class="px-8 py-3.5 bg-accent hover:bg-blue-600 text-white font-semibold rounded-xl transition-colors inline-flex items-center justify-center">联系定制方案</a>
+            <a href="https://bbs.openarm.cn/" target="_blank" class="px-8 py-3.5 bg-white hover:bg-gray-50 text-gray-700 font-semibold rounded-xl border border-gray-200 transition-colors inline-flex items-center justify-center">访问 OpenArm 社区</a>
+        </div>
+    </div>
+</section>
+
+<footer class="relative z-10 border-t border-gray-200 py-12">
+    <div class="max-w-7xl mx-auto px-6 text-center text-sm text-gray-600">&copy; 2026 unitclaw.cn · 万物拟态 · 与高校共建 【AI+ 具身智能机器人】课程体系</div>
+</footer>
+
+<script src="../particles.min.js"></script>
+<script>particlesJS("particles-js",{particles:{number:{value:40,density:{enable:!0,value_area:800}},color:{value:"#3b82f6"},shape:{type:"circle"},opacity:{value:.15,random:!0},size:{value:2,random:!0},line_linked:{enable:!0,distance:150,color:"#3b82f6",opacity:.08,width:1},move:{enable:!0,speed:.8,direction:"none",random:!0,out_mode:"out"}},interactivity:{detect_on:"canvas",events:{onhover:{enable:!0,mode:"grab"},resize:!0},modes:{grab:{distance:140,line_linked:{opacity:.2}}}},retina_detect:!0});</script>
+</body>
+</html>
