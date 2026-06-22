@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>灵巧手 - UnitClaw.cn | 高自由度仿人灵巧手教育解决方案</title>
+    <meta name="description" content="UnitClaw 联合 LinkerBot 推出灵巧手教育解决方案，全球自由度最高的仿人灵巧手，适配高校机器人教育与科研实验场景。">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#ffffff',secondary:'#f8fafc',accent:'#2563eb',card:'#ffffff',border:'#e2e8f0'},fontFamily:{sans:['Inter','Noto Sans SC','system-ui','sans-serif']}}}}</script>
+    <style>
+        .bg-grid{background-image:linear-gradient(rgba(37,99,235,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,.04) 1px,transparent 1px);background-size:40px 40px}
+        .glass{background:rgba(255,255,255,.92);backdrop-filter:blur(16px);border:1px solid rgba(0,0,0,.08)}
+        .card-hover{transition:all .35s cubic-bezier(.4,0,.2,1)}
+        .card-hover:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(37,99,235,.08)}
+        .text-gradient{background:linear-gradient(135deg,#ec4899,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .spec-table td{border-bottom:1px solid #e2e8f0;padding:10px 0}
+        .spec-table td:first-child{color:#64748b;width:160px}
+        .badge-pink{background:rgba(236,72,153,.1);color:#db2777;border:1px solid rgba(236,72,153,.25)}
+        .hero-glow{background:radial-gradient(ellipse at 50% 0%,rgba(139,92,246,.06) 0%,transparent 70%)}
+        .feature-card{background:linear-gradient(135deg,rgba(139,92,246,.04),rgba(236,72,153,.04));border:1px solid rgba(139,92,246,.12);border-radius:16px;padding:24px;transition:all .3s}
+        .feature-card:hover{border-color:rgba(139,92,246,.3);box-shadow:0 8px 24px rgba(139,92,246,.08)}
+        .product-card{background:#fff;border:1px solid #e2e8f0;border-radius:20px;overflow:hidden;transition:all .35s cubic-bezier(.4,0,.2,1)}
+        .product-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(139,92,246,.1);border-color:rgba(139,92,246,.3)}
+    </style>
+</head>
+<body class="bg-white text-gray-900 font-sans">
+
+<div id="particles-js" class="fixed inset-0 z-0 pointer-events-none"></div>
+<div class="fixed inset-0 bg-grid z-0 opacity-30 pointer-events-none"></div>
+
+<!-- Navigation -->
+<nav class="glass fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+        <a href="../index.html" class="flex items-center space-x-3">
+            <img src="../assets/logos/WwRobot-Logo.png" alt="WW-Robot" class="h-10 w-auto" onerror="this.style.display='none'">
+            <span class="text-lg font-bold">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-sm font-normal ml-1">.cn</span></span>
+        </a>
+        <div class="hidden lg:flex items-center space-x-4">
+            <a href="../index.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">首页</a>
+            <a href="robots.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">具身智能机器人</a>
+            <a href="openarm.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">OpenArm</a>
+            <a href="dexterous-hand.html" class="text-sm text-purple-600 font-semibold">灵巧手</a>
+            <a href="embedded-platform.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">多功能实训平台</a>
+            <a href="../courses.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">课程</a>
+            <a href="../solutions/education.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">高校合作</a>
+            <a href="../solutions/university-cooperation.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">产教研合作</a>
+            <a href="../contact.html" class="ml-4 px-5 py-2 bg-accent hover:bg-blue-600 text-white text-sm font-semibold rounded-lg transition-colors">预约演示</a>
+        </div>
+        <button class="lg:hidden text-gray-900 p-2" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"><i class="fas fa-bars text-xl"></i></button>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden glass border-t border-gray-200 px-6 py-4">
+        <a href="../index.html" class="block py-3 text-gray-600">首页</a>
+        <a href="robots.html" class="block py-3 text-gray-700">具身智能机器人</a>
+        <a href="openarm.html" class="block py-3 text-gray-700">OpenArm</a>
+        <a href="dexterous-hand.html" class="block py-3 text-purple-600 font-semibold">灵巧手</a>
+        <a href="embedded-platform.html" class="block py-3 text-gray-700">多功能实训平台</a>
+        <a href="../courses.html" class="block py-3 text-gray-700">课程</a>
+        <a href="../solutions/education.html" class="block py-3 text-gray-700">高校合作</a>
+        <a href="../solutions/university-cooperation.html" class="block py-3 text-gray-700">产教研合作</a>
+        <a href="../contact.html" class="block mt-3 text-center py-3 bg-accent rounded-lg font-semibold text-white">预约演示</a>
+    </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero-glow relative z-10 pt-32 pb-16">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="max-w-3xl">
+            <div class="inline-flex items-center px-3 py-1.5 rounded-full badge-pink text-sm font-medium mb-6">
+                <i class="fas fa-hand-sparkles mr-2"></i>联合 LinkerBot · 全球自由度最高灵巧手
+            </div>
+            <h1 class="text-5xl font-bold mb-6 leading-tight">
+                灵巧手<br>
+                <span class="text-gradient">感知 · 操控 · 智能</span>
+            </h1>
+            <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+                全球自由度最高、最安全的仿人灵巧手。最高 42 自由度，视触融合感知，搭载电子皮肤与指尖摄像头，让机器人真正拥有人类级别的手部操控能力。
+            </p>
+            <div class="flex flex-wrap gap-4">
+                <a href="../contact.html" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold rounded-xl transition-all shadow-lg hover:shadow-purple-200">
+                    <i class="fas fa-calendar-alt mr-2"></i>预约演示
+                </a>
+                <a href="https://www.linkerbot.cn" target="_blank" class="inline-flex items-center px-6 py-3 border border-purple-200 text-purple-700 hover:bg-purple-50 font-semibold rounded-xl transition-all">
+                    <i class="fas fa-external-link-alt mr-2"></i>访问 LinkerBot 官网
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- 核心参数 Stats -->
+<section class="relative z-10 py-12 bg-gradient-to-r from-purple-50 to-pink-50">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
+            <div>
+                <div class="text-3xl font-bold text-purple-600 mb-1">42</div>
+                <div class="text-sm text-gray-600">最高自由度（全球第一）</div>
+            </div>
+            <div>
+                <div class="text-3xl font-bold text-pink-600 mb-1">0.01N</div>
+                <div class="text-sm text-gray-600">三维力测力精度</div>
+            </div>
+            <div>
+                <div class="text-3xl font-bold text-purple-600 mb-1">0.1mm</div>
+                <div class="text-sm text-gray-600">重复定位精度</div>
+            </div>
+            <div>
+                <div class="text-3xl font-bold text-pink-600 mb-1">5种</div>
+                <div class="text-sm text-gray-600">多模态感知（视觉/触觉/声音等）</div>
+            </div>
+            <div>
+                <div class="text-3xl font-bold text-purple-600 mb-1">7</div>
+                <div class="text-sm text-gray-600">单指自由度</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 核心技术特性 -->
+<section class="relative z-10 py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-14">
+            <span class="inline-block px-4 py-1.5 rounded-full badge-pink text-sm font-medium mb-4">技术领先</span>
+            <h2 class="text-3xl font-bold mb-4">五大核心技术优势</h2>
+            <p class="text-gray-500 max-w-2xl mx-auto">LinkerBot 灵巧手在国际上处于领先水平，为高校机器人教育与科研提供最前沿的末端执行器平台</p>
+        </div>
+        <div class="grid md:grid-cols-3 lg:grid-cols-5 gap-6">
+            <div class="feature-card text-center">
+                <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-fingerprint text-purple-600 text-xl"></i>
+                </div>
+                <h3 class="font-bold mb-2">高自由度</h3>
+                <p class="text-sm text-gray-500">全手最高 42 自由度（人手 27 / ShadowHands 26），单指可达 7 自由度</p>
+            </div>
+            <div class="feature-card text-center">
+                <div class="w-12 h-12 bg-pink-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-camera text-pink-600 text-xl"></i>
+                </div>
+                <h3 class="font-bold mb-2">多传感器</h3>
+                <p class="text-sm text-gray-500">视触觉感知：指尖摄像头 + 掌心摄像头 + 手腕摄像头 + 电子皮肤全覆盖</p>
+            </div>
+            <div class="feature-card text-center">
+                <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-eye text-purple-600 text-xl"></i>
+                </div>
+                <h3 class="font-bold mb-2">视触融合感知</h3>
+                <p class="text-sm text-gray-500">三维力精度 0.01N，分辨率 1mm，多模态感知在国际上处于领先水平</p>
+            </div>
+            <div class="feature-card text-center">
+                <div class="w-12 h-12 bg-pink-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-cloud text-pink-600 text-xl"></i>
+                </div>
+                <h3 class="font-bold mb-2">端云融合</h3>
+                <p class="text-sm text-gray-500">首创网络版灵巧手，用户无需写代码，两种形式即可快速上手使用</p>
+            </div>
+            <div class="feature-card text-center">
+                <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-cog text-purple-600 text-xl"></i>
+                </div>
+                <h3 class="font-bold mb-2">自研柔性电机</h3>
+                <p class="text-sm text-gray-500">自研柔性关节电机，重复定位精度超 0.1mm，灵巧手中最小电机</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 产品系列 -->
+<section class="relative z-10 py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-14">
+            <span class="inline-block px-4 py-1.5 rounded-full badge-pink text-sm font-medium mb-4">产品系列</span>
+            <h2 class="text-3xl font-bold mb-4">多款型号，满足不同教学需求</h2>
+            <p class="text-gray-500 max-w-2xl mx-auto">从入门教学到科研级应用，从 6 自由度到 42 自由度，LinkerBot 提供完整产品矩阵</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- L6 -->
+            <div class="product-card p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <div>
+                        <span class="text-xs px-2.5 py-1 rounded-full bg-purple-100 text-purple-600 font-semibold">入门教学款</span>
+                        <h3 class="text-xl font-bold mt-2">L6</h3>
+                    </div>
+                    <div class="w-12 h-12 bg-gradient-to-br from-purple-100 to-pink-100 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-hand-paper text-purple-500 text-xl"></i>
+                    </div>
+                </div>
+                <div class="space-y-2 text-sm text-gray-600">
+                    <div class="flex justify-between"><span class="text-gray-400">自由度</span><span class="font-medium">6 DOF</span></div>
+                    <div class="flex justify-between"><span class="text-gray-400">驱动方式</span><span class="font-medium">电机驱动</span></div>
+                    <div class="flex justify-between"><span class="text-gray-400">适用场景</span><span class="font-medium">课堂教学·展示</span></div>
+                </div>
+                <p class="mt-4 text-sm text-gray-500 leading-relaxed">6 自由度入门级灵巧手，成本低、上手快，适合高校课堂教学演示与基础实验场景。</p>
+            </div>
+            <!-- L20 -->
+            <div class="product-card p-6 border-purple-200">
+                <div class="flex items-center justify-between mb-4">
+                    <div>
+                        <span class="text-xs px-2.5 py-1 rounded-full bg-pink-100 text-pink-600 font-semibold">主流科研款</span>
+                        <h3 class="text-xl font-bold mt-2">L20</h3>
+                    </div>
+                    <div class="w-12 h-12 bg-gradient-to-br from-pink-100 to-purple-100 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-hand-rock text-pink-500 text-xl"></i>
+                    </div>
+                </div>
+                <div class="space-y-2 text-sm text-gray-600">
+                    <div class="flex justify-between"><span class="text-gray-400">自由度</span><span class="font-medium">20 DOF</span></div>
+                    <div class="flex justify-between"><span class="text-gray-400">驱动方式</span><span class="font-medium">电机驱动</span></div>
+                    <div class="flex justify-between"><span class="text-gray-400">适用场景</span><span class="font-medium">科研实验·竞赛</span></div>
+                </div>
+                <p class="mt-4 text-sm text-gray-500 leading-relaxed">20 自由度主流科研款，配备多传感器感知模块，适用于高校机器人竞赛和科研实验。</p>
+            </div>
+            <!-- L20 Lite -->
+            <div class="product-card p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <div>
+                        <span class="text-xs px-2.5 py-1 rounded-full bg-purple-100 text-purple-600 font-semibold">性价比款</span>
+                        <h3 class="text-xl font-bold mt-2">L20 Lite</h3>
+                    </div>
+                    <div class="w-12 h-12 bg-gradient-to-br from-purple-100 to-blue-100 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-hand-peace text-purple-500 text-xl"></i>
+                    </div>
+                </div>
+                <div class="space-y-2 text-sm text-gray-600">
+                    <div class="flex justify-between"><span class="text-gray-400">自由度</span><span class="font-medium">20 DOF（精简版）</span></div>
+                    <div class="flex justify-between"><span class="text-gray-400">驱动方式</span><span class="font-medium">电机驱动</span></div>
+                    <div class="flex justify-between"><span class="text-gray-400">适用场景</span><span class="font-medium">批量教学采购</span></div>
+                </div>
+                <p class="mt-4 text-sm text-gray-500 leading-relaxed">L20 精简版，在保留核心功能的同时大幅降低成本，适合高校批量采购教学用途。</p>
+            </div>
+            <!-- L25 -->
+            <div class="product-card p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <div>
+                        <span class="text-xs px-2.5 py-1 rounded-full bg-blue-100 text-blue-600 font-semibold">进阶款</span>
+                        <h3 class="text-xl font-bold mt-2">L25</h3>
+                    </div>
+                    <div class="w-12 h-12 bg-gradient-to-br from-blue-100 to-purple-100 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-hand-point-up text-blue-500 text-xl"></i>
+                    </div>
+                </div>
+                <div class="space-y-2 text-sm text-gray-600">
+                    <div class="flex justify-between"><span class="text-gray-400">自由度</span><span class="font-medium">25 DOF</span></div>
+                    <div class="flex justify-between"><span class="text-gray-400">驱动方式</span><span class="font-medium">电机驱动</span></div>
+                    <div class="flex justify-between"><span class="text-gray-400">适用场景</span><span class="font-medium">灵巧操作研究</span></div>
+                </div>
+                <p class="mt-4 text-sm text-gray-500 leading-relaxed">25 自由度，接近人手自由度水平（人手 27 DOF），适合灵巧操作与精细作业研究。</p>
+            </div>
+            <!-- R30 直驱 -->
+            <div class="product-card p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <div>
+                        <span class="text-xs px-2.5 py-1 rounded-full bg-orange-100 text-orange-600 font-semibold">高性能款</span>
+                        <h3 class="text-xl font-bold mt-2">R30 直驱</h3>
+                    </div>
+                    <div class="w-12 h-12 bg-gradient-to-br from-orange-100 to-pink-100 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-hand-scissors text-orange-500 text-xl"></i>
+                    </div>
+                </div>
+                <div class="space-y-2 text-sm text-gray-600">
+                    <div class="flex justify-between"><span class="text-gray-400">自由度</span><span class="font-medium">30 DOF</span></div>
+                    <div class="flex justify-between"><span class="text-gray-400">驱动方式</span><span class="font-medium">直驱电机</span></div>
+                    <div class="flex justify-between"><span class="text-gray-400">适用场景</span><span class="font-medium">高动态操控</span></div>
+                </div>
+                <p class="mt-4 text-sm text-gray-500 leading-relaxed">30 自由度直驱款，响应速度快、力控精度高，适合需要高动态操控的科研任务。</p>
+            </div>
+            <!-- L30 腱驱 -->
+            <div class="product-card p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <div>
+                        <span class="text-xs px-2.5 py-1 rounded-full bg-green-100 text-green-600 font-semibold">仿生旗舰款</span>
+                        <h3 class="text-xl font-bold mt-2">L30 腱驱</h3>
+                    </div>
+                    <div class="w-12 h-12 bg-gradient-to-br from-green-100 to-blue-100 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-hand-holding text-green-500 text-xl"></i>
+                    </div>
+                </div>
+                <div class="space-y-2 text-sm text-gray-600">
+                    <div class="flex justify-between"><span class="text-gray-400">自由度</span><span class="font-medium">30 DOF</span></div>
+                    <div class="flex justify-between"><span class="text-gray-400">驱动方式</span><span class="font-medium">腱驱（仿生）</span></div>
+                    <div class="flex justify-between"><span class="text-gray-400">适用场景</span><span class="font-medium">仿生研究·遥操作</span></div>
+                </div>
+                <p class="mt-4 text-sm text-gray-500 leading-relaxed">30 自由度腱驱款，最接近人体手部肌腱驱动原理，适合仿生学研究与遥操作应用。</p>
+            </div>
+        </div>
+
+        <!-- 配套产品 -->
+        <div class="mt-10">
+            <h3 class="text-xl font-bold mb-6 text-center text-gray-700">配套产品</h3>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="product-card p-6 flex items-start space-x-4">
+                    <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center shrink-0">
+                        <i class="fas fa-gamepad text-indigo-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-100 text-indigo-600 font-semibold">力反馈手套</span>
+                        <h4 class="font-bold mt-2 mb-1">力反馈数据手套</h4>
+                        <p class="text-sm text-gray-500">捕捉操作者手部动作数据，实现精准的力反馈交互，适用于遥操作与人机交互教学实验。</p>
+                    </div>
+                </div>
+                <div class="product-card p-6 flex items-start space-x-4">
+                    <div class="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center shrink-0">
+                        <i class="fas fa-running text-teal-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs px-2.5 py-1 rounded-full bg-teal-100 text-teal-600 font-semibold">动捕手套</span>
+                        <h4 class="font-bold mt-2 mb-1">动作捕捉手套</h4>
+                        <p class="text-sm text-gray-500">高精度关节角度捕捉，可用于人体动作采集、强化学习数据标注与手部动作识别研究。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 应用场景 -->
+<section class="relative z-10 py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-14">
+            <span class="inline-block px-4 py-1.5 rounded-full badge-pink text-sm font-medium mb-4">应用场景</span>
+            <h2 class="text-3xl font-bold mb-4">全场景赋能高校教育与产教研合作</h2>
+        </div>
+        <div class="grid md:grid-cols-3 lg:grid-cols-6 gap-4">
+            <div class="text-center p-6 rounded-2xl bg-blue-50 hover:bg-blue-100 transition-colors">
+                <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-3">
+                    <i class="fas fa-industry text-blue-600 text-2xl"></i>
+                </div>
+                <h4 class="font-semibold mb-1">工业</h4>
+                <p class="text-xs text-gray-500">智能制造<br>降本增效</p>
+            </div>
+            <div class="text-center p-6 rounded-2xl bg-purple-50 hover:bg-purple-100 transition-colors">
+                <div class="w-14 h-14 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-3">
+                    <i class="fas fa-graduation-cap text-purple-600 text-2xl"></i>
+                </div>
+                <h4 class="font-semibold mb-1">教育</h4>
+                <p class="text-xs text-gray-500">语音讲解<br>展示实验</p>
+            </div>
+            <div class="text-center p-6 rounded-2xl bg-pink-50 hover:bg-pink-100 transition-colors">
+                <div class="w-14 h-14 bg-pink-100 rounded-2xl flex items-center justify-center mx-auto mb-3">
+                    <i class="fas fa-spa text-pink-600 text-2xl"></i>
+                </div>
+                <h4 class="font-semibold mb-1">美妆</h4>
+                <p class="text-xs text-gray-500">精准化妆<br>快速完成</p>
+            </div>
+            <div class="text-center p-6 rounded-2xl bg-green-50 hover:bg-green-100 transition-colors">
+                <div class="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-3">
+                    <i class="fas fa-heartbeat text-green-600 text-2xl"></i>
+                </div>
+                <h4 class="font-semibold mb-1">养老</h4>
+                <p class="text-xs text-gray-500">健康陪伴<br>关怀备至</p>
+            </div>
+            <div class="text-center p-6 rounded-2xl bg-orange-50 hover:bg-orange-100 transition-colors">
+                <div class="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-3">
+                    <i class="fas fa-music text-orange-600 text-2xl"></i>
+                </div>
+                <h4 class="font-semibold mb-1">娱乐</h4>
+                <p class="text-xs text-gray-500">演奏乐器<br>精彩表演</p>
+            </div>
+            <div class="text-center p-6 rounded-2xl bg-teal-50 hover:bg-teal-100 transition-colors">
+                <div class="w-14 h-14 bg-teal-100 rounded-2xl flex items-center justify-center mx-auto mb-3">
+                    <i class="fas fa-concierge-bell text-teal-600 text-2xl"></i>
+                </div>
+                <h4 class="font-semibold mb-1">服务</h4>
+                <p class="text-xs text-gray-500">智能迎宾<br>趣味互动</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 技术规格 -->
+<section class="relative z-10 py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-14">
+            <span class="inline-block px-4 py-1.5 rounded-full badge-pink text-sm font-medium mb-4">技术规格</span>
+            <h2 class="text-3xl font-bold mb-4">产品系列对比</h2>
+        </div>
+        <div class="overflow-x-auto rounded-2xl border border-gray-200 bg-white">
+            <table class="w-full text-sm">
+                <thead>
+                    <tr class="bg-gradient-to-r from-purple-50 to-pink-50">
+                        <th class="px-6 py-4 text-left font-semibold text-gray-700">型号</th>
+                        <th class="px-6 py-4 text-left font-semibold text-gray-700">定位</th>
+                        <th class="px-6 py-4 text-left font-semibold text-gray-700">自由度</th>
+                        <th class="px-6 py-4 text-left font-semibold text-gray-700">驱动方式</th>
+                        <th class="px-6 py-4 text-left font-semibold text-gray-700">感知配置</th>
+                        <th class="px-6 py-4 text-left font-semibold text-gray-700">适用场景</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100">
+                    <tr class="hover:bg-gray-50">
+                        <td class="px-6 py-4 font-semibold text-purple-600">L6</td>
+                        <td class="px-6 py-4 text-gray-500">入门教学款</td>
+                        <td class="px-6 py-4">6 DOF</td>
+                        <td class="px-6 py-4">电机驱动</td>
+                        <td class="px-6 py-4">基础传感</td>
+                        <td class="px-6 py-4">课堂教学·展示</td>
+                    </tr>
+                    <tr class="hover:bg-gray-50">
+                        <td class="px-6 py-4 font-semibold text-purple-600">L20 Lite</td>
+                        <td class="px-6 py-4 text-gray-500">性价比款</td>
+                        <td class="px-6 py-4">20 DOF</td>
+                        <td class="px-6 py-4">电机驱动</td>
+                        <td class="px-6 py-4">基础视触觉</td>
+                        <td class="px-6 py-4">批量教学采购</td>
+                    </tr>
+                    <tr class="hover:bg-gray-50">
+                        <td class="px-6 py-4 font-semibold text-pink-600">L20</td>
+                        <td class="px-6 py-4 text-gray-500">主流科研款</td>
+                        <td class="px-6 py-4">20 DOF</td>
+                        <td class="px-6 py-4">电机驱动</td>
+                        <td class="px-6 py-4">多传感器视触觉</td>
+                        <td class="px-6 py-4">科研实验·竞赛</td>
+                    </tr>
+                    <tr class="hover:bg-gray-50">
+                        <td class="px-6 py-4 font-semibold text-purple-600">L25</td>
+                        <td class="px-6 py-4 text-gray-500">进阶款</td>
+                        <td class="px-6 py-4">25 DOF</td>
+                        <td class="px-6 py-4">电机驱动</td>
+                        <td class="px-6 py-4">完整视触觉感知</td>
+                        <td class="px-6 py-4">灵巧操作研究</td>
+                    </tr>
+                    <tr class="hover:bg-gray-50">
+                        <td class="px-6 py-4 font-semibold text-orange-600">R30 直驱</td>
+                        <td class="px-6 py-4 text-gray-500">高性能款</td>
+                        <td class="px-6 py-4">30 DOF</td>
+                        <td class="px-6 py-4">直驱电机</td>
+                        <td class="px-6 py-4">完整视触觉感知</td>
+                        <td class="px-6 py-4">高动态操控</td>
+                    </tr>
+                    <tr class="hover:bg-gray-50">
+                        <td class="px-6 py-4 font-semibold text-green-600">L30 腱驱</td>
+                        <td class="px-6 py-4 text-gray-500">仿生旗舰款</td>
+                        <td class="px-6 py-4">30 DOF</td>
+                        <td class="px-6 py-4">腱驱（仿生）</td>
+                        <td class="px-6 py-4">全套传感模块</td>
+                        <td class="px-6 py-4">仿生研究·遥操作</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- 教育合作 CTA -->
+<section class="relative z-10 py-20 bg-gradient-to-br from-purple-600 via-purple-700 to-pink-600 text-white">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+        <h2 class="text-3xl font-bold mb-4">引入灵巧手，升级你的机器人实验室</h2>
+        <p class="text-purple-100 mb-8 text-lg">UnitClaw 提供从设备选型到课程配套的一站式支持，帮助高校快速构建灵巧操作教学体系</p>
+        <div class="flex flex-wrap justify-center gap-4">
+            <a href="../contact.html" class="inline-flex items-center px-8 py-4 bg-white text-purple-700 font-bold rounded-xl hover:bg-purple-50 transition-all shadow-lg">
+                <i class="fas fa-calendar-alt mr-2"></i>预约设备演示
+            </a>
+            <a href="../solutions/education.html" class="inline-flex items-center px-8 py-4 border-2 border-white/50 text-white font-bold rounded-xl hover:bg-white/10 transition-all">
+                <i class="fas fa-university mr-2"></i>了解高校合作方案
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="relative z-10 bg-gray-900 text-gray-400">
+    <div class="max-w-7xl mx-auto px-6 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div>
+                <div class="flex items-center space-x-3 mb-4">
+                    <img src="../assets/logos/WwRobot-Logo.png" alt="WW-Robot" class="h-10 w-auto" onerror="this.style.display='none'">
+                    <span class="text-2xl font-bold text-white">Unit<span class="text-accent">Claw</span>.cn</span>
+                </div>
+                <p class="text-sm leading-relaxed mb-4">万物拟态，面向高校的 AI+机器人全栈教育平台</p>
+                <p class="text-sm leading-relaxed">总部：广州增城区</p>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-4">四大产品阵列</h4>
+                <div class="space-y-2 text-sm">
+                    <a href="robots.html" class="block hover:text-white transition-colors">具身智能机器人</a>
+                    <a href="openarm.html" class="block hover:text-white transition-colors">OpenArm 开源机械臂</a>
+                    <a href="dexterous-hand.html" class="block text-purple-400 hover:text-white transition-colors">灵巧手</a>
+                    <a href="embedded-platform.html" class="block hover:text-white transition-colors">多功能实训平台</a>
+                    <a href="courses.html" class="block hover:text-white transition-colors">课程智能体</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-4">四大合作模式</h4>
+                <div class="space-y-2 text-sm">
+                    <a href="../solutions/university-cooperation.html" class="block hover:text-white transition-colors">模式零：品牌共建</a>
+                    <a href="../solutions/education.html" class="block hover:text-white transition-colors">模式一：AI+机器人实训室</a>
+                    <a href="../solutions/education.html" class="block hover:text-white transition-colors">模式二：产教研赛用一体化</a>
+                    <a href="../solutions/education.html" class="block hover:text-white transition-colors">模式三：竞赛定制支持</a>
+                    <a href="../solutions/education.html" class="block hover:text-white transition-colors">模式四：1+X 认证培训</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-4">联系我们</h4>
+                <div class="space-y-2 text-sm">
+                    <a href="../contact.html" class="block hover:text-white transition-colors">预约演示</a>
+                    <a href="../about.html" class="block hover:text-white transition-colors">关于我们</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 py-6 border-t border-gray-800 flex flex-wrap justify-between text-xs text-gray-500">
+        <span>&copy; 2026 unitclaw.cn All rights reserved.</span>
+        <div class="flex space-x-4">
+            <a href="../privacy.html" class="hover:text-gray-400">隐私政策</a>
+            <a href="../disclaimer.html" class="hover:text-gray-400">免责声明</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
