@@ -64,7 +64,7 @@
 
             </div>
 
-            <span class="text-[11px] text-accent tracking-wider mt-0.5 pl-4 font-bold">万物拟态，面向高校的 AI+机器人全栈教育平台</span>
+            <span class="text-[11px] text-accent tracking-wider mt-0.5 pl-4 font-bold">万物拟态 | 全栈式助力高校快速赋能高校拥抱 <strong>AI+机器人</strong>专业</span>
 
         </a>
 
@@ -234,15 +234,15 @@
     <a href="../contact.html" class="px-6 py-3 bg-white text-blue-600 font-semibold rounded-xl transition-all inline-block hover:bg-gray-100">预约演示</a>
 </div></div></section>
 
-<footer class="bg-black text-white">
+<footer class="bg-gray-900 text-white">
     <div class="max-w-7xl mx-auto px-6 py-16">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
             <div>
                 <div class="flex items-center space-x-3 mb-4">
-                    <img src="../../assets/logos/WwRobot-Logo.png" alt="WW-Robot" class="h-10 w-auto" onerror="this.style.display='none'">
+                    <img src="../../assets/logos/WwRobot-Logo.png" alt="WW-Robot" class="h-14 w-auto" onerror="this.style.display='none'">
                     <span class="text-2xl font-bold text-white">Unit<span class="text-accent">Claw</span>.cn</span>
                 </div>
-                <p class="text-sm leading-relaxed mb-4">万物拟态，面向高校的 AI+机器人全栈教育平台</p>
+                <p class="mb-4"><a href="../index.html"><img src="../assets/images/slogan-footer.png" alt="万物拟态 Slogan" style="width:280px;height:auto;max-width:100%;"></a></p>
                 <p class="text-sm leading-relaxed">总部：广州增城区</p>
             </div>
             <div>
@@ -285,6 +285,39 @@
 
 <script src="../particles.min.js"></script><script>particlesJS("particles-js",{particles:{number:{value:30},color:{value:"#3b82f6"},opacity:{value:.12},size:{value:2},line_linked:{enable:!0,distance:150,color:"#3b82f6",opacity:.06},move:{enable:!0,speed:.6}}});</script>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+(function(){
+  var css='.slogan-snow-wrap{position:relative;display:inline-block}.slogan-snow-particle{position:absolute;border-radius:50%;pointer-events:none;animation:snowDrift var(--dur,3s) ease-in-out infinite;animation-delay:var(--delay,0s);opacity:0}@keyframes snowDrift{0%{transform:translateY(6px) translateX(0) scale(.35);opacity:0}12%{opacity:var(--op,.65)}45%{transform:translateY(-5px) translateX(var(--dx,8px)) scale(var(--sc,1));opacity:var(--op,.65)}80%{opacity:var(--op,.65)}100%{transform:translateY(-20px) translateX(var(--dx2,-6px)) scale(.18);opacity:0}}';
+  if(!document.getElementById('snow-particle-style')){
+    var s=document.createElement('style');s.id='snow-particle-style';s.textContent=css;document.head.appendChild(s);
+  }
+  setTimeout(function(){
+    document.querySelectorAll('.slogan-snow-wrap').forEach(function(c){
+      if(c.querySelector('.slogan-snow-particle'))return;
+      var r=c.getBoundingClientRect(),w=r.width||280,h=r.height||32;
+      for(var i=0;i<18;i++){
+        var p=document.createElement('span');p.className='slogan-snow-particle';
+        var sz=2+Math.random()*3;
+        p.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+(Math.random()*w)+'px;bottom:'+(Math.random()*h*.5)+'px;--dur:'+(2.2+Math.random()*3)+'s;--delay:'+(Math.random()*3.5)+'s;--dx:'+(-10+Math.random()*20)+'px;--dx2:'+(-8+Math.random()*16)+'px;--sc:'+(.45+Math.random()*.75)+';--op:'+(.35+Math.random()*.5)+';background:rgba(255,255,255,'+(.4+Math.random()*.45)+')';
+        c.appendChild(p);
+      }
+    });
+  },400);
+})();
+</script>
 </body>
 
 </html>
