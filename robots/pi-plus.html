@@ -16,7 +16,10 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <script>tailwind.config={theme:{extend:{colors:{primary:'#ffffff',secondary:'#f8fafc',accent:'#2563eb',light:'#60a5fa',warm:'#f59e0b',card:'#ffffff',border:'#e2e8f0',emerald:'#34d399'},fontFamily:{sans:['Inter','Noto Sans SC','system-ui','sans-serif'],display:['JetBrains Mono','monospace']}}}}</script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#ffffff',secondary:'#f8fafc',accent:'#2563eb',light:'#60a5fa',warm:'#f59e0b',card:'#ffffff',border:'#e2e8f0',emerald:'#34d399',
+                        accent2: '#7c3aed',
+                        dark: '#0F172A',
+                        muted: '#64748B'},fontFamily:{sans:['Inter','Noto Sans SC','system-ui','sans-serif'],display:['JetBrains Mono','monospace']}}}}</script>
 
     <style>
 
@@ -154,41 +157,121 @@
 
     <a href="../index.html" class="nav-logo"><img src="../assets/logos/WwRobot-Logo.png" class="h-10 w-auto" onerror="this.style.display='none'"><div class="flex flex-col items-center leading-none"><span class="text-base font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-xs font-normal">.cn</span></span><span class="text-[10px] text-gray-500 tracking-wider whitespace-nowrap mt-0.5">万物拟态 · 智启未来</span></div></a>
 
-    <nav class="nav-links">
+    <!-- Navigation -->
 
-        <div class="nav-item"><a href="index.html">机器人 <i class="fas fa-chevron-down chevron"></i></a>
+<nav class="glass fixed top-0 left-0 right-0 z-50 transition-all">
 
-            <div class="nav-dropdown"><div class="nav-dropdown-inner mega">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
 
-                <a href="mini-pi.html" class="dd-item"><div class="dd-icon blue"><i class="fas fa-robot"></i></div><div class="dd-text"><div class="dd-title">双足机器人 Pi</div><div class="dd-sub">520mm · 12DOF</div></div></a>
+        <a href="../index.html" class="flex flex-col shrink-0">
 
-                <a href="pi-plus.html" class="dd-item"><div class="dd-icon purple"><i class="fas fa-cube"></i></div><div class="dd-text"><div class="dd-title">模块化开源 Pi+</div><div class="dd-sub">650mm · 22DOF</div></div></a>
+            <div class="flex items-center space-x-3">
 
-                <a href="mini-hi.html" class="dd-item"><div class="dd-icon emerald"><i class="fas fa-child"></i></div><div class="dd-text"><div class="dd-title">人形机器人 Hi</div><div class="dd-sub">830mm · 23DOF</div></div></a>
+                <img src="../assets/logos/WwRobot-Logo.png" alt="WW-Robot" class="h-10 w-auto" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
 
-        </div></div></div>
+                <div class="hidden w-10 h-10 bg-gradient-to-br from-accent to-blue-700 rounded-lg items-center justify-center text-lg font-bold">U</div>
 
-        <div class="nav-item"><a href="../components/index.html">核心零部件 <i class="fas fa-chevron-down chevron"></i></a>
+                <span class="text-lg font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-sm font-normal ml-1">.cn</span></span>
 
-            <div class="nav-dropdown"><div class="nav-dropdown-inner compact">
+            </div>
 
-                <a href="../components/index.html" class="dd-compact-item">伺服关节模组<span class="sub">行星·超薄·中空</span></a>
+            <span class="text-[11px] text-accent tracking-wider mt-0.5 pl-4 font-bold">万物拟态，面向高校的 AI+机器人全栈教育平台</span>
 
-                <a href="../components/index.html" class="dd-compact-item">PANTHERA-HT 机械臂<span class="sub">6轴协作</span></a>
+        </a>
 
-<a href="../components/dexterous-hand.html" class="dd-compact-item" style="background:rgba(245,158,11,.1);color:#d97706">UnitClaw 灵巧手 <span class="sub">五指仿生·21DOF</span></a>
+        <div class="hidden lg:flex items-center space-x-1">
 
-<a href="../components/index.html" class="dd-compact-item">7路CAN主控盒</a>
+            <a href="../index.html" class="px-4 py-2 text-gray-700 hover:text-gray-900 text-sm font-medium transition-colors">首页</a>
 
-                <a href="../components/index.html" class="dd-compact-item">电池组</a>
+            <div class="group relative">
 
-        </div></div></div>
+                <a href="#" class="px-4 py-2 text-gray-700 hover:text-gray-900 text-sm font-medium transition-colors">产品 <i class="fas fa-chevron-down text-[10px] ml-1"></i></a>
 
-        <div class="nav-item"><a href="../courses/index.html">机器人课程</a></div>
+                <div class="absolute top-full left-0 mt-2 w-48 glass rounded-xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
 
-        <div class="nav-item"><a href="../download/index.html">下载</a></div><div class="nav-item"><a href="../partnerships/university-cooperation.html" style="color:#7c3aed">高校合作</a></div>
+                    <a href="../products/robots.html" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-robot mr-2 text-accent text-xs"></i>具身智能机器人</a>
 
-    </nav>
+                    <a href="../products/openarm.html" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-industry mr-2 text-orange-500 text-xs"></i>OpenArm</a>
+
+                    <a href="../products/dexterous-hand.html" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-hand-sparkles mr-2 text-purple-500 text-xs"></i>灵巧手</a>
+
+                    <a href="../products/embedded-platform.html" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-microchip mr-2 text-emerald-500 text-xs"></i>多功能实训平台</a>
+
+                    <a href="../products/courses.html" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-graduation-cap mr-2 text-purple-400 text-xs"></i>课程智能体</a>
+
+                </div>
+
+            </div>
+
+            <div class="group relative">
+                <a href="../../courses.html" class="px-4 py-2 text-gray-700 hover:text-gray-900 text-sm font-medium transition-colors">课程 <i class="fas fa-chevron-down text-[10px] ml-1"></i></a>
+                <div class="absolute top-full left-0 mt-2 w-56 glass rounded-xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                    <a href="../../courses.html#ai-courses" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-microchip mr-2 text-emerald-500 text-xs"></i>AI实训箱课程</a>
+                    <a href="../../courses.html#openarm-courses" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-industry mr-2 text-orange-500 text-xs"></i>OpenArm 机械臂课程</a>
+                    <a href="../../courses.html#robot-courses" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-robot mr-2 text-accent text-xs"></i>具身智能机器人课程</a>
+                    <a href="../../courses.html#dexterous-hand-courses" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-hand-sparkles mr-2 text-purple-500 text-xs"></i>灵巧手课程</a>
+                </div>
+            </div>
+
+            <div class="group relative">
+                <a href="../../solutions/education.html" class="px-4 py-2 text-gray-700 hover:text-gray-900 text-sm font-medium transition-colors">高校合作 <i class="fas fa-chevron-down text-[10px] ml-1"></i></a>
+                <div class="absolute top-full left-0 mt-2 w-48 glass rounded-xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                    <a href="../../solutions/education.html" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-flask mr-2 text-accent text-xs"></i>教育方案</a>
+                    <a href="../../solutions/education.html#chanjiao" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-handshake mr-2 text-warm text-xs"></i>产教研合作</a>
+                </div>
+            </div>
+
+            
+
+            <a href="../about.html" class="px-4 py-2 text-gray-700 hover:text-gray-900 text-sm font-medium transition-colors">关于</a>
+
+        </div>
+
+        <a href="../contact.html" class="hidden lg:inline-flex items-center px-5 py-2.5 bg-accent hover:bg-blue-600 text-white text-sm font-semibold rounded-lg transition-colors">预约演示</a>
+
+        <button class="lg:hidden text-gray-900 p-2" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"><i class="fas fa-bars text-xl"></i></button>
+
+    </div>
+
+    <!-- Mobile Menu -->
+
+    <div id="mobile-menu" class="hidden lg:hidden glass border-t border-gray-200 px-6 py-4">
+
+        <a href="../index.html" class="block py-3 text-accent font-medium">首页</a>
+
+        <a href="../products/robots.html" class="block py-3 text-gray-700">具身智能机器人</a>
+
+        <a href="../products/openarm.html" class="block py-3 text-gray-700">OpenArm</a>
+
+        <a href="../products/dexterous-hand.html" class="block py-3 text-gray-700">灵巧手</a>
+
+        <a href="../products/embedded-platform.html" class="block py-3 text-gray-700">多功能实训平台</a>
+
+                <a href="../../courses.html" class="block py-3 text-gray-700 font-medium"><i class="fas fa-book-open mr-2 text-accent2 text-xs"></i>课程</a>
+        <a href="../../courses.html#ai-courses" class="block py-3 text-gray-700 pl-4"><i class="fas fa-microchip mr-2 text-emerald-500 text-xs"></i>AI实训箱课程</a>
+        <a href="../../courses.html#openarm-courses" class="block py-3 text-gray-700 pl-4"><i class="fas fa-industry mr-2 text-orange-500 text-xs"></i>OpenArm 机械臂课程</a>
+        <a href="../../courses.html#robot-courses" class="block py-3 text-gray-700 pl-4"><i class="fas fa-robot mr-2 text-accent text-xs"></i>具身智能机器人课程</a>
+        <a href="../../courses.html#dexterous-hand-courses" class="block py-3 text-gray-700 pl-4"><i class="fas fa-hand-sparkles mr-2 text-purple-500 text-xs"></i>灵巧手课程</a>
+
+                <a href="../../courses.html" class="block py-3 text-gray-700 font-medium"><i class="fas fa-book-open mr-2 text-accent2 text-xs"></i>课程</a>
+        <a href="../../courses.html#ai-courses" class="block py-3 text-gray-700 pl-4"><i class="fas fa-microchip mr-2 text-emerald-500 text-xs"></i>AI实训箱课程</a>
+        <a href="../../courses.html#openarm-courses" class="block py-3 text-gray-700 pl-4"><i class="fas fa-industry mr-2 text-orange-500 text-xs"></i>OpenArm 机械臂课程</a>
+        <a href="../../courses.html#robot-courses" class="block py-3 text-gray-700 pl-4"><i class="fas fa-robot mr-2 text-accent text-xs"></i>具身智能机器人课程</a>
+        <a href="../../courses.html#dexterous-hand-courses" class="block py-3 text-gray-700 pl-4"><i class="fas fa-hand-sparkles mr-2 text-purple-500 text-xs"></i>灵巧手课程</a>
+
+                <a href="../../solutions/education.html" class="block py-3 text-gray-700 font-medium"><i class="fas fa-university mr-2 text-accent text-xs"></i>高校合作</a>
+        <a href="../../solutions/education.html" class="block py-3 text-gray-700 pl-4"><i class="fas fa-flask mr-2 text-accent text-xs"></i>教育方案</a>
+        <a href="../../solutions/education.html#chanjiao" class="block py-3 text-gray-700 pl-4"><i class="fas fa-handshake mr-2 text-warm text-xs"></i>产教研合作</a>
+
+        
+
+        <a href="../about.html" class="block py-3 text-gray-700">关于</a>
+
+        <a href="../contact.html" class="block mt-3 text-center py-3 bg-accent rounded-lg font-semibold text-white">预约演示</a>
+
+    </div>
+
+</nav>
 
     <div class="nav-right"><a href="../en/robots/pi-plus.html" class="lang-toggle lang-toggle-en" title="English">EN</a><a href="../contact.html" class="btn-contact hidden lg:inline-flex"><i class="fas fa-phone-alt mr-1.5 text-xs text-gray-500"></i>联系我们</a><a href="../contact.html" class="btn-demo">预约演示</a><button class="mobile-menu-btn" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button></div>
 
