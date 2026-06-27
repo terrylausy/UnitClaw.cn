@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隐私政策 - UnitClaw.cn</title>
+    <meta name="description" content="万物拟态（广州）智能科技有限公司隐私政策">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FFFFFF',
+                        secondary: '#F8FAFC',
+                        accent: '#2563EB',
+                        accent2: '#7C3AED',
+                        dark: '#0F172A',
+                        muted: '#64748B',
+                        border: '#E2E8F0',
+                    ,
+                        light: '#3b82f6',
+                        warm: '#d97706',
+                        card: '#ffffff'},
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans SC', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .card-white { background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); transition: all 0.3s ease; }
+            .card-white:hover { box-shadow: 0 8px 30px rgba(37,99,235,0.08); transform: translateY(-4px); border-color: #2563EB; }
+            .card-hover{transition:all .35s cubic-bezier(.4,0,.2,1)}
+            .card-hover:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(37,99,235,.10)}
+            .hero-glow{background:radial-gradient(ellipse at 50% 0%,rgba(37,99,235,.06) 0%,transparent 70%)}
+            .tag{display:inline-block;padding:2px 10px;border-radius:12px;font-size:.75rem;font-weight:600;letter-spacing:.05em}
+            .tag-robot{background:rgba(37,99,235,.08);color:#2563eb;border:1px solid rgba(37,99,235,.20)}
+            .tag-course{background:rgba(124,58,237,.08);color:#7c3aed;border:1px solid rgba(124,58,237,.20)}
+            .tag-claw{background:rgba(217,119,6,.08);color:#d97706;border:1px solid rgba(217,119,6,.20)}
+            .tag-embedded{background:rgba(5,150,105,.08);color:#059669;border:1px solid rgba(5,150,105,.20)}
+            .btn-primary { background: linear-gradient(135deg, #2563EB, #7C3AED); color: white; border-radius: 12px; padding: 14px 32px; font-weight: 600; transition: all 0.3s; display: inline-flex; align-items: center; justify-content: center; }
+            .btn-primary:hover { opacity: 0.9; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(37,99,235,0.3); }
+            .section-light { background: #FFFFFF; }
+            .section-gray { background: #F8FAFC; }
+            .gradient-text { background: linear-gradient(135deg, #2563EB, #7C3AED); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        }
+.bg-grid{background-image:linear-gradient(rgba(37,99,235,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,.04) 1px,transparent 1px);background-size:40px 40px}
+.glass{background:rgba(255,255,255,.9);backdrop-filter:blur(16px);border:1px solid rgba(0,0,0,.08)}
+.text-gradient{background:linear-gradient(135deg,#2563eb,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-glow{background:radial-gradient(ellipse at 50% 0%,rgba(37,99,235,.06) 0%,transparent 70%)}
+.tag{display:inline-block;padding:2px 10px;border-radius:12px;font-size:.75rem;font-weight:600;letter-spacing:.05em}
+.tag-robot{background:rgba(37,99,235,.08);color:#2563eb;border:1px solid rgba(37,99,235,.20)}
+.tag-course{background:rgba(124,58,237,.08);color:#7c3aed;border:1px solid rgba(124,58,237,.20)}
+.tag-claw{background:rgba(217,119,6,.08);color:#d97706;border:1px solid rgba(217,119,6,.20)}
+.tag-embedded{background:rgba(5,150,105,.08);color:#059669;border:1px solid rgba(5,150,105,.20)}</style>
+</head>
+<body class="bg-primary text-dark overflow-x-hidden min-h-screen antialiased">
+
+    <!-- 导航 -->
+    <!-- Navigation -->
+
+<nav class="glass fixed top-0 left-0 right-0 z-50 transition-all">
+
+    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+
+        <a href="index.html" class="flex flex-col shrink-0">
+
+            <div class="flex items-center space-x-3">
+
+                <img src="assets/logos/WwRobot-Logo.png" alt="WW-Robot" class="h-10 w-auto" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+
+                <div class="hidden w-10 h-10 bg-gradient-to-br from-accent to-blue-700 rounded-lg items-center justify-center text-lg font-bold">U</div>
+
+                <span class="text-lg font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-sm font-normal ml-1">.cn</span></span>
+
+            </div>
+
+            <span class="text-[11px] text-accent tracking-wider mt-0.5 pl-4 font-bold">万物拟态 | 全栈式赋能高校职校拥抱 <strong>AI+机器人</strong>专业</span>
+
+        </a>
+
+        <div class="hidden lg:flex items-center space-x-1">
+
+            <a href="index.html" class="px-4 py-2 text-gray-700 hover:text-gray-900 text-sm font-medium transition-colors">首页</a>
+
+            <div class="group relative">
+
+                <a href="#" class="px-4 py-2 text-gray-700 hover:text-gray-900 text-sm font-medium transition-colors">产品 <i class="fas fa-chevron-down text-[10px] ml-1"></i></a>
+
+                <div class="absolute top-full left-0 mt-2 w-48 glass rounded-xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+
+                    <a href="products/robots.html" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-robot mr-2 text-accent text-xs"></i>具身智能机器人</a>
+
+                    <a href="products/openarm.html" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-industry mr-2 text-orange-500 text-xs"></i>OpenArm</a>
+
+                    <a href="products/dexterous-hand.html" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-hand-sparkles mr-2 text-purple-500 text-xs"></i>灵巧手</a>
+
+                    <a href="products/embedded-platform.html" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-microchip mr-2 text-emerald-500 text-xs"></i>多功能实训平台</a>
+
+                    <a href="products/courses.html" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-graduation-cap mr-2 text-purple-400 text-xs"></i>课程智能体</a>
+
+                </div>
+
+            </div>
+
+            <div class="group relative">
+                <a href="courses.html" class="px-4 py-2 text-gray-700 hover:text-gray-900 text-sm font-medium transition-colors">课程 <i class="fas fa-chevron-down text-[10px] ml-1"></i></a>
+                <div class="absolute top-full left-0 mt-2 w-56 glass rounded-xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                    <a href="courses.html#ai-courses" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-microchip mr-2 text-emerald-500 text-xs"></i>AI实训箱课程</a>
+                    <a href="courses.html#openarm-courses" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-industry mr-2 text-orange-500 text-xs"></i>OpenArm 机械臂课程</a>
+                    <a href="courses.html#robot-courses" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-robot mr-2 text-accent text-xs"></i>具身智能机器人课程</a>
+                    <a href="courses.html#dexterous-hand-courses" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-hand-sparkles mr-2 text-purple-500 text-xs"></i>灵巧手课程</a>
+                </div>
+            </div>
+
+            <div class="group relative">
+                <a href="solutions/education.html" class="px-4 py-2 text-gray-700 hover:text-gray-900 text-sm font-medium transition-colors">高校合作 <i class="fas fa-chevron-down text-[10px] ml-1"></i></a>
+                <div class="absolute top-full left-0 mt-2 w-48 glass rounded-xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                    <a href="solutions/education.html" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-flask mr-2 text-accent text-xs"></i>教育方案</a>
+                    <a href="solutions/education.html#chanjiao" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-handshake mr-2 text-warm text-xs"></i>产教研合作</a>
+                </div>
+            </div>
+
+            
+
+            <a href="about.html" class="px-4 py-2 text-gray-700 hover:text-gray-900 text-sm font-medium transition-colors">关于</a>
+
+        </div>
+
+        <a href="contact.html" style="background-color:#2563eb;" onmouseover="this.style.backgroundColor=\'#1d4ed8\'" onmouseout="this.style.backgroundColor=\'#2563eb\'" class="hidden lg:inline-flex items-center px-5 py-2.5 text-white text-sm font-semibold rounded-lg transition-colors">预约演示</a>
+
+        <button class="lg:hidden text-gray-900 p-2" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"><i class="fas fa-bars text-xl"></i></button>
+
+    </div>
+
+    <!-- Mobile Menu -->
+
+    <div id="mobile-menu" class="hidden lg:hidden glass border-t border-gray-200 px-6 py-4">
+
+        <a href="index.html" class="block py-3 text-accent font-medium">首页</a>
+
+        <a href="products/robots.html" class="block py-3 text-gray-700">具身智能机器人</a>
+
+        <a href="products/openarm.html" class="block py-3 text-gray-700">OpenArm</a>
+
+        <a href="products/dexterous-hand.html" class="block py-3 text-gray-700">灵巧手</a>
+
+        <a href="products/embedded-platform.html" class="block py-3 text-gray-700">多功能实训平台</a>
+
+                <a href="courses.html" class="block py-3 text-gray-700 font-medium"><i class="fas fa-book-open mr-2 text-accent2 text-xs"></i>课程</a>
+        <a href="courses.html#ai-courses" class="block py-3 text-gray-700 pl-4"><i class="fas fa-microchip mr-2 text-emerald-500 text-xs"></i>AI实训箱课程</a>
+        <a href="courses.html#openarm-courses" class="block py-3 text-gray-700 pl-4"><i class="fas fa-industry mr-2 text-orange-500 text-xs"></i>OpenArm 机械臂课程</a>
+        <a href="courses.html#robot-courses" class="block py-3 text-gray-700 pl-4"><i class="fas fa-robot mr-2 text-accent text-xs"></i>具身智能机器人课程</a>
+        <a href="courses.html#dexterous-hand-courses" class="block py-3 text-gray-700 pl-4"><i class="fas fa-hand-sparkles mr-2 text-purple-500 text-xs"></i>灵巧手课程</a>
+
+                <a href="courses.html" class="block py-3 text-gray-700 font-medium"><i class="fas fa-book-open mr-2 text-accent2 text-xs"></i>课程</a>
+        <a href="courses.html#ai-courses" class="block py-3 text-gray-700 pl-4"><i class="fas fa-microchip mr-2 text-emerald-500 text-xs"></i>AI实训箱课程</a>
+        <a href="courses.html#openarm-courses" class="block py-3 text-gray-700 pl-4"><i class="fas fa-industry mr-2 text-orange-500 text-xs"></i>OpenArm 机械臂课程</a>
+        <a href="courses.html#robot-courses" class="block py-3 text-gray-700 pl-4"><i class="fas fa-robot mr-2 text-accent text-xs"></i>具身智能机器人课程</a>
+        <a href="courses.html#dexterous-hand-courses" class="block py-3 text-gray-700 pl-4"><i class="fas fa-hand-sparkles mr-2 text-purple-500 text-xs"></i>灵巧手课程</a>
+
+                <a href="solutions/education.html" class="block py-3 text-gray-700 font-medium"><i class="fas fa-university mr-2 text-accent text-xs"></i>高校合作</a>
+        <a href="solutions/education.html" class="block py-3 text-gray-700 pl-4"><i class="fas fa-flask mr-2 text-accent text-xs"></i>教育方案</a>
+        <a href="solutions/education.html#chanjiao" class="block py-3 text-gray-700 pl-4"><i class="fas fa-handshake mr-2 text-warm text-xs"></i>产教研合作</a>
+
+        
+
+        <a href="about.html" class="block py-3 text-gray-700">关于</a>
+
+        <a href="contact.html" style="background-color:#2563eb;" onmouseover="this.style.backgroundColor=\'#1d4ed8\'" onmouseout="this.style.backgroundColor=\'#2563eb\'" class="block mt-3 text-center py-3 rounded-lg font-semibold text-white">预约演示</a>
+
+    </div>
+
+</nav>
+
+    <!-- 页面内容 -->
+    <section class="section-light pt-32 pb-20">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h1 class="text-4xl font-bold mb-4">隐私政策</h1>
+            <p class="text-gray-500 mb-8">万物拟态（广州）智能科技有限公司隐私政策</p>
+            
+            <div class="mb-8 text-sm text-gray-500">
+                <p>发布日期：2026年6月3日</p>
+                <p>生效日期：2026年6月3日</p>
+            </div>
+
+            <div class="space-y-8 text-gray-700 leading-relaxed">
+                <!-- 引言 -->
+                <div>
+                    <h2 class="text-2xl font-bold mb-4 text-dark">引言</h2>
+                    <p class="mb-4">万物拟态（广州）智能科技有限公司是依据中华人民共和国法律成立的有限责任公司（以下简称"万物拟态"或"我们"，包括其母公司、子公司、关联公司等）。万物拟态重视维护和保护用户的个人信息。您在使用我们的网站、产品及服务时，我们可能会收集和使用您的相关信息。我们深知个人信息对您的重要性，将严格遵守法律法规要求，采取相应安全保护措施，尽力保障您的个人信息安全。我们希望通过本《隐私政策》向您说明，在使用我们的产品或服务时，我们如何收集、使用、储存和分享这些信息，以及我们为您提供的访问、更新、控制和保护这些信息的方式，其中与您合法权益存在重大利害关系的条款，已通过字体<strong>加粗</strong>方式提醒您注意。本《隐私政策》与您所使用的产品或服务息息相关，希望您仔细阅读并充分理解本政策全部内容，审慎作出选择。如对本《隐私政策》或相关事宜有任何问题，请通过 Support@wwntai.com 与我们联系。我们承诺保障您的隐私，我们仅以明确、合法、必要的目的收集您的个人信息。</p>
+                    <p class="mb-4">我们将严格遵守对您的责任与义务，不会擅自泄露、传播您的个人信息，仅会与同样遵守隐私保护要求的合作伙伴依规共享您的信息，万物拟态不会以任何方式出售您的个人信息。如您继续浏览或者提供您的个人信息，则视为您已经充分、完全地阅读并理解了本政策中的全部内容，我们将按照本政策收集、使用、存储、分享处理和保护您的个人信息。本政策不适用于可能从我们的网站链接的第三方网站或应用程序。若本网站子域名、旗下产品设有独立隐私政策，且与本政策内容存在冲突，以独立政策为准。如您需了解更详尽的信息，可根据以下索引阅读相关章节：</p>
+                    <ol class="list-decimal list-inside space-y-2 ml-4">
+                        <li>我们如何收集和使用您的个人信息</li>
+                        <li>我们如何使用Cookie和同类技术</li>
+                        <li>我们如何共享、转让、公开披露您的个人信息</li>
+                        <li>我们如何保护您的个人信息</li>
+                        <li>您的权利</li>
+                        <li>我们如何处理未成年人的个人信息</li>
+                        <li>您的个人信息如何在全球范围转移及储存期限</li>
+                        <li>本政策如何更新</li>
+                        <li>如何联系我们</li>
+                    </ol>
+                </div>
+
+                <!-- 一 -->
+                <div>
+                    <h2 class="text-2xl font-bold mb-4 text-dark">一、我们如何收集和使用您的个人信息</h2>
+                    <p class="mb-4">个人信息是指以电子或者其他方式记录的、能够单独或者与其他信息结合识别特定自然人身份或者反映特定自然人活动情况的各种信息。我们将出于本政策所述目的及情形，收集和使用您的个人信息。</p>
+                    
+                    <h3 class="text-xl font-semibold mb-3 text-dark">（一）官网表单及服务相关信息</h3>
+                    <p class="mb-2"><strong>账号注册与网站表单信息</strong></p>
+                    <p class="mb-4">您在注册账号、填写官网相关表单时，我们会收集姓名、联系电话、电子邮箱及其验证码、所属公司/高校全称、所属行业、所属区域等内容。该类信息用于身份核验、账号管理、业务对接、问题响应、咨询推送及服务回访。</p>
+                    
+                    <p class="mb-2"><strong>活动及客服交互信息</strong></p>
+                    <p class="mb-4">您参与万物拟态线上活动、填写调查问卷，或通过客户渠道咨询反馈时填写的调查问卷、沟通记录中可能包含您的姓名/用户ID、电话、电子邮箱、公司/高校名称、工号/学号等内容，该类信息仅用于活动对接、问题处理与服务回访。</p>
+                    
+                    <p class="mb-2"><strong>自愿补充资料与用户管理</strong></p>
+                    <p class="mb-6">当您使用我们的服务时，可以自愿填写或告知昵称、性别、生日和所在地信息。我们可基于您的使用行为及自愿提交的信息构建用户画像，为您提供更贴合需求的个性化产品与服务。若我们有合理依据判定您的用户资料、发布内容违反法律法规及平台规则，我们有权修改相关内容，暂停或终止您的账号及部分/全部服务。</p>
+                    
+                    <h3 class="text-xl font-semibold mb-3 text-dark">（二）操作日志信息</h3>
+                    <p class="mb-4">当您访问本网站时，系统可通过Cookie及同类技术自动收集网络日志信息，目的为数据统计分析、网站体验优化、保障网站稳定运行及网络安全防护。日志信息包含：网页浏览记录、网络状态、访问日期与时间、设备基础标识、行为日志（访问及下载）等。收集此类信息的目的在于：通过数据统计改进和优化产品体验、保障服务稳定和网络安全。</p>
+                    
+                    <h3 class="text-xl font-semibold mb-3 text-dark">（三）持续开发和优化产品服务</h3>
+                    <p class="mb-4">我们使用收集到的信息保障我们的业务运营，例如评估、维护和改进产品和服务的性能，优化平台的相关服务。为迭代和开发新的产品和服务，我们可能对收集的信息加以统计分析辅助决策，但形成的数据分析结果不包含您的任何身份识别信息。</p>
+                </div>
+
+                <!-- 二 -->
+                <div>
+                    <h2 class="text-2xl font-bold mb-4 text-dark">二、我们如何使用Cookie和同类技术</h2>
+                    
+                    <h3 class="text-xl font-semibold mb-3 text-dark">（一）Cookie</h3>
+                    <p class="mb-4">为确保网站正常运转，我们会在您的计算机或移动设备上存储名为Cookie的小数据文件。Cookie通常包含标识符、站点名称以及一些号码和字符。借助于Cookie，网站能够验证您的身份信息，保障数据和服务的安全性。我们不会将Cookie用于本政策所述目的之外的任何用途。</p>
+                    
+                    <h3 class="text-xl font-semibold mb-3 text-dark">（二）网站信标和像素标签</h3>
+                    <p class="mb-4">除Cookie外，我们还可能会在网站上使用网站信标、像素标签或其他Cookie同类技术。例如，我们向您发送的电子邮件可能包含跳转至本网站的链接。</p>
+                </div>
+
+                <!-- 三 -->
+                <div>
+                    <h2 class="text-2xl font-bold mb-4 text-dark">三、我们如何共享、转让、公开披露您的个人信息</h2>
+                    
+                    <h3 class="text-xl font-semibold mb-3 text-dark">（一）共享</h3>
+                    <p class="mb-4">我们不会与万物拟态以外的任何公司、组织和个人分享您的个人信息。但以下情况除外：</p>
+                    <ul class="list-disc list-inside space-y-2 ml-4 mb-4">
+                        <li>事先得到您明确的同意或授权；</li>
+                        <li>您主动提出相关要求的；</li>
+                        <li>符合与您签署的相关协议（包括在线签署的电子协议及相应平台规则）或其他法律文件约定的;</li>
+                        <li>法律法规规定或强制性行政、司法要求的；</li>
+                    </ul>
+                    <p class="mb-4">我们可能会将您的个人信息与万物拟态的关联方共享。但我们只会共享必要的个人信息，且受本隐私政策中所声明目的的约束。我们的关联方如要改变个人信息的处理目的，将再次征求您的授权同意；</p>
+                    <p class="mb-4">我们可能会将您的个人信息与遵守万物拟态隐私保护要求的合作伙伴共享。我们只会共享必要的个人信息，且受本隐私政策中所声明目的的约束。遵守万物拟态隐私保护要求的合作伙伴如要改变个人信息的处理目的，将再次征求您的授权同意。</p>
+                    <p class="mb-4">对我们与之共享个人信息的公司、组织和个人，我们会与其签署严格的保密协议，要求他们按照我们的说明、本政策以及其他相关安排并采取必要的保密和安全措施来处理个人信息。</p>
+                    <p class="mb-6"><strong>请您留意并确认：</strong>您主动公开或与第三人（含不特定对象）共享个人信息或其他信息时，任何您分享或共享的信息均可被任何第三方阅读、收集和使用，请审慎考虑通过万物拟态网站/服务发布和传播含个人信息的内容；因您的公开或共享行为导致的信息泄露、被使用等相关后果，万物拟态不承担任何法律责任。</p>
+                    
+                    <h3 class="text-xl font-semibold mb-3 text-dark">（二）转让</h3>
+                    <p class="mb-2">转让是指将个人信息的控制权转移给其他公司、组织或个人。我们不会将您的个人信息转让给任何公司、组织和个人，除非符合以下情形：</p>
+                    <ul class="list-disc list-inside space-y-2 ml-4 mb-6">
+                        <li>事先已获得您明确的同意或授权；</li>
+                        <li>您主动提出相关要求的;</li>
+                        <li>符合与您签署的相关协议（包括在线签署的电子协议及相应平台规则）或其他法律文件约定的;</li>
+                        <li>法律法规规定或强制性行政、司法要求的;</li>
+                        <li>涉及合并、收购、破产清算、资产转让或类似交易，且交易中涉及个人信息转让的，我们将要求受让您个人信息的新公司、组织继续受本政策约束；否则，将要求其重新征求您的授权同意。</li>
+                    </ul>
+                    
+                    <h3 class="text-xl font-semibold mb-3 text-dark">（三）公开披露</h3>
+                    <p class="mb-2">公开披露是指向社会或不特定人群发布信息的行为。我们仅会在以下情况下，公开披露您的个人信息：</p>
+                    <ul class="list-disc list-inside space-y-2 ml-4 mb-6">
+                        <li>事先已获得您明确的同意或授权；</li>
+                        <li>法律法规规定或强制性行政、司法要求的。</li>
+                    </ul>
+                    
+                    <h3 class="text-xl font-semibold mb-3 text-dark">（四）征得授权同意的例外</h3>
+                    <p class="mb-4">根据相关法律法规规定，以下情形中，我们可在未事先征得您授权同意的情况下共享、转让、公开披露您的个人信息：</p>
+                    <ul class="list-disc list-inside space-y-2 ml-4 mb-4">
+                        <li>与国家安全、国防安全有关的；</li>
+                        <li>与公共安全、公共卫生、重大公共利益有关的；</li>
+                        <li>与刑事侦查、起诉、审判和判决执行等有关的；</li>
+                        <li>出于维护您或其他个人的生命、财产等重大合法权益但难以获得您本人同意的；</li>
+                        <li>所收集的个人信息是您自行向社会公众公开的；</li>
+                        <li>从合法公开披露的信息中收集的您的个人信息，如合法的新闻报道、政府信息公开等渠道；</li>
+                        <li>根据您的要求签订合同所必需的；</li>
+                        <li>用于维护所提供的服务的安全稳定运行所必需的；</li>
+                        <li>与我们履行法律法规规定的义务相关的；</li>
+                        <li>法律法规规定的其他情形。</li>
+                    </ul>
+                    <p class="mb-6">请您知悉，根据现行法律规定及监管要求，共享、转让经匿名化处理的个人信息，且确保数据接收方无法复原并重新识别个人信息主体的，无需另行通知您并征得您的同意。</p>
+                </div>
+
+                <!-- 四 -->
+                <div>
+                    <h2 class="text-2xl font-bold mb-4 text-dark">四、我们如何保护您的个人信息</h2>
+                    <p class="mb-4">我们已使用安全防护措施保护您提供的个人信息，防止数据遭到未经授权访问、公开披露、使用、修改、损坏或丢失。我们会采取一切合理可行的措施，保护您的个人信息。例如，我们会使用受信赖的保护机制防止数据遭到恶意攻击；我们会部署访问控制机制，确保只有授权人员才可访问个人信息；我们会举办安全和隐私保护培训课程，加强员工对于保护个人信息重要性的认识；以及我们有严格的信息安全与合规制度与流程，并有专业团队在公司内部严格执行上述措施。</p>
+                    <p class="mb-4">我们会采取一切合理可行的措施，确保未收集无关的个人信息。我们只会在达成本政策所述目的所需的期限内保留您的个人信息，除非需要延长保留期或受到法律的允许。</p>
+                    <p class="mb-4">当我们的产品、网页或服务发生停止运营的情形时，我们会及时停止继续收集个人信息的活动。上述变更，我们将尝试以推送通知、公告及相关形式通知您，并在合理的期限内删除您的个人信息或进行匿名化处理，但法律法规另有规定的除外。</p>
+                    <p class="mb-4">互联网并非绝对安全的环境，而且电子邮件、即时通讯及与其他APP用户的交流方式并未加密，我们强烈建议您不要通过此类方式发送个人信息。请使用复杂密码，协助我们保证您的账号安全。我们将尽力确保或担保您发送给我们的任何信息的安全性。</p>
+                    <p class="mb-4">我们提醒您知悉可能遭遇的互联网风险有：我们的物理、技术、或管理防护设施遭到破坏，可能导致信息被非授权访问、公开披露、篡改、或毁坏。</p>
+                    <p class="mb-4">在不幸发生个人信息安全事件后，我们将按照法律法规的要求，及时向您告知：安全事件的基本情况和可能的影响、我们已采取或将要采取的处置措施、您可自主防范和降低风险的建议、对您的补救措施等。我们将及时将事件相关情况以邮件、信函、电话、推送通知等方式告知您，难以逐一告知个人信息主体时，我们会采取合理、有效的方式发布公告。同时，我们将按照监管部门要求，主动上报个人信息安全事件的处置情况。</p>
+                </div>
+
+                <!-- 五 -->
+                <div>
+                    <h2 class="text-2xl font-bold mb-4 text-dark">五、您的权利</h2>
+                    <p class="mb-4">按照中国相关的法律、法规、标准，以及其他国家、地区的通行做法，我们保障您对自己的个人信息行使以下权利：</p>
+                    
+                    <h3 class="text-xl font-semibold mb-3 text-dark">（一）访问您的个人信息</h3>
+                    <p class="mb-6">您有权根据法律法规的规定访问您的个人信息。如果您想行使数据访问权，可以通过以下方式自行访问；账户信息—如果您希望访问或编辑您的账户中的个人资料信息、更改您的密码、添加安全信息或关闭您的账户等。</p>
+                    
+                    <h3 class="text-xl font-semibold mb-3 text-dark">（二）更正您的个人信息</h3>
+                    <p class="mb-6">当您发现我们处理的关于您的个人信息有错误时，您有权要求我们做出更正。您可以通过随时使用我们的Web表单自助进行修改，如您遇到问题可发送电子邮件至 Support@wwntai.com 咨询或提出更正申请。</p>
+                    
+                    <h3 class="text-xl font-semibold mb-3 text-dark">（三）删除您的个人信息</h3>
+                    <p class="mb-2">在以下情形中，您可以向我们提出删除个人信息的请求：</p>
+                    <ul class="list-disc list-inside space-y-2 ml-4 mb-4">
+                        <li>如果我们处理个人信息的行为违反法律法规；</li>
+                        <li>如果我们收集、使用您的个人信息，却未征得您的同意；</li>
+                        <li>如果我们处理个人信息的行为违反了与您的约定；</li>
+                        <li>如果您不再使用我们的产品或服务，或您注销了账号；</li>
+                        <li>如果我们不再为您提供产品或服务。</li>
+                    </ul>
+                    <p class="mb-4">若我们决定响应您的删除请求，我们还将同时通知从我们获得您的个人信息的实体，要求其及时删除，除非法律法规另有规定，或这些实体获得您的独立授权。</p>
+                    <p class="mb-6">当您或我们协助您删除相关信息后，受适用的法律和安全技术限制，我们可能无法立即从备份系统中删除相应的信息，我们将安全地存储您的个人信息并进行安全隔离，直到备份可以清除或匿名化。</p>
+                    
+                    <h3 class="text-xl font-semibold mb-3 text-dark">（四）改变您授权同意的范围</h3>
+                    <p class="mb-2">部分业务功能需要一些基本的个人信息才能得以完成(见本政策"第一部分")。对于额外收集的个人信息的收集和使用，您可以随时给予或收回您的授权同意。您可以通过发送信息至邮箱 Support@wwntai.com 告知您的授权。</p>
+                    <p class="mb-6">当您撤回同意后，我们将不再处理相应的个人信息。但您撤回同意的决定，不会影响此前基于您的授权而开展的个人信息处理。</p>
+                    
+                    <h3 class="text-xl font-semibold mb-3 text-dark">（五）个人信息主体获取个人信息副本</h3>
+                    <p class="mb-6">您有权获取您的个人信息副本，您可以通过电子邮箱 Support@wwntai.com 获取您的信息。</p>
+                    
+                    <h3 class="text-xl font-semibold mb-3 text-dark">（六）响应您的上述请求</h3>
+                    <p class="mb-2">为保障安全，您可能需要提供书面请求，或以其他方式证明您的身份。我们可能会先要求您验证自己的身份，然后再处理您的请求。 我们将在15天内做出答复。</p>
+                    <p class="mb-2">如您不满意，还可以通过以下途径投诉：发送邮件至 Support@wwntai.com 。</p>
+                    <p class="mb-2">对于您合理的请求，我们不收取费用，超出合理限度的请求可能收取成本费用。对于那些无端重复、需要过多技术手段(例如，需要开发新系统或从根本上改变现行惯例)、给他人合法权益带来风险或者非常不切实际(例如，涉及备份磁带上存放的信息)的请求，我们可能会予以拒绝。</p>
+                    <p class="mb-6">在以下情形中，按照法律法规要求，我们将无法响应您的请求：</p>
+                    <ul class="list-disc list-inside space-y-2 ml-4 mb-6">
+                        <li>与国家安全、国防安全直接相关的；</li>
+                        <li>与公共安全、公共卫生、重大公共利益直接相关的；</li>
+                        <li>与犯罪侦查、起诉、审判和判决执行等直接相关的；</li>
+                        <li>有充分证据表明您存在主观恶意或滥用权利的；</li>
+                        <li>响应您的请求将导致您或其他个人、组织的合法权益受到严重损害的；</li>
+                        <li>涉及商业秘密的；</li>
+                        <li>与我们履行法律法规规定的义务相关的。</li>
+                    </ul>
+                </div>
+
+                <!-- 六 -->
+                <div>
+                    <h2 class="text-2xl font-bold mb-4 text-dark">六、我们如何处理未成年人的个人信息</h2>
+                    <p class="mb-4">我们的网站和服务同时面向学生。除非适用法律允许且已取得可证实的父母或监护人同意，未成年人不得创建账户，亦不应在未获监护人同意的情况下提供个人信息。</p>
+                    <p class="mb-4">对于经父母或监护人同意而收集未成年人个人信息的情况，我们只会在受到法律允许、父母或监护人明确同意或者保护未成年人所必要的情况下使用或公开披露此信息。</p>
+                    <p class="mb-4">尽管当地法律和习俗对未成年人的定义不同，但我们将不满18周岁的任何人均视为未成年人。</p>
+                    <p class="mb-4">如果我们发现自己在未事先获得可证实的父母或监护人同意的情况下收集了未成年人的个人信息，则会尽快删除相关数据。</p>
+                    <p class="mb-4">若您是未成年人的家长或监护人，对数据处理有疑问，请及时联系我们。</p>
+                </div>
+
+                <!-- 七 -->
+                <div>
+                    <h2 class="text-2xl font-bold mb-4 text-dark">七、您的个人信息如何在全球范围转移及储存期限</h2>
+                    <p class="mb-4">原则上，我们在中华人民共和国境内收集和产生的个人信息，将存储在中华人民共和国境内，但根据适用法律的规定允许跨境传输的除外。</p>
+                    <p class="mb-4">根据业务拓展情况，如果我们需要将个人信息转移到您所属的司法管辖区之外，无论是转移给我们的关联公司或第三方服务提供商时，我们都将遵照相关适用法律。此类管辖区可能设有不同的数据保护法，甚至未设立相关法律。如后续因业务或管理的必需要求，我们需要向境外传输在本政策下所收集和处理的您的个人信息（包括使您的个人信息受到其他司法管辖区的访问），在进行传输前，我们会严格按照法律法规的规定和监管部门的要求满足必须具备的前置条件，并履行相应的法律义务，包括向您告知境外接收方的名称和联系方式、传输目的和方式、传输的个人信息的种类、您向境外接收方行使您的权利的方式和程序以及取得您的单独明确同意等。我们将通过落实统一的安全保障措施，保证我们会确保您的个人信息得到在中华人民共和国境内足够同等的保护。例如，我们会请求您对跨境转移个人信息的同意，或者在跨境数据转移之前实施数据去标识化等安全举措。</p>
+                    <p class="mb-2">一般而言，我们仅为实现目的所必需的最短时间保留您的个人信息，除非经您另行同意延长保留期或其他依法得到允许的情形。在下列情况下，我们有可能因需符合法律要求，更改个人信息的存储时间：</p>
+                    <ul class="list-disc list-inside space-y-2 ml-4 mb-4">
+                        <li>为遵守适用的法律法规等有关规定；</li>
+                        <li>为遵守法院判决、裁定或其他法律程序的规定；</li>
+                        <li>为遵守相关政府机关或法定授权组织的要求；</li>
+                        <li>我们有理由确信需要遵守法律法规等有关规定；</li>
+                        <li>为执行相关服务协议或本政策、维护社会公共利益，为保护我们的客户、我们或我们的关联公司、其他用户或雇员的人身财产安全或其他合法权益所必需的用途。</li>
+                    </ul>
+                    <p class="mb-4">当我们的产品或服务发生停止运营的情形时，我们将采取例如推送通知、公告等形式通知您，并在合理的期限内删除或匿名化处理您的个人信息。</p>
+                </div>
+
+                <!-- 八 -->
+                <div>
+                    <h2 class="text-2xl font-bold mb-4 text-dark">八、本政策如何更新</h2>
+                    <p class="mb-4">为保护您的权益，我们将根据法律法规、业务变化等及时更新本政策。如变更导致您权利实质减损，我们将在本页面发布变更，并通过官网公告或其他合适方式提示；如涉及处理目的、方式、个人信息种类变更，将重新取得您的同意。对于重大变更，我们还会提供更为显著的通知。</p>
+                    <p class="mb-2">本政策所指的重大变更包括但不限于：</p>
+                    <ul class="list-disc list-inside space-y-2 ml-4 mb-4">
+                        <li>我们的服务模式发生重大变化。如处理个人信息的目的、处理的个人信息类型、个人信息的使用方式等；</li>
+                        <li>我们在所有权结构、组织架构等方面发生重大变化。如业务调整、破产并购等引起的所有者变更等；</li>
+                        <li>个人信息共享、转让或公开披露的主要对象发生变化；</li>
+                        <li>您参与个人信息处理方面的权利及其行使方式发生重大变化；</li>
+                        <li>我们负责处理个人信息安全的责任部门、联络方式及投诉渠道发生变化时；</li>
+                        <li>个人信息安全影响评估报告表明存在高风险时。</li>
+                    </ul>
+                    <p class="mb-4">如您在本政策更新生效后继续使用官网的，视为您已充分阅读、理解并接受更新后的政策。</p>
+                </div>
+
+                <!-- 九 -->
+                <div>
+                    <h2 class="text-2xl font-bold mb-4 text-dark">九、如何联系我们</h2>
+                    <p class="mb-4">如您对本隐私政策或个人信息保护有任何问题、意见或建议，请通过以下方式联系我们：</p>
+                    <p class="mb-2"><strong>公司：</strong>万物拟态（广州）智能科技有限公司</p>
+                    <p class="mb-2"><strong>联系邮箱：</strong>Support@wwntai.com</p>
+                    <p class="mb-4"><strong>地址：</strong>广州市增城区新塘镇东坑三横街22号</p>
+                    <p class="mb-4">我们将尽快处理您的问题，并在收到反馈后十五日内予以回复。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-6 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <img src="assets/logos/WwRobot-Logo.png" alt="WW-Robot" class="h-14 w-auto" onerror="this.style.display='none'">
+                        <span class="text-2xl font-bold text-white">Unit<span class="text-accent">Claw</span>.cn</span>
+                    </div>
+                    <p class="mb-4"><a href="index.html"><img src="assets/images/slogan-footer.png" alt="万物拟态 Slogan" style="width:280px;height:auto;max-width:100%;"></a></p>
+                    <p class="text-sm leading-relaxed">总部：广州增城区</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">五大产品阵列</h4>
+                    <div class="space-y-2 text-sm">
+                        <a href="products/robots.html" class="block hover:text-white transition-colors">具身智能机器人</a>
+                        <a href="products/openarm.html" class="block hover:text-white transition-colors">OpenArm 开源机械臂</a>
+                        <a href="products/dexterous-hand.html" class="block hover:text-purple-400 transition-colors">灵巧手</a>
+                        <a href="products/embedded-platform.html" class="block hover:text-white transition-colors">多功能实训平台</a>
+                        <a href="products/courses.html" class="block hover:text-white transition-colors">课程智能体</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">四大合作模式</h4>
+                    <div class="space-y-2 text-sm">
+                        <a href="solutions/university-cooperation.html" class="block hover:text-white transition-colors">模式零：品牌共建</a>
+                        <a href="solutions/education.html" class="block hover:text-white transition-colors">模式一：AI+机器人实训室</a>
+                        <a href="solutions/education.html" class="block hover:text-white transition-colors">模式二：产教研赛用一体化</a>
+                        <a href="solutions/education.html" class="block hover:text-white transition-colors">模式三：竞赛定制支持</a>
+                        <a href="solutions/education.html" class="block hover:text-white transition-colors">模式四：1+X 认证培训</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">联系我们</h4>
+                    <div class="space-y-2 text-sm">
+                        <a href="contact.html" class="block hover:text-white transition-colors">预约演示</a>
+                        <a href="about.html" class="block hover:text-white transition-colors">关于我们</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 py-6 border-t border-gray-700 flex flex-wrap justify-between text-xs text-gray-500">
+            <span>&copy; 2026 unitclaw.cn All rights reserved.</span>
+            <div class="flex space-x-4">
+                <a href="privacy.html" class="hover:text-gray-400">隐私政策</a>
+                <a href="disclaimer.html" class="hover:text-gray-400">免责声明</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 手机菜单切换
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+(function(){
+  var css='.slogan-snow-wrap{position:relative;display:inline-block}.slogan-snow-particle{position:absolute;border-radius:50%;pointer-events:none;animation:snowDrift var(--dur,3s) ease-in-out infinite;animation-delay:var(--delay,0s);opacity:0}@keyframes snowDrift{0%{transform:translateY(6px) translateX(0) scale(.35);opacity:0}12%{opacity:var(--op,.65)}45%{transform:translateY(-5px) translateX(var(--dx,8px)) scale(var(--sc,1));opacity:var(--op,.65)}80%{opacity:var(--op,.65)}100%{transform:translateY(-20px) translateX(var(--dx2,-6px)) scale(.18);opacity:0}}';
+  if(!document.getElementById('snow-particle-style')){
+    var s=document.createElement('style');s.id='snow-particle-style';s.textContent=css;document.head.appendChild(s);
+  }
+  setTimeout(function(){
+    document.querySelectorAll('.slogan-snow-wrap').forEach(function(c){
+      if(c.querySelector('.slogan-snow-particle'))return;
+      var r=c.getBoundingClientRect(),w=r.width||280,h=r.height||32;
+      for(var i=0;i<18;i++){
+        var p=document.createElement('span');p.className='slogan-snow-particle';
+        var sz=2+Math.random()*3;
+        p.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+(Math.random()*w)+'px;bottom:'+(Math.random()*h*.5)+'px;--dur:'+(2.2+Math.random()*3)+'s;--delay:'+(Math.random()*3.5)+'s;--dx:'+(-10+Math.random()*20)+'px;--dx2:'+(-8+Math.random()*16)+'px;--sc:'+(.45+Math.random()*.75)+';--op:'+(.35+Math.random()*.5)+';background:rgba(255,255,255,'+(.4+Math.random()*.45)+')';
+        c.appendChild(p);
+      }
+    });
+  },400);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>课程体系 - UnitClaw.cn | 四大课程体系：人工智能实训箱 & OpenArm机械臂 & 具身智能机器人 & 灵巧手课程</title>
+    <meta name="description" content="UnitClaw四大课程体系：人工智能实训箱6门核心课程 + OpenArm开源机械臂五大类课程 + Mini Pi具身智能机器人10节54学时课程 + 灵巧手ROS SDK分层课程体系，覆盖高职/本科/研究生全学段。">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#ffffff',
+                        secondary: '#F8FAFC',
+                        accent: '#2563EB',
+                        accent2: '#7C3AED',
+                        warm: '#d97706',
+                        dark: '#0F172A',
+                        muted: '#64748B',
+                        border: '#E2E8F0',
+                    ,
+                        light: '#3b82f6',
+                        card: '#ffffff'},
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans SC', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .bg-grid{background-image:linear-gradient(rgba(37,99,235,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,.03) 1px,transparent 1px);background-size:40px 40px}
+        .glass{background:rgba(255,255,255,.92);backdrop-filter:blur(16px);border:1px solid rgba(0,0,0,.06)}
+        .text-gradient{background:linear-gradient(135deg,#2563EB,#7C3AED);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .text-gradient-warm{background:linear-gradient(135deg,#d97706,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .card-hover{transition:all .3s ease}
+        .card-hover:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.08)}
+        .tab-active{border-bottom:2px solid #2563EB;color:#2563EB;font-weight:600}
+        .tab-inactive{color:#94a3b8}
+        html{scroll-behavior:smooth}
+.hero-glow{background:radial-gradient(ellipse at 50% 0%,rgba(37,99,235,.06) 0%,transparent 70%)}
+.tag{display:inline-block;padding:2px 10px;border-radius:12px;font-size:.75rem;font-weight:600;letter-spacing:.05em}
+.tag-robot{background:rgba(37,99,235,.08);color:#2563eb;border:1px solid rgba(37,99,235,.20)}
+.tag-course{background:rgba(124,58,237,.08);color:#7c3aed;border:1px solid rgba(124,58,237,.20)}
+.tag-claw{background:rgba(217,119,6,.08);color:#d97706;border:1px solid rgba(217,119,6,.20)}
+.tag-embedded{background:rgba(5,150,105,.08);color:#059669;border:1px solid rgba(5,150,105,.20)}</style>
+</head>
+<body class="bg-primary text-dark font-sans min-h-screen antialiased">
+
+<!-- 粒子背景 -->
+<div id="particles-js" class="fixed inset-0 z-0 pointer-events-none"></div>
+<div class="fixed inset-0 bg-grid z-0 opacity-40 pointer-events-none"></div>
+
+<!-- Navigation -->
+
+<nav class="glass fixed top-0 left-0 right-0 z-50 transition-all">
+
+    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+
+        <a href="index.html" class="flex flex-col shrink-0">
+
+            <div class="flex items-center space-x-3">
+
+                <img src="assets/logos/WwRobot-Logo.png" alt="WW-Robot" class="h-10 w-auto" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+
+                <div class="hidden w-10 h-10 bg-gradient-to-br from-accent to-blue-700 rounded-lg items-center justify-center text-lg font-bold">U</div>
+
+                <span class="text-lg font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-sm font-normal ml-1">.cn</span></span>
+
+            </div>
+
+            <span class="text-[11px] text-accent tracking-wider mt-0.5 pl-4 font-bold">万物拟态 | 全栈式赋能高校职校拥抱 <strong>AI+机器人</strong>专业</span>
+
+        </a>
+
+        <div class="hidden lg:flex items-center space-x-1">
+
+            <a href="index.html" class="px-4 py-2 text-gray-700 hover:text-gray-900 text-sm font-medium transition-colors">首页</a>
+
+            <div class="group relative">
+
+                <a href="#" class="px-4 py-2 text-gray-700 hover:text-gray-900 text-sm font-medium transition-colors">产品 <i class="fas fa-chevron-down text-[10px] ml-1"></i></a>
+
+                <div class="absolute top-full left-0 mt-2 w-48 glass rounded-xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+
+                    <a href="products/robots.html" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-robot mr-2 text-accent text-xs"></i>具身智能机器人</a>
+
+                    <a href="products/openarm.html" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-industry mr-2 text-orange-500 text-xs"></i>OpenArm</a>
+
+                    <a href="products/dexterous-hand.html" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-hand-sparkles mr-2 text-purple-500 text-xs"></i>灵巧手</a>
+
+                    <a href="products/embedded-platform.html" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-microchip mr-2 text-emerald-500 text-xs"></i>多功能实训平台</a>
+
+                    <a href="products/courses.html" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-graduation-cap mr-2 text-purple-400 text-xs"></i>课程智能体</a>
+
+                </div>
+
+            </div>
+
+            <div class="group relative">
+                <a href="courses.html" class="px-4 py-2 text-gray-700 hover:text-gray-900 text-sm font-medium transition-colors">课程 <i class="fas fa-chevron-down text-[10px] ml-1"></i></a>
+                <div class="absolute top-full left-0 mt-2 w-56 glass rounded-xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                    <a href="courses.html#ai-courses" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-microchip mr-2 text-emerald-500 text-xs"></i>AI实训箱课程</a>
+                    <a href="courses.html#openarm-courses" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-industry mr-2 text-orange-500 text-xs"></i>OpenArm 机械臂课程</a>
+                    <a href="courses.html#robot-courses" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-robot mr-2 text-accent text-xs"></i>具身智能机器人课程</a>
+                    <a href="courses.html#dexterous-hand-courses" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-hand-sparkles mr-2 text-purple-500 text-xs"></i>灵巧手课程</a>
+                </div>
+            </div>
+
+            <div class="group relative">
+                <a href="solutions/education.html" class="px-4 py-2 text-gray-700 hover:text-gray-900 text-sm font-medium transition-colors">高校合作 <i class="fas fa-chevron-down text-[10px] ml-1"></i></a>
+                <div class="absolute top-full left-0 mt-2 w-48 glass rounded-xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                    <a href="solutions/education.html" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-flask mr-2 text-accent text-xs"></i>教育方案</a>
+                    <a href="solutions/education.html#chanjiao" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-handshake mr-2 text-warm text-xs"></i>产教研合作</a>
+                </div>
+            </div>
+
+            
+
+            <a href="about.html" class="px-4 py-2 text-gray-700 hover:text-gray-900 text-sm font-medium transition-colors">关于</a>
+
+        </div>
+
+        <a href="contact.html" style="background-color:#2563eb;" onmouseover="this.style.backgroundColor=\'#1d4ed8\'" onmouseout="this.style.backgroundColor=\'#2563eb\'" class="hidden lg:inline-flex items-center px-5 py-2.5 text-white text-sm font-semibold rounded-lg transition-colors">预约演示</a>
+
+        <button class="lg:hidden text-gray-900 p-2" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"><i class="fas fa-bars text-xl"></i></button>
+
+    </div>
+
+    <!-- Mobile Menu -->
+
+    <div id="mobile-menu" class="hidden lg:hidden glass border-t border-gray-200 px-6 py-4">
+
+        <a href="index.html" class="block py-3 text-accent font-medium">首页</a>
+
+        <a href="products/robots.html" class="block py-3 text-gray-700">具身智能机器人</a>
+
+        <a href="products/openarm.html" class="block py-3 text-gray-700">OpenArm</a>
+
+        <a href="products/dexterous-hand.html" class="block py-3 text-gray-700">灵巧手</a>
+
+        <a href="products/embedded-platform.html" class="block py-3 text-gray-700">多功能实训平台</a>
+
+                <a href="courses.html" class="block py-3 text-gray-700 font-medium"><i class="fas fa-book-open mr-2 text-accent2 text-xs"></i>课程</a>
+        <a href="courses.html#ai-courses" class="block py-3 text-gray-700 pl-4"><i class="fas fa-microchip mr-2 text-emerald-500 text-xs"></i>AI实训箱课程</a>
+        <a href="courses.html#openarm-courses" class="block py-3 text-gray-700 pl-4"><i class="fas fa-industry mr-2 text-orange-500 text-xs"></i>OpenArm 机械臂课程</a>
+        <a href="courses.html#robot-courses" class="block py-3 text-gray-700 pl-4"><i class="fas fa-robot mr-2 text-accent text-xs"></i>具身智能机器人课程</a>
+        <a href="courses.html#dexterous-hand-courses" class="block py-3 text-gray-700 pl-4"><i class="fas fa-hand-sparkles mr-2 text-purple-500 text-xs"></i>灵巧手课程</a>
+
+                <a href="courses.html" class="block py-3 text-gray-700 font-medium"><i class="fas fa-book-open mr-2 text-accent2 text-xs"></i>课程</a>
+        <a href="courses.html#ai-courses" class="block py-3 text-gray-700 pl-4"><i class="fas fa-microchip mr-2 text-emerald-500 text-xs"></i>AI实训箱课程</a>
+        <a href="courses.html#openarm-courses" class="block py-3 text-gray-700 pl-4"><i class="fas fa-industry mr-2 text-orange-500 text-xs"></i>OpenArm 机械臂课程</a>
+        <a href="courses.html#robot-courses" class="block py-3 text-gray-700 pl-4"><i class="fas fa-robot mr-2 text-accent text-xs"></i>具身智能机器人课程</a>
+        <a href="courses.html#dexterous-hand-courses" class="block py-3 text-gray-700 pl-4"><i class="fas fa-hand-sparkles mr-2 text-purple-500 text-xs"></i>灵巧手课程</a>
+
+                <a href="solutions/education.html" class="block py-3 text-gray-700 font-medium"><i class="fas fa-university mr-2 text-accent text-xs"></i>高校合作</a>
+        <a href="solutions/education.html" class="block py-3 text-gray-700 pl-4"><i class="fas fa-flask mr-2 text-accent text-xs"></i>教育方案</a>
+        <a href="solutions/education.html#chanjiao" class="block py-3 text-gray-700 pl-4"><i class="fas fa-handshake mr-2 text-warm text-xs"></i>产教研合作</a>
+
+        
+
+        <a href="about.html" class="block py-3 text-gray-700">关于</a>
+
+        <a href="contact.html" style="background-color:#2563eb;" onmouseover="this.style.backgroundColor=\'#1d4ed8\'" onmouseout="this.style.backgroundColor=\'#2563eb\'" class="block mt-3 text-center py-3 rounded-lg font-semibold text-white">预约演示</a>
+
+    </div>
+
+</nav>
+
+<!-- ====== Hero ====== -->
+<header class="relative z-10 pt-32 pb-20">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+        <div class="inline-flex items-center space-x-2 mb-6 px-4 py-2 glass rounded-full">
+            <span class="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
+            <span class="text-sm text-muted">万物拟态 · 课程体系</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold tracking-tight">
+            <span class="text-gradient">课程体系</span>
+        </h1>
+        <p class="mt-6 text-lg text-muted max-w-2xl mx-auto leading-relaxed">
+            四大核心课程体系，覆盖从<strong class="text-accent">嵌入式AI实训</strong>到<strong class="text-orange-500">OpenArm开源机械臂</strong>再到<strong class="text-accent2">具身智能机器人</strong>与<strong class="text-purple-600">灵巧手</strong>的全链路人才培养，助力高校新工科建设。
+        </p>
+        <div class="mt-10 flex flex-wrap justify-center gap-4">
+            <a href="#ai-courses" class="px-8 py-3.5 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-xl transition-colors shadow-sm">
+                <i class="fas fa-microchip mr-2"></i>人工智能实训箱课程
+            </a>
+            <a href="#openarm-courses" class="px-8 py-3.5 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-xl transition-colors shadow-sm">
+                <i class="fas fa-industry mr-2"></i>OpenArm 机械臂课程
+            </a>
+            <a href="#robot-courses" class="px-8 py-3.5 bg-yellow-500 hover:bg-yellow-600 text-white font-semibold rounded-xl transition-colors shadow-sm">
+                <i class="fas fa-robot mr-2"></i>具身智能机器人课程
+            </a>
+            <a href="#dexterous-hand-courses" class="px-8 py-3.5 bg-purple-500 hover:bg-purple-600 text-white font-semibold rounded-xl transition-colors shadow-sm">
+                <i class="fas fa-hand-sparkles mr-2"></i>灵巧手课程
+            </a>
+        </div>
+    </div>
+</header>
+
+<!-- ====== 一、人工智能实训箱课程体系 ====== -->
+<section id="ai-courses" class="relative z-10 py-20 border-t border-border">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex items-center gap-3 mb-2">
+            <span class="text-accent font-bold text-sm tracking-wider uppercase">01</span>
+            <h2 class="text-3xl font-bold">人工智能实训箱课程体系</h2>
+        </div>
+        <p class="text-muted mb-4 max-w-3xl leading-relaxed">
+            基于万物拟态实训箱硬件平台，构建从<strong>底层系统、嵌入式开发、计算机视觉到端侧AI部署</strong>的全链路实践教学闭环。6门专业核心课程，100+综合实训项目，覆盖36个跨学科专业。
+        </p>
+
+        <!-- 平台核心优势 -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
+            <div class="bg-white rounded-2xl p-6 border border-border card-hover">
+                <div class="w-10 h-10 bg-accent/10 rounded-xl flex items-center justify-center mb-4">
+                    <i class="fas fa-microchip text-accent"></i>
+                </div>
+                <h4 class="font-bold mb-2 text-sm">高性能边缘计算</h4>
+                <p class="text-xs text-muted leading-relaxed">搭载Raspberry Pi 5终端，算力强劲，支持复杂算法运行，为嵌入式开发提供稳定底座。</p>
+            </div>
+            <div class="bg-white rounded-2xl p-6 border border-border card-hover">
+                <div class="w-10 h-10 bg-accent/10 rounded-xl flex items-center justify-center mb-4">
+                    <i class="fas fa-satellite-dish text-accent"></i>
+                </div>
+                <h4 class="font-bold mb-2 text-sm">全场景传感器矩阵</h4>
+                <p class="text-xs text-muted leading-relaxed">集成温湿度、光照、超声波等即插即用传感器，覆盖物联网感知层全维度教学需求。</p>
+            </div>
+            <div class="bg-white rounded-2xl p-6 border border-border card-hover">
+                <div class="w-10 h-10 bg-accent/10 rounded-xl flex items-center justify-center mb-4">
+                    <i class="fas fa-eye text-accent"></i>
+                </div>
+                <h4 class="font-bold mb-2 text-sm">多模态视觉交互</h4>
+                <p class="text-xs text-muted leading-relaxed">配备免驱摄像头、触摸屏与麦克风，无缝支持计算机视觉采集、人机智能交互类实训项目。</p>
+            </div>
+            <div class="bg-white rounded-2xl p-6 border border-border card-hover">
+                <div class="w-10 h-10 bg-accent/10 rounded-xl flex items-center justify-center mb-4">
+                    <i class="fas fa-magnet text-accent"></i>
+                </div>
+                <h4 class="font-bold mb-2 text-sm">磁吸式万物拟态架构</h4>
+                <p class="text-xs text-muted leading-relaxed">模块自由磁吸组合，快速构建从简单控制到复杂AIoT的多元场景，降低硬件搭建门槛。</p>
+            </div>
+        </div>
+
+        <!-- 课程进阶路径 -->
+        <div class="mb-12">
+            <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                <i class="fas fa-route text-accent"></i> 课程进阶学习路径
+            </h3>
+            <div class="relative">
+                <div class="hidden md:block absolute top-8 left-0 right-0 h-0.5 bg-border z-0"></div>
+                <div class="grid md:grid-cols-4 gap-6 relative z-10">
+                    <div class="bg-white rounded-2xl p-6 border border-border text-center">
+                        <div class="w-10 h-10 bg-accent text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold">01</div>
+                        <h4 class="font-bold mb-2 text-sm">底层基础夯实</h4>
+                        <p class="text-xs text-muted">Linux操作系统 · 传感器技术<br>构建硬件与系统基石</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 border border-border text-center">
+                        <div class="w-10 h-10 bg-accent text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold">02</div>
+                        <h4 class="font-bold mb-2 text-sm">核心开发能力</h4>
+                        <p class="text-xs text-muted">嵌入式系统开发<br>系统架构与驱动开发</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 border border-border text-center">
+                        <div class="w-10 h-10 bg-accent text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold">03</div>
+                        <h4 class="font-bold mb-2 text-sm">智能算法进阶</h4>
+                        <p class="text-xs text-muted">计算机视觉 · 视觉图像处理<br>算法验证与工程实战</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 border border-border text-center">
+                        <div class="w-10 h-10 bg-accent text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold">04</div>
+                        <h4 class="font-bold mb-2 text-sm">融合创新落地</h4>
+                        <p class="text-xs text-muted">嵌入式人工智能应用<br>算法+硬件全流程闭环</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6门核心课程 -->
+        <div>
+            <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                <i class="fas fa-book text-accent"></i> 6门专业核心课程
+            </h3>
+            <div class="space-y-6">
+                <!-- 课程1: Linux操作系统 -->
+                <div class="bg-white rounded-2xl p-8 border border-border card-hover">
+                    <div class="flex flex-wrap items-start gap-4">
+                        <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center shrink-0">
+                            <i class="fas fa-terminal text-accent text-lg"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-3 mb-2">
+                                <h4 class="font-bold text-lg">Linux操作系统</h4>
+                                <span class="text-xs px-2 py-0.5 bg-accent/10 text-accent rounded-full">基础核心</span>
+                            </div>
+                            <p class="text-sm text-muted leading-relaxed mb-4">嵌入式开发体系的核心基石课程，系统掌握Linux系统基础架构、核心操作与高级管理技能。从基础命令行到内核机制与嵌入式环境适配，培养嵌入式场景下的系统配置、调试与开发能力。</p>
+                            <div class="grid md:grid-cols-3 gap-4">
+                                <div class="bg-gray-50 rounded-xl p-4">
+                                    <h5 class="font-semibold text-sm mb-2">模块一：Linux基础入门</h5>
+                                    <p class="text-xs text-muted">系统架构与发行版差异，终端命令行，文件系统，Vim编辑，管道符与I/O重定向</p>
+                                </div>
+                                <div class="bg-gray-50 rounded-xl p-4">
+                                    <h5 class="font-semibold text-sm mb-2">模块二：系统管理与进程</h5>
+                                    <p class="text-xs text-muted">进程生命周期管理，网络参数配置，systemd服务，RPM/DEB包管理，环境变量配置</p>
+                                </div>
+                                <div class="bg-gray-50 rounded-xl p-4">
+                                    <h5 class="font-semibold text-sm mb-2">模块三：嵌入式Linux专项</h5>
+                                    <p class="text-xs text-muted">交叉编译环境，ARM工具链，内核启动流程，根文件系统构建，Shell脚本与开机自启</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 课程2: 传感器技术 -->
+                <div class="bg-white rounded-2xl p-8 border border-border card-hover">
+                    <div class="flex flex-wrap items-start gap-4">
+                        <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center shrink-0">
+                            <i class="fas fa-satellite-dish text-green-600 text-lg"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-3 mb-2">
+                                <h4 class="font-bold text-lg">传感器技术</h4>
+                                <span class="text-xs px-2 py-0.5 bg-green-100 text-green-700 rounded-full">感知基础</span>
+                            </div>
+                            <p class="text-sm text-muted leading-relaxed mb-4">覆盖各类常用传感器原理与应用，培养多传感器数据采集、处理与融合能力。构建"感知-处理-传输"全链路知识体系，为万物互联时代智能硬件开发夯实基础。</p>
+                            <div class="grid md:grid-cols-3 gap-4">
+                                <div class="bg-gray-50 rounded-xl p-4">
+                                    <h5 class="font-semibold text-sm mb-2">基础原理认知</h5>
+                                    <p class="text-xs text-muted">光电/温湿度/惯性传感器，AD转换与数字滤波，I2C/SPI/UART通信协议</p>
+                                </div>
+                                <div class="bg-gray-50 rounded-xl p-4">
+                                    <h5 class="font-semibold text-sm mb-2">多场景实操演练</h5>
+                                    <p class="text-xs text-muted">环境感知数据读取，运动传感器姿态解算，摄像头/红外/超声波综合实验</p>
+                                </div>
+                                <div class="bg-gray-50 rounded-xl p-4">
+                                    <h5 class="font-semibold text-sm mb-2">嵌入式系统落地</h5>
+                                    <p class="text-xs text-muted">Linux环境传感器驱动开发，多设备同步采集，MQTT/HTTP协议云端上传</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 课程3: 嵌入式系统开发 -->
+                <div class="bg-white rounded-2xl p-8 border border-border card-hover">
+                    <div class="flex flex-wrap items-start gap-4">
+                        <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center shrink-0">
+                            <i class="fas fa-microchip text-purple-600 text-lg"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-3 mb-2">
+                                <h4 class="font-bold text-lg">嵌入式系统开发</h4>
+                                <span class="text-xs px-2 py-0.5 bg-purple-100 text-purple-700 rounded-full">核心开发</span>
+                            </div>
+                            <p class="text-sm text-muted leading-relaxed mb-4">聚焦嵌入式系统核心技术，系统讲解从硬件架构解析到软件代码实现的完整流程。培养编写底层驱动、调试外设接口及开发复杂嵌入式应用的能力，掌握工业级嵌入式系统核心开发技能。</p>
+                            <div class="grid md:grid-cols-3 gap-4">
+                                <div class="bg-gray-50 rounded-xl p-4">
+                                    <h5 class="font-semibold text-sm mb-2">硬件架构基石</h5>
+                                    <p class="text-xs text-muted">ARM架构解析，MCU/MPU差异，GPIO/UART外设原理与寄存器操作</p>
+                                </div>
+                                <div class="bg-gray-50 rounded-xl p-4">
+                                    <h5 class="font-semibold text-sm mb-2">驱动开发核心</h5>
+                                    <p class="text-xs text-muted">Linux字符设备驱动开发，I2C/SPI框架，中断与定时器驱动</p>
+                                </div>
+                                <div class="bg-gray-50 rounded-xl p-4">
+                                    <h5 class="font-semibold text-sm mb-2">应用层实战</h5>
+                                    <p class="text-xs text-muted">C语言嵌入式编程，多线程与同步机制，网络套接字编程</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 课程4: 计算机视觉 -->
+                <div class="bg-white rounded-2xl p-8 border border-border card-hover">
+                    <div class="flex flex-wrap items-start gap-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center shrink-0">
+                            <i class="fas fa-eye text-blue-600 text-lg"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-3 mb-2">
+                                <h4 class="font-bold text-lg">计算机视觉</h4>
+                                <span class="text-xs px-2 py-0.5 bg-blue-100 text-blue-700 rounded-full">视觉基础</span>
+                            </div>
+                            <p class="text-sm text-muted leading-relaxed mb-4">系统介绍计算机视觉经典算法体系，掌握数字图像基础原理与OpenCV工具核心用法。通过理论学习与实战结合，具备图像处理、特征分析能力，并将成熟算法落地于实际工程项目。</p>
+                            <div class="grid md:grid-cols-3 gap-4">
+                                <div class="bg-gray-50 rounded-xl p-4">
+                                    <h5 class="font-semibold text-sm mb-2">视觉基础理论</h5>
+                                    <p class="text-xs text-muted">图像表示体系，像素与色彩空间转换，滤波降噪，边缘检测，阈值分割</p>
+                                </div>
+                                <div class="bg-gray-50 rounded-xl p-4">
+                                    <h5 class="font-semibold text-sm mb-2">经典视觉算法</h5>
+                                    <p class="text-xs text-muted">几何变换与校正，SIFT/ORB特征提取与匹配，目标定位与场景匹配</p>
+                                </div>
+                                <div class="bg-gray-50 rounded-xl p-4">
+                                    <h5 class="font-semibold text-sm mb-2">嵌入式部署应用</h5>
+                                    <p class="text-xs text-muted">OpenCV工程化，ARM/Linux平台交叉编译，实时视频流采集与算法优化</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 课程5: 视觉图像处理与实战 -->
+                <div class="bg-white rounded-2xl p-8 border border-border card-hover">
+                    <div class="flex flex-wrap items-start gap-4">
+                        <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center shrink-0">
+                            <i class="fas fa-image text-amber-600 text-lg"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-3 mb-2">
+                                <h4 class="font-bold text-lg">视觉图像处理与实战</h4>
+                                <span class="text-xs px-2 py-0.5 bg-amber-100 text-amber-700 rounded-full">工程实战</span>
+                            </div>
+                            <p class="text-sm text-muted leading-relaxed mb-4">聚焦视觉算法在工业与生活场景中的深度应用，通过真实工程实战项目将核心算法转化为可落地的解决方案，重点提升分析与解决复杂视觉问题的工程实践能力。</p>
+                            <div class="grid md:grid-cols-3 gap-4">
+                                <div class="bg-gray-50 rounded-xl p-4">
+                                    <h5 class="font-semibold text-sm mb-2">工程化预处理</h5>
+                                    <p class="text-xs text-muted">工业级图像预处理管线，去噪/畸变矫正/光照均衡，语义/实例分割与亚像素检测</p>
+                                </div>
+                                <div class="bg-gray-50 rounded-xl p-4">
+                                    <h5 class="font-semibold text-sm mb-2">智能识别应用</h5>
+                                    <p class="text-xs text-muted">条码检测与OCR技术，缺陷检测模型，关键点定位与部件姿态分析</p>
+                                </div>
+                                <div class="bg-gray-50 rounded-xl p-4">
+                                    <h5 class="font-semibold text-sm mb-2">嵌入式端优化</h5>
+                                    <p class="text-xs text-muted">ROI提取与NEON指令加速，动态帧率与算力分配，低功耗高效运行</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 课程6: 嵌入式人工智能应用 -->
+                <div class="bg-white rounded-2xl p-8 border border-border card-hover">
+                    <div class="flex flex-wrap items-start gap-4">
+                        <div class="w-12 h-12 bg-rose-100 rounded-xl flex items-center justify-center shrink-0">
+                            <i class="fas fa-brain text-rose-600 text-lg"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-3 mb-2">
+                                <h4 class="font-bold text-lg">嵌入式人工智能应用</h4>
+                                <span class="text-xs px-2 py-0.5 bg-rose-100 text-rose-700 rounded-full">AIoT制高点</span>
+                            </div>
+                            <p class="text-sm text-muted leading-relaxed mb-4">AIoT课程体系制高点，聚焦深度学习模型从算法到硬件的全流程落地。掌握模型训练、轻量化优化核心技术，部署到嵌入式终端，打通"算法+硬件"最后一公里。</p>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="bg-gray-50 rounded-xl p-4">
+                                    <h5 class="font-semibold text-sm mb-2">01 AI基础与轻量化模型构建</h5>
+                                    <p class="text-xs text-muted">CNN卷积神经网络，MobileNet/YOLO-Nano轻量化模型，模型量化与剪枝压缩优化</p>
+                                </div>
+                                <div class="bg-gray-50 rounded-xl p-4">
+                                    <h5 class="font-semibold text-sm mb-2">02 全流程模型训练与跨平台转换</h5>
+                                    <p class="text-xs text-muted">工业级数据集标注，PyTorch→ONNX→Tengine/NCNN格式转换与适配</p>
+                                </div>
+                                <div class="bg-gray-50 rounded-xl p-4">
+                                    <h5 class="font-semibold text-sm mb-2">03 嵌入式端侧推理与硬件联动</h5>
+                                    <p class="text-xs text-muted">Linux嵌入式AI推理环境，摄像头实时采集与AI推理，GPIO/显示屏外设闭环</p>
+                                </div>
+                                <div class="bg-gray-50 rounded-xl p-4">
+                                    <h5 class="font-semibold text-sm mb-2">04 硬件应用：AI落地</h5>
+                                    <p class="text-xs text-muted">轻量化YOLO模型部署到Raspberry Pi 5，实时目标检测，智能联动GPIO外设</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== 二、OpenArm 开源机械臂课程体系 ====== -->
+<section id="openarm-courses" class="relative z-10 py-20 border-t border-border">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex items-center gap-3 mb-2">
+            <span class="text-orange-500 font-bold text-sm tracking-wider uppercase">02</span>
+            <h2 class="text-3xl font-bold">OpenArm <span class="text-gradient-warm">开源机械臂</span>课程体系</h2>
+        </div>
+        <p class="text-muted mb-8 max-w-3xl leading-relaxed">
+            完全开源的国产人形机械臂，依托开源硬件与 ROS2 软件栈，主打跨学科工程实践，适配理工科核心课程。分为五大类：<strong class="text-orange-500">基础通识、核心专业、AI 融合、机械设计、综合实战</strong>，覆盖本科与高职院校核心课程。
+        </p>
+        <div class="mb-6">
+            <a href="products/openarm.html" class="text-sm text-orange-500 font-semibold hover:text-orange-600 transition-colors"><i class="fas fa-external-link-alt mr-1"></i>查看 OpenArm 产品详情 →</a>
+        </div>
+
+        <!-- 五大课程层次 -->
+        <div class="grid md:grid-cols-5 gap-4 mb-12">
+            <div class="bg-white rounded-xl p-5 border border-blue-200 text-center card-hover">
+                <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-3 font-bold text-sm">基</div>
+                <h4 class="font-bold text-sm mb-1">基础通识</h4>
+                <p class="text-xs text-muted">高职/本科低年级</p>
+            </div>
+            <div class="bg-white rounded-xl p-5 border border-purple-200 text-center card-hover">
+                <div class="w-10 h-10 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mx-auto mb-3 font-bold text-sm">核</div>
+                <h4 class="font-bold text-sm mb-1">核心专业</h4>
+                <p class="text-xs text-muted">本科/高职拔高</p>
+            </div>
+            <div class="bg-white rounded-xl p-5 border border-pink-200 text-center card-hover">
+                <div class="w-10 h-10 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center mx-auto mb-3 font-bold text-sm">AI</div>
+                <h4 class="font-bold text-sm mb-1">AI 融合</h4>
+                <p class="text-xs text-muted">本科/AI方向</p>
+            </div>
+            <div class="bg-white rounded-xl p-5 border border-amber-200 text-center card-hover">
+                <div class="w-10 h-10 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-3 font-bold text-sm">机</div>
+                <h4 class="font-bold text-sm mb-1">机械设计</h4>
+                <p class="text-xs text-muted">机械专业专属</p>
+            </div>
+            <div class="bg-white rounded-xl p-5 border border-indigo-200 text-center card-hover">
+                <div class="w-10 h-10 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-3 font-bold text-sm">战</div>
+                <h4 class="font-bold text-sm mb-1">综合实战</h4>
+                <p class="text-xs text-muted">全校公选·科创</p>
+            </div>
+        </div>
+
+        <!-- 课程列表 -->
+        <div class="space-y-6">
+            <!-- 基础通识类 -->
+            <div class="bg-white rounded-2xl p-8 border border-blue-200">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="px-3 py-1 bg-blue-100 text-blue-600 text-xs font-bold rounded-full">基础通识</span>
+                    <h4 class="font-bold">基础通识类课程 — 高职/本科低年级</h4>
+                </div>
+                <div class="grid md:grid-cols-2 gap-3">
+                    <div class="flex items-start gap-2 p-3 bg-gray-50 rounded-lg"><i class="fas fa-circle text-[6px] text-blue-400 mt-2"></i><div><span class="text-sm font-semibold">嵌入式系统/ARM嵌入式技术</span><span class="text-xs text-muted ml-2">硬件电路·驱动开发·交叉编译·Linux环境</span></div></div>
+                    <div class="flex items-start gap-2 p-3 bg-gray-50 rounded-lg"><i class="fas fa-circle text-[6px] text-blue-400 mt-2"></i><div><span class="text-sm font-semibold">单片机与接口技术</span><span class="text-xs text-muted ml-2">GPIO·串口·CAN·I2C/SPI通信实验</span></div></div>
+                    <div class="flex items-start gap-2 p-3 bg-gray-50 rounded-lg"><i class="fas fa-circle text-[6px] text-blue-400 mt-2"></i><div><span class="text-sm font-semibold">Linux操作系统（嵌入式方向）</span><span class="text-xs text-muted ml-2">终端操作·进程管理·服务配置</span></div></div>
+                    <div class="flex items-start gap-2 p-3 bg-gray-50 rounded-lg"><i class="fas fa-circle text-[6px] text-blue-400 mt-2"></i><div><span class="text-sm font-semibold">Python/C++ 程序设计</span><span class="text-xs text-muted ml-2">机械臂指令·数据采集·运动控制</span></div></div>
+                    <div class="flex items-start gap-2 p-3 bg-gray-50 rounded-lg"><i class="fas fa-circle text-[6px] text-blue-400 mt-2"></i><div><span class="text-sm font-semibold">传感器技术与检测</span><span class="text-xs text-muted ml-2">力传感器·姿态传感器·视觉传感器</span></div></div>
+                </div>
+            </div>
+            <!-- 核心专业类 -->
+            <div class="bg-white rounded-2xl p-8 border border-purple-200">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="px-3 py-1 bg-purple-100 text-purple-600 text-xs font-bold rounded-full">核心专业</span>
+                    <h4 class="font-bold">机器人核心专业课程 — 本科/高职拔高</h4>
+                </div>
+                <div class="grid md:grid-cols-2 gap-3">
+                    <div class="flex items-start gap-2 p-3 bg-gray-50 rounded-lg"><i class="fas fa-circle text-[6px] text-purple-400 mt-2"></i><div><span class="text-sm font-semibold">机器人学/机器人基础</span><span class="text-xs text-muted ml-2">正/逆运动学·静力学·动力学实物验证</span></div></div>
+                    <div class="flex items-start gap-2 p-3 bg-gray-50 rounded-lg"><i class="fas fa-circle text-[6px] text-purple-400 mt-2"></i><div><span class="text-sm font-semibold">机器人运动控制技术</span><span class="text-xs text-muted ml-2">PID·阻抗控制·轨迹规划·关节调试</span></div></div>
+                    <div class="flex items-start gap-2 p-3 bg-gray-50 rounded-lg"><i class="fas fa-circle text-[6px] text-purple-400 mt-2"></i><div><span class="text-sm font-semibold">工业机器人技术</span><span class="text-xs text-muted ml-2">示教编程·点位控制·轨迹运动·工装调试</span></div></div>
+                    <div class="flex items-start gap-2 p-3 bg-gray-50 rounded-lg"><i class="fas fa-circle text-[6px] text-purple-400 mt-2"></i><div><span class="text-sm font-semibold">机器人驱动与电气控制</span><span class="text-xs text-muted ml-2">伺服电机·驱动器·电气原理·接线调试</span></div></div>
+                    <div class="flex items-start gap-2 p-3 bg-gray-50 rounded-lg"><i class="fas fa-circle text-[6px] text-purple-400 mt-2"></i><div><span class="text-sm font-semibold">ROS/ROS2 机器人操作系统</span><span class="text-xs text-muted ml-2">节点开发·话题通信·仿真·多机协同</span></div></div>
+                </div>
+            </div>
+            <!-- AI融合类 -->
+            <div class="bg-white rounded-2xl p-8 border border-pink-200">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="px-3 py-1 bg-pink-100 text-pink-600 text-xs font-bold rounded-full">AI 融合</span>
+                    <h4 class="font-bold">人工智能与视觉融合课程 — 本科/AI方向</h4>
+                </div>
+                <div class="grid md:grid-cols-2 gap-3">
+                    <div class="flex items-start gap-2 p-3 bg-gray-50 rounded-lg"><i class="fas fa-circle text-[6px] text-pink-400 mt-2"></i><div><span class="text-sm font-semibold">计算机视觉与图像处理</span><span class="text-xs text-muted ml-2">图像采集·目标检测·特征匹配·视觉抓取</span></div></div>
+                    <div class="flex items-start gap-2 p-3 bg-gray-50 rounded-lg"><i class="fas fa-circle text-[6px] text-pink-400 mt-2"></i><div><span class="text-sm font-semibold">深度学习与机器人应用</span><span class="text-xs text-muted ml-2">模型部署·模仿学习·强化学习</span></div></div>
+                    <div class="flex items-start gap-2 p-3 bg-gray-50 rounded-lg"><i class="fas fa-circle text-[6px] text-pink-400 mt-2"></i><div><span class="text-sm font-semibold">人机交互技术</span><span class="text-xs text-muted ml-2">语音交互·视觉交互·力控交互</span></div></div>
+                </div>
+            </div>
+            <!-- 机械设计类 -->
+            <div class="bg-white rounded-2xl p-8 border border-amber-200">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="px-3 py-1 bg-amber-100 text-amber-600 text-xs font-bold rounded-full">机械设计</span>
+                    <h4 class="font-bold">机械设计类课程 — 机械专业专属</h4>
+                </div>
+                <div class="grid md:grid-cols-2 gap-3">
+                    <div class="flex items-start gap-2 p-3 bg-gray-50 rounded-lg"><i class="fas fa-circle text-[6px] text-amber-400 mt-2"></i><div><span class="text-sm font-semibold">机械原理/机械设计</span><span class="text-xs text-muted ml-2">连杆机构·运动副·传动结构实物分析</span></div></div>
+                    <div class="flex items-start gap-2 p-3 bg-gray-50 rounded-lg"><i class="fas fa-circle text-[6px] text-amber-400 mt-2"></i><div><span class="text-sm font-semibold">三维建模与机械创新设计</span><span class="text-xs text-muted ml-2">开源CAD二次设计·3D打印·结构改装</span></div></div>
+                </div>
+            </div>
+            <!-- 综合实战类 -->
+            <div class="bg-white rounded-2xl p-8 border border-indigo-200">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="px-3 py-1 bg-indigo-100 text-indigo-600 text-xs font-bold rounded-full">综合实战</span>
+                    <h4 class="font-bold">综合实训/竞赛类课程 — 全校公选·科创课</h4>
+                </div>
+                <div class="grid md:grid-cols-2 gap-3">
+                    <div class="flex items-start gap-2 p-3 bg-gray-50 rounded-lg"><i class="fas fa-circle text-[6px] text-indigo-400 mt-2"></i><div><span class="text-sm font-semibold">机器人综合实训/工程创新实训</span><span class="text-xs text-muted ml-2">跨学科综合·机械+电气+编程+视觉</span></div></div>
+                    <div class="flex items-start gap-2 p-3 bg-gray-50 rounded-lg"><i class="fas fa-circle text-[6px] text-indigo-400 mt-2"></i><div><span class="text-sm font-semibold">学科竞赛指导课</span><span class="text-xs text-muted ml-2">机器人大赛·职业技能大赛·AI创新大赛</span></div></div>
+                    <div class="flex items-start gap-2 p-3 bg-gray-50 rounded-lg"><i class="fas fa-circle text-[6px] text-indigo-400 mt-2"></i><div><span class="text-sm font-semibold">开源硬件与创客实践</span><span class="text-xs text-muted ml-2">组装·二次开发·创意项目制作</span></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 院校适配统计 -->
+        <div class="mt-12 grid md:grid-cols-3 gap-6">
+            <div class="bg-white rounded-xl p-6 border border-border">
+                <div class="text-xs text-muted mb-2">本科院校适配</div>
+                <div class="text-sm text-muted leading-relaxed">机器人工程、自动化、机械电子、计算机、人工智能、智能制造等 — 覆盖专业基础课、专业课、研究生科研实训</div>
+            </div>
+            <div class="bg-white rounded-xl p-6 border border-border">
+                <div class="text-xs text-muted mb-2">高职院校适配</div>
+                <div class="text-sm text-muted leading-relaxed">工业机器人技术、机电一体化、电气自动化、物联网、AI技术应用、机械制造及自动化</div>
+            </div>
+            <div class="bg-white rounded-xl p-6 border border-border text-center">
+                <div class="text-4xl font-light text-orange-500">10+</div>
+                <div class="text-sm text-muted mt-1">所本科院校已纳入常规课程与科研平台</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== 三、具身智能机器人课程体系 ====== -->
+<section id="robot-courses" class="relative z-10 py-20 bg-secondary">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex items-center gap-3 mb-2">
+            <span class="text-accent2 font-bold text-sm tracking-wider uppercase">03</span>
+            <h2 class="text-3xl font-bold">具身智能机器人课程体系</h2>
+        </div>
+        <p class="text-muted mb-4 max-w-3xl leading-relaxed">
+            基于<strong class="text-accent2">Mini Pi具身智能机器人</strong>硬件平台，构建从<strong class="text-accent2">环境搭建、设备调试、交互控制到仿真训练、实体部署</strong>的全链路实践闭环。共10节核心课程，54学时，分基础模块（1-5节）与高阶模块（6-10节）两大进阶阶段，配套赛事赋能、精品资源、师资研修、产教研协同四维一体支持体系。
+        </p>
+
+        <!-- 课程数据统计 -->
+        <div class="grid grid-cols-3 gap-6 mb-12">
+            <div class="bg-white rounded-2xl p-8 border border-border text-center">
+                <div class="text-5xl font-bold text-accent2 mb-2">10</div>
+                <div class="text-sm text-muted">节核心课程</div>
+            </div>
+            <div class="bg-white rounded-2xl p-8 border border-border text-center">
+                <div class="text-5xl font-bold text-accent2 mb-2">54</div>
+                <div class="text-sm text-muted">学时</div>
+            </div>
+            <div class="bg-white rounded-2xl p-8 border border-border text-center">
+                <div class="text-5xl font-bold text-accent2 mb-2">2</div>
+                <div class="text-sm text-muted">大进阶模块</div>
+            </div>
+        </div>
+
+        <!-- 基础模块 (1-5节) -->
+        <div class="mb-12">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="px-3 py-1 bg-accent2/10 text-accent2 text-xs font-semibold rounded-full">基础模块</span>
+                <h3 class="text-xl font-bold">第1-5节：基础入门与核心控制</h3>
+            </div>
+            <div class="space-y-4">
+                <!-- 第1节：环境的调配 -->
+                <div class="bg-white rounded-2xl p-6 border border-border card-hover">
+                    <div class="flex flex-wrap items-start gap-4">
+                        <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center shrink-0">
+                            <span class="text-accent2 font-bold">01</span>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-3 mb-2">
+                                <h4 class="font-bold text-lg">环境的调配</h4>
+                                <span class="text-xs px-2 py-0.5 bg-blue-50 text-blue-700 rounded-full">基础入门</span>
+                            </div>
+                            <p class="text-sm text-muted leading-relaxed">基础开发运行环境搭建，包括仿真平台安装、依赖库配置、开发工具链部署。为后续所有课程实验奠定软件与系统基础。</p>
+                            <div class="flex flex-wrap gap-1 mt-3">
+                                <span class="text-xs px-2 py-0.5 bg-gray-100 rounded">仿真平台安装</span>
+                                <span class="text-xs px-2 py-0.5 bg-gray-100 rounded">依赖库配置</span>
+                                <span class="text-xs px-2 py-0.5 bg-gray-100 rounded">开发工具链部署</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第2节：设备的调试 -->
+                <div class="bg-white rounded-2xl p-6 border border-border card-hover">
+                    <div class="flex flex-wrap items-start gap-4">
+                        <div class="w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center shrink-0">
+                            <span class="text-green-600 font-bold">02</span>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-3 mb-2">
+                                <h4 class="font-bold text-lg">设备的调试</h4>
+                                <span class="text-xs px-2 py-0.5 bg-green-50 text-green-700 rounded-full">硬件基础</span>
+                            </div>
+                            <p class="text-sm text-muted leading-relaxed">机器人硬件设备部署调试，传感器标定、执行器校准、通信链路测试。掌握从开箱到可运行状态的完整硬件调试流程。</p>
+                            <div class="flex flex-wrap gap-1 mt-3">
+                                <span class="text-xs px-2 py-0.5 bg-gray-100 rounded">传感器标定</span>
+                                <span class="text-xs px-2 py-0.5 bg-gray-100 rounded">执行器校准</span>
+                                <span class="text-xs px-2 py-0.5 bg-gray-100 rounded">通信链路测试</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第3节：语音输入、语音输出 -->
+                <div class="bg-white rounded-2xl p-6 border border-border card-hover">
+                    <div class="flex flex-wrap items-start gap-4">
+                        <div class="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center shrink-0">
+                            <span class="text-purple-600 font-bold">03</span>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-3 mb-2">
+                                <h4 class="font-bold text-lg">语音输入、语音输出</h4>
+                                <span class="text-xs px-2 py-0.5 bg-purple-50 text-purple-700 rounded-full">标杆课程</span>
+                            </div>
+                            <p class="text-sm text-muted leading-relaxed">语音交互标杆样片课程，语音识别/合成接口调用、多轮对话逻辑实现。构建人机语音交互的完整技术能力。</p>
+                            <div class="flex flex-wrap gap-1 mt-3">
+                                <span class="text-xs px-2 py-0.5 bg-gray-100 rounded">语音识别</span>
+                                <span class="text-xs px-2 py-0.5 bg-gray-100 rounded">语音合成</span>
+                                <span class="text-xs px-2 py-0.5 bg-gray-100 rounded">多轮对话</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第4节：API调用 -->
+                <div class="bg-white rounded-2xl p-6 border border-border card-hover">
+                    <div class="flex flex-wrap items-start gap-4">
+                        <div class="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center shrink-0">
+                            <span class="text-amber-600 font-bold">04</span>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-3 mb-2">
+                                <h4 class="font-bold text-lg">API调用</h4>
+                                <span class="text-xs px-2 py-0.5 bg-amber-50 text-amber-700 rounded-full">接口开发</span>
+                            </div>
+                            <p class="text-sm text-muted leading-relaxed">工具接口对接实操，RESTful API调用、传感器数据读取、控制指令下发。掌握机器人与外部系统互联互通的核心技术。</p>
+                            <div class="flex flex-wrap gap-1 mt-3">
+                                <span class="text-xs px-2 py-0.5 bg-gray-100 rounded">RESTful API</span>
+                                <span class="text-xs px-2 py-0.5 bg-gray-100 rounded">传感器数据读取</span>
+                                <span class="text-xs px-2 py-0.5 bg-gray-100 rounded">控制指令下发</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第5节：动作调用 -->
+                <div class="bg-white rounded-2xl p-6 border border-border card-hover">
+                    <div class="flex flex-wrap items-start gap-4">
+                        <div class="w-12 h-12 bg-rose-50 rounded-xl flex items-center justify-center shrink-0">
+                            <span class="text-rose-600 font-bold">05</span>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-3 mb-2">
+                                <h4 class="font-bold text-lg">动作调用</h4>
+                                <span class="text-xs px-2 py-0.5 bg-rose-50 text-rose-700 rounded-full">运动控制</span>
+                            </div>
+                            <p class="text-sm text-muted leading-relaxed">机器人基础动作指令编程，关节运动控制、动作序列编排、运动学基础。从单关节到多关节协同，掌握机器人运动编程核心技能。</p>
+                            <div class="flex flex-wrap gap-1 mt-3">
+                                <span class="text-xs px-2 py-0.5 bg-gray-100 rounded">关节运动控制</span>
+                                <span class="text-xs px-2 py-0.5 bg-gray-100 rounded">动作序列编排</span>
+                                <span class="text-xs px-2 py-0.5 bg-gray-100 rounded">运动学基础</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 高阶模块 (6-10节) -->
+        <div class="mb-12">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="px-3 py-1 bg-accent2/10 text-accent2 text-xs font-semibold rounded-full">高阶模块</span>
+                <h3 class="text-xl font-bold">第6-10节：仿真训练与实战部署</h3>
+            </div>
+            <div class="space-y-4">
+                <!-- 第6节：数字孪生的搭建 -->
+                <div class="bg-white rounded-2xl p-6 border border-border card-hover">
+                    <div class="flex flex-wrap items-start gap-4">
+                        <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center shrink-0">
+                            <span class="text-indigo-600 font-bold">06</span>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-3 mb-2">
+                                <h4 class="font-bold text-lg">数字孪生的搭建</h4>
+                                <span class="text-xs px-2 py-0.5 bg-indigo-50 text-indigo-700 rounded-full">仿真建模</span>
+                            </div>
+                            <p class="text-sm text-muted leading-relaxed">仿真场景建模，Isaac Sim/NVIDIA Omniverse数字孪生环境构建与资产导入。构建虚拟仿真环境，为强化学习训练与算法验证提供数字底座。</p>
+                            <div class="flex flex-wrap gap-1 mt-3">
+                                <span class="text-xs px-2 py-0.5 bg-gray-100 rounded">Isaac Sim</span>
+                                <span class="text-xs px-2 py-0.5 bg-gray-100 rounded">Omniverse</span>
+                                <span class="text-xs px-2 py-0.5 bg-gray-100 rounded">资产导入</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第7节：动作的导入示教功能 -->
+                <div class="bg-white rounded-2xl p-6 border border-border card-hover">
+                    <div class="flex flex-wrap items-start gap-4">
+                        <div class="w-12 h-12 bg-cyan-50 rounded-xl flex items-center justify-center shrink-0">
+                            <span class="text-cyan-600 font-bold">07</span>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-3 mb-2">
+                                <h4 class="font-bold text-lg">动作的导入示教功能</h4>
+                                <span class="text-xs px-2 py-0.5 bg-cyan-50 text-cyan-700 rounded-full">示教编程</span>
+                            </div>
+                            <p class="text-sm text-muted leading-relaxed">机器人拖拽示教实操，动作录制、轨迹复现、示教编程流程。零代码实现机器人动作学习，降低运动编程门槛。</p>
+                            <div class="flex flex-wrap gap-1 mt-3">
+                                <span class="text-xs px-2 py-0.5 bg-gray-100 rounded">拖拽示教</span>
+                                <span class="text-xs px-2 py-0.5 bg-gray-100 rounded">动作录制</span>
+                                <span class="text-xs px-2 py-0.5 bg-gray-100 rounded">轨迹复现</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第8节：Isaaclab动作训练 -->
+                <div class="bg-white rounded-2xl p-6 border border-border card-hover">
+                    <div class="flex flex-wrap items-start gap-4">
+                        <div class="w-12 h-12 bg-violet-50 rounded-xl flex items-center justify-center shrink-0">
+                            <span class="text-violet-600 font-bold">08</span>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-3 mb-2">
+                                <h4 class="font-bold text-lg">Isaaclab动作训练</h4>
+                                <span class="text-xs px-2 py-0.5 bg-violet-50 text-violet-700 rounded-full">标杆课程</span>
+                            </div>
+                            <p class="text-sm text-muted leading-relaxed">仿真强化学习训练标杆样片，策略网络训练、域随机化、Sim2Real迁移。从虚拟到现实，掌握强化学习驱动机器人自主进化的核心技术。</p>
+                            <div class="flex flex-wrap gap-1 mt-3">
+                                <span class="text-xs px-2 py-0.5 bg-gray-100 rounded">强化学习训练</span>
+                                <span class="text-xs px-2 py-0.5 bg-gray-100 rounded">域随机化</span>
+                                <span class="text-xs px-2 py-0.5 bg-gray-100 rounded">Sim2Real迁移</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第9节：实体机部署 -->
+                <div class="bg-white rounded-2xl p-6 border border-border card-hover">
+                    <div class="flex flex-wrap items-start gap-4">
+                        <div class="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center shrink-0">
+                            <span class="text-orange-600 font-bold">09</span>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-3 mb-2">
+                                <h4 class="font-bold text-lg">实体机部署</h4>
+                                <span class="text-xs px-2 py-0.5 bg-orange-50 text-orange-700 rounded-full">虚实迁移</span>
+                            </div>
+                            <p class="text-sm text-muted leading-relaxed">仿真模型下发实体机器人，模型转换、固件烧录、实物测试与调试。打通"仿真训练→实体运行"的最后一公里，实现虚实闭环。</p>
+                            <div class="flex flex-wrap gap-1 mt-3">
+                                <span class="text-xs px-2 py-0.5 bg-gray-100 rounded">模型转换</span>
+                                <span class="text-xs px-2 py-0.5 bg-gray-100 rounded">固件烧录</span>
+                                <span class="text-xs px-2 py-0.5 bg-gray-100 rounded">实物调试</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第10节：足球案例 -->
+                <div class="bg-white rounded-2xl p-6 border border-border card-hover">
+                    <div class="flex flex-wrap items-start gap-4">
+                        <div class="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center shrink-0">
+                            <span class="text-emerald-600 font-bold">10</span>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-3 mb-2">
+                                <h4 class="font-bold text-lg">足球案例</h4>
+                                <span class="text-xs px-2 py-0.5 bg-emerald-50 text-emerald-700 rounded-full">综合实战</span>
+                            </div>
+                            <p class="text-sm text-muted leading-relaxed">综合项目实战，环境感知→决策规划→动作执行全流程整合案例。以机器人足球对抗为场景，串联前9节全部知识点，检验完整技术栈的实战应用能力。</p>
+                            <div class="flex flex-wrap gap-1 mt-3">
+                                <span class="text-xs px-2 py-0.5 bg-gray-100 rounded">环境感知</span>
+                                <span class="text-xs px-2 py-0.5 bg-gray-100 rounded">决策规划</span>
+                                <span class="text-xs px-2 py-0.5 bg-gray-100 rounded">动作执行</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 配套拓展体系 -->
+        <div>
+            <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                <i class="fas fa-puzzle-piece text-accent2"></i> 配套拓展体系
+            </h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div class="bg-white rounded-2xl p-6 border border-border text-center card-hover">
+                    <div class="text-3xl mb-3">🏆</div>
+                    <h4 class="font-bold mb-2 text-sm">赛事赋能课程</h4>
+                    <p class="text-xs text-muted leading-relaxed">聚焦计算机应用能力与数字素养大赛，提供世赛具身智能赛项专项辅导。通过赛事真实案例与团队协作任务训练，全面提升实战竞技能力。</p>
+                </div>
+                <div class="bg-white rounded-2xl p-6 border border-border text-center card-hover">
+                    <div class="text-3xl mb-3">📚</div>
+                    <h4 class="font-bold mb-2 text-sm">精品数字资源</h4>
+                    <p class="text-xs text-muted leading-relaxed">全课程配套资源库，涵盖教学大纲、教学设计、分章节视频与项目源码。配套活页式、项目式专业教材，满足混合式教学需求。</p>
+                </div>
+                <div class="bg-white rounded-2xl p-6 border border-border text-center card-hover">
+                    <div class="text-3xl mb-3">👨🏫</div>
+                    <h4 class="font-bold mb-2 text-sm">师资研修提升</h4>
+                    <p class="text-xs text-muted leading-relaxed">寒暑假前沿技术集训，深耕具身智能教研与课程设计。通过设备实操、项目实战与先进教学教法培训，打造双师型教师队伍。</p>
+                </div>
+                <div class="bg-white rounded-2xl p-6 border border-border text-center card-hover">
+                    <div class="text-3xl mb-3">🤝</div>
+                    <h4 class="font-bold mb-2 text-sm">产教研协同项目</h4>
+                    <p class="text-xs text-muted leading-relaxed">指导纵向教改与产教融合课题，落地教育部产学合作项目。引入企业真实项目实训与数据标注实战，推动教育链、人才链与产业链有机衔接。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== 四、灵巧手课程体系 ====== -->
+<section id="dexterous-hand-courses" class="relative z-10 py-20 border-t border-border">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex items-center gap-3 mb-2">
+            <span class="text-purple-600 font-bold text-sm tracking-wider uppercase">04</span>
+            <h2 class="text-3xl font-bold">灵巧手 <span class="text-gradient" style="background:linear-gradient(135deg,#8b5cf6,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent">ROS SDK 分层课程</span>体系</h2>
+        </div>
+        <p class="text-muted mb-2 max-w-3xl leading-relaxed">
+            万物拟态・基于 <strong class="text-purple-600">LinkerHand ROS SDK</strong> 分层课程体系，适配高职 / 本科 / 研究生。依托灵心巧手 LinkerHand ROS1/ROS2 全套 SDK，结合万物拟态 UnitClaw 软硬件整合能力，打造三层递进、理实一体、产赛研融合的标准化灵巧手教学体系。
+        </p>
+        <p class="text-sm text-gray-400 mb-6">
+            <i class="fas fa-link mr-1"></i>SDK 文档参考：<a href="https://document.linkeros.cn/developer/41" target="_blank" class="text-purple-600 hover:underline">LinkerHand ROS SDK 开发文档</a>
+            <span class="mx-2">|</span>
+            <a href="products/dexterous-hand.html" class="text-purple-600 hover:underline"><i class="fas fa-external-link-alt mr-1"></i>查看灵巧手产品详情</a>
+        </p>
+
+        <!-- 课程体系整体定位 -->
+        <div class="bg-white rounded-2xl shadow-sm border border-purple-100 p-8 mb-10">
+            <h3 class="text-xl font-bold text-purple-700 mb-6"><i class="fas fa-sitemap mr-2"></i>课程体系整体定位</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-100">
+                    <div class="flex items-center mb-3"><i class="fas fa-microchip text-blue-600 text-xl mr-2"></i><h4 class="font-bold text-gray-800">底层硬件支撑</h4></div>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li>• 灵心巧手全系：O7/L6/L10/L16/L20/L25，覆盖低中高多自由度梯度</li>
+                        <li>• 万物拟态 UnitClaw 统一教学调度平台、虚实仿真系统、配套实训台</li>
+                    </ul>
+                </div>
+                <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 border border-green-100">
+                    <div class="flex items-center mb-3"><i class="fas fa-code text-green-600 text-xl mr-2"></i><h4 class="font-bold text-gray-800">软件教学底座</h4></div>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li>• 原生 LinkerHand ROS SDK（兼容 ROS1 Noetic / ROS2 Humble）</li>
+                        <li>• 完整复用官方 100+ 开源示例代码 + 万物拟态教学封装与二次开发</li>
+                    </ul>
+                </div>
+                <div class="bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-6 border border-orange-100">
+                    <div class="flex items-center mb-3"><i class="fas fa-layer-group text-orange-600 text-xl mr-2"></i><h4 class="font-bold text-gray-800">分层培养逻辑</h4></div>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li>• <strong>高职层：</strong>实操运维 + 基础编程 → 设备调试、产线集成岗位</li>
+                        <li>• <strong>本科层：</strong>ROS 开发 + 手眼协同 + 力触觉感知 → 机器人系统开发</li>
+                        <li>• <strong>研究生层：</strong>具身智能算法 + 模仿学习 + 抓取大模型 → 科研创新、学科竞赛</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第一层级：高职 -->
+        <div class="bg-white rounded-2xl shadow-sm border border-border p-8 mb-8">
+            <div class="flex items-center mb-6">
+                <span class="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-500 text-white rounded-xl flex items-center justify-center font-bold mr-4 shrink-0">一</span>
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800">高职 / 专科：《仿生灵巧手基础实训》</h3>
+                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i>48 学时 · 工业机器人 / 机电一体化专业</p>
+                </div>
+            </div>
+            <p class="mb-4 text-gray-600"><strong>培养目标：</strong>掌握灵巧手硬件拆装、图形化控制、Python 基础指令、工业抓取实操，能完成灵巧手设备调试、简单自动化抓取工位开发。</p>
+            <p class="mb-4 text-muted text-sm"><strong>配套硬件：</strong>L6/O7 低成本教学灵巧手、桌面实训台、UnitClaw 可视化控制软件</p>
+            <div class="space-y-6 mt-6">
+                <div class="border-l-4 border-blue-300 pl-4">
+                    <h4 class="font-semibold text-blue-700 mb-2">模块 1：灵巧手硬件认知与系统环境搭建（8 学时）</h4>
+                    <ul class="text-sm text-gray-600 space-y-1 ml-2">
+                        <li>• 灵心巧手连杆/腱驱/直驱结构拆解，自由度、伺服电机、电子皮肤、指尖传感器原理认知</li>
+                        <li>• Ubuntu 系统安装、ROS1 基础环境部署、LinkerHand SDK 源码拉取与编译</li>
+                        <li>• setting.yaml 配置文件修改、左右手硬件匹配、CAN 通信故障排查（对应 SDK 配置文档）</li>
+                        <li><strong class="text-blue-600">实训考核：</strong>独立完成 SDK 启动、硬件通信自检、设备故障排查</li>
+                    </ul>
+                </div>
+                <div class="border-l-4 border-cyan-300 pl-4">
+                    <h4 class="font-semibold text-cyan-700 mb-2">模块 2：图形界面 GUI 控制实操（12 学时）<span class="text-xs font-normal text-gray-400 ml-2">→ SDK 0002-gui_control</span></h4>
+                    <ul class="text-sm text-gray-600 space-y-1 ml-2">
+                        <li>• GUI 滑动条单关节独立控制、五指姿态手动调节</li>
+                        <li>• 动作点位保存、姿态复现、成套手势动作录制</li>
+                        <li>• 课堂分组实训：握拳、伸展、捏取、波浪手势基础演示</li>
+                        <li><strong class="text-cyan-600">综合任务：</strong>制作一套产品展示手势流程，GUI 一键复现</li>
+                    </ul>
+                </div>
+                <div class="border-l-4 border-sky-300 pl-4">
+                    <h4 class="font-semibold text-sky-700 mb-2">模块 3：Python 基础指令开发（16 学时）<span class="text-xs font-normal text-gray-400 ml-2">→ Python L20 系列基础案例</span></h4>
+                    <ul class="text-sm text-gray-600 space-y-1 ml-2">
+                        <li>• 0102-gesture-Show-OK：OK 手势程序编写、参数调速</li>
+                        <li>• 0103-gesture-Show-Surround-Index-Finger：食指旋转动作开发</li>
+                        <li>• 0104-gesture-Show-Wave：四指波浪循环动作</li>
+                        <li>• 0106-gesture-Loop：循环抓取释放工业动作</li>
+                        <li>• 0101-lipcontroller：触觉触发自动捏取（柔性物料实操）</li>
+                    </ul>
+                </div>
+                <div class="border-l-4 border-teal-300 pl-4">
+                    <h4 class="font-semibold text-teal-700 mb-2">模块 4：工业抓取综合实训（12 学时）</h4>
+                    <ul class="text-sm text-gray-600 space-y-1 ml-2">
+                        <li>• 力传感器数据读取（0003-get_linker_hand_force），根据夹持力判定物料有无</li>
+                        <li>• 速度、电流参数设置（0004/0005/0006/0007），适配软/硬物料调节夹持力度</li>
+                        <li><strong class="text-teal-600">期末综合项目：</strong>分拣工作站 —— 灵巧手自动识别、抓取、分类物料</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-4 p-3 bg-blue-50 rounded-lg text-xs text-blue-700"><i class="fas fa-box-open mr-1"></i><strong>配套教学资源（万物拟态自研）：</strong>实训指导书、操作视频、Python 基础代码模板、设备故障排查手册、1+X 技能考核题库</div>
+        </div>
+
+        <!-- 第二层级：本科 -->
+        <div class="bg-white rounded-2xl shadow-sm border border-border p-8 mb-8">
+            <div class="flex items-center mb-6">
+                <span class="w-10 h-10 bg-gradient-to-br from-purple-500 to-violet-500 text-white rounded-xl flex items-center justify-center font-bold mr-4 shrink-0">二</span>
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800">本科：《ROS 灵巧手与手眼协同开发》</h3>
+                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i>64 学时 · 机器人工程 / 自动化 / 人工智能专业</p>
+                </div>
+            </div>
+            <p class="mb-4 text-gray-600"><strong>培养目标：</strong>精通 ROS1/ROS2 双版本开发，掌握多模态感知融合、手眼协同、虚实仿真、遥操作，可独立完成灵巧手系统集成与课程设计。</p>
+            <p class="mb-4 text-muted text-sm"><strong>配套硬件：</strong>L10/L16 多自由度灵巧手、PyBullet 仿真工作站、单目视觉相机、UnitClaw 集群教学系统</p>
+            <div class="space-y-6 mt-6">
+                <div class="border-l-4 border-purple-300 pl-4">
+                    <h4 class="font-semibold text-purple-700 mb-2">模块 1：ROS 通信与灵巧手驱动底层开发（16 学时）</h4>
+                    <ul class="text-sm text-gray-600 space-y-1 ml-2">
+                        <li>• ROS 核心概念：节点、话题、服务、参数，灵巧手 SDK 通信架构解析</li>
+                        <li>• 源码研读：获取关节状态 0001、力/速度/电流传感器数据读取案例</li>
+                        <li>• 二次开发：自定义 ROS 话题，实时采集五指力觉、位置数据并可视化</li>
+                        <li>• L25 专用拓展：失能/使能/遥操模式切换（0201/0202/0203）</li>
+                    </ul>
+                </div>
+                <div class="border-l-4 border-violet-300 pl-4">
+                    <h4 class="font-semibold text-violet-700 mb-2">模块 2：PyBullet 虚实仿真开发（12 学时）<span class="text-xs font-normal text-gray-400 ml-2">→ SDK 0000-PyBullet</span></h4>
+                    <ul class="text-sm text-gray-600 space-y-1 ml-2">
+                        <li>• 仿真环境搭建、虚拟灵巧手模型加载、无硬件离线调试</li>
+                        <li>• 仿真与真机代码互通，一套程序兼容虚实双环境</li>
+                        <li><strong class="text-violet-600">实训项目：</strong>仿真环境下异形物体抓取轨迹规划</li>
+                    </ul>
+                </div>
+                <div class="border-l-4 border-fuchsia-300 pl-4">
+                    <h4 class="font-semibold text-fuchsia-700 mb-2">模块 3：手眼协同与触觉感知融合（16 学时）</h4>
+                    <ul class="text-sm text-gray-600 space-y-1 ml-2">
+                        <li>• 视觉 + 触觉双模态感知联动，RGB 摄像头 + 指尖力觉融合抓取</li>
+                        <li>• 猜拳互动项目（0009-finger_guessing）：视觉识别手势 + 灵巧手交互反馈</li>
+                        <li>• 柔性物体精细操作：基于触觉反馈自适应夹持力控制算法开发</li>
+                    </ul>
+                </div>
+                <div class="border-l-4 border-pink-300 pl-4">
+                    <h4 class="font-semibold text-pink-700 mb-2">模块 4：远程遥操作与集群教学系统（10 学时）</h4>
+                    <ul class="text-sm text-gray-600 space-y-1 ml-2">
+                        <li>• L25 遥操模式配置、动捕手套/视觉示教远程控制灵巧手</li>
+                        <li>• UnitClaw 集群平台多台灵巧手统一调度、教师端数据监控</li>
+                    </ul>
+                </div>
+                <div class="border-l-4 border-rose-300 pl-4">
+                    <h4 class="font-semibold text-rose-700 mb-2">模块 5：课程设计综合项目（10 学时）</h4>
+                    <ul class="text-sm text-gray-600 space-y-1 ml-2">
+                        <li>• 二选一完成完整 ROS 工程：<strong>A.</strong> 服务机器人展示交互系统 / <strong>B.</strong> 工业精密装配手眼抓取系统</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-4 p-3 bg-purple-50 rounded-lg text-xs text-purple-700"><i class="fas fa-box-open mr-1"></i><strong>配套资源：</strong>全套 PPT、完整 ROS 源码工程、虚实仿真实验指导、课程设计任务书、期中期末试卷</div>
+        </div>
+
+        <!-- 第三层级：研究生 -->
+        <div class="bg-white rounded-2xl shadow-sm border border-border p-8 mb-10">
+            <div class="flex items-center mb-6">
+                <span class="w-10 h-10 bg-gradient-to-br from-pink-500 to-red-500 text-white rounded-xl flex items-center justify-center font-bold mr-4 shrink-0">三</span>
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800">研究生 / 科创：《具身智能灵巧操作与强化学习》</h3>
+                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i>32 学时 · 选修 / 科研实训</p>
+                </div>
+            </div>
+            <p class="mb-4 text-gray-600"><strong>培养目标：</strong>基于 LinkerHand SDK 完成模仿学习、抓取生成算法、大模型具身部署，支撑毕业设计、学科竞赛、纵向课题申报。</p>
+            <p class="mb-4 text-muted text-sm"><strong>配套硬件：</strong>L20 旗舰 21 自由度灵巧手、人形机器人整机、GPU 训练工作站、DexScale 触觉数据集授权</p>
+            <div class="space-y-6 mt-6">
+                <div class="border-l-4 border-pink-300 pl-4">
+                    <h4 class="font-semibold text-pink-700 mb-2">模块 1：模仿学习 Human-Dex 训练框架（12 学时）<span class="text-xs font-normal text-gray-400 ml-2">→ SDK 1001-human-dex</span></h4>
+                    <ul class="text-sm text-gray-600 space-y-1 ml-2">
+                        <li>• Conda 深度学习环境搭建、数据集采集 HDF5 录制节点部署</li>
+                        <li>• 人工示教抓取数据采集、HIT 强化学习网络训练流程</li>
+                        <li>• 真机复现示教抓取动作，优化泛化抓取策略</li>
+                    </ul>
+                </div>
+                <div class="border-l-4 border-red-300 pl-4">
+                    <h4 class="font-semibold text-red-700 mb-2">模块 2：通用抓取算法 Unidexgrasp 移植开发（12 学时）<span class="text-xs font-normal text-gray-400 ml-2">→ SDK 1002-linker_unidexgrasp</span></h4>
+                    <ul class="text-sm text-gray-600 space-y-1 ml-2">
+                        <li>• ShadowHand 抓取姿态映射至 Linker L20 关节空间</li>
+                        <li>• GraspIPDF、GraspGlow、ContactNet 多模型训练与评估</li>
+                        <li>• 抓取姿态可视化、强化学习数据集生成</li>
+                    </ul>
+                </div>
+                <div class="border-l-4 border-orange-300 pl-4">
+                    <h4 class="font-semibold text-orange-700 mb-2">模块 3：科研综合创新项目（8 学时）</h4>
+                    <ul class="text-sm text-gray-600 space-y-1 ml-2">
+                        <li>• 可选研究方向：
+                            <br>&nbsp;&nbsp;① 多模态触觉视觉融合大模型灵巧操作
+                            <br>&nbsp;&nbsp;② 人形机器人整机手足协同运动控制
+                            <br>&nbsp;&nbsp;③ 竞赛专项：RoboMaster / 仿生机器人大赛灵巧手算法优化
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-4 p-3 bg-pink-50 rounded-lg text-xs text-pink-700"><i class="fas fa-box-open mr-1"></i><strong>配套资源：</strong>算法源码、数据集使用授权、论文写作指导、赛事技术支撑包</div>
+        </div>
+
+        <!-- 跨学段通用支撑 & 交付方案 -->
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-white rounded-2xl shadow-sm border border-border p-6">
+                <h3 class="text-lg font-bold text-gray-800 mb-4"><i class="fas fa-tools text-purple-500 mr-2"></i>跨学段通用实训支撑</h3>
+                <div class="space-y-4 text-sm text-gray-600">
+                    <div class="p-3 bg-gray-50 rounded-lg">
+                        <strong class="text-purple-700 block mb-1">1. 统一教学软件 UnitClaw Teaching Platform</strong>
+                        兼容灵心巧手全系列硬件，一键启动 ROS SDK 底层驱动；内置 SDK 全部案例可视化入口，无需手动输入终端命令；实训任务自动下发、操作数据记录、实训报告一键导出。
+                    </div>
+                    <div class="p-3 bg-gray-50 rounded-lg">
+                        <strong class="text-purple-700 block mb-1">2. 完整分层教学素材包</strong>
+                        理论课件：灵巧手机械结构、伺服驱动、ROS 开发、具身智能 AI<br>
+                        实操手册：每个 SDK 示例配套分步操作文档、报错解决方案<br>
+                        代码库：分类整理 SDK 全部 100+ 案例，注释汉化、适配教学简化<br>
+                        竞赛资源：猜拳、抓取、人形交互赛题算法模板
+                    </div>
+                    <div class="p-3 bg-gray-50 rounded-lg">
+                        <strong class="text-purple-700 block mb-1">3. 师资配套服务</strong>
+                        线下集中培训：SDK 环境搭建、案例实操、课程授课方法<br>
+                        全年技术答疑：ROS 编译报错、硬件通信、算法调优远程支持<br>
+                        课程持续更新：同步灵心巧手新版 SDK 迭代、新增实训案例
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-sm border border-border p-6">
+                <h3 class="text-lg font-bold text-gray-800 mb-4"><i class="fas fa-handshake text-pink-500 mr-2"></i>校企落地三种交付方案</h3>
+                <div class="space-y-4">
+                    <div class="p-4 border-l-4 border-blue-400 bg-blue-50/50 rounded-r-lg">
+                        <span class="inline-block px-2 py-0.5 bg-blue-500 text-white text-xs font-semibold rounded-full mb-2">方案 A</span>
+                        <h4 class="font-semibold text-gray-800">单门课程实训包</h4>
+                        <p class="text-xs text-muted mt-1">适合新增选修课 — L6/L10 灵巧手 + SDK 全套源码 + 分层实训讲义 + UnitClaw 教学软件 + 1 期师资培训</p>
+                    </div>
+                    <div class="p-4 border-l-4 border-purple-400 bg-purple-50/50 rounded-r-lg">
+                        <span class="inline-block px-2 py-0.5 bg-purple-500 text-white text-xs font-semibold rounded-full mb-2">方案 B</span>
+                        <h4 class="font-semibold text-gray-800">具身智能专项实验室</h4>
+                        <p class="text-xs text-muted mt-1">新工科专业建设 — 32 台灵巧手集群 + 仿真服务器 + 三层全套课程 + 实验室集成施工 + 2 年驻场技术服务</p>
+                    </div>
+                    <div class="p-4 border-l-4 border-pink-400 bg-pink-50/50 rounded-r-lg">
+                        <span class="inline-block px-2 py-0.5 bg-pink-500 text-white text-xs font-semibold rounded-full mb-2">方案 C</span>
+                        <h4 class="font-semibold text-gray-800">科创工作室</h4>
+                        <p class="text-xs text-muted mt-1">研究生/竞赛专项 — L20 旗舰科研设备 + 深度学习工作站 + 模仿学习/抓取算法全套源码 + 联合课题指导 + 赛事全程技术支撑</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SDK 案例映射表 -->
+        <div class="mt-10 bg-white rounded-2xl shadow-sm border border-border overflow-hidden">
+            <h3 class="text-lg font-bold text-gray-800 p-6 pb-4"><i class="fas fa-table text-purple-500 mr-2"></i>课程与原始 SDK 文档对应清单</h3>
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                    <thead>
+                        <tr class="bg-gradient-to-r from-purple-50 to-pink-50">
+                            <th class="px-4 py-3 text-left font-semibold text-gray-700">SDK 案例编号</th>
+                            <th class="px-4 py-3 text-left font-semibold text-gray-700">教学模块归属</th>
+                            <th class="px-4 py-3 text-left font-semibold text-gray-700">核心教学知识点</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100">
+                        <tr class="hover:bg-gray-50"><td class="px-4 py-3 font-mono text-purple-600 text-xs">0000-PyBullet 仿真</td><td class="px-4 py-3">本科虚实仿真模块</td><td class="px-4 py-3 text-gray-600">机器人离线仿真、虚实代码互通</td></tr>
+                        <tr class="hover:bg-gray-50"><td class="px-4 py-3 font-mono text-purple-600 text-xs">0001 - 获取灵巧手状态</td><td class="px-4 py-3">本科 ROS 底层开发</td><td class="px-4 py-3 text-gray-600">ROS 话题消息、关节数据解析</td></tr>
+                        <tr class="hover:bg-gray-50"><td class="px-4 py-3 font-mono text-purple-600 text-xs">0002-gui_control 图形界面</td><td class="px-4 py-3">高职基础实训</td><td class="px-4 py-3 text-gray-600">可视化控制、动作点位录制复现</td></tr>
+                        <tr class="hover:bg-gray-50"><td class="px-4 py-3 font-mono text-purple-600 text-xs">0003~0005 力/速度/电流读取</td><td class="px-4 py-3">高职工业抓取、本科感知融合</td><td class="px-4 py-3 text-gray-600">多传感器数据采集、夹持力自适应</td></tr>
+                        <tr class="hover:bg-gray-50"><td class="px-4 py-3 font-mono text-purple-600 text-xs">0101-lipcontroller 触觉捏取</td><td class="px-4 py-3">高职综合实训</td><td class="px-4 py-3 text-gray-600">触觉触发闭环抓取逻辑</td></tr>
+                        <tr class="hover:bg-gray-50"><td class="px-4 py-3 font-mono text-purple-600 text-xs">0102~0106 Python 手势动作</td><td class="px-4 py-3">高职 Python 编程模块</td><td class="px-4 py-3 text-gray-600">Python ROS 节点、连续动作控制</td></tr>
+                        <tr class="hover:bg-gray-50"><td class="px-4 py-3 font-mono text-purple-600 text-xs">0201~0203 L25 遥操模式</td><td class="px-4 py-3">本科遥操作模块</td><td class="px-4 py-3 text-gray-600">灵巧手远程控制、多模式切换</td></tr>
+                        <tr class="hover:bg-gray-50"><td class="px-4 py-3 font-mono text-purple-600 text-xs">0009-finger_guessing 猜拳</td><td class="px-4 py-3">本科手眼协同</td><td class="px-4 py-3 text-gray-600">视觉识别 + 灵巧手交互闭环</td></tr>
+                        <tr class="hover:bg-gray-50"><td class="px-4 py-3 font-mono text-purple-600 text-xs">1001-human-dex 模仿学习</td><td class="px-4 py-3">研究生科研模块</td><td class="px-4 py-3 text-gray-600">示教数据采集、强化学习训练</td></tr>
+                        <tr class="hover:bg-gray-50"><td class="px-4 py-3 font-mono text-purple-600 text-xs">1002-linker_unidexgrasp 抓取算法</td><td class="px-4 py-3">研究生科研模块</td><td class="px-4 py-3 text-gray-600">通用抓取网络、跨机型姿态映射</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== 培养目标 ====== -->
+<section class="relative z-10 py-20 border-t border-border">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold mb-4">培养目标</h2>
+            <p class="text-muted max-w-2xl mx-auto">致力于培养具备扎实理论基础、强大工程实践能力和前沿创新思维的具身智能领域复合型人才</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-white rounded-2xl p-6 border border-border text-center card-hover">
+                <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-layer-group text-accent text-lg"></i>
+                </div>
+                <h4 class="font-bold mb-2">系统设计能力</h4>
+                <p class="text-sm text-muted">掌握从底层硬件选型、驱动开发到上层软件架构设计的全栈开发与系统整合能力</p>
+            </div>
+            <div class="bg-white rounded-2xl p-6 border border-border text-center card-hover">
+                <div class="w-12 h-12 bg-accent2/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-sitemap text-accent2 text-lg"></i>
+                </div>
+                <h4 class="font-bold mb-2">算法应用能力</h4>
+                <p class="text-sm text-muted">精通深度学习、强化学习等主流AI算法，并能灵活应用于感知、决策与控制等实际机器人任务</p>
+            </div>
+            <div class="bg-white rounded-2xl p-6 border border-border text-center card-hover">
+                <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-tools text-green-600 text-lg"></i>
+                </div>
+                <h4 class="font-bold mb-2">工程实践能力</h4>
+                <p class="text-sm text-muted">具备将理论转化为实践的能力，能够调试硬件、优化代码，解决复杂场景下的工程落地问题</p>
+            </div>
+            <div class="bg-white rounded-2xl p-6 border border-border text-center card-hover">
+                <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-users text-amber-600 text-lg"></i>
+                </div>
+                <h4 class="font-bold mb-2">团队协作能力</h4>
+                <p class="text-sm text-muted">熟练运用敏捷开发模式，在大型机器人项目中与跨职能团队高效沟通，协同完成研发目标</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== CTA ====== -->
+<section class="relative z-10 py-20 bg-secondary">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+        <div class="bg-white rounded-3xl p-12 shadow-sm border border-border">
+            <div class="text-5xl mb-4">🎓</div>
+            <h2 class="text-3xl font-bold mb-4">开启课程教学新篇章</h2>
+            <p class="text-muted mb-8 max-w-xl mx-auto leading-relaxed">
+                万物拟态课程体系，为高校新工科建设提供从硬件平台到课程内容的完整解决方案。联系我们，获取完整课程大纲与教学实施方案。
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="contact.html" class="px-8 py-3.5 text-white font-semibold rounded-xl shadow-xl hover:shadow-2xl ring-2 ring-blue-500/30" style="background-color:#2563eb;" onmouseover="this.style.backgroundColor='#1d4ed8'" onmouseout="this.style.backgroundColor='#2563eb'">
+                    <i class="fas fa-paper-plane mr-2"></i>预约课程演示
+                </a>
+                <a href="products/robots.html" class="px-8 py-3.5 bg-white hover:bg-gray-50 text-dark font-semibold rounded-xl border border-border transition-colors">
+                    <i class="fas fa-robot mr-2"></i>了解机器人硬件
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== Footer ====== -->
+<footer class="bg-gray-900 text-white">
+    <div class="max-w-7xl mx-auto px-6 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div>
+                <div class="flex items-center space-x-3 mb-4">
+                    <img src="assets/logos/WwRobot-Logo.png" alt="WW-Robot" class="h-14 w-auto" onerror="this.style.display='none'">
+                    <span class="text-2xl font-bold text-white">Unit<span class="text-accent">Claw</span>.cn</span>
+                </div>
+                <p class="mb-4"><a href="index.html"><img src="assets/images/slogan-footer.png" alt="万物拟态 Slogan" style="width:280px;height:auto;max-width:100%;"></a></p>
+                <p class="text-sm leading-relaxed">总部：广州增城区</p>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-4">五大产品阵列</h4>
+                <div class="space-y-2 text-sm">
+                    <a href="products/robots.html" class="block hover:text-white transition-colors">具身智能机器人</a>
+                    <a href="products/openarm.html" class="block hover:text-white transition-colors">OpenArm 开源机械臂</a>
+                    <a href="products/dexterous-hand.html" class="block hover:text-purple-400 transition-colors">灵巧手</a>
+                    <a href="products/embedded-platform.html" class="block hover:text-white transition-colors">多功能实训平台</a>
+                    <a href="products/courses.html" class="block hover:text-white transition-colors">课程智能体</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-4">四大合作模式</h4>
+                <div class="space-y-2 text-sm">
+                    <a href="solutions/university-cooperation.html" class="block hover:text-white transition-colors">模式零：品牌共建</a>
+                    <a href="solutions/education.html" class="block hover:text-white transition-colors">模式一：AI+机器人实训室</a>
+                    <a href="solutions/education.html" class="block hover:text-white transition-colors">模式二：产教研赛用一体化</a>
+                    <a href="solutions/education.html" class="block hover:text-white transition-colors">模式三：竞赛定制支持</a>
+                    <a href="solutions/education.html" class="block hover:text-white transition-colors">模式四：1+X 认证培训</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-4">联系我们</h4>
+                <div class="space-y-2 text-sm">
+                    <a href="contact.html" class="block hover:text-white transition-colors">预约演示</a>
+                    <a href="about.html" class="block hover:text-white transition-colors">关于我们</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 py-6 border-t border-gray-700 flex flex-wrap justify-between text-xs text-gray-500">
+        <span>&copy; 2026 unitclaw.cn All rights reserved.</span>
+        <div class="flex space-x-4">
+            <a href="privacy.html" class="hover:text-gray-400">隐私政策</a>
+            <a href="disclaimer.html" class="hover:text-gray-400">免责声明</a>
+        </div>
+    </div>
+</footer>
+
+<script src="particles.min.js"></script>
+<script>
+    particlesJS("particles-js", {
+        particles: {
+            number: { value: 30 },
+            color: { value: "#2563EB" },
+            opacity: { value: .06, random: true },
+            size: { value: 2, random: true },
+            line_linked: { enable: false },
+            move: { enable: true, speed: .5 }
+        }
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+(function(){
+  var css='.slogan-snow-wrap{position:relative;display:inline-block}.slogan-snow-particle{position:absolute;border-radius:50%;pointer-events:none;animation:snowDrift var(--dur,3s) ease-in-out infinite;animation-delay:var(--delay,0s);opacity:0}@keyframes snowDrift{0%{transform:translateY(6px) translateX(0) scale(.35);opacity:0}12%{opacity:var(--op,.65)}45%{transform:translateY(-5px) translateX(var(--dx,8px)) scale(var(--sc,1));opacity:var(--op,.65)}80%{opacity:var(--op,.65)}100%{transform:translateY(-20px) translateX(var(--dx2,-6px)) scale(.18);opacity:0}}';
+  if(!document.getElementById('snow-particle-style')){
+    var s=document.createElement('style');s.id='snow-particle-style';s.textContent=css;document.head.appendChild(s);
+  }
+  setTimeout(function(){
+    document.querySelectorAll('.slogan-snow-wrap').forEach(function(c){
+      if(c.querySelector('.slogan-snow-particle'))return;
+      var r=c.getBoundingClientRect(),w=r.width||280,h=r.height||32;
+      for(var i=0;i<18;i++){
+        var p=document.createElement('span');p.className='slogan-snow-particle';
+        var sz=2+Math.random()*3;
+        p.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+(Math.random()*w)+'px;bottom:'+(Math.random()*h*.5)+'px;--dur:'+(2.2+Math.random()*3)+'s;--delay:'+(Math.random()*3.5)+'s;--dx:'+(-10+Math.random()*20)+'px;--dx2:'+(-8+Math.random()*16)+'px;--sc:'+(.45+Math.random()*.75)+';--op:'+(.35+Math.random()*.5)+';background:rgba(255,255,255,'+(.4+Math.random()*.45)+')';
+        c.appendChild(p);
+      }
+    });
+  },400);
+})();
+</script>
+</body>
+</html>
