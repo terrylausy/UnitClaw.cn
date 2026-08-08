@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>炎书AI建课系统 - UnitClaw.cn | AI驱动的智能课件创作平台</title>
+    <meta name="description" content="炎书AI建课系统：对话式AI课件创作平台，支持PPT智能生成、内容自动扩展、多模态教学创作。让每位老师都能轻松打造精品课程。">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#ffffff',
+                        secondary: '#f8fafc',
+                        accent: '#2563eb',
+                        accent2: '#7c3aed',
+                        light: '#3b82f6',
+                        warm: '#d97706',
+                        card: '#ffffff',
+                        border: '#e2e8f0',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans SC', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .bg-grid{background-image:linear-gradient(rgba(37,99,235,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,.04) 1px,transparent 1px);background-size:40px 40px}
+        .glass{background:rgba(255,255,255,.92);backdrop-filter:blur(16px);border:1px solid rgba(0,0,0,.08)}
+        .card-hover{transition:all .35s cubic-bezier(.4,0,.2,1)}
+        .card-hover:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(37,99,235,.08)}
+        .text-gradient{background:linear-gradient(135deg,#2563eb,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .hero-glow{background:radial-gradient(ellipse at 50% 0%,rgba(37,99,235,.06) 0%,transparent 70%)}
+        .tag{display:inline-block;padding:2px 10px;border-radius:12px;font-size:.75rem;font-weight:600;letter-spacing:.05em}
+        .tag-ai{background:rgba(245,158,11,.08);color:#f59e0b;border:1px solid rgba(245,158,11,.20)}
+        .step-number{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.875rem}
+    </style>
+</head>
+<body class="bg-white text-gray-900 font-sans min-h-screen antialiased">
+
+<div id="particles-js" class="fixed inset-0 z-0 pointer-events-none"></div>
+<div class="fixed inset-0 bg-grid z-0 opacity-30 pointer-events-none"></div>
+
+<!-- Navigation -->
+<nav class="glass fixed top-0 left-0 right-0 z-50 transition-all">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+        <a href="../index.html" class="flex flex-col shrink-0">
+            <div class="flex items-center space-x-3">
+                <img src="../Assets/logos/WwRobot-Logo.png" alt="WW-Robot" class="h-10 w-auto" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <div class="hidden w-10 h-10 bg-gradient-to-br from-accent to-blue-700 rounded-lg items-center justify-center text-lg font-bold">U</div>
+                <span class="text-lg font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-sm font-normal ml-1">.cn</span></span>
+            </div>
+            <span class="text-[11px] text-accent tracking-wider mt-0.5 pl-4 font-bold">万物拟态 | 全栈式赋能高校职校拥抱 <strong>AI+机器人</strong>专业</span>
+        </a>
+        <div class="hidden lg:flex items-center space-x-1">
+            <a href="../index.html" class="px-4 py-2 text-gray-700 hover:text-gray-900 text-sm font-medium transition-colors">首页</a>
+            <div class="group relative">
+                <a href="#" class="px-4 py-2 text-accent text-sm font-medium transition-colors">产品 <i class="fas fa-chevron-down text-[10px] ml-1"></i></a>
+                <div class="absolute top-full left-0 mt-2 w-52 glass rounded-xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                    <a href="robots.html" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-robot mr-2 text-accent text-xs"></i>具身智能机器人</a>
+                    <a href="openarm.html" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-industry mr-2 text-orange-500 text-xs"></i>OpenArm</a>
+                    <a href="dexterous-hand.html" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-hand-sparkles mr-2 text-purple-500 text-xs"></i>灵巧手</a>
+                    <a href="embedded-platform.html" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-microchip mr-2 text-emerald-500 text-xs"></i>多功能实训平台</a>
+                    <a href="#" class="hidden" style="display:none"</a>
+                    <a href="ai-souvenir.html" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-gift mr-2 text-pink-500 text-xs"></i>AI纪念品</a>
+                </div>
+            </div>
+            <div class="group relative">
+                <a href="../courses.html" class="px-4 py-2 text-gray-700 hover:text-gray-900 text-sm font-medium transition-colors">课程 <i class="fas fa-chevron-down text-[10px] ml-1"></i></a>
+                <div class="absolute top-full left-0 mt-2 w-56 glass rounded-xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+<a href="../products/yanshi-ai.html" class="block px-4 py-2.5 rounded-lg text-sm text-accent font-semibold hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-graduation-cap mr-2 text-purple-400 text-xs"></i>炎书AI</a>
+                    <a href="../courses.html#ai-courses" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-microchip mr-2 text-emerald-500 text-xs"></i>AI实训箱课程</a>
+                    <a href="../courses.html#openarm-courses" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-industry mr-2 text-orange-500 text-xs"></i>OpenArm 机械臂课程</a>
+                    <a href="../courses.html#robot-courses" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-robot mr-2 text-accent text-xs"></i>具身智能机器人课程</a>
+                    <a href="../courses.html#dexterous-hand-courses" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-hand-sparkles mr-2 text-purple-500 text-xs"></i>灵巧手课程</a>
+                </div>
+            </div>
+            <div class="group relative">
+                <a href="../solutions/education.html" class="px-4 py-2 text-gray-700 hover:text-gray-900 text-sm font-medium transition-colors">高校合作 <i class="fas fa-chevron-down text-[10px] ml-1"></i></a>
+                <div class="absolute top-full left-0 mt-2 w-48 glass rounded-xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                    <a href="../solutions/education.html" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-flask mr-2 text-accent text-xs"></i>教育方案</a>
+                    <a href="../solutions/education.html#chanjiao" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-handshake mr-2 text-warm text-xs"></i>产教研合作</a>
+                </div>
+            </div>
+            <a href="../opensource.html" class="px-4 py-2 text-gray-700 hover:text-gray-900 text-sm font-medium transition-colors">开源社区</a>
+        </div>
+        <div class="hidden lg:flex items-center gap-2">
+            <a href="https://teacher.suiguangming.com/app/teacher-creation" target="_blank" class="inline-flex flex-col items-center px-4 py-1.5 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white text-sm font-semibold rounded-lg transition-all">
+                <span>炎书AI</span>
+                <span class="text-[10px] font-normal opacity-90">建课系统</span>
+            </a>
+            <a href="../contact.html" style="background-color:#2563eb;" onmouseover="this.style.backgroundColor='#1d4ed8'" onmouseout="this.style.backgroundColor='#2563eb'" class="inline-flex items-center px-5 py-2.5 text-white text-sm font-semibold rounded-lg transition-colors">预约演示</a>
+        </div>
+        <button class="lg:hidden text-gray-900 p-2" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"><i class="fas fa-bars text-xl"></i></button>
+    </div>
+    <div id="mobile-menu" class="hidden lg:hidden glass border-t border-gray-200 px-6 py-4">
+        <a href="../index.html" class="block py-3 text-gray-700">首页</a>
+        <a href="robots.html" class="block py-3 text-gray-700">具身智能机器人</a>
+        <a href="openarm.html" class="block py-3 text-gray-700">OpenArm</a>
+        <a href="dexterous-hand.html" class="block py-3 text-gray-700">灵巧手</a>
+        <a href="embedded-platform.html" class="block py-3 text-gray-700">多功能实训平台</a>
+        <a href="#" class="hidden"</a>
+        <a href="ai-souvenir.html" class="block py-3 text-gray-700">AI纪念品</a>
+        <a href="../courses.html" class="block py-3 text-gray-700 font-medium"><i class="fas fa-book-open mr-2 text-accent2 text-xs"></i>课程</a>
+        <a href="../products/yanshi-ai.html" class="block py-3 text-accent font-medium pl-4"><i class="fas fa-graduation-cap mr-2 text-purple-400 text-xs"></i>炎书AI</a>
+        <a href="../courses.html#ai-courses" class="block py-3 text-gray-700 pl-4"><i class="fas fa-microchip mr-2 text-emerald-500 text-xs"></i>AI实训箱课程</a>
+        <a href="../courses.html#openarm-courses" class="block py-3 text-gray-700 pl-4"><i class="fas fa-industry mr-2 text-orange-500 text-xs"></i>OpenArm 机械臂课程</a>
+        <a href="../courses.html#robot-courses" class="block py-3 text-gray-700 pl-4"><i class="fas fa-robot mr-2 text-accent text-xs"></i>具身智能机器人课程</a>
+        <a href="../courses.html#dexterous-hand-courses" class="block py-3 text-gray-700 pl-4"><i class="fas fa-hand-sparkles mr-2 text-purple-500 text-xs"></i>灵巧手课程</a>
+        <a href="../solutions/education.html" class="block py-3 text-gray-700 font-medium"><i class="fas fa-university mr-2 text-accent text-xs"></i>高校合作</a>
+        <a href="../opensource.html" class="block py-3 text-gray-700">开源社区</a>
+        <a href="https://teacher.suiguangming.com/app/teacher-creation" target="_blank" class="block py-3 text-amber-600 font-medium"><i class="fas fa-magic mr-2 text-xs"></i>炎书AI · 建课系统</a>
+        <a href="../contact.html" style="background-color:#2563eb;" onmouseover="this.style.backgroundColor='#1d4ed8'" onmouseout="this.style.backgroundColor='#2563eb'" class="block mt-3 text-center py-3 rounded-lg font-semibold text-white">预约演示</a>
+    </div>
+</nav>
+
+<!-- Hero -->
+<header class="relative z-10 pt-32 pb-16 hero-glow">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+        <div class="inline-flex items-center mb-4">
+            <span class="px-3 py-1 bg-amber-500/10 text-amber-600 text-xs font-semibold rounded-full border border-amber-500/20">AI 创作中心</span>
+            <span class="ml-3 px-3 py-1 bg-gray-100 text-gray-600 text-xs rounded-full border border-gray-200">对话式课件生成</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold tracking-tight">炎书<span class="text-gradient">AI</span></h1>
+        <p class="mt-2 text-lg text-amber-600 font-medium">建课系统</p>
+        <p class="mt-6 text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            对话即创作。用自然语言描述您的教学需求，AI 智能体自动完成从内容规划到视觉设计的全流程，生成可直接下载使用的专业课件。
+        </p>
+        <div class="mt-8 flex flex-wrap justify-center gap-4">
+            <a href="https://teacher.suiguangming.com/app/teacher-creation" target="_blank" class="inline-flex items-center px-7 py-3.5 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-semibold rounded-xl transition-all shadow-xl hover:shadow-2xl">
+                <i class="fas fa-magic mr-2"></i>立即体验
+            </a>
+            <a href="#features" class="inline-flex items-center px-7 py-3.5 glass hover:bg-gray-100/70 text-gray-700 font-semibold rounded-xl transition-all">
+                <i class="fas fa-play-circle mr-2"></i>了解功能
+            </a>
+        </div>
+    </div>
+</header>
+
+<!-- 核心数据 -->
+<section class="relative z-10 py-8">
+    <div class="max-w-5xl mx-auto px-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm text-center">
+                <div class="text-3xl font-bold text-amber-500">10+</div>
+                <div class="text-sm text-gray-500 mt-1">分钟生成课件</div>
+            </div>
+            <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm text-center">
+                <div class="text-3xl font-bold text-blue-500">20+</div>
+                <div class="text-sm text-gray-500 mt-1">页智能扩展</div>
+            </div>
+            <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm text-center">
+                <div class="text-3xl font-bold text-purple-500">16:9</div>
+                <div class="text-sm text-gray-500 mt-1">标准演示比例</div>
+            </div>
+            <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm text-center">
+                <div class="text-3xl font-bold text-emerald-500">PPTX</div>
+                <div class="text-sm text-gray-500 mt-1">可编辑格式输出</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 核心功能 -->
+<section id="features" class="relative z-10 py-20 bg-gray-50/60">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-12">
+            <span class="tag tag-ai">核心能力</span>
+            <h2 class="text-3xl md:text-4xl font-bold mt-4">六大智能创作能力</h2>
+            <p class="text-gray-500 mt-3 max-w-2xl mx-auto">从内容构思到成品交付，AI 全程协助，让课件创作效率提升 10 倍</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
+                <div class="w-14 h-14 bg-amber-50 rounded-xl flex items-center justify-center mb-5">
+                    <i class="fas fa-comments text-2xl text-amber-500"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-2">对话式创作</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">像聊天一样描述教学需求，AI 自动理解意图并生成完整课件框架，无需学习复杂工具。</p>
+            </div>
+            <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
+                <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-5">
+                    <i class="fas fa-expand-arrows-alt text-2xl text-blue-500"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-2">智能内容扩展</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">10页初稿一键扩展到 20+ 页，自动补充核心内容、重要数据和深度分析，丰富教学层次。</p>
+            </div>
+            <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
+                <div class="w-14 h-14 bg-purple-50 rounded-xl flex items-center justify-center mb-5">
+                    <i class="fas fa-palette text-2xl text-purple-500"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-2">专业视觉设计</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">自动生成精美的 16:9 标准 PPT，智能配色、排版、图标搭配，媲美专业设计师水准。</p>
+            </div>
+            <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
+                <div class="w-14 h-14 bg-emerald-50 rounded-xl flex items-center justify-center mb-5">
+                    <i class="fas fa-video text-2xl text-emerald-500"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-2">教学视频创作</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">从脚本规划到视频成片，AI 全程协助。输入教学想法，自动生成视频脚本、分镜画面，最终输出完整教学视频。</p>
+            </div>
+            <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
+                <div class="w-14 h-14 bg-red-50 rounded-xl flex items-center justify-center mb-5">
+                    <i class="fas fa-sticky-note text-2xl text-red-500"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-2">演讲者备注</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">每页自动写入讲解备注，帮助教师掌握授课要点，新手也能从容站上讲台。</p>
+            </div>
+            <div class="card-hover bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
+                <div class="w-14 h-14 bg-orange-50 rounded-xl flex items-center justify-center mb-5">
+                    <i class="fas fa-file-powerpoint text-2xl text-orange-500"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-2">可编辑输出</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">生成标准 PPTX 格式文件，支持下载后在 PowerPoint、WPS 中继续修改和个性化调整。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 工作流程 -->
+<section class="relative z-10 py-20">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-12">
+            <span class="tag tag-ai">创作流程</span>
+            <h2 class="text-3xl md:text-4xl font-bold mt-4">三步完成课件创作</h2>
+            <p class="text-gray-500 mt-3 max-w-2xl mx-auto">告别繁琐的手动排版，AI 智能体全程协作，让创作回归内容本身</p>
+        </div>
+        <div class="grid lg:grid-cols-3 gap-8">
+            <div class="relative">
+                <div class="step-number bg-amber-500 text-white mb-4">1</div>
+                <h3 class="text-xl font-bold mb-2">描述需求</h3>
+                <p class="text-gray-500 text-sm leading-relaxed mb-4">在对话框中自然描述您的教学主题和目标，例如"国家发布了'十五五'教育发展规划，请将规划的主要内容做成PPT"。</p>
+                <div class="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+                    <img src="../Assets/images/xiaowan-ai/ppt-creation.png" alt="PPT创作对话界面" class="w-full">
+                </div>
+            </div>
+            <div class="relative">
+                <div class="step-number bg-blue-500 text-white mb-4">2</div>
+                <h3 class="text-xl font-bold mb-2">AI 智能生成</h3>
+                <p class="text-gray-500 text-sm leading-relaxed mb-4">AI 智能体自动执行任务：协作处理、图片检索、内容撰写、页面排版、备注写入，全过程透明可见。</p>
+                <div class="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+                    <img src="../Assets/images/xiaowan-ai/execution-process.png" alt="AI执行过程" class="w-full">
+                </div>
+            </div>
+            <div class="relative">
+                <div class="step-number bg-purple-500 text-white mb-4">3</div>
+                <h3 class="text-xl font-bold mb-2">下载使用</h3>
+                <p class="text-gray-500 text-sm leading-relaxed mb-4">课件生成完成后，可下载标准 PPTX 文件，内含完整内容和演讲备注，直接用于课堂教学。</p>
+                <div class="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+                    <img src="../Assets/images/xiaowan-ai/course-complete.png" alt="课件生成完成" class="w-full">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 内容扩展 -->
+<section class="relative z-10 py-20 bg-gray-50/60">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="tag tag-ai">智能扩展</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-4">从 10 页到 20 页<br>内容深度自动翻倍</h2>
+                <p class="text-gray-500 leading-relaxed mb-6">
+                    初稿生成后，您可以继续与 AI 对话，要求扩展内容。AI 会自动补充核心内容、重要数据呈现和深度分析，让课件从概览升级为深度解读。
+                </p>
+                <div class="space-y-4">
+                    <div class="flex items-start gap-3">
+                        <div class="w-8 h-8 bg-amber-100 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+                            <i class="fas fa-check text-amber-600 text-xs"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm">自动补充关键数据</h4>
+                            <p class="text-gray-500 text-xs">识别内容中的数据缺口，自动检索并补充权威数据支撑</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+                            <i class="fas fa-check text-blue-600 text-xs"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm">核心内容深度展开</h4>
+                            <p class="text-gray-500 text-xs">将概要性表述扩展为结构化深度分析，增加案例和论证</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+                            <i class="fas fa-check text-purple-600 text-xs"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm">视觉风格保持一致</h4>
+                            <p class="text-gray-500 text-xs">新增页面自动延续原稿配色、字体和版式风格</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="space-y-4">
+                <div class="rounded-2xl overflow-hidden border border-gray-200 shadow-lg">
+                    <img src="../Assets/images/xiaowan-ai/content-expand.png" alt="内容扩展对话" class="w-full">
+                </div>
+                <div class="rounded-2xl overflow-hidden border border-gray-200 shadow-lg">
+                    <img src="../Assets/images/xiaowan-ai/course-complete-v2.png" alt="扩展后课件" class="w-full">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 视频创作 -->
+<section class="relative z-10 py-20">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="order-2 lg:order-1 space-y-4">
+                <div class="rounded-2xl overflow-hidden border border-gray-200 shadow-lg">
+                    <img src="../Assets/images/xiaowan-ai/homepage.png" alt="炎书AI创作中心首页" class="w-full">
+                </div>
+            </div>
+            <div class="order-1 lg:order-2">
+                <span class="tag tag-ai">视频创作</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-4">把教学想法<br>做成视频</h2>
+                <p class="text-gray-500 leading-relaxed mb-6">
+                    炎书AI 不仅能生成 PPT 课件，更能将教学内容转化为视频课程。从脚本规划到视频成片，AI 智能体全程协作，让知识传播更生动直观。
+                </p>
+                <div class="space-y-4">
+                    <div class="flex items-start gap-3">
+                        <div class="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+                            <i class="fas fa-lightbulb text-red-600 text-xs"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm">脚本智能生成</h4>
+                            <p class="text-gray-500 text-xs">输入教学主题，自动生成视频脚本和分镜设计，理清授课逻辑</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+                            <i class="fas fa-film text-blue-600 text-xs"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm">画面自动匹配</h4>
+                            <p class="text-gray-500 text-xs">AI 检索匹配画面素材，自动完成剪辑、配音和视觉包装</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+                            <i class="fas fa-download text-purple-600 text-xs"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm">成片直接可用</h4>
+                            <p class="text-gray-500 text-xs">输出完整教学视频，适用于在线课程、微课、慕课、翻转课堂等场景</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 生成效果展示 -->
+<section class="relative z-10 py-20">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-12">
+            <span class="tag tag-ai">效果展示</span>
+            <h2 class="text-3xl md:text-4xl font-bold mt-4">专业级课件输出</h2>
+            <p class="text-gray-500 mt-3 max-w-2xl mx-auto">AI 生成的课件不仅内容丰富，视觉效果同样专业，可直接用于正式教学和汇报场景</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="rounded-2xl overflow-hidden border border-gray-200 shadow-lg">
+                <img src="../Assets/images/xiaowan-ai/ppt-cover.png" alt="PPT封面效果" class="w-full">
+                <div class="p-4 bg-white">
+                    <h4 class="font-semibold">精美封面设计</h4>
+                    <p class="text-gray-500 text-sm">自动匹配主题风格的封面，包含标题、副标题、时间线和视觉元素</p>
+                </div>
+            </div>
+            <div class="rounded-2xl overflow-hidden border border-gray-200 shadow-lg">
+                <img src="../Assets/images/xiaowan-ai/ppt-plan.jpg" alt="规划内容页" class="w-full">
+                <div class="p-4 bg-white">
+                    <h4 class="font-semibold">结构化内容呈现</h4>
+                    <p class="text-gray-500 text-sm">时间线、流程图、数据图表等复杂信息可视化，一目了然</p>
+                </div>
+            </div>
+            <div class="rounded-2xl overflow-hidden border border-gray-200 shadow-lg">
+                <img src="../Assets/images/xiaowan-ai/ppt-education.jpg" alt="教育主题页" class="w-full">
+                <div class="p-4 bg-white">
+                    <h4 class="font-semibold">教育场景定制</h4>
+                    <p class="text-gray-500 text-sm">针对教育主题优化视觉表达，图标、配色、布局贴合教学语境</p>
+                </div>
+            </div>
+            <div class="rounded-2xl overflow-hidden border border-gray-200 shadow-lg">
+                <img src="../Assets/images/xiaowan-ai/course-gallery.jpg" alt="课程作品库" class="w-full">
+                <div class="p-4 bg-white">
+                    <h4 class="font-semibold">精选作品模板</h4>
+                    <p class="text-gray-500 text-sm">浏览优秀教学作品，选择模板快速开始创作，灵感源源不断</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 适用场景 -->
+<section class="relative z-10 py-20 bg-gray-50/60">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-12">
+            <span class="tag tag-ai">应用场景</span>
+            <h2 class="text-3xl md:text-4xl font-bold mt-4">谁在使用炎书AI</h2>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm text-center">
+                <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-chalkboard-teacher text-2xl text-blue-500"></i>
+                </div>
+                <h3 class="font-bold mb-1">高校教师</h3>
+                <p class="text-gray-500 text-sm">快速将教学大纲转化为精美课件，节省 80% 备课时间</p>
+            </div>
+            <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm text-center">
+                <div class="w-14 h-14 bg-purple-50 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-user-tie text-2xl text-purple-500"></i>
+                </div>
+                <h3 class="font-bold mb-1">培训讲师</h3>
+                <p class="text-gray-500 text-sm">根据培训主题即时生成专业演示文稿，随需随用</p>
+            </div>
+            <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm text-center">
+                <div class="w-14 h-14 bg-emerald-50 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-graduation-cap text-2xl text-emerald-500"></i>
+                </div>
+                <h3 class="font-bold mb-1">教研团队</h3>
+                <p class="text-gray-500 text-sm">统一视觉规范，批量生成系列课程课件，保持品牌一致性</p>
+            </div>
+            <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm text-center">
+                <div class="w-14 h-14 bg-amber-50 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-users text-2xl text-amber-500"></i>
+                </div>
+                <h3 class="font-bold mb-1">职业院校</h3>
+                <p class="text-gray-500 text-sm">紧跟政策热点，快速制作政策解读、专业建设等主题课件</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="relative z-10 py-20">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+        <div class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-3xl p-12 border border-amber-100">
+            <h2 class="text-3xl font-bold mb-4">立即体验 AI 建课</h2>
+            <p class="text-gray-500 mb-8 max-w-xl mx-auto">无需安装，打开浏览器即可开始创作。让 AI 成为您的智能备课助手，把时间留给教学创新。</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="https://teacher.suiguangming.com/app/teacher-creation" target="_blank" class="inline-flex items-center px-8 py-3.5 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-semibold rounded-xl transition-all shadow-xl hover:shadow-2xl">
+                    <i class="fas fa-magic mr-2"></i>免费试用炎书AI
+                </a>
+                <a href="../contact.html" class="px-8 py-3.5 glass hover:bg-gray-100/70 text-gray-700 font-semibold rounded-xl transition-all">联系咨询</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white">
+    <div class="max-w-7xl mx-auto px-6 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div>
+                <div class="flex items-center space-x-3 mb-4">
+                    <img src="../Assets/logos/WwRobot-Logo.png" alt="WW-Robot" class="h-14 w-auto" onerror="this.style.display='none'">
+                    <span class="text-2xl font-bold text-white">Unit<span class="text-accent">Claw</span>.cn</span>
+                </div>
+                <p class="mb-4"><a href="../index.html"><img src="../Assets/images/slogan-footer.png" alt="万物拟态 Slogan" style="width:280px;height:auto;max-width:100%;"></a></p>
+                <p class="text-sm leading-relaxed">总部：广州增城区</p>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-4">产品阵列</h4>
+                <div class="space-y-2 text-sm">
+                    <a href="robots.html" class="block hover:text-white transition-colors">具身智能机器人</a>
+                    <a href="openarm.html" class="block hover:text-white transition-colors">OpenArm 开源机械臂</a>
+                    <a href="dexterous-hand.html" class="block hover:text-purple-400 transition-colors">灵巧手</a>
+                    <a href="embedded-platform.html" class="block hover:text-white transition-colors">多功能实训平台</a>
+                    <a href="courses.html" class="block hover:text-white transition-colors">炎书AI</a>
+                    <a href="ai-souvenir.html" class="block hover:text-pink-400 transition-colors">AI纪念品</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-4">合作模式</h4>
+                <div class="space-y-2 text-sm">
+                    <a href="../solutions/university-cooperation.html" class="block hover:text-white transition-colors">品牌共建</a>
+                    <a href="../solutions/education.html" class="block hover:text-white transition-colors">AI+机器人实训室</a>
+                    <a href="../solutions/education.html" class="block hover:text-white transition-colors">产教研赛用一体化</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-4">联系我们</h4>
+                <div class="space-y-2 text-sm">
+                    <a href="../contact.html" class="block hover:text-white transition-colors">预约演示</a>
+                    <a href="../opensource.html" class="block hover:text-white transition-colors">开源社区</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 py-6 border-t border-gray-700 flex flex-wrap justify-between text-xs text-gray-500">
+        <span>&copy; 2026 unitclaw.cn All rights reserved.</span>
+    </div>
+</footer>
+
+<script src="../particles.min.js"></script>
+<script>
+particlesJS("particles-js", {
+    particles:{number:{value:40,density:{enable:!0,value_area:800}},color:{value:"#3b82f6"},shape:{type:"circle"},opacity:{value:.15,random:!0},size:{value:2,random:!0},line_linked:{enable:!0,distance:150,color:"#3b82f6",opacity:.08,width:1},move:{enable:!0,speed:.8,direction:"none",random:!0,out_mode:"out"}},
+    interactivity:{detect_on:"canvas",events:{onhover:{enable:!0,mode:"grab"},resize:!0},modes:{grab:{distance:140,line_linked:{opacity:.2}}}},
+    retina_detect:!0
+});
+</script>
+</body>
+</html>
