@@ -8,6 +8,7 @@
     <meta name="keywords" content="AI教育,具身智能,机器人教育,高校AI,课程智能体,UnitClaw,万物拟态">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -229,68 +230,18 @@
             </a>
         </div>
 
-        <!-- Product Evolution Timeline SVG -->
+        <!-- Product Evolution Timeline ECharts -->
         <div class="mt-12 mb-4">
             <h3 class="text-xl font-bold text-center mb-1">产品演进历程</h3>
-            <p class="text-center text-sm text-gray-400 mb-10">服务高校 · 从智能制造硬件到具身智能全栈教育平台</p>
-            <div style="max-width:960px;margin:0 auto;">
-            <svg viewBox="0 0 960 310" xmlns="http://www.w3.org/2000/svg" class="w-full" style="display:block;">
-                <defs>
-                    <marker id="arrow-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-                        <path d="M2 1L8 5L2 9" fill="none" stroke="#BA7517" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                    </marker>
-                    <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stop-color="#FAC775"/>
-                        <stop offset="35%" stop-color="#EF9F27"/>
-                        <stop offset="65%" stop-color="#D85A30"/>
-                        <stop offset="100%" stop-color="#993C1D"/>
-                    </linearGradient>
-                    <filter id="shadow" x="-5%" y="-5%" width="110%" height="120%">
-                        <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#BA7517" flood-opacity="0.12"/>
-                    </filter>
-                </defs>
-                <path d="M30 255 Q120 238 170 210 T290 172 T410 138 T530 108 T650 82 T790 58 T920 38" fill="none" stroke="#FDE5BC" stroke-width="18" stroke-linecap="round" opacity="0.35"/>
-                <path d="M30 258 Q125 240 175 212 T295 174 T415 140 T535 110 T655 84 T795 60 T920 40" fill="none" stroke="url(#waveGrad)" stroke-width="3.2" stroke-linecap="round" marker-end="url(#arrow-r)" filter="url(#shadow)"/>
-                <path d="M30 262 Q130 243 180 215 T300 176 T420 142 T540 112 T660 86 T800 62 T920 42" fill="none" stroke="#EF9F27" stroke-width="1.2" stroke-linecap="round" opacity="0.3" stroke-dasharray="6 4"/>
-                <!-- Node 1 -->
-                <g><rect x="22" y="218" width="76" height="44" rx="10" fill="#FFF7ED" stroke="#FAC775" stroke-width="1.2"/>
-                    <text x="60" y="234" text-anchor="middle" font-size="11" font-weight="600" fill="#854F0B">2021</text>
-                    <text x="60" y="250" text-anchor="middle" font-size="10.5" font-weight="500" fill="#BA7517">智能制造</text>
-                    <text x="60" y="276" text-anchor="middle" font-size="9.5" fill="#A16207">嵌入式实训台 / 机械臂套件</text>
-                </g>
-                <!-- Node 2 -->
-                <g><rect x="232" y="180" width="88" height="44" rx="10" fill="#FFF7ED" stroke="#EF9F27" stroke-width="1.2"/>
-                    <text x="276" y="196" text-anchor="middle" font-size="11" font-weight="600" fill="#854F0B">2025.10</text>
-                    <text x="276" y="212" text-anchor="middle" font-size="10.5" font-weight="500" fill="#BA7517">AI 实训箱</text>
-                    <text x="276" y="238" text-anchor="middle" font-size="9.5" fill="#A16207">多功能综合实训箱量产</text>
-                </g>
-                <!-- Node 3 -->
-                <g><rect x="378" y="146" width="98" height="44" rx="10" fill="#FFF7ED" stroke="#D85A30" stroke-width="1.2"/>
-                    <text x="427" y="162" text-anchor="middle" font-size="11" font-weight="600" fill="#854F0B">2026.01</text>
-                    <text x="427" y="178" text-anchor="middle" font-size="10.5" font-weight="500" fill="#BA7517">课程体系打造</text>
-                    <text x="427" y="204" text-anchor="middle" font-size="9.5" fill="#A16207">备课宝 · AI 课程智能体</text>
-                </g>
-                <!-- Node 4 -->
-                <g><rect x="502" y="116" width="98" height="44" rx="10" fill="#FFF7ED" stroke="#D85A30" stroke-width="1.4"/>
-                    <text x="551" y="132" text-anchor="middle" font-size="11" font-weight="600" fill="#712B13">2026.03</text>
-                    <text x="551" y="148" text-anchor="middle" font-size="10.5" font-weight="500" fill="#993C1D">具身机器人</text>
-                    <text x="551" y="174" text-anchor="middle" font-size="9.5" fill="#A16207">高擎动力全国战略合作</text>
-                </g>
-                <!-- Node 5 -->
-                <g><rect x="638" y="88" width="88" height="44" rx="10" fill="#FFF7ED" stroke="#993C1D" stroke-width="1.4"/>
-                    <text x="682" y="104" text-anchor="middle" font-size="11" font-weight="600" fill="#712B13">2026.06</text>
-                    <text x="682" y="120" text-anchor="middle" font-size="10.5" font-weight="500" fill="#993C1D">灵巧手</text>
-                    <text x="682" y="146" text-anchor="middle" font-size="9.5" fill="#A16207">灵心巧手全球战略</text>
-                </g>
-                <!-- Node 6: NOW OpenArm -->
-                <g><rect x="810" y="58" width="90" height="48" rx="10" fill="#BA7517" stroke="#854F0B" stroke-width="1.8"/>
-                    <text x="855" y="74" text-anchor="middle" font-size="9" font-weight="700" fill="#FEF3C7">● NOW</text>
-                    <text x="855" y="90" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">OpenArm</text>
-                    <text x="855" y="118" text-anchor="middle" font-size="9.5" fill="#713F12">开源双臂 · 独家代工</text>
-                </g>
-                <text x="480" y="298" text-anchor="middle" font-size="11" fill="#A16207">产品矩阵持续扩展，服务高校 AI + 机器人专业建设全生命周期</text>
-            </svg>
+            <p class="text-center text-sm text-gray-400 mb-6">服务高校 · 从智能制造硬件到具身智能全栈教育平台</p>
+            <div id="growth-chart" style="width:100%;height:420px;max-width:1100px;margin:0 auto;"></div>
+            <div class="flex justify-center gap-6 mt-4 text-xs text-gray-400">
+                <div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full" style="background:#2563eb;box-shadow:0 0 6px rgba(37,99,235,.4);"></span>成长曲线主线</div>
+                <div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full" style="background:#7c3aed;box-shadow:0 0 6px rgba(124,58,237,.4);"></span>关键节点 / 里程碑</div>
             </div>
+            <p class="text-center text-xs text-gray-400 mt-4 max-w-2xl mx-auto leading-relaxed">
+                产品矩阵持续扩展，服务高校 AI + 机器人专业建设全生命周期
+            </p>
         </div>
     </div>
 </section>
@@ -549,5 +500,159 @@ particlesJS("particles-js", {
   },400);
 })();
 </script>
+
+<script>
+(function(){
+    var chartDom = document.getElementById('growth-chart');
+    if(!chartDom) return;
+    var myChart = echarts.init(chartDom);
+    var data = [
+        { name:'2021.06', value:12, label:'公司成立\n万物拟态诞生' },
+        { name:'2021.12', value:18, label:'首款教育版\n机械臂落地' },
+        { name:'2022.03', value:24, label:'' },
+        { name:'2022.06', value:30, label:'双实训平台\n正式上线' },
+        { name:'2022.09', value:34, label:'' },
+        { name:'2022.12', value:38, label:'嵌入式课程\n进入高校' },
+        { name:'2023.03', value:42, label:'' },
+        { name:'2023.06', value:46, label:'皮带输送\n实训平台量产' },
+        { name:'2023.09', value:50, label:'' },
+        { name:'2023.12', value:54, label:'协作机器人\n实训平台成型' },
+        { name:'2024.03', value:58, label:'' },
+        { name:'2024.06', value:62, label:'AI 课程智能体\n备课宝立项' },
+        { name:'2024.09', value:66, label:'' },
+        { name:'2024.12', value:70, label:'人形机器人\n二次开发版上线' },
+        { name:'2025.03', value:74, label:'' },
+        { name:'2025.06', value:78, label:'AI 小智宇航员\n发布' },
+        { name:'2025.09', value:82, label:'' },
+        { name:'2025.12', value:86, label:'OpenEmbeddy\nAI 实训箱量产' },
+        { name:'2026.01', value:89, label:'课程体系\n全面打造' },
+        { name:'2026.03', value:92, label:'具身机器人\n高擎动力合作' },
+        { name:'2026.05', value:95, label:'全国代理\n签约启动' },
+        { name:'2026.06', value:97, label:'灵巧手\n灵心巧手战略' },
+        { name:'2026.08', value:100, label:'OpenArm\n开源双臂上线' }
+    ];
+    var xData = data.map(function(d){return d.name;});
+    var yData = data.map(function(d){return d.value;});
+    var markPointData = data.filter(function(d){return d.label;}).map(function(d){
+        return {
+            name: d.label.replace(/\n/g,''),
+            coord: [d.name, d.value],
+            value: d.label,
+            xAxis: d.name,
+            yAxis: d.value,
+            symbolSize: 12,
+            itemStyle: { color: '#7c3aed', shadowColor: 'rgba(124,58,237,0.35)', shadowBlur: 10 }
+        };
+    });
+    var option = {
+        backgroundColor: 'transparent',
+        tooltip: {
+            trigger: 'axis',
+            backgroundColor: 'rgba(255,255,255,0.96)',
+            borderColor: 'rgba(37,99,235,0.15)',
+            borderWidth: 1,
+            textStyle: { color: '#1f2937', fontSize: 13 },
+            formatter: function(params){
+                var p = params[0];
+                var d = data[p.dataIndex];
+                var html = '<div style="font-weight:700;margin-bottom:4px;color:#2563eb;">'+p.name+'</div>';
+                html += '<div style="color:#374151;">综合成长值: <span style="font-weight:700;font-size:15px;color:#2563eb;">'+p.value+'</span></div>';
+                if(d.label) html += '<div style="margin-top:4px;color:#6b7280;font-size:12px;">里程碑: '+d.label.replace(/\n/g,' ')+'</div>';
+                return html;
+            }
+        },
+        grid: { left: 60, right: 40, top: 40, bottom: 70 },
+        xAxis: {
+            type: 'category',
+            data: xData,
+            boundaryGap: false,
+            axisLine: { lineStyle: { color: '#e5e7eb' } },
+            axisTick: { show: false },
+            axisLabel: { color: '#9ca3af', fontSize: 10, interval: 2, rotate: 35 },
+            splitLine: { show: true, lineStyle: { color: '#f3f4f6' } }
+        },
+        yAxis: {
+            type: 'value',
+            name: '企业综合成长值',
+            nameTextStyle: { color: '#9ca3af', fontSize: 11, padding: [0,0,8,0] },
+            min: 0, max: 110,
+            axisLine: { show: false },
+            axisTick: { show: false },
+            axisLabel: { color: '#9ca3af', fontSize: 10 },
+            splitLine: { lineStyle: { color: '#f3f4f6' } }
+        },
+        series: [
+            {
+                name: '成长值',
+                type: 'line',
+                smooth: 0.45,
+                symbol: 'circle',
+                symbolSize: 5,
+                showSymbol: true,
+                data: yData,
+                lineStyle: {
+                    color: '#2563eb',
+                    width: 3,
+                    shadowColor: 'rgba(37,99,235,0.25)',
+                    shadowBlur: 10,
+                    shadowOffsetY: 3
+                },
+                itemStyle: { color: '#2563eb', borderColor: '#fff', borderWidth: 2 },
+                areaStyle: {
+                    color: new echarts.graphic.LinearGradient(0,0,0,1,[
+                        { offset: 0, color: 'rgba(37,99,235,0.18)' },
+                        { offset: 0.5, color: 'rgba(37,99,235,0.06)' },
+                        { offset: 1, color: 'rgba(37,99,235,0.01)' }
+                    ])
+                },
+                markPoint: {
+                    symbol: 'circle',
+                    symbolSize: 12,
+                    label: {
+                        show: true,
+                        position: 'top',
+                        distance: 10,
+                        color: '#4b5563',
+                        fontSize: 10,
+                        formatter: function(p){ return p.value; },
+                        backgroundColor: 'rgba(255,255,255,0.9)',
+                        borderColor: 'rgba(124,58,237,0.2)',
+                        borderWidth: 1,
+                        borderRadius: 4,
+                        padding: [3,6],
+                        lineHeight: 14
+                    },
+                    itemStyle: {
+                        color: '#7c3aed',
+                        borderColor: '#fff',
+                        borderWidth: 2,
+                        shadowColor: 'rgba(124,58,237,0.3)',
+                        shadowBlur: 8
+                    },
+                    data: markPointData,
+                    animation: true,
+                    animationDuration: 1500,
+                    animationDelay: function(idx){ return idx * 150 + 600; }
+                },
+                animationDuration: 2200,
+                animationEasing: 'cubicOut'
+            },
+            {
+                name: '光晕层',
+                type: 'line',
+                smooth: 0.45,
+                symbol: 'none',
+                data: yData,
+                lineStyle: { color: 'rgba(37,99,235,0.1)', width: 10 },
+                z: -1,
+                silent: true
+            }
+        ]
+    };
+    myChart.setOption(option);
+    window.addEventListener('resize', function(){ myChart.resize(); });
+})();
+</script>
+
 </body>
 </html>
