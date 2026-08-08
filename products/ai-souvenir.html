@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI纪念品 - UnitClaw.cn | 校园AI全能助手·校庆智能礼品</title>
+    <meta name="description" content="万物拟态AI纪念品系列：AI宇航员（小智）校园AI全能助手，AI智能手表高校校庆定制礼品。将AI能力封装成可爱、可信、可成长的智能陪伴产品。">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#ffffff',secondary:'#f8fafc',accent:'#2563eb',card:'#ffffff',border:'#e2e8f0',light:'#3b82f6',warm:'#d97706',accent2:'#7c3aed',dark:'#0F172A',muted:'#64748B'},fontFamily:{sans:['Inter','Noto Sans SC','system-ui','sans-serif']}}}}</script>
+    <style>
+        .bg-grid{background-image:linear-gradient(rgba(37,99,235,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,.04) 1px,transparent 1px);background-size:40px 40px}
+        .glass{background:rgba(255,255,255,.92);backdrop-filter:blur(16px);border:1px solid rgba(0,0,0,.08)}
+        .card-hover{transition:all .35s cubic-bezier(.4,0,.2,1)}
+        .card-hover:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(37,99,235,.08)}
+        .text-gradient{background:linear-gradient(135deg,#2563eb,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .hero-glow{background:radial-gradient(ellipse at 50% 0%,rgba(37,99,235,.06) 0%,transparent 70%)}
+        .tag{display:inline-block;padding:2px 10px;border-radius:12px;font-size:.75rem;font-weight:600;letter-spacing:.05em}
+        .tag-robot{background:rgba(37,99,235,.08);color:#2563eb;border:1px solid rgba(37,99,235,.20)}
+        .tag-souvenir{background:rgba(236,72,153,.08);color:#ec4899;border:1px solid rgba(236,72,153,.20)}
+        .tag-watch{background:rgba(245,158,11,.08);color:#f59e0b;border:1px solid rgba(245,158,11,.20)}
+    </style>
+</head>
+<body class="bg-white text-gray-900 font-sans min-h-screen antialiased">
+
+<div id="particles-js" class="fixed inset-0 z-0 pointer-events-none"></div>
+<div class="fixed inset-0 bg-grid z-0 opacity-30 pointer-events-none"></div>
+
+<!-- Navigation -->
+<nav class="glass fixed top-0 left-0 right-0 z-50 transition-all">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+        <a href="../index.html" class="flex flex-col shrink-0">
+            <div class="flex items-center space-x-3">
+                <img src="../assets/logos/WwRobot-Logo.png" alt="WW-Robot" class="h-10 w-auto" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <div class="hidden w-10 h-10 bg-gradient-to-br from-accent to-blue-700 rounded-lg items-center justify-center text-lg font-bold">U</div>
+                <span class="text-lg font-bold tracking-tight">Unit<span class="text-accent">Claw</span><span class="text-gray-500 text-sm font-normal ml-1">.cn</span></span>
+            </div>
+            <span class="text-[11px] text-accent tracking-wider mt-0.5 pl-4 font-bold">万物拟态 | 全栈式赋能高校职校拥抱 <strong>AI+机器人</strong>专业</span>
+        </a>
+        <div class="hidden lg:flex items-center space-x-1">
+            <a href="../index.html" class="px-4 py-2 text-gray-700 hover:text-gray-900 text-sm font-medium transition-colors">首页</a>
+            <div class="group relative">
+                <a href="#" class="px-4 py-2 text-accent text-sm font-medium transition-colors">产品 <i class="fas fa-chevron-down text-[10px] ml-1"></i></a>
+                <div class="absolute top-full left-0 mt-2 w-52 glass rounded-xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                    <a href="../products/robots.html" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-robot mr-2 text-accent text-xs"></i>具身智能机器人</a>
+                    <a href="../products/openarm.html" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-industry mr-2 text-orange-500 text-xs"></i>OpenArm</a>
+                    <a href="../products/dexterous-hand.html" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-hand-sparkles mr-2 text-purple-500 text-xs"></i>灵巧手</a>
+                    <a href="../products/embedded-platform.html" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-microchip mr-2 text-emerald-500 text-xs"></i>多功能实训平台</a>
+                    <a href="../products/courses.html" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-graduation-cap mr-2 text-purple-400 text-xs"></i>课程智能体</a>
+                    <a href="../products/ai-souvenir.html" class="block px-4 py-2.5 rounded-lg text-sm text-accent font-semibold hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-gift mr-2 text-pink-500 text-xs"></i>AI纪念品</a>
+                </div>
+            </div>
+            <div class="group relative">
+                <a href="../courses.html" class="px-4 py-2 text-gray-700 hover:text-gray-900 text-sm font-medium transition-colors">课程 <i class="fas fa-chevron-down text-[10px] ml-1"></i></a>
+                <div class="absolute top-full left-0 mt-2 w-56 glass rounded-xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                    <a href="../courses.html#ai-courses" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-microchip mr-2 text-emerald-500 text-xs"></i>AI实训箱课程</a>
+                    <a href="../courses.html#openarm-courses" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-industry mr-2 text-orange-500 text-xs"></i>OpenArm 机械臂课程</a>
+                    <a href="../courses.html#robot-courses" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-robot mr-2 text-accent text-xs"></i>具身智能机器人课程</a>
+                    <a href="../courses.html#dexterous-hand-courses" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-hand-sparkles mr-2 text-purple-500 text-xs"></i>灵巧手课程</a>
+                </div>
+            </div>
+            <div class="group relative">
+                <a href="../solutions/education.html" class="px-4 py-2 text-gray-700 hover:text-gray-900 text-sm font-medium transition-colors">高校合作 <i class="fas fa-chevron-down text-[10px] ml-1"></i></a>
+                <div class="absolute top-full left-0 mt-2 w-48 glass rounded-xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                    <a href="../solutions/education.html" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-flask mr-2 text-accent text-xs"></i>教育方案</a>
+                    <a href="../solutions/education.html#chanjiao" class="block px-4 py-2.5 rounded-lg text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-100/50 transition-colors"><i class="fas fa-handshake mr-2 text-warm text-xs"></i>产教研合作</a>
+                </div>
+            </div>
+            <a href="../opensource.html" class="px-4 py-2 text-gray-700 hover:text-gray-900 text-sm font-medium transition-colors">开源社区</a>
+        </div>
+        <a href="../contact.html" style="background-color:#2563eb;" onmouseover="this.style.backgroundColor='#1d4ed8'" onmouseout="this.style.backgroundColor='#2563eb'" class="hidden lg:inline-flex items-center px-5 py-2.5 text-white text-sm font-semibold rounded-lg transition-colors">预约演示</a>
+        <button class="lg:hidden text-gray-900 p-2" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"><i class="fas fa-bars text-xl"></i></button>
+    </div>
+    <div id="mobile-menu" class="hidden lg:hidden glass border-t border-gray-200 px-6 py-4">
+        <a href="../index.html" class="block py-3 text-gray-700">首页</a>
+        <a href="../products/robots.html" class="block py-3 text-gray-700">具身智能机器人</a>
+        <a href="../products/openarm.html" class="block py-3 text-gray-700">OpenArm</a>
+        <a href="../products/dexterous-hand.html" class="block py-3 text-gray-700">灵巧手</a>
+        <a href="../products/embedded-platform.html" class="block py-3 text-gray-700">多功能实训平台</a>
+        <a href="../products/courses.html" class="block py-3 text-gray-700">课程智能体</a>
+        <a href="../products/ai-souvenir.html" class="block py-3 text-accent font-medium"><i class="fas fa-gift mr-2 text-pink-500 text-xs"></i>AI纪念品</a>
+        <a href="../courses.html" class="block py-3 text-gray-700 font-medium">课程</a>
+        <a href="../solutions/education.html" class="block py-3 text-gray-700 font-medium">高校合作</a>
+        <a href="../opensource.html" class="block py-3 text-gray-700">开源社区</a>
+        <a href="../contact.html" style="background-color:#2563eb;" onmouseover="this.style.backgroundColor='#1d4ed8'" onmouseout="this.style.backgroundColor='#2563eb'" class="block mt-3 text-center py-3 rounded-lg font-semibold text-white">预约演示</a>
+    </div>
+</nav>
+
+<!-- Hero -->
+<header class="relative z-10 pt-32 pb-16 hero-glow">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+        <div class="inline-flex items-center mb-4">
+            <span class="px-3 py-1 bg-pink-500/10 text-pink-600 text-xs font-semibold rounded-full border border-pink-500/20">新品类</span>
+            <span class="ml-3 px-3 py-1 bg-gray-100 text-gray-600 text-xs rounded-full border border-gray-200">高校校庆 · 品牌定制</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold tracking-tight">AI<span class="text-gradient">纪念品</span></h1>
+        <p class="mt-6 text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            将 AI 能力封装成可爱、可信、可成长的智能陪伴产品。从校园 AI 全能助手到高校校庆智能礼品，万物拟态以科技温度连接师生情感。
+        </p>
+        <div class="mt-8 flex flex-wrap justify-center gap-4">
+            <a href="#astronaut" class="inline-flex items-center px-7 py-3.5 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-xl transition-all shadow-xl hover:shadow-2xl">
+                <i class="fas fa-user-astronaut mr-2"></i>AI宇航员
+            </a>
+            <a href="#watch" class="inline-flex items-center px-7 py-3.5 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-semibold rounded-xl transition-all shadow-xl hover:shadow-2xl">
+                <i class="fas fa-clock mr-2"></i>AI智能手表
+            </a>
+        </div>
+    </div>
+</header>
+
+<!-- ==================== AI宇航员 ==================== -->
+<section id="astronaut" class="relative z-10 py-20 bg-gray-50/60">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex items-center mb-2">
+            <span class="tag tag-souvenir">阵列六</span>
+            <span class="ml-3 text-sm text-gray-500">校园AI全能助手</span>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">AI宇航员 · <span class="text-gradient">小智</span></h2>
+        <p class="text-gray-600 max-w-2xl leading-relaxed mb-12">
+            将 AI 能力封装成可爱、可信、可成长的宇航员角色。降低师生对人工智能的疏离感，让复杂算法以温暖形象落地校园全场景。
+        </p>
+
+        <!-- 产品展示 -->
+        <div class="grid lg:grid-cols-2 gap-10 items-center mb-16">
+            <div class="rounded-2xl overflow-hidden bg-white shadow-lg border border-gray-100">
+                <img src="../assets/images/ai-souvenir/astronaut-product.png" alt="AI宇航员实物展示" class="w-full h-auto object-cover">
+            </div>
+            <div class="rounded-2xl overflow-hidden bg-white shadow-lg border border-gray-100">
+                <img src="../assets/images/ai-souvenir/astronaut-cartoon.png" alt="AI宇航员卡通形象" class="w-full h-auto object-cover" style="background:linear-gradient(135deg,#f0f9ff,#e0f2fe);">
+            </div>
+        </div>
+
+        <!-- 视频展示 -->
+        <div class="mb-16">
+            <div class="text-center mb-8">
+                <span class="text-sm text-pink-500 font-semibold tracking-wider">PRODUCT VIDEO</span>
+                <h3 class="text-2xl font-bold mt-2">小智宇航员 · 产品展示</h3>
+                <p class="mt-2 text-gray-500">华小AI · 校园AI全能助手实际运行展示</p>
+            </div>
+            <div class="max-w-4xl mx-auto rounded-2xl overflow-hidden bg-black shadow-2xl ring-1 ring-gray-200">
+                <video class="w-full h-auto" controls preload="metadata" poster="../assets/images/ai-souvenir/astronaut-product.png">
+                    <source src="../assets/videos/astronaut.mp4" type="video/mp4">
+                    您的浏览器不支持视频播放。
+                </video>
+            </div>
+        </div>
+
+        <!-- 产品理念 -->
+        <div class="mb-16">
+            <div class="text-center mb-8">
+                <h3 class="text-2xl font-bold">产品理念</h3>
+                <p class="mt-2 text-gray-500">将 AI 能力封装成可爱、可信、可成长的宇航员角色</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                    <img src="../assets/images/ai-souvenir/astronaut-concept.png" alt="小智宇航员产品理念" class="w-full h-auto">
+                </div>
+                <div class="space-y-6">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center shrink-0">
+                            <i class="fas fa-rocket text-amber-500 text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">航天级探索精神</h4>
+                            <p class="text-gray-500 text-sm mt-1">不断学习，持续成长，像宇航员探索宇宙一样探索知识</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center shrink-0">
+                            <i class="fas fa-clock text-blue-500 text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">全天候陪伴</h4>
+                            <p class="text-gray-500 text-sm mt-1">随时响应，无处不在，7×24小时在线服务</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center shrink-0">
+                            <i class="fas fa-comments text-emerald-500 text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">零门槛交互</h4>
+                            <p class="text-gray-500 text-sm mt-1">自然对话，轻松上手，无需任何技术背景</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center shrink-0">
+                            <i class="fas fa-shield-alt text-purple-500 text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">安全可信</h4>
+                            <p class="text-gray-500 text-sm mt-1">私有化部署，数据不出校，权限治理全覆盖</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 价值论证 -->
+        <div class="mb-8">
+            <div class="text-center mb-8">
+                <h3 class="text-2xl font-bold">价值论证 · 五大理由</h3>
+                <p class="mt-2 text-gray-500">华商为何选择【华小AI】作对外以及本校学生校庆礼品？</p>
+            </div>
+            <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                <img src="../assets/images/ai-souvenir/astronaut-value.png" alt="小智宇航员价值论证" class="w-full h-auto">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== AI智能手表 ==================== -->
+<section id="watch" class="relative z-10 py-20">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex items-center mb-2">
+            <span class="tag tag-watch">阵列七</span>
+            <span class="ml-3 text-sm text-gray-500">高校校庆智能礼品</span>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">AI智能手表 · <span class="text-gradient">校庆定制</span></h2>
+        <p class="text-gray-600 max-w-2xl leading-relaxed mb-12">
+            将 AI 能力封装成可佩戴的智能纪念载体。广州大学100周年、暨南大学120周年等标杆案例，让校庆礼品从「使用即止」升级为「每日高频触达」的科技陪伴。
+        </p>
+
+        <!-- 产品展示 -->
+        <div class="grid lg:grid-cols-2 gap-10 items-center mb-16">
+            <div class="rounded-2xl overflow-hidden bg-white shadow-lg border border-gray-100">
+                <img src="../assets/images/ai-souvenir/watch-front.jpg" alt="AI手表正面展示" class="w-full h-auto object-cover">
+            </div>
+            <div class="rounded-2xl overflow-hidden bg-white shadow-lg border border-gray-100">
+                <img src="../assets/images/ai-souvenir/watch-back.png" alt="AI手表背面展示" class="w-full h-auto object-cover">
+            </div>
+        </div>
+
+        <!-- 视频展示 -->
+        <div class="grid md:grid-cols-2 gap-8 mb-16">
+            <div>
+                <div class="text-center mb-6">
+                    <span class="text-sm text-amber-500 font-semibold tracking-wider">GUANGZHOU UNIVERSITY</span>
+                    <h3 class="text-xl font-bold mt-1">广州大学 100周年庆</h3>
+                    <p class="mt-1 text-gray-500 text-sm">广大AI · Gd100 纪念手表</p>
+                </div>
+                <div class="rounded-2xl overflow-hidden bg-black shadow-2xl ring-1 ring-gray-200">
+                    <video class="w-full h-auto" controls preload="metadata" poster="../assets/images/ai-souvenir/watch-front.jpg">
+                        <source src="../assets/videos/watch-guanggda.mp4" type="video/mp4">
+                        您的浏览器不支持视频播放。
+                    </video>
+                </div>
+            </div>
+            <div>
+                <div class="text-center mb-6">
+                    <span class="text-sm text-amber-500 font-semibold tracking-wider">JINAN UNIVERSITY</span>
+                    <h3 class="text-xl font-bold mt-1">暨南大学 120周年庆</h3>
+                    <p class="mt-1 text-gray-500 text-sm">AI小智手表 · 珠海校区</p>
+                </div>
+                <div class="rounded-2xl overflow-hidden bg-black shadow-2xl ring-1 ring-gray-200">
+                    <video class="w-full h-auto" controls preload="metadata" poster="../assets/images/ai-souvenir/watch-back.png">
+                        <source src="../assets/videos/watch-jinan.mp4" type="video/mp4">
+                        您的浏览器不支持视频播放。
+                    </video>
+                </div>
+            </div>
+        </div>
+
+        <!-- 产品理念 -->
+        <div class="mb-16">
+            <div class="text-center mb-8">
+                <h3 class="text-2xl font-bold">产品理念</h3>
+                <p class="mt-2 text-gray-500">将 AI 能力封装成可佩戴、可成长的校庆智能纪念载体</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                    <img src="../assets/images/ai-souvenir/watch-concept.png" alt="AI手表产品理念" class="w-full h-auto">
+                </div>
+                <div class="space-y-6">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center shrink-0">
+                            <i class="fas fa-rocket text-amber-500 text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">与时俱进</h4>
+                            <p class="text-gray-500 text-sm mt-1">不断学习，持续成长，始终探索新知识</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center shrink-0">
+                            <i class="fas fa-clock text-blue-500 text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">全天候陪伴</h4>
+                            <p class="text-gray-500 text-sm mt-1">随时响应，无处不在，7×24小时在线服务</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center shrink-0">
+                            <i class="fas fa-comments text-emerald-500 text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">零门槛交互</h4>
+                            <p class="text-gray-500 text-sm mt-1">自然对话，轻松上手，无需任何技术背景</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center shrink-0">
+                            <i class="fas fa-shield-alt text-purple-500 text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">安全可信</h4>
+                            <p class="text-gray-500 text-sm mt-1">私有化部署，数据不出校，权限治理全覆盖</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 价值论证 -->
+        <div class="mb-8">
+            <div class="text-center mb-8">
+                <h3 class="text-2xl font-bold">价值论证 · 五大理由</h3>
+                <p class="mt-2 text-gray-500">为何选择【AI纪念品】作高校校庆礼品？</p>
+            </div>
+            <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                <img src="../assets/images/ai-souvenir/watch-value.png" alt="AI手表价值论证" class="w-full h-auto">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="relative z-10 py-20 bg-gray-50/60">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+        <div class="bg-white rounded-3xl p-12 shadow-sm border border-gray-200">
+            <h2 class="text-3xl font-bold mb-4">定制属于您学校的 AI 纪念品</h2>
+            <p class="text-gray-500 mb-8 max-w-xl mx-auto">从品牌形象定制到AI能力嵌入，万物拟态为高校提供一站式校庆智能礼品解决方案。</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="../contact.html" style="background-color:#2563eb;" onmouseover="this.style.backgroundColor='#1d4ed8'" onmouseout="this.style.backgroundColor='#2563eb'" class="px-8 py-3.5 text-white font-semibold rounded-xl transition-all">预约咨询</a>
+                <a href="../solutions/education.html" class="px-8 py-3.5 glass hover:bg-gray-100/70 text-gray-700 font-semibold rounded-xl transition-all">查看教育方案</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white">
+    <div class="max-w-7xl mx-auto px-6 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div>
+                <div class="flex items-center space-x-3 mb-4">
+                    <img src="../assets/logos/WwRobot-Logo.png" alt="WW-Robot" class="h-14 w-auto" onerror="this.style.display='none'">
+                    <span class="text-2xl font-bold text-white">Unit<span class="text-accent">Claw</span>.cn</span>
+                </div>
+                <p class="mb-4"><a href="../index.html"><img src="../assets/images/slogan-footer.png" alt="万物拟态 Slogan" style="width:280px;height:auto;max-width:100%;"></a></p>
+                <p class="text-sm leading-relaxed">总部：广州增城区</p>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-4">产品阵列</h4>
+                <div class="space-y-2 text-sm">
+                    <a href="../products/robots.html" class="block hover:text-white transition-colors">具身智能机器人</a>
+                    <a href="../products/openarm.html" class="block hover:text-white transition-colors">OpenArm 开源机械臂</a>
+                    <a href="../products/dexterous-hand.html" class="block hover:text-purple-400 transition-colors">灵巧手</a>
+                    <a href="../products/embedded-platform.html" class="block hover:text-white transition-colors">多功能实训平台</a>
+                    <a href="../products/courses.html" class="block hover:text-white transition-colors">课程智能体</a>
+                    <a href="../products/ai-souvenir.html" class="block hover:text-pink-400 transition-colors">AI纪念品</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-4">合作模式</h4>
+                <div class="space-y-2 text-sm">
+                    <a href="../solutions/university-cooperation.html" class="block hover:text-white transition-colors">品牌共建</a>
+                    <a href="../solutions/education.html" class="block hover:text-white transition-colors">AI+机器人实训室</a>
+                    <a href="../solutions/education.html" class="block hover:text-white transition-colors">产教研赛用一体化</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-4">联系我们</h4>
+                <div class="space-y-2 text-sm">
+                    <a href="../contact.html" class="block hover:text-white transition-colors">预约演示</a>
+                    <a href="../opensource.html" class="block hover:text-white transition-colors">开源社区</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 py-6 border-t border-gray-700 flex flex-wrap justify-between text-xs text-gray-500">
+        <span>&copy; 2026 unitclaw.cn All rights reserved.</span>
+    </div>
+</footer>
+
+<script src="../particles.min.js"></script>
+<script>
+particlesJS("particles-js", {
+    particles:{number:{value:40,density:{enable:!0,value_area:800}},color:{value:"#3b82f6"},shape:{type:"circle"},opacity:{value:.15,random:!0},size:{value:2,random:!0},line_linked:{enable:!0,distance:150,color:"#3b82f6",opacity:.08,width:1},move:{enable:!0,speed:.8,direction:"none",random:!0,out_mode:"out"}},
+    interactivity:{detect_on:"canvas",events:{onhover:{enable:!0,mode:"grab"},resize:!0},modes:{grab:{distance:140,line_linked:{opacity:.2}}}},
+    retina_detect:!0
+});
+</script>
+</body>
+</html>
