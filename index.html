@@ -533,7 +533,8 @@ particlesJS("particles-js", {
     ];
     var xData = data.map(function(d){return d.name;});
     var yData = data.map(function(d){return d.value;});
-    var markPointData = data.filter(function(d){return d.label;}).map(function(d){
+    var markPointData = data.filter(function(d){return d.label;}).map(function(d, idx){
+        var isTop = idx % 2 === 0;
         return {
             name: d.label.replace(/\n/g,''),
             coord: [d.name, d.value],
@@ -541,7 +542,21 @@ particlesJS("particles-js", {
             xAxis: d.name,
             yAxis: d.value,
             symbolSize: 12,
-            itemStyle: { color: '#7c3aed', shadowColor: 'rgba(124,58,237,0.35)', shadowBlur: 10 }
+            itemStyle: { color: '#7c3aed', shadowColor: 'rgba(124,58,237,0.35)', shadowBlur: 10 },
+            label: {
+                show: true,
+                position: isTop ? 'top' : 'bottom',
+                distance: isTop ? 10 : 10,
+                color: '#4b5563',
+                fontSize: 10,
+                formatter: function(p){ return p.value; },
+                backgroundColor: 'rgba(255,255,255,0.9)',
+                borderColor: 'rgba(124,58,237,0.2)',
+                borderWidth: 1,
+                borderRadius: 4,
+                padding: [3,6],
+                lineHeight: 14
+            }
         };
     });
     var option = {
@@ -608,20 +623,6 @@ particlesJS("particles-js", {
                 markPoint: {
                     symbol: 'circle',
                     symbolSize: 12,
-                    label: {
-                        show: true,
-                        position: 'top',
-                        distance: 10,
-                        color: '#4b5563',
-                        fontSize: 10,
-                        formatter: function(p){ return p.value; },
-                        backgroundColor: 'rgba(255,255,255,0.9)',
-                        borderColor: 'rgba(124,58,237,0.2)',
-                        borderWidth: 1,
-                        borderRadius: 4,
-                        padding: [3,6],
-                        lineHeight: 14
-                    },
                     itemStyle: {
                         color: '#7c3aed',
                         borderColor: '#fff',
