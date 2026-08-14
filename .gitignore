@@ -1,3 +1,6 @@
 .codebuddy/
 .workbuddy/
 automations/
+.vscode/
+UPLOAD_LIST.txt
+.git-corrupted/
